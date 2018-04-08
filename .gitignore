@@ -1,0 +1,10 @@
+# 排除在版本库之外的文件
+*~
+.idea
+admail/omposer.lock
+admail/runtime/
+admail/.settings/
+admail/composer.lock
+admail/.buildpath
+admail/.project
+admail/*.log
