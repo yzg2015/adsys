@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | admail-PHP框架 [ DolphinPHP ]
+// | admail-PHP框架 [ admail ]
 // +----------------------------------------------------------------------
 // | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
 // +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
+// | 官方网站: http://admail.com
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -14,8 +14,8 @@
  */
 return array(
     //产品配置
-    'install_product_name'   => 'DolphinPHP', //产品名称
-    'install_website_domain' => 'http://www.dolphinphp.com', //官方网址
+    'install_product_name'   => 'admail', //产品名称
+    'install_website_domain' => 'http://www.admail.com', //官方网址
     'install_company_name'   => '河源市卓锐科技有限公司', //公司名称
     'original_table_prefix'  => 'dp_', //默认表前缀
 

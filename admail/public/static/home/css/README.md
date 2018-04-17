@@ -1,4 +1,4 @@
-DolphinPHP
+admail
 ===============
 
 # 前台样式目录

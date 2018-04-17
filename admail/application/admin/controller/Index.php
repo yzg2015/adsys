@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | admail-PHP框架 [ DolphinPHP ]
+// | admail-PHP框架 [ admail ]
 // +----------------------------------------------------------------------
 // | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
 // +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
+// | 官方网站: http://admail.com
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -144,7 +144,7 @@ class Index extends Admin
 
         if ($result['code'] == 1) {
             return json([
-                'update' => '<a class="badge badge-primary" href="http://www.dolphinphp.com/download" target="_blank">有新版本：'.$result["version"].'</a>',
+                'update' => '<a class="badge badge-primary" href="http://www.admail.com/download" target="_blank">有新版本：'.$result["version"].'</a>',
                 'auth'   => $result['auth']
             ]);
         } else {

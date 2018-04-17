@@ -1,4 +1,4 @@
-DolphinPHP
+admail
 ===============
 
 # flash目录

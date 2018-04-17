@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | admail-PHP框架 [ DolphinPHP ]
+// | admail-PHP框架 [ admail ]
 // +----------------------------------------------------------------------
 // | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
 // +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
+// | 官方网站: http://admail.com
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -123,7 +123,7 @@ class Menu extends Admin
                 ['select', 'column', '栏目', '<code>必选</code>', ColumnModel::getTreeList(0, false)],
                 ['select', 'page', '单页', '<code>必选</code>', PageModel::getTitleList()],
                 ['text', 'title', '菜单标题', '<code>必填</code>，只用于区分'],
-                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.dolphinphp.com</code>"],
+                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.admail.com</code>"],
                 ['text', 'css', 'CSS类', '可选'],
                 ['text', 'rel', '链接关系网（XFN）', '可选，即链接的rel值'],
                 ['radio', 'target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self'],
@@ -172,7 +172,7 @@ class Menu extends Admin
                 ['select', 'column', '栏目', '<code>必选</code>', ColumnModel::getTreeList(0, false)],
                 ['select', 'page', '单页', '<code>必选</code>', PageModel::getTitleList()],
                 ['text', 'title', '菜单标题', '<code>必填</code>，只用于区分'],
-                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.dolphinphp.com</code>"],
+                ['text', 'url', 'URL', "<code>必填</code>。如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.admail.com</code>"],
                 ['text', 'css', 'CSS类', '可选'],
                 ['text', 'rel', '链接关系网（XFN）', '可选，即链接的rel值'],
                 ['radio', 'target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self'],

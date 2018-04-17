@@ -1,4 +1,4 @@
-DolphinPHP
+admail
 ===============
 
 # 模块导出目录

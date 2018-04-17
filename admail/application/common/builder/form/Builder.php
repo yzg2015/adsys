@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | admail-PHP框架 [ DolphinPHP ]
+// | admail-PHP框架 [ admail ]
 // +----------------------------------------------------------------------
 // | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
 // +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
+// | 官方网站: http://admail.com
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -1810,7 +1810,7 @@ class Builder extends ZBuilder
 
     /**
      * 设置Tab按钮列表
-     * @param array $tab_list Tab列表 如：['tab1' => ['title' => '标题', 'url' => 'http://www.dolphinphp.com']]
+     * @param array $tab_list Tab列表 如：['tab1' => ['title' => '标题', 'url' => 'http://www.admail.com']]
      * @param string $curr_tab 当前tab名
      * @author 蔡伟明 <314013107@qq.com>
      * @return $this

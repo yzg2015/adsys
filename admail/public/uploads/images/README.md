@@ -1,4 +1,4 @@
-DolphinPHP
+admail
 ===============
 
 # 图片目录
