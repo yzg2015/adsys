@@ -38,30 +38,6 @@ class Goods extends Admin
         return $this->fetch();
     }
 
-    /**
-     * 清空系统缓存
-     * @author 蔡伟明 <314013107@qq.com>
-     */
-    public function wipeCache()
-    {
-        if (!empty(config('wipe_cache_type'))) {
-            foreach (config('wipe_cache_type') as $item) {
-                if ($item == 'LOG_PATH') {
-                    $dirs = (array) glob(constant($item) . '*');
-                    foreach ($dirs as $dir) {
-                        array_map('unlink', glob($dir . '/*.log'));
-                    }
-                    array_map('rmdir', $dirs);
-                } else {
-                    array_map('unlink', glob(constant($item) . '/*.*'));
-                }
-            }
-            Cache::clear();
-            $this->success('清空成功');
-        } else {
-            $this->error('请在系统设置中选择需要清除的缓存类型');
-        }
-    }
 
     /**
      * 个人设置

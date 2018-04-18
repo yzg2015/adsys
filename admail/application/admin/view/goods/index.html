@@ -10,22 +10,491 @@
         <p>超级管理员默认密码未修改，建议马上 <a class="alert-link link-effect" href="{:url('user/index/edit', ['id' => 1])}">修改</a>。</p>
     </div>
     {/notempty}
-    {// 后台首页钩子}
-    <div class="row">
-        {:hook('admin_index')}
+
+<main id="main-container" style="min-height: 405px;">
+    <!-- Page Header -->
+
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    商品列表                    </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li><i class="fa fa-map-marker"></i></li>
+                    <li><a class="link-effect" href="/admin.php/goods/index/index.html">商品</a></li>
+                    <li><a class="link-effect" href="javascript:void(0);">商品管理</a></li>
+                    <li><a class="link-effect" href="javascript:void(0);">商品列表</a></li>
+                </ol>
+            </div>
+        </div>
     </div>
+
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <div class="block-header bg-gray-lighter">
+                        <ul class="block-options">
+                            <li>
+                                <button data-action-mode="demo" data-action="refresh_toggle" data-toggle="block-option" type="button"><i class="si si-refresh"></i></button>
+                            </li>
+                            <li>
+                                <button data-action="fullscreen_toggle" data-toggle="block-option" type="button"><i class="si si-size-fullscreen"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">商品管理</h3>
+                    </div>
+                    <div class="block-content tab-content">
+                        <div class="tab-pane active">
+
+                            <div class="row data-table-toolbar">
+                                <div class="col-sm-12">
+                                    <form role="form" action="/admin.php/goods/index/index.html" method="get" class="pull-right">
+                                        <div class="search_item">
+                                            <label class="title">站点：</label>
+                                            <label class="css-input css-radio css-radio-primary css-radio-sm push-10-r ">
+                                                <input type="radio" value="1" name="t">
+                                                <span></span>单站</label>
+                                            <label class="css-input css-radio css-radio-primary css-radio-sm push-10-r  ">
+                                                <input type="radio" value="2" name="t">
+                                                <span></span>复站</label>
+                                        </div>
+                                        <div class="search_item">
+                                            <label class="title">
+                                                商品名称：
+                                            </label>
+                                            <input type="text" placeholder="请输入商品名称" name="goods_name" value="" class="form-control">
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <button type="submit" class="btn btn-default">搜索</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="toolbar-btn-action">
+                                        <a href="/admin.php/goods/index/add.html" class="btn btn-primary" icon="fa fa-plus-circle" title="新增"><i class="fa fa-plus-circle"></i> 新增</a>
+                                        <a href="/admin.php/goods/index/del.html" target-form="ids" class="btn btn-danger ajax-post confirm" icon="fa fa-times-circle-o" title="删除"><i class="fa fa-times-circle-o"></i> 删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 70px;" class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary remove-margin-t remove-margin-b">
+                                                <input type="checkbox" id="check-all"><span></span>
+                                            </label>
+                                        </th>
+                                        <th class="text-center" width="5%">ID</th>
+                                        <th class="">商品名称</th>
+                                        <th class="" width="20%">所选站点</th>
+                                        <th class="text-center" width="5%">价格</th>
+                                        <th class="text-center" width="7%">状态</th>
+                                        <th class="text-center" width="5%">库存</th>
+                                        <th class="" width="8%">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1108" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1108</td>
+                                        <td>【一秒變型男】穿上它，贅肉立刻就不見了！適合各類人群 輕鬆甩掉大肚腩！限時買一送一！加300再送兩件換著穿！</td>
+                                        <td>http://coco-shoping.com/id/qhLbD</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">355</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1108.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1108.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1107" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1107</td>
+                                        <td>【買一送一】美國Hot Spa懶人剋星腰瘦爆汗褲【懶人剋星，減肥必備 】</td>
+                                        <td>http://fingfly.com/id/VBSyk</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">200</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1107.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1107.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1106" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1106</td>
+                                        <td>關公保平安車載香水座[汽車/辦公室/家庭飾品小擺件] 【買一送五】</td>
+                                        <td>http://pongboo.com/id/XOVTI</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">185</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1106.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1106.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1105" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1105</td>
+                                        <td>【老師親自開光加持】減禍避災 吸八方財氣 【限時母親節超值四件組】心經手鐲+開運皮夾+貔貅手鏈+貔貅項鏈</td>
+                                        <td>http://kabiun.com/id/pikRx</td>
+                                        <td class="text-center">1399.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">352</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1105.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1105.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1104" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1104</td>
+                                        <td>升級版（適合日常護理，燙髮染髮人士使用效果看得出來）髮膜 無效可退款！</td>
+                                        <td>http://priceing-in.com/id/NikFj</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">238</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1104.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1104.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1103" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1103</td>
+                                        <td>即時翻譯智能藍牙耳機 出國旅遊再也不用擔心啦 第二組僅需600</td>
+                                        <td>http://kk-king.com/id/ZiXNx</td>
+                                        <td class="text-center">1199.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">39</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1103.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1103.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1102" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1102</td>
+                                        <td>【活動僅限3天】2018夏季牛奶絲短袖連衣裙 第二件僅需NT$400</td>
+                                        <td>http://biumiu.com/id/bFWNw</td>
+                                        <td class="text-center">1329.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">871</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1102.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1102.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1101" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1101</td>
+                                        <td>獨家寬松加肥加大棉麻顯瘦連衣裙，買一送一</td>
+                                        <td>http://roseling.com/id/EITdL</td>
+                                        <td class="text-center">1298.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">202</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1101.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1101.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1100" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1100</td>
+                                        <td>女神必入！超緊致透氣無痕收腹收腰帶，收腹、減脂、提胸、塑形一件搞定，不捲邊，不緊勒  </td>
+                                        <td>http://fingfly.com/id/BqEij</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">500</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1100.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1100.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1099" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1099</td>
+                                        <td>【金剛寧】金奧力糖尿病剋星降血糖膠囊一週期裝【兩瓶只要NT$1088】</td>
+                                        <td>http://aosois.com/id/KAoPp</td>
+                                        <td class="text-center">1088.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">328</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1099.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1099.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1098" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1098</td>
+                                        <td>韓版旗袍領蕾絲拼接歐根紗立體花朵連身裙洋裝</td>
+                                        <td>http://ggfriend.com/id/egEyW</td>
+                                        <td class="text-center">1280.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">98</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1098.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1098.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1097" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1097</td>
+                                        <td>MD 電動吸脂按摩器</td>
+                                        <td>http://omying.com/id/sSkqo</td>
+                                        <td class="text-center">1299.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">235</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1097.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1097.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1096" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1096</td>
+                                        <td>GoProAmazon限時1折推廣，4月16日-4月17日限時1折商品：GoPro HERO 5 Black【1折】NT$ 1888，限量30件，售完即止！ </td>
+                                        <td>http://kk-king.com/id/EoRvB</td>
+                                        <td class="text-center">1888.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">8</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1096.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1096.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1095" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1095</td>
+                                        <td>『加拿大』防潑水雙肩包-包中的變形金剛</td>
+                                        <td>http://pongboo.com/id/DRkRG</td>
+                                        <td class="text-center">1620.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">531</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1095.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1095.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1094" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1094</td>
+                                        <td>【超靈】布達哈雙層大悲咒水晶樽</td>
+                                        <td>http://fingfly.com/id/pbcXY</td>
+                                        <td class="text-center">1298.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">200</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1094.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1094.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1093" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1093</td>
+                                        <td>財運無限富貴大發鈦晶青金石念珠 持誦緣起咒、加倍咒、念珠啟用咒 改變命運 功德加倍 財富立即啟動 【貨到付款 全台免運 每个Facebook賬號限購一次】</td>
+                                        <td>http://aosois.com/id/JLVyG</td>
+                                        <td class="text-center">1688.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">341</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1093.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1093.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1092" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1092</td>
+                                        <td>【買一送二】AOSHI多功能超聲波電子驅蚊蟲驅鼠器</td>
+                                        <td>http://pongboo.com/id/fjCov</td>
+                                        <td class="text-center">1099.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">1035</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1092.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1092.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1091" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1091</td>
+                                        <td>【超靈驗】【招正財招偏財】AAAAA級虎眼石貔貅手鏈 驅除陰邪之氣 虎眼更霸氣 辟邪開運保平安 【大師開光】【免費祈福】【買一送一】</td>
+                                        <td>http://aosois.com/id/TkdAS</td>
+                                        <td class="text-center">1088.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">662</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1091.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1091.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1090" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1090</td>
+                                        <td>【京美】能量銀纖維長效護膝2雙 科技編織 舒適耐穿 膝部減壓買一贈一 2雙入NT$998</td>
+                                        <td>http://biumiu.com/id/ZDyFu</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">189</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1090.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1090.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="css-input css-checkbox css-checkbox-primary">
+                                                <input type="checkbox" value="1089" name="ids[]" class="ids"><span></span>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">1089</td>
+                                        <td>【老闆周轉不靈，現欠缺跑路 時尚運動鞋全部低價處理抵勞工工資】2018新款時尚運動鞋</td>
+                                        <td>http://wewenr.com/id/Fxawx</td>
+                                        <td class="text-center">998.00 </td>
+                                        <td class="text-center">上架</td>
+                                        <td class="text-center">294</td>
+                                        <td width="8%">
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/index/edit/id/1089.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                                <a data-toggle="tooltip" href="/admin.php/goods/index/del/ids/1089.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="data-table-toolbar">
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <ul class="pagination"><li class="disabled"><span>«</span></li> <li class="active"><span>1</span></li><li><a href="/admin.php/goods/index/index.html?page=2">2</a></li><li><a href="/admin.php/goods/index/index.html?page=3">3</a></li><li><a href="/admin.php/goods/index/index.html?page=4">4</a></li><li><a href="/admin.php/goods/index/index.html?page=5">5</a></li><li><a href="/admin.php/goods/index/index.html?page=6">6</a></li><li><a href="/admin.php/goods/index/index.html?page=7">7</a></li><li><a href="/admin.php/goods/index/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a href="/admin.php/goods/index/index.html?page=46">46</a></li><li><a href="/admin.php/goods/index/index.html?page=47">47</a></li> <li><a href="/admin.php/goods/index/index.html?page=2">»</a></li></ul>                                <div class="pagination-info pull-right">
+                                        <form action="" method="post">
+                                            <input type="text" class="form-control input-sm go-page" name="page" value="1">
+                                            <input type="text" class="form-control input-sm nums" name="list_rows" value="20">
+                                            <input type="submit" class="hidden">
+                                            / <strong>47</strong> 页，共 <strong>938</strong> 条数据，每页显示数量
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- END Page Content -->
+</main>
 {/block}
 
 {block name="script"}
 <script>
-    $(document).ready(function () {
-        $.ajax({
-            url: '{:url("checkUpdate")}',
-            type: 'GET'
-        }).done(function(data) {
-            $('#product-auth').html(data.auth);
-            $('#product-update').html($('#product-update').text() + ' ' + data.update);
-        });
-    });
+
 </script>
 {/block}
