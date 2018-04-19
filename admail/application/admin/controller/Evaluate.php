@@ -9,25 +9,29 @@
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
 
-namespace app\goods\controller;
+namespace app\admin\controller;
 
-use app\common\controller\Common;
+use think\Cache;
+use think\helper\Hash;
+use think\Db;
+use app\common\builder\ZBuilder;
+use app\user\model\User as UserModel;
 
 /**
- * 前台公共控制器
- * @package app\index\controller
+ * 后台默认控制器
+ * @package app\admin\controller
  */
-class Home extends Common
+class Evaluate extends Admin
 {
     /**
-     * 初始化方法
+     * 后台首页
      * @author 蔡伟明 <314013107@qq.com>
+     * @return string
      */
-    protected function _initialize()
+    public function index()
     {
-        // 系统开关
-        if (!config('web_site_status')) {
-            $this->error('站点已经关闭，请稍后访问~');
-        }
+        return $this->fetch();
     }
+
+
 }
