@@ -1,0 +1,16 @@
+.search_item{
+    float: left;
+}
+.search_item .title{
+    display: block;
+    float: left;
+    width: 80px;
+    text-align: right;
+    padding-top: 8px;
+    margin-right: 5px;
+    height: 34px;
+}
+.search_item .form-control{
+    float: left;
+    width:200px;
+}

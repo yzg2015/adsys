@@ -1,0 +1,423 @@
+{extend name="layout" /}
+
+<!-- Page Header -->
+{block name="page-header"}
+{empty name="_pop"}
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                阶梯折扣
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li><i class="fa fa-map-marker"></i></li>
+                {notempty name="_location"}
+                {volist name="_location" id="v"}
+                <li><a class="link-effect" href="{notempty name='$v["url_value"]'}{$v.url_value|url}{else/}javascript:void(0);{/notempty}">{$v.title}</a></li>
+                {/volist}
+                {/notempty}
+            </ol>
+        </div>
+    </div>
+</div>
+{/empty}
+{/block}
+{block name="style"}
+<link rel="stylesheet" href="__ADMIN_CSS__/one.css?v={:config('asset_version')}">
+{/block}
+<!-- END Page Header -->
+
+{block name="content"}
+{notempty name="default_pass"}
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h3 class="font-w300 push-15">安全提示</h3>
+    <p>超级管理员默认密码未修改，建议马上 <a class="alert-link link-effect" href="{:url('user/index/edit', ['id' => 1])}">修改</a>。</p>
+</div>
+{/notempty}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button data-action-mode="demo" data-action="refresh_toggle" data-toggle="block-option" type="button"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button data-action="fullscreen_toggle" data-toggle="block-option" type="button"><i class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">促销阶梯折扣管理</h3>
+            </div>
+            <div class="block-content tab-content">
+                <div class="tab-pane active">
+
+                    <div class="row data-table-toolbar">
+                        <div class="col-sm-12">
+                            <form role="form" action="/admin.php/goods/volumediscount/index.html" method="get" class="pull-right">
+                                <div class="search_item">
+                                    <label class="title">
+                                        促销名称：
+                                    </label>
+                                    <input type="text" placeholder="请输入促销名称" name="prom_name" value="" class="form-control">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default">搜索</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="toolbar-btn-action">
+                                <a href="/admin.php/goods/volumediscount/add.html" class="btn btn-primary" icon="fa fa-plus-circle" title="新增"><i class="fa fa-plus-circle"></i> 新增</a>
+                                <a href="/admin.php/goods/volumediscount/del.html" target-form="ids" class="btn btn-danger ajax-post confirm" icon="fa fa-times-circle-o" title="删除"><i class="fa fa-times-circle-o"></i> 删除</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                            <thead>
+                            <tr>
+                                <th style="width: 70px;" class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary remove-margin-t remove-margin-b">
+                                        <input type="checkbox" id="check-all"><span></span>
+                                    </label>
+                                </th>
+                                <!-- <th class="text-center" width="5%">ID</th> -->
+                                <th class="">促销名称</th>
+                                <th class="" width="8%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="1" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">1</td> -->
+                                <td>【點擊該按鈕選擇不同款式】兩件只要388</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/1.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/1.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/1.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="2" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">2</td> -->
+                                <td>托特女包第二件僅需NT400【點擊訂購下一組】</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/2.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/2.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/2.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="3" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">3</td> -->
+                                <td>貔貅手鏈第二件$99 【點擊購買下一組】</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/3.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/3.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/3.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="4" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">4</td> -->
+                                <td>本命年開運紅繩【點擊購買下一組】</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/4.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/4.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/4.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="5" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">5</td> -->
+                                <td>【點擊这里選擇不同圖案或規格】訂購享折扣，第二件只要$300</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/5.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/5.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/5.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="6" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">6</td> -->
+                                <td>第二件300！點擊這裡訂購享折扣</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/6.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/6.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/6.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="7" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">7</td> -->
+                                <td>【點擊該按鈕選擇不同顏色或尺碼】第二件僅需NT300</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/7.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/7.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/7.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="8" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">8</td> -->
+                                <td>【點擊該按鈕選擇不通顏色貨碼數】第二件僅售NT500</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/8.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/8.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/8.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="9" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">9</td> -->
+                                <td>點擊這里訂購第二組，只需$500！</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/9.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/9.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/9.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="10" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">10</td> -->
+                                <td>第二件300！點這裡下標</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/10.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/10.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/10.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="11" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">11</td> -->
+                                <td>【點擊該按鈕選擇不同顏色或尺碼】第二件僅需NT199</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/11.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/11.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/11.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="12" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">12</td> -->
+                                <td>第二件300！【點擊選擇第二件】</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/12.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/12.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/12.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="13" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">13</td> -->
+                                <td>【點擊該按鈕選擇不同顏色】第二件僅需NT400</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/13.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/13.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/13.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="14" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">14</td> -->
+                                <td>第二組僅需500 點擊訂購下一組</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/14.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/14.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/14.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="15" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">15</td> -->
+                                <td>買就送毯子,第二件300！</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/15.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/15.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/15.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="16" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">16</td> -->
+                                <td>第二件500！點擊選擇下一組</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/16.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/16.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/16.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="17" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">17</td> -->
+                                <td>今日下单【第二件仅售100】</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/17.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/17.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/17.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="18" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">18</td> -->
+                                <td>第二件400 點擊訂購下一件</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/18.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/18.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/18.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="19" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">19</td> -->
+                                <td>第二件600！點擊選擇下一組</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/19.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/19.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/19.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        <input type="checkbox" value="20" name="ids[]" class="ids"><span></span>
+                                    </label>
+                                </td>
+                                <!-- <td class="text-center">20</td> -->
+                                <td>【點擊該按鈕選擇不同款式】羊絨圍巾第二件$500</td>
+                                <td width="10%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/details/id/20.html" class="btn btn-xs btn-info" icon="fa fa-pencil" title="" data-original-title="详情"><i class="fa fa-book"></i></a>
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/volumediscount/edit/id/20.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/volumediscount/del/ids/20.html" class="btn btn-xs btn-default ajax-get confirm" icon="fa fa-times" title="" data-original-title="删除"><i class="fa fa-times"></i></a> </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="data-table-toolbar">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <ul class="pagination"><li class="disabled"><span>«</span></li> <li class="active"><span>1</span></li><li><a href="/admin.php/goods/volumediscount/index.html?page=2">2</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=3">3</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=4">4</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=5">5</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=6">6</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=7">7</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a href="/admin.php/goods/volumediscount/index.html?page=12">12</a></li><li><a href="/admin.php/goods/volumediscount/index.html?page=13">13</a></li> <li><a href="/admin.php/goods/volumediscount/index.html?page=2">»</a></li></ul>                                <div class="pagination-info pull-right">
+                                <form action="" method="post">
+                                    <input type="text" class="form-control input-sm go-page" name="page" value="1">
+                                    <input type="text" class="form-control input-sm nums" name="list_rows" value="20">
+                                    <input type="submit" class="hidden">
+                                    / <strong>13</strong> 页，共 <strong>250</strong> 条数据，每页显示数量
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+<script>
+
+</script>
+{/block}

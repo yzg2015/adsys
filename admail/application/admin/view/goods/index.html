@@ -1,7 +1,33 @@
 {extend name="layout" /}
 
-
-
+<!-- Page Header -->
+{block name="page-header"}
+{empty name="_pop"}
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                商品列表
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li><i class="fa fa-map-marker"></i></li>
+                {notempty name="_location"}
+                {volist name="_location" id="v"}
+                <li><a class="link-effect" href="{notempty name='$v["url_value"]'}{$v.url_value|url}{else/}javascript:void(0);{/notempty}">{$v.title}</a></li>
+                {/volist}
+                {/notempty}
+            </ol>
+        </div>
+    </div>
+</div>
+{/empty}
+{/block}
+{block name="style"}
+<link rel="stylesheet" href="__ADMIN_CSS__/one.css?v={:config('asset_version')}">
+{/block}
+<!-- END Page Header -->
 
 {block name="content"}
     {notempty name="default_pass"}

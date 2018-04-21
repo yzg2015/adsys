@@ -1,0 +1,583 @@
+{extend name="layout"/}
+<!-- Page Header -->
+{block name="page-header"}
+{empty name="_pop"}
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                订单列表
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li><i class="fa fa-map-marker"></i></li>
+                {notempty name="_location"}
+                {volist name="_location" id="v"}
+                <li><a class="link-effect" href="{notempty name='$v["url_value"]'}{$v.url_value|url}{else/}javascript:void(0);{/notempty}">{$v.title}</a></li>
+                {/volist}
+                {/notempty}
+            </ol>
+        </div>
+    </div>
+</div>
+{/empty}
+{/block}
+{block name="style"}
+<link rel="stylesheet" href="__ADMIN_CSS__/one.css?v={:config('asset_version')}">
+{/block}
+<!-- END Page Header -->
+
+{block name="content"}
+{notempty name="default_pass"}
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h3 class="font-w300 push-15">安全提示</h3>
+    <p>超级管理员默认密码未修改，建议马上 <a class="alert-link link-effect" href="{:url('user/index/edit', ['id' => 1])}">修改</a>。</p>
+</div>
+{/notempty}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button data-action-mode="demo" data-action="refresh_toggle" data-toggle="block-option" type="button"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button data-action="fullscreen_toggle" data-toggle="block-option" type="button"><i class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">订单管理</h3>
+            </div>
+            <div class="block-content tab-content">
+                <div class="tab-pane active">
+
+                    <div class="row data-table-toolbar">
+                        <div class="col-sm-12">
+
+                            <form id="form" action="/admin.php/goods/order/index.html" method="get" class="pull-right">
+                                <div class="search_item">
+                                    <input type="text" placeholder="订单编号" name="order_sn" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="客户姓名" name="consignee" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="客户手机" name="mobile" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <select name="site_id" class="form-control">
+                                        <option value="">站点选择</option>
+                                        <option value="136">http://aosois.com</option>
+                                        <option value="135">http://juiceboo.com</option>
+                                        <option value="134">http://larury.com</option>
+                                        <option value="133">http://muimius.com</option>
+                                        <option value="132">http://roseling.com</option>
+                                        <option value="131">http://being-best.com</option>
+                                        <option value="130">http://besterin.com</option>
+                                        <option value="129">http://omying.com</option>
+                                        <option value="128">http://zaralily.com</option>
+                                        <option value="127">http://yosyou.com</option>
+                                        <option value="126">http://boohoof.com</option>
+                                        <option value="125">http://miusisi.com</option>
+                                        <option value="124">http://kabiun.com</option>
+                                        <option value="123">http://vancici.com</option>
+                                        <option value="122">http://vachic.com</option>
+                                        <option value="121">http://vivi-in.com</option>
+                                        <option value="120">http://linlingda.com</option>
+                                        <option value="119">http://kk-king.com</option>
+                                        <option value="118">http://mo-mall.com</option>
+                                        <option value="117">http://uining.com</option>
+                                        <option value="116">http://sasa-mall.com</option>
+                                        <option value="114">http://poempo.com</option>
+                                        <option value="111">http://blingblin.com</option>
+                                        <option value="110">http://dealsry.com</option>
+                                        <option value="108">http://bibigoes.com</option>
+                                        <option value="107">http://zaz-go.com</option>
+                                        <option value="106">http://hyhyop.com</option>
+                                        <option value="105">http://oppoen.com</option>
+                                        <option value="104">http://dodo-in.com</option>
+                                        <option value="103">http://yammyi.com</option>
+                                        <option value="102">http://openlly.com</option>
+                                        <option value="101">http://coco-fan.com</option>
+                                        <option value="100">http://insmeit.com</option>
+                                        <option value="99">http://fingfly.com</option>
+                                        <option value="98">http://mofane.com</option>
+                                        <option value="97">http://fa-trend.com</option>
+                                        <option value="96">http://recheaping.com</option>
+                                        <option value="95">http://balary.com</option>
+                                        <option value="91">http://dazzliy.com</option>
+                                        <option value="90">http://lulury.com</option>
+                                        <option value="89">http://sheining.com</option>
+                                        <option value="88">http://buyingbuyer.com</option>
+                                        <option value="87">http://kakagirl.com</option>
+                                        <option value="86">http://vivirycom.com</option>
+                                        <option value="85">http://muarose.com</option>
+                                        <option value="84">http://girlbester.com</option>
+                                        <option value="82">http://moregi.com</option>
+                                        <option value="81">http://lulusor.com</option>
+                                        <option value="79">http://kollew.com</option>
+                                        <option value="78">http://farbing.com</option>
+                                        <option value="76">http://loveiter.com</option>
+                                        <option value="75">http://mikekore.com</option>
+                                        <option value="73">http://insthey.com</option>
+                                        <option value="72">http://dancece.com</option>
+                                        <option value="71">http://hesinf.com</option>
+                                        <option value="70">http://bell-shop.com</option>
+                                        <option value="69">http://vivi-shop.com</option>
+                                        <option value="68">http://shoping-in.com</option>
+                                        <option value="67">http://sun-shoping.com</option>
+                                        <option value="66">http://girlmall-in.com</option>
+                                        <option value="64">http://rocking-shop.com</option>
+                                        <option value="63">http://papi-shop.com</option>
+                                        <option value="61">http://priceing-in.com</option>
+                                        <option value="60">http://malongka.com</option>
+                                        <option value="59">http://nice-shoping.com</option>
+                                        <option value="58">http://coco-shoping.com</option>
+                                        <option value="57">http://4shopbop.com</option>
+                                        <option value="56">http://wewenr.com</option>
+                                        <option value="55">http://uanad.com</option>
+                                        <option value="54">http://tinetine.com</option>
+                                        <option value="53">http://oioioii.com</option>
+                                        <option value="52">http://nuince.com</option>
+                                        <option value="51">http://juneaijuly.com</option>
+                                        <option value="50">http://yuanimiu.com</option>
+                                        <option value="49">http://baihood.com</option>
+                                        <option value="48">http://qinduzen.com</option>
+                                        <option value="47">http://mengyicha.com</option>
+                                        <option value="46">http://fuyunzui.com</option>
+                                        <option value="45">http://trendtend.com</option>
+                                        <option value="44">http://trendsow.com</option>
+                                        <option value="43">http://pinkci.com</option>
+                                        <option value="42">http://manlyry.com</option>
+                                        <option value="41">http://biumiu.com</option>
+                                        <option value="40">http://ggfriend.com</option>
+                                        <option value="38">http://lniuce.com</option>
+                                        <option value="37">http://onlyning.com</option>
+                                        <option value="36">http://pongboo.com</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <div class="search_item">
+                                    <label class="title">
+                                        时间：
+                                    </label>
+                                    <input type="text" placeholder="开始时间" name="begin_time" value="" id="begin_time" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <label class="title">
+                                        到：
+                                    </label>
+                                    <input type="text" placeholder="结束时间" name="end_time" value="" class="form-control" id="end_time">
+                                </div>
+                                <div class="search_item">
+                                    <select name="order_status" class="form-control">
+                                        <option value="">订单状态</option>
+                                        <option value="0">订购成功</option>
+                                        <option value="-1">已取消</option>
+                                        <option value="1">已发货</option>
+                                    </select>
+                                </div>
+                                <div class="search_item">
+                                    <button type="submit" class="btn btn-default">搜索</button>
+                                    <a href="/admin.php/goods/order/index.html"><input type="button" class="btn btn-default clear_search" value="清空筛选"></a>
+                                </div>
+                            </form>
+                            <form id="form2" action="/admin.php/goods/order/export.html" method="method">
+                                <div style="display:none;" class="form_html">
+                                </div>
+                                <div class="toolbar-btn-action">
+                                    <a href="javascript:;" class="btn btn-primary export_excel" icon="fa fa-plus-circle" title="全部导出excel">全部导出excel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                            <thead>
+                            <tr>
+                                <th class="text-center" width="5%">ID</th>
+                                <th class="">订单编号</th>
+                                <th class="">用户名</th>
+                                <th class="">收货地址</th>
+                                <th class="">总金额</th>
+                                <th class="">来源网站</th>
+                                <th class="text-center" width="6%">订单状态</th>
+                                <th class="text-center" width="7%">客户IP</th>
+                                <th class="text-center" width="8%">下单时间</th>
+                                <th class="" width="8%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center">46121</td>
+                                <td class="text-center">2018042179044</td>
+                                <td>周群哲</td>
+                                <td>屏東縣鹽埔鄉振興村建興街10之1號</td>
+                                <td>998.00</td>
+                                <td>http://fingfly.com/id/iaPwg</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">180.204.160.74(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 12:36</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46121.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46121.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46120</td>
+                                <td class="text-center">2018042106382</td>
+                                <td>譚亦淳</td>
+                                <td>臺南市東區崇明十三街10巷40號</td>
+                                <td>1780.00</td>
+                                <td>http://fingfly.com/id/YdHjj</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">111.255.181.170(中国台湾 台南)
+                                </td>
+                                <td class="text-center">04-21 12:35</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46120.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46120.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46119</td>
+                                <td class="text-center">2018042114784</td>
+                                <td>李泰郎</td>
+                                <td>臺中市北區台中市北區柳川西路四段1號</td>
+                                <td>998.00</td>
+                                <td>http://oioioii.com/id/rVGks</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">180.217.252.15(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 12:27</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46119.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46119.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46118</td>
+                                <td class="text-center">2018042126043</td>
+                                <td>謝永昌</td>
+                                <td>臺中市北屯區文心路四段97號14F-2</td>
+                                <td>1107.00</td>
+                                <td>http://bibigoes.com/id/rvbTk</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">39.9.234.181(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 12:08</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46118.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46118.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46117</td>
+                                <td class="text-center">2018042172214</td>
+                                <td>羅詠翔</td>
+                                <td>高雄市新興區南華橫一路14號2樓之3</td>
+                                <td>1720.00</td>
+                                <td>http://pongboo.com/id/DRkRG</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">27.247.35.68(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 12:04</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46117.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46117.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46116</td>
+                                <td class="text-center">2018042138865</td>
+                                <td>李隆安</td>
+                                <td>新北市三重區光華路48號</td>
+                                <td>1098.00</td>
+                                <td>http://hesinf.com/id/gpcRC</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">101.138.114.87(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 12:01</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46116.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46116.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46115</td>
+                                <td class="text-center">2018042122345</td>
+                                <td>曾文</td>
+                                <td>桃園市龜山區華亞三路28號</td>
+                                <td>1299.00</td>
+                                <td>http://yammyi.com/id/zbzAr</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">192.81.131.94(美国 费利蒙)
+                                </td>
+                                <td class="text-center">04-21 11:55</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46115.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46115.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46114</td>
+                                <td class="text-center">2018042137482</td>
+                                <td>薛小姐</td>
+                                <td>新北市新店區中山路及央北二路口</td>
+                                <td>990.00</td>
+                                <td>http://bibigoes.com/id/PMFyd</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">114.136.30.9(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:55</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46114.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46114.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46113</td>
+                                <td class="text-center">2018042113672</td>
+                                <td>伍玉輝</td>
+                                <td>臺南市永康區永科環路598號</td>
+                                <td>1498.00</td>
+                                <td>http://yosyou.com/id/IyUrR</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">49.219.152.34(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:52</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46113.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46113.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46112</td>
+                                <td class="text-center">2018042180435</td>
+                                <td>陳美蘭</td>
+                                <td>彰化縣彰化市精誠路55號</td>
+                                <td>1488.00</td>
+                                <td>http://kabiun.com/id/YlDeF</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">61.223.113.196(中国台湾 彰化)
+                                </td>
+                                <td class="text-center">04-21 11:46</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46112.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46112.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46111</td>
+                                <td class="text-center">2018042140178</td>
+                                <td>王八烏龜</td>
+                                <td>臺中市東區0007878787878</td>
+                                <td>3198.00</td>
+                                <td>http://being-best.com/id/qRcsx</td>
+                                <td class="text-center">已取消 </td>
+                                <td class="text-center">27.242.132.164(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:44</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46111.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46111.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46110</td>
+                                <td class="text-center">2018042191986</td>
+                                <td>潘淑惠</td>
+                                <td>屏東縣南州鄉屏東縣南州鄉壽元村壽元路42號</td>
+                                <td>1488.00</td>
+                                <td>http://kabiun.com/id/YlDeF</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">110.26.66.201(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:44</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46110.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46110.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46109</td>
+                                <td class="text-center">2018042158021</td>
+                                <td>傅佳娸</td>
+                                <td>臺中市中區太平區永成北路128巷28號</td>
+                                <td>1098.00</td>
+                                <td>http://hesinf.com/id/gpcRC</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">111.184.77.247(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:31</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46109.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46109.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46108</td>
+                                <td class="text-center">2018042186057</td>
+                                <td>蕭慧雪</td>
+                                <td>臺中市大肚區王田村王福街191號</td>
+                                <td>1280.00</td>
+                                <td>http://fingfly.com/id/YdHjj</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">192.81.131.94(美国 费利蒙)
+                                </td>
+                                <td class="text-center">04-21 11:18</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46108.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46108.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46107</td>
+                                <td class="text-center">2018042152179</td>
+                                <td>曾伊翎</td>
+                                <td>臺中市南屯區文山里寶山六街27號5-11</td>
+                                <td>1098.00</td>
+                                <td>http://hesinf.com/id/gpcRC</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">175.181.120.51(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:15</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46107.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46107.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46106</td>
+                                <td class="text-center">2018042174297</td>
+                                <td>王翠紅</td>
+                                <td>彰化縣福興鄉西勢村員鹿路二段338巷八弄26號</td>
+                                <td>1099.00</td>
+                                <td>http://juneaijuly.com/id/sTTRI</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">115.82.82.233(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 11:01</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46106.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46106.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46105</td>
+                                <td class="text-center">2018042182629</td>
+                                <td>許治本</td>
+                                <td>高雄市苓雅區憲政路233巷2號</td>
+                                <td>1599.00</td>
+                                <td>http://being-best.com/id/qRcsx</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">223.138.30.231(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 10:41</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46105.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46105.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46104</td>
+                                <td class="text-center">2018042152215</td>
+                                <td>黃銀寬</td>
+                                <td>臺中市烏日區台中市烏日區九德里長春街400號</td>
+                                <td>1599.00</td>
+                                <td>http://being-best.com/id/qRcsx</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">110.28.104.37(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 10:33</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46104.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46104.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46103</td>
+                                <td class="text-center">2018042187982</td>
+                                <td>安羽萱</td>
+                                <td>高雄市鳥松區高雄市鳥松區仁美里高碼一路五巷51號</td>
+                                <td>1398.00</td>
+                                <td>http://hesinf.com/id/gpcRC</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">180.204.200.254(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 10:32</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46103.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46103.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">46102</td>
+                                <td class="text-center">2018042195339</td>
+                                <td>李偉雄</td>
+                                <td>新北市汐止區樟樹一路272之11號8樓</td>
+                                <td>3198.00</td>
+                                <td>http://being-best.com/id/qRcsx</td>
+                                <td class="text-center">订购成功 </td>
+                                <td class="text-center">180.218.144.46(中国台湾 )
+                                </td>
+                                <td class="text-center">04-21 10:27</td>
+                                <td width="8%">
+                                    <div class="btn-group">
+                                        <a data-toggle="tooltip" target="_self" href="/admin.php/goods/order/edit/id/46102.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+                                        <a data-toggle="tooltip" href="/admin.php/goods/order/export/id/46102.html" class="btn btn-xs btn-default" icon="si si-paper-clip" title="" data-original-title="导出excel"><i class="si si-paper-clip"></i></a> </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="data-table-toolbar">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <ul class="pagination"><li class="disabled"><span>«</span></li> <li class="active"><span>1</span></li><li><a href="/admin.php/goods/order/index.html?page=2">2</a></li><li><a href="/admin.php/goods/order/index.html?page=3">3</a></li><li><a href="/admin.php/goods/order/index.html?page=4">4</a></li><li><a href="/admin.php/goods/order/index.html?page=5">5</a></li><li><a href="/admin.php/goods/order/index.html?page=6">6</a></li><li><a href="/admin.php/goods/order/index.html?page=7">7</a></li><li><a href="/admin.php/goods/order/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a href="/admin.php/goods/order/index.html?page=2250">2250</a></li><li><a href="/admin.php/goods/order/index.html?page=2251">2251</a></li> <li><a href="/admin.php/goods/order/index.html?page=2">»</a></li></ul>                                <div class="pagination-info pull-right">
+                                <form action="" method="get">
+                                    <input type="text" class="form-control input-sm go-page" name="page" value="1">
+                                    <input type="text" class="form-control input-sm nums" name="list_rows" value="20">
+                                    <input type="submit" class="hidden">
+                                    / <strong>2251</strong> 页，共 <strong>45013</strong> 条数据，每页显示数量
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+<script>
+
+</script>
+{/block}
