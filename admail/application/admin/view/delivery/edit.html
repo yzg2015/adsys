@@ -1,0 +1,611 @@
+{extend name="layout"/}
+<!-- Page Header -->
+{block name="page-header"}
+{empty name="_pop"}
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                物流编辑
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li><i class="fa fa-map-marker"></i></li>
+                {notempty name="_location"}
+                {volist name="_location" id="v"}
+                <li><a class="link-effect" href="{notempty name='$v["url_value"]'}{$v.url_value|url}{else/}javascript:void(0);{/notempty}">{$v.title}</a></li>
+                {/volist}
+                {/notempty}
+            </ol>
+        </div>
+    </div>
+</div>
+{/empty}
+{/block}
+{block name="style"}
+<link rel="stylesheet" href="__ADMIN_CSS__/one.css?v={:config('asset_version')}">
+{/block}
+<!-- END Page Header -->
+
+{block name="content"}
+{notempty name="default_pass"}
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h3 class="font-w300 push-15">安全提示</h3>
+    <p>超级管理员默认密码未修改，建议马上 <a class="alert-link link-effect" href="{:url('user/index/edit', ['id' => 1])}">修改</a>。</p>
+</div>
+{/notempty}
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-header bg-gray-lighter">
+                <ul class="block-options">
+                    <li>
+                        <button data-action-mode="demo" data-action="refresh_toggle" data-toggle="block-option" type="button"><i class="si si-refresh"></i></button>
+                    </li>
+                    <li>
+                        <button data-action="fullscreen_toggle" data-toggle="block-option" type="button"><i class="si si-size-fullscreen"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">订单管理</h3>
+            </div>
+            <div class="block-content tab-content">
+                <div class="tab-pane active">
+
+                    <div class="row data-table-toolbar">
+                        <div class="col-sm-12">
+
+                            <form id="form" action="/admin.php/goods/delivery/index.html" method="get" class="pull-right">
+                                <div class="search_item">
+                                    <input type="text" placeholder="手机" name="mobile" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="订单编号" name="order_sn" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="物流单号" name="invoice_no" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="转寄物流单号" name="forwarding_invoice_no" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="销售代号" name="sales_code" value="" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <input type="text" placeholder="物流商" name="shipping" value="" class="form-control">
+                                </div>
+                                <br>
+                                <div class="search_item">
+                                    <label class="title">
+                                        时间：
+                                    </label>
+                                    <input type="text" placeholder="开始时间" name="begin_time" value="" id="begin_time" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <label class="title">
+                                        到：
+                                    </label>
+                                    <input type="text" placeholder="结束时间" name="end_time" value="" class="form-control" id="end_time">
+                                </div>
+                                <div class="search_item">
+                                    <button type="submit" class="btn btn-default">搜索</button>
+                                    <a href="/admin.php/goods/delivery/index.html"><input type="button" class="btn btn-default clear_search" value="清空筛选"></a>
+                                    <input type="button" class="btn btn-default delivery_export" value="导出excel">
+                                </div>
+                            </form>
+                            <form id="form3" class="delivery_form" style="display:none" action="/admin.php/goods/delivery/deliveryexport.html" method="post">
+                                <div class="search_item">
+                                    <label class="title">
+                                        时间：
+                                    </label>
+                                    <input type="text" placeholder="开始时间" name="begin_time" id="begin_time3" class="form-control">
+                                </div>
+                                <div class="search_item">
+                                    <label class="title">
+                                        到：
+                                    </label>
+                                    <input type="text" placeholder="结束时间" name="end_time" class="form-control" id="end_time3">
+                                </div>
+                            </form>
+                            <form id="form2" action="/admin.php/goods/delivery/import.html" method="post" enctype="multipart/form-data">
+                                <input type="file" name="excel_file">
+                                <div class="toolbar-btn-action">
+                                    <input type="submit" value="导入Excel">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <div class="btn-group">
+                        </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><div class="btn-group">
+                    </div><table class="table table-builder table-hover table-bordered table-striped js-table-checkable">
+                        <thead>
+                        <tr>
+                            <th class="">物流商</th>
+                            <th class="">客户ID</th>
+                            <th class="">订单编号</th>
+                            <th class="">物流单号</th>
+                            <th class="">转寄物流单号</th>
+                            <th class="">销售代号</th>
+                            <th class="text-center">重量</th>
+                            <th class="text-center">单价</th>
+                            <th class="text-center">运费</th>
+                            <th class="text-center">一级品类</th>
+                            <th class="text-center">二级品类</th>
+                            <th class="text-center">是否為現發</th>
+                            <th class="text-center">站点</th>
+                            <th class="text-center">备注</th>
+                            <th class="text-center">发货时间</th>
+                            <th class="" width="20px">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>44693</td>
+                            <td>2018041393678</td>
+                            <td>905514112145</td>
+                            <td>625165940073</td>
+                            <td>M</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>家居類</td>
+                            <td>床上用品</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26112.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45307</td>
+                            <td>2018041711659</td>
+                            <td>620144396283</td>
+                            <td>625165940343</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>家居類</td>
+                            <td>床上用品</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26113.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45344</td>
+                            <td>2018041735070</td>
+                            <td>620150659080</td>
+                            <td>625165939651</td>
+                            <td>F</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26114.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>44921</td>
+                            <td>2018041596659</td>
+                            <td>620150661541</td>
+                            <td>625165940084</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26115.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45238</td>
+                            <td>2018041672521</td>
+                            <td>620150680823</td>
+                            <td>625165939820</td>
+                            <td>F</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26116.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45197</td>
+                            <td>2018041694468</td>
+                            <td>620150695335</td>
+                            <td>625165939796</td>
+                            <td>F</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26117.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45248</td>
+                            <td>2018041616979</td>
+                            <td>620150702406</td>
+                            <td>625165939063</td>
+                            <td>Z</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>飾品類</td>
+                            <td>手鏈</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26118.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45253</td>
+                            <td>2018041658506</td>
+                            <td>620144401861</td>
+                            <td>625165939265</td>
+                            <td>Z</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>日用品</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26119.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45256</td>
+                            <td>2018041695591</td>
+                            <td>620144409215</td>
+                            <td>625165939280</td>
+                            <td>W</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>飾品類</td>
+                            <td>手鏈</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26120.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45000</td>
+                            <td>2018041507197</td>
+                            <td>620150699310</td>
+                            <td>625165939614</td>
+                            <td>F</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26121.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45308</td>
+                            <td>2018041740344</td>
+                            <td>620150698364</td>
+                            <td>625165940141</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26122.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45243</td>
+                            <td>2018041671954</td>
+                            <td>620150680856</td>
+                            <td>625165939232</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26123.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45264</td>
+                            <td>2018041668596</td>
+                            <td>620150680961</td>
+                            <td>625165940163</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26124.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>42201</td>
+                            <td>2018040312141</td>
+                            <td>625159657105</td>
+                            <td>625165940501</td>
+                            <td>W</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>手機配件</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26125.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45361</td>
+                            <td>2018041734661</td>
+                            <td>620150661170</td>
+                            <td>625165939142</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>U盘</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26126.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>44911</td>
+                            <td>2018041560263</td>
+                            <td>620150661605</td>
+                            <td>625165940365</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26127.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45153</td>
+                            <td>2018041680948</td>
+                            <td>620150695394</td>
+                            <td>625165652444</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26128.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45311</td>
+                            <td>2018041780105</td>
+                            <td>620150658981</td>
+                            <td>625165652321</td>
+                            <td>E</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26129.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45081</td>
+                            <td>2018041532090</td>
+                            <td>905515489322</td>
+                            <td>625165939816</td>
+                            <td>F</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26130.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">非凡</td>
+                            <td>45272</td>
+                            <td>2018041692468</td>
+                            <td>620150680972</td>
+                            <td>625165652343</td>
+                            <td>F</td>
+                            <td class="text-center">0.00                                    </td>
+                            <td class="text-center">15.50                                    </td>
+                            <td class="text-center">0.00                                    </td>
+                            <td>百貨類</td>
+                            <td>汽配</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center">2018-04-19</td>
+                            <td>
+                                <a data-toggle="tooltip" target="_self" href="/admin.php/goods/delivery/edit/id/26131.html" class="btn btn-xs btn-default" icon="fa fa-pencil" title="" data-original-title="查看"><i class="fa fa-pencil"></i></a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="data-table-toolbar">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <ul class="pagination"><li class="disabled"><span>«</span></li> <li class="active"><span>1</span></li><li><a href="/admin.php/goods/delivery/index.html?page=2">2</a></li><li><a href="/admin.php/goods/delivery/index.html?page=3">3</a></li><li><a href="/admin.php/goods/delivery/index.html?page=4">4</a></li><li><a href="/admin.php/goods/delivery/index.html?page=5">5</a></li><li><a href="/admin.php/goods/delivery/index.html?page=6">6</a></li><li><a href="/admin.php/goods/delivery/index.html?page=7">7</a></li><li><a href="/admin.php/goods/delivery/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a href="/admin.php/goods/delivery/index.html?page=1321">1321</a></li><li><a href="/admin.php/goods/delivery/index.html?page=1322">1322</a></li> <li><a href="/admin.php/goods/delivery/index.html?page=2">»</a></li></ul>                                <div class="pagination-info pull-right">
+                                <form action="" method="get">
+                                    <input type="text" class="form-control input-sm go-page" name="page" value="1">
+                                    <input type="text" class="form-control input-sm nums" name="list_rows" value="20">
+                                    <input type="submit" class="hidden">
+                                    / <strong>1322</strong> 页，共 <strong>26421</strong> 条数据，每页显示数量
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+<script>
+
+</script>
+{/block}

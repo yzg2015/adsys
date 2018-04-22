@@ -73,11 +73,9 @@ class Config
         // 如果定义了入口为admin，则修改默认的访问控制器层
         if(defined('ENTRANCE') && ENTRANCE == 'admin') {
             define('ADMIN_FILE', substr($base_file, strripos($base_file, '/') + 1));
-
             if ($dispatch['type'] == 'module' && $module == '') {
                 header("Location: ".$base_file.'/admin', true, 302);exit();
             }
-
             if ($module != '' && !in_array($module, config('module.default_controller_layer'))) {
                 // 修改默认访问控制器层
                 config('url_controller_layer', 'admin');

@@ -9,29 +9,33 @@
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
 
-namespace app\admin\controller;
-
-use think\Cache;
-use think\helper\Hash;
-use think\Db;
-use app\common\builder\ZBuilder;
-use app\user\model\User as UserModel;
-
+namespace app\admin\model;
+use think\Model;
 /**
- * 后台默认控制器
- * @package app\admin\controller
+ * 日志记录模型
+ * @package app\admin\model
  */
-class Evaluate extends Admin
+class Discount extends Model
 {
+    // 设置当前模型对应的完整数据表名称
+    protected $table = '__ADMIN_DISCOUNT__';
+
+    // 自动写入时间戳
+    protected $autoWriteTimestamp = true;
+
     /**
-     * 后台首页
+     * 获取所有日志
+     * @param array $map 条件
+     * @param string $order 排序
      * @author 蔡伟明 <314013107@qq.com>
-     * @return string
+     * @return mixed
      */
-    public function index()
+    public static function getAll($map = [], $order = '')
     {
-        return $this->fetch();
+        $data_list = self::view('admin_discount', true)
+            ->where($map)
+            ->order($order)
+            ->paginate();
+        return $data_list;
     }
-
-
 }

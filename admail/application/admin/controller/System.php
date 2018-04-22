@@ -130,6 +130,7 @@ class System extends Admin
                     ->setFormItems($data_list)
                     ->fetch();
             } else {
+
                 // 模块配置
                 $module_info = ModuleModel::getInfoFromFile($group);
                 $config      = $module_info['config'];

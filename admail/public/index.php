@@ -18,17 +18,16 @@ if (version_compare(PHP_VERSION, '5.5', '<')) {
 }
 
 // [ 应用入口文件 ]
-
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
 
 // 定义后台入口文件
 define('ADMIN_FILE', 'admin.php');
 
-// 检查是否安装
-if(!is_file('../data/install.lock')){
-    define('BIND_MODULE', 'install');
-}
+//// 检查是否安装
+//if(!is_file('../data/install.lock')){
+//    define('BIND_MODULE', 'install');
+//}
 
 // 加载框架引导文件
 require '../thinkphp/start.php';

@@ -16,7 +16,7 @@ use think\helper\Hash;
 use think\Db;
 use app\common\builder\ZBuilder;
 use app\user\model\User as UserModel;
-
+use app\admin\model\Discount as DiscountModel;
 /**
  * 后台默认控制器
  * @package app\admin\controller
@@ -30,12 +30,33 @@ class Discount extends Admin
      */
     public function index()
     {
-        $admin_pass = Db::name('admin_user')->where('id', 1)->value('password');
+        // 查询
+        $map = $this->getMap();
+        // 排序
+        $order = $this->getOrder('admin_discount.id desc');
+        // 数据列表
+        $data_list = DiscountModel::getAll($map, $order);
+        // 分页数据
+        $page = $data_list->render();
+        // 使用ZBuilder快速创建数据表格
+        return ZBuilder::make('table')
+            ->setPageTitle('促销阶梯折扣管理') // 设置页面标题
+            ->setSearch(['admin_discount.title' => '名称']) // 设置搜索框
+            ->hideCheckbox()
+            ->addColumns([ // 批量添加数据列
+                ['id', 'ID'],
+                ['title', '促销名称'],
+                ['status', '状态', 'switch'],
+                ['right_button', '操作', 'btn']
+            ])
+            ->addOrder(['id' => 'admin_discount'])
+            ->addFilter(['admin_discount.title'])
+            ->addRightButton('edit', ['icon' => 'fa fa-eye', 'title' => '详情', 'href' => url('details', ['id' => '__id__'])])
+            ->setRowList($data_list) // 设置表格数据
+            ->addTopButtons('add,enable,delete,disable')
+            ->setPages($page) // 设置分页数据
+            ->fetch(); // 渲染模板
 
-        if (UID == 1 && $admin_pass && Hash::check('admin', $admin_pass)) {
-            $this->assign('default_pass', 1);
-        }
-        return $this->fetch();
     }
 
 

@@ -139,9 +139,7 @@ class Index extends Admin
         curl_setopt_array($ch, $opts);
         $data  = curl_exec($ch);
         curl_close($ch);
-
         $result = json_decode($data, true);
-
         if ($result['code'] == 1) {
             return json([
                 'update' => '<a class="badge badge-primary" href="http://www.admail.com/download" target="_blank">有新版本：'.$result["version"].'</a>',
