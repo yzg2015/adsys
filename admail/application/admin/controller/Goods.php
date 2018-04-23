@@ -68,9 +68,64 @@ class Goods extends Admin
         $this->fetch();
     }
 
+    /**yang
+     * @param int $id
+     * @return mixed
+     */
+    public function edit($id = 0)
+    {
+        if ($id === 0) $this->error('缺少参数');
+
+        // 保存数据
+        if ($this->request->isPost()) {
+            $data = $this->request->post('', null, 'trim');
+            // 验证
+            $result = $this->validate($data, 'Goods');
+            // 验证失败 输出错误信息
+            if(true !== $result) $this->error($result);
+
+
+            // 验证是否更改所属模块，如果是，则该节点的所有子孙节点的模块都要修改
+            $map['id'] = $data['id'];
+
+
+            if (GoodsModel::update($data)) {
+                // 记录行为
+                $this->success('编辑成功', cookie('__forward__'));
+            } else {
+                $this->error('编辑失败');
+            }
+        }
+
+        // 获取数据
+        $info = GoodsModel::get($id);
+
+        // 使用ZBuilder快速创建表单
+        return ZBuilder::make('form')
+            ->setPageTitle('编辑节点')
+            ->addFormItem('hidden', 'id')
+            ->addFormItem('select', 'pid', '所属节点', '所属上级节点', [])
+            ->addFormItem('text', 'title', '节点标题')
+            ->addFormItem('radio', 'url_type', '链接类型', '', ['module_admin' => '模块链接(后台)', 'module_home' => '模块链接(前台)', 'link' => '普通链接'], 'module_admin')
+            ->addFormItem(
+                'text',
+                'url_value',
+                '节点链接',
+                "可留空，如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.admail.com</code>"
+            )
+            ->addText('params', '参数', '如：a=1&b=2')
+
+            ->addRadio('url_target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self')
+            ->addIcon('icon', '图标', '导航图标')
+            ->addRadio('online_hide', '网站上线后隐藏', '关闭开发模式后，则隐藏该菜单节点', ['否', '是'])
+            ->addText('sort', '排序', '', 100)
+            ->setFormData($info)
+            ->fetch();
+    }
+
+
     public function add($group='tab1')
     {
-
         $list_tab = [
             'tab1' => ['title' => '通用信息', 'url' => url('add', ['group' => 'tab1'])],
             'tab2' => ['title' => '商品描述', 'url' => url('add', ['group' => 'tab2'])],
@@ -102,7 +157,6 @@ class Goods extends Admin
                         ['ueditor','content','商品名称'],
                         ['image','pic','商品图片']
                     ])
-
                     ->addRadio('city', '上架状态', '', $list_status,0)
                     ->fetch();
                 break;
