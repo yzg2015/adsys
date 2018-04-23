@@ -39,10 +39,11 @@ class Site extends Model
         return $data_list;
     }
 
-    public static function getSelList()
+    public static function getTreeList()
     {
-        $data_list = self::view('admin_site', 'id,url')
-            ->paginate();
-        return $data_list;
+        $map['status']=1;
+        $data_list = self::where($map)
+            ->column('id,url');
+        return  $data_list;
     }
 }

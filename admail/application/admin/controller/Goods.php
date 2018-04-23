@@ -72,10 +72,9 @@ class Goods extends Admin
      * @param int $id
      * @return mixed
      */
-    public function edit($id = 0)
+    public function edit($id = 0,$group='tab1')
     {
         if ($id === 0) $this->error('缺少参数');
-
         // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post('', null, 'trim');
@@ -83,12 +82,8 @@ class Goods extends Admin
             $result = $this->validate($data, 'Goods');
             // 验证失败 输出错误信息
             if(true !== $result) $this->error($result);
-
-
             // 验证是否更改所属模块，如果是，则该节点的所有子孙节点的模块都要修改
             $map['id'] = $data['id'];
-
-
             if (GoodsModel::update($data)) {
                 // 记录行为
                 $this->success('编辑成功', cookie('__forward__'));
@@ -99,30 +94,62 @@ class Goods extends Admin
 
         // 获取数据
         $info = GoodsModel::get($id);
-
+        $list_tab = [
+            'tab1' => ['title' => '通用信息', 'url' => url('add', ['group' => 'tab1'])],
+            'tab2' => ['title' => '商品描述', 'url' => url('add', ['group' => 'tab2'])],
+            'tab3' => ['title' => '商品规格', 'url' => url('add', ['group' => 'tab3'])],
+            'tab4' => ['title' => '商品属性', 'url' => url('add', ['group' => 'tab4'])],
+            'tab5' => ['title' => '促销', 'url' => url('add', ['group' => 'tab5'])],
+        ];
         // 使用ZBuilder快速创建表单
+        $list_status = ['0' => '下架', '1' => '上架'];
         return ZBuilder::make('form')
-            ->setPageTitle('编辑节点')
-            ->addFormItem('hidden', 'id')
-            ->addFormItem('select', 'pid', '所属节点', '所属上级节点', [])
-            ->addFormItem('text', 'title', '节点标题')
-            ->addFormItem('radio', 'url_type', '链接类型', '', ['module_admin' => '模块链接(后台)', 'module_home' => '模块链接(前台)', 'link' => '普通链接'], 'module_admin')
-            ->addFormItem(
-                'text',
-                'url_value',
-                '节点链接',
-                "可留空，如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.admail.com</code>"
-            )
-            ->addText('params', '参数', '如：a=1&b=2')
+            ->setTabNav($list_tab,  $group)
+            ->setUrl(url('save'))
+            ->setPageTitle('新增商品')
+            ->addFormItems([
 
-            ->addRadio('url_target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self')
-            ->addIcon('icon', '图标', '导航图标')
-            ->addRadio('online_hide', '网站上线后隐藏', '关闭开发模式后，则隐藏该菜单节点', ['否', '是'])
-            ->addText('sort', '排序', '', 100)
+                ['text','name','商品名称'],
+                ['text','spu','SPU'],
+                ['select','site_id','站点','',  SiteModel::getTreeList()],
+                ['text','who','负责人'],
+                ['number','num','商品库存'],
+                ['text','price','原价'],
+                ['text','z_price','折扣价'],
+                ['text','dao_time','活动倒计时'],
+                ['ueditor','content','商品内容'],
+                ['number','num','已搶購數量'],
+                ['image','pic','商品图片']
+            ])
+            ->addRadio('status', '上架状态', '', $list_status,0)
             ->setFormData($info)
             ->fetch();
     }
 
+
+    public function save()
+    {        // 保存数据
+        if ($this->request->isPost()) {
+            $data = $this->request->post();
+            if(!empty($data['id'])){
+                $data['update_time'] = time();
+                if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
+                    $this->success('保存成功','index');
+                } else {
+
+                    $this->error('保存失败，请重试');
+                }
+            }else{
+                $data['add_time'] = time();
+                if (false !== GoodsModel::create($data)) {
+                    $this->success('新增成功','index');
+                } else {
+                    $this->error('新增失败，请重试');
+                }
+            }
+
+        }
+    }
 
     public function add($group='tab1')
     {
@@ -133,31 +160,27 @@ class Goods extends Admin
             'tab4' => ['title' => '商品属性', 'url' => url('add', ['group' => 'tab4'])],
             'tab5' => ['title' => '促销', 'url' => url('add', ['group' => 'tab5'])],
         ];
-
         switch ($group) {
             case 'tab1':
-                $sel_site_list = SiteModel::getSelList();
-                $arr = array();
-
-
                 $list_status = ['0' => '下架', '1' => '上架'];
                 return ZBuilder::make('form')
                     ->setTabNav($list_tab,  $group)
+                    ->setUrl(url('save'))
                     ->setPageTitle('新增商品')
-                   // ->addSelect('city', '站点', '', ['gz' => '广州', 'sz' => '深圳', 'sh' => '上海'])
                     ->addFormItems([
-                        ['text','title','商品名称'],
+                        ['text','name','商品名称'],
                         ['text','spu','SPU'],
-                        ['select','site_id','站点','', ['gz' => '广州', 'sz' => '深圳', 'sh' => '上海']],
+                        ['select','site_id','站点','',  SiteModel::getTreeList()],
                         ['text','who','负责人'],
-                        ['text','num','商品库存'],
+                        ['number','num','商品库存'],
                         ['text','price','原价'],
                         ['text','z_price','折扣价'],
                         ['text','dao_time','活动倒计时'],
-                        ['ueditor','content','商品名称'],
+                        ['ueditor','content','商品内容'],
+                        ['number','num','已搶購數量'],
                         ['image','pic','商品图片']
                     ])
-                    ->addRadio('city', '上架状态', '', $list_status,0)
+                    ->addRadio('status', '上架状态', '', $list_status,0)
                     ->fetch();
                 break;
             case 'tab2':
