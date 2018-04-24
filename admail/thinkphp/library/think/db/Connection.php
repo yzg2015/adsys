@@ -77,7 +77,7 @@ abstract class Connection
         // 数据库连接参数
         'params'          => [],
         // 数据库编码默认采用utf8
-        'charset'         => 'utf8',
+        'charset'         => 'utf8mb4',
         // 数据库表前缀
         'prefix'          => '',
         // 数据库调试模式
@@ -117,6 +117,7 @@ abstract class Connection
         PDO::ATTR_ORACLE_NULLS      => PDO::NULL_NATURAL,
         PDO::ATTR_STRINGIFY_FETCHES => false,
         PDO::ATTR_EMULATE_PREPARES  => false,
+//        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
     ];
 
     // 绑定参数
@@ -270,6 +271,7 @@ abstract class Connection
             } else {
                 $config = array_merge($this->config, $config);
             }
+
             // 连接参数
             if (isset($config['params']) && is_array($config['params'])) {
                 $params = $config['params'] + $this->params;
@@ -290,6 +292,8 @@ abstract class Connection
                 if ($config['debug']) {
                     $startTime = microtime(true);
                 }
+
+
                 $this->links[$linkNum] = new PDO($config['dsn'], $config['username'], $config['password'], $params);
                 if ($config['debug']) {
                     // 记录数据库连接信息
