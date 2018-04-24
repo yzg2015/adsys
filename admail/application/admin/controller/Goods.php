@@ -92,38 +92,103 @@ class Goods extends Admin
             }
         }
 
-        // 获取数据
+
         $info = GoodsModel::get($id);
         $list_tab = [
-            'tab1' => ['title' => '通用信息', 'url' => url('add', ['group' => 'tab1'])],
-            'tab2' => ['title' => '商品描述', 'url' => url('add', ['group' => 'tab2'])],
-            'tab3' => ['title' => '商品规格', 'url' => url('add', ['group' => 'tab3'])],
-            'tab4' => ['title' => '商品属性', 'url' => url('add', ['group' => 'tab4'])],
-            'tab5' => ['title' => '促销', 'url' => url('add', ['group' => 'tab5'])],
+            'tab1' => ['title' => '通用信息', 'url' => url('edit', ['id'=>$id,'group' => 'tab1'])],
+            'tab2' => ['title' => '商品描述', 'url' => url('edit', ['id'=>$id,'group' => 'tab2'])],
+            'tab3' => ['title' => '商品规格', 'url' => url('edit', ['id'=>$id,'group' => 'tab3'])],
+            'tab4' => ['title' => '商品属性', 'url' => url('edit', ['id'=>$id,'group' => 'tab4'])],
+            'tab5' => ['title' => '促销', 'url' => url('edit', ['id'=>$id,'group' => 'tab5'])],
         ];
         // 使用ZBuilder快速创建表单
         $list_status = ['0' => '下架', '1' => '上架'];
-        return ZBuilder::make('form')
-            ->setTabNav($list_tab,  $group)
-            ->setUrl(url('save'))
-            ->setPageTitle('新增商品')
-            ->addFormItems([
+        switch ($group) {
+            case 'tab1':
+                return ZBuilder::make('form')
+                    ->setTabNav($list_tab,  $group)
+                    ->setUrl(url('save'))
+                    ->setPageTitle('编辑商品')
+                    ->addFormItems([
+                        ['text','name','商品名称'],
+                        ['text','spu','SPU'],
+                        ['select','site_id','站点','',  SiteModel::getTreeList()],
+                        ['text','who','负责人'],
+                        ['number','num','商品库存'],
+                        ['text','price','原价'],
+                        ['text','z_price','折扣价'],
+                        ['text','dao_time','活动倒计时'],
+                        ['number','num','已搶購數量'],
+                        ['image','pic','商品图片']
+                    ])
+                    ->addRadio('status', '上架状态', '', $list_status,0)
+                    ->setFormData($info)
+                    ->fetch();
+                break;
+            case 'tab2':
+                return ZBuilder::make('form')
+                    ->setTabNav($list_tab,  $group)
+                    ->setUrl(url('save'))
+                    ->setPageTitle('编辑商品')
+                    ->addFormItems([
+                        ['ueditor','content','产品详情'],
+                    ])
+                    ->addRadio('status', '上架状态', '', $list_status,0)
+                    ->setFormData($info)
+                    ->fetch();
+                break;
+            case 'tab3':
+                return ZBuilder::make('form')
+                    ->setTabNav($list_tab,  $group)
+                    ->setUrl(url('save'))
+                    ->setPageTitle('编辑商品')
+                    ->addFormItems([
+                        ['text','name','商品名称'],
+                        ['text','spu','SPU'],
+                        ['select','site_id','站点','',  SiteModel::getTreeList()],
 
-                ['text','name','商品名称'],
-                ['text','spu','SPU'],
-                ['select','site_id','站点','',  SiteModel::getTreeList()],
-                ['text','who','负责人'],
-                ['number','num','商品库存'],
-                ['text','price','原价'],
-                ['text','z_price','折扣价'],
-                ['text','dao_time','活动倒计时'],
-                ['ueditor','content','商品内容'],
-                ['number','num','已搶購數量'],
-                ['image','pic','商品图片']
-            ])
-            ->addRadio('status', '上架状态', '', $list_status,0)
-            ->setFormData($info)
-            ->fetch();
+                    ])
+                    ->addRadio('status', '上架状态', '', $list_status,0)
+                    ->setFormData($info)
+                    ->fetch();
+                break;
+            case 'tab4':
+                return ZBuilder::make('form')
+                    ->setTabNav($list_tab,  $group)
+                    ->addTextarea('summary', '摘要')
+                    ->fetch();
+                break;
+            case 'tab5':
+                return ZBuilder::make('form')
+                    ->setTabNav($list_tab,  $group)
+                    ->addTextarea('summary', '摘要')
+                    ->fetch();
+                break;
+            default:
+                return ZBuilder::make('form')
+                    ->setTabNav($list_tab,  $group)
+                    ->setUrl(url('save'))
+                    ->setPageTitle('编辑商品')
+                    ->addFormItems([
+                        ['text','name','商品名称'],
+                        ['text','spu','SPU'],
+                        ['select','site_id','站点','',  SiteModel::getTreeList()],
+                        ['text','who','负责人'],
+                        ['number','num','商品库存'],
+                        ['text','price','原价'],
+                        ['text','z_price','折扣价'],
+                        ['text','dao_time','活动倒计时'],
+                        ['ueditor','content','商品内容'],
+                        ['number','num','已搶購數量'],
+                        ['image','pic','商品图片']
+                    ])
+                    ->addRadio('status', '上架状态', '', $list_status,0)
+                    ->setFormData($info)
+                    ->fetch();
+                break;
+        }
+
+
     }
 
 
