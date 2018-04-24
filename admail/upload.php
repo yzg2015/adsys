@@ -6,7 +6,6 @@
  * Time: 16:55
  */
 
-
 require(dirname(__FILE__).'/httpupload.class.php');
 
 
@@ -14,7 +13,6 @@ require(dirname(__FILE__).'/httpupload.class.php');
 function sendCurlPost()
 {
     $vars = array();
-
     $poat = array('name'=>'E:\test\adsys\admail\121.txt','tmp_name'=>'E:\test\adsys\admail\121.jpg','type'=>'image/jpeg','size'=>55544);
     $vars['list_id'] = 1176005;
     $vars['name'] ='cesshi';
@@ -34,7 +32,6 @@ function sendCurlPost()
         $vars['file']  = '@' . dirname(__FILE__).'\121.jpg';
     }
 
-
     $opts = array(
         CURLOPT_TIMEOUT        => 5,
         CURLOPT_HTTPAUTH=>CURLAUTH_BASIC,
@@ -48,7 +45,6 @@ function sendCurlPost()
         CURLOPT_USERAGENT      => $_SERVER['HTTP_USER_AGENT'],
         CURLOPT_SSL_VERIFYPEER      => FALSE,
         CURLOPT_SSL_VERIFYHOST      => FALSE,
-
         CURLOPT_HEADER=>0,
 
     );

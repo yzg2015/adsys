@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '112.74.83.206',
+    'hostname'        => '192.144.175.58',
     // 数据库名
-    'database'        => 'xunbaotu',
+    'database'        => 'admail',
     // 用户名
-    'username'        => 'xbtuser',
+    'username'        => 'user_db',
     // 密码
-    'password'        => 'xbtuser2016',
+    'password'        => 'user_2018',
     // 端口
     'hostport'        => '3306',
     // 连接dsn
