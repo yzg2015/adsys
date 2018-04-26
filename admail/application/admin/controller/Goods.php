@@ -55,8 +55,8 @@ class Goods extends Admin
                 ['add_time', '添加时间', 'datetime', '', 'Y-m-d H:i:s'],
                 ['right_button', '操作', 'btn']
             ])
-            ->addOrder(['name' => 'admin_goods', 'username' => 'admin_user'])
-            ->addFilter(['admin_goods.name', 'admin_user.username'])
+            ->addOrder(['name' => 'admin_goods', 'username' => 'admin_user','url' => 'admin_site'])
+            ->addFilter(['admin_goods.name', 'admin_user.username', 'admin_site.url'])
             ->addTopButtons('add,enable,delete,disable')
             ->addRightButtons('edit,delete')
             ->setRowList($data_list) // 设置表格数据
