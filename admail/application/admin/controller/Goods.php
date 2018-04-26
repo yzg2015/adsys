@@ -110,6 +110,7 @@ class Goods extends Admin
                     ->setUrl(url('save'))
                     ->setPageTitle('编辑商品')
                     ->addFormItems([
+                        ['hidden','id'],
                         ['text','name','商品名称'],
                         ['text','spu','SPU'],
                         ['select','site_id','站点','',  SiteModel::getTreeList()],
@@ -131,6 +132,7 @@ class Goods extends Admin
                     ->setUrl(url('save'))
                     ->setPageTitle('编辑商品')
                     ->addFormItems([
+                        ['hidden','id'],
                         ['ueditor','content','产品详情'],
                     ])
                     ->addRadio('status', '上架状态', '', $list_status,0)
@@ -143,6 +145,7 @@ class Goods extends Admin
                     ->setUrl(url('save'))
                     ->setPageTitle('编辑商品')
                     ->addFormItems([
+                        ['hidden','id'],
                         ['text','name','商品名称'],
                         ['text','spu','SPU'],
                         ['select','site_id','站点','',  SiteModel::getTreeList()],
@@ -170,6 +173,7 @@ class Goods extends Admin
                     ->setUrl(url('save'))
                     ->setPageTitle('编辑商品')
                     ->addFormItems([
+                        ['hidden','id'],
                         ['text','name','商品名称'],
                         ['text','spu','SPU'],
                         ['select','site_id','站点','',  SiteModel::getTreeList()],
@@ -201,7 +205,6 @@ class Goods extends Admin
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
-
                     $this->error('保存失败，请重试');
                 }
             }else{

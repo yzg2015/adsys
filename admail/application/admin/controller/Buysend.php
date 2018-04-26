@@ -42,7 +42,7 @@ class Buysend extends Admin
         return ZBuilder::make('table')
             ->setPageTitle('促销买送管理') // 设置页面标题
             ->setSearch(['admin_buysend.title' => '名称']) // 设置搜索框
-            ->hideCheckbox()
+
             ->addColumns([ // 批量添加数据列
                 ['id', 'ID'],
                 ['title', '促销名称'],
@@ -51,12 +51,91 @@ class Buysend extends Admin
             ])
             ->addOrder(['id' => 'admin_buysend'])
             ->addFilter(['admin_buysend.title'])
-            ->addRightButton('edit', ['icon' => 'fa fa-eye', 'title' => '详情', 'href' => url('details', ['id' => '__id__'])])
+            ->addRightButtons('edit,delete')
+           // ->addRightButton('delete','edit', ['icon' => 'fa fa-eye', 'title' => '详情', 'href' => url('details', ['id' => '__id__'])])
             ->setRowList($data_list) // 设置表格数据
             ->addTopButtons('add,enable,delete,disable')
             ->setPages($page) // 设置分页数据
             ->fetch(); // 渲染模板
     }
+    /**yang
+     * @param int $id
+     * @return mixed
+     */
+    public function edit($id = 0)
+    {
+        if ($id === 0) $this->error('缺少参数');
+        // 保存数据
+        if ($this->request->isPost()) {
+            $data = $this->request->post('', null, 'trim');
+            // 验证
+            $result = $this->validate($data, 'Fullminus');
+            // 验证失败 输出错误信息
+            if(true !== $result) $this->error($result);
+            // 验证是否更改所属模块，如果是，则该节点的所有子孙节点的模块都要修改
+            $map['id'] = $data['id'];
+            if (BuysendModel::update($data)) {
+                // 记录行为
+                $this->success('编辑成功', cookie('__forward__'));
+            } else {
+                $this->error('编辑失败');
+            }
+        }
+        $info = BuysendModel::get($id);
+        $list_status = ['0' => '禁用', '1' => '开启'];
+        return ZBuilder::make('form')
+            ->setUrl(url('save'))
+            ->setPageTitle('编辑促销买送')
+            ->addFormItems([
+                ['hidden','id'],
+                ['text','title','促销名称'],
 
+            ])
+            ->setFormData($info)
+            ->addRadio('status', '启用与否', '', $list_status,0)
+            ->fetch();
+
+
+    }
+
+
+    public function save()
+    {        // 保存数据
+        if ($this->request->isPost()) {
+            $data = $this->request->post();
+            if(!empty($data['id'])){
+                $data['update_time'] = time();
+                if (false !==BuysendModel::where('id', $data['id'])->update($data)) {
+                    $this->success('保存成功','index');
+                } else {
+
+                    $this->error('保存失败，请重试');
+                }
+            }else{
+                $data['add_time'] = time();
+                if (false !== BuysendModel::create($data)) {
+                    $this->success('新增成功','index');
+                } else {
+                    $this->error('新增失败，请重试');
+                }
+            }
+
+        }
+    }
+
+    public function add()
+    {
+        $list_status = ['0' => '禁用', '1' => '开启'];
+        return ZBuilder::make('form')
+            ->setUrl(url('save'))
+            ->setPageTitle('添加促销买送')
+            ->addFormItems([
+                ['text','title','促销名称'],
+
+            ])
+            ->addRadio('status', '启用与否', '', $list_status,0)
+            ->fetch();
+
+    }
 
 }

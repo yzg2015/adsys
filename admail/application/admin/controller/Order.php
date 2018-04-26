@@ -66,5 +66,101 @@ class Order extends Admin
 
     }
 
+    /**yang
+     * @param int $id
+     * @return mixed
+     */
+    public function edit($id = 0)
+    {
+        if ($id === 0) $this->error('缺少参数');
+        // 保存数据
+        if ($this->request->isPost()) {
+            $data = $this->request->post('', null, 'trim');
+            // 验证
+            $result = $this->validate($data, 'Order');
+            // 验证失败 输出错误信息
+            if(true !== $result) $this->error($result);
+            // 验证是否更改所属模块，如果是，则该节点的所有子孙节点的模块都要修改
+            $map['id'] = $data['id'];
+            if (OrderModel::update($data)) {
+                // 记录行为
+                $this->success('编辑成功', cookie('__forward__'));
+            } else {
+                $this->error('编辑失败');
+            }
+        }
+        $list_status = ['0' => '未付款', '-1' => '取消','1' => '取消'];
+        return ZBuilder::make('form')
+            ->setUrl(url('save'))
+            ->setPageTitle('订单详情')
+            ->addFormItems([
+                ['text','name','商品名称'],
+                ['text','spu','SPU'],
+                ['text','who','款式和数量'],
+                ['text','num','赠品'],
+                ['text','price','金额'],
+                ['text','z_price','姓名'],
+                ['text','dao_time','手机'],
+                ['text','content','Email'],
+                ['text','num','详细地址'],
+                ['text','pic','郵編'],
+                ['text','pic','留言'],
+
+            ])
+            ->addRadio('status', '上架状态', '', $list_status,0)
+            ->fetch();
+
+
+    }
+
+
+    public function save()
+    {        // 保存数据
+        if ($this->request->isPost()) {
+            $data = $this->request->post();
+            if(!empty($data['id'])){
+                $data['update_time'] = time();
+                if (false !==Model::where('id', $data['id'])->update($data)) {
+                    $this->success('保存成功','index');
+                } else {
+
+                    $this->error('保存失败，请重试');
+                }
+            }else{
+                $data['add_time'] = time();
+                if (false !== Model::create($data)) {
+                    $this->success('新增成功','index');
+                } else {
+                    $this->error('新增失败，请重试');
+                }
+            }
+
+        }
+    }
+
+    public function add()
+    {
+        $list_status = ['0' => '未付款', '-1' => '取消','1' => '取消'];
+        return ZBuilder::make('form')
+            ->setUrl(url('save'))
+            ->setPageTitle('新增订单')
+            ->addFormItems([
+                ['text','name','商品名称'],
+                ['text','spu','SPU'],
+                ['text','who','款式和数量'],
+                ['text','num','赠品'],
+                ['text','price','金额'],
+                ['text','z_price','姓名'],
+                ['text','dao_time','手机'],
+                ['text','content','Email'],
+                ['text','num','详细地址'],
+                ['text','pic','郵編'],
+                ['text','pic','留言'],
+            ])
+            ->addRadio('status', '上架状态', '', $list_status,0)
+            ->fetch();
+
+    }
+
 
 }

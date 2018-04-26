@@ -46,7 +46,7 @@ class Comment extends Admin
             ->setPageTitle('评论管理') // 设置页面标题
             ->setSearch(['admin_goods.name' => '商品名称', 'admin_comment.content' => '评论内容']) // 设置搜索框
             ->addColumns([ // 批量添加数据列
-                ['__INDEX__', '#'],
+                ['__INDEX__', '序号'],
                 ['id', 'ID'],
                 ['name', '商品名称'],
                 ['content', '评论内容'],
@@ -70,13 +70,17 @@ class Comment extends Admin
     {        // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post();
+            $data['title'] = mb_substr($data['content'], 0, 20, 'utf-8');
             if(!empty($data['id'])){
+                $data['update_time'] = time();
                 if (false !==CommentModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
                     $this->error('保存失败，请重试');
                 }
             }else{
+                $data['update_time'] = time();
+                $data['add_time'] = time();
                 if (false !== CommentModel::create($data)) {
                     $this->success('新增成功','index');
                 } else {
@@ -84,7 +88,7 @@ class Comment extends Admin
                 }
             }
 
-//            ConfigModel::where('name', $name)->update(['value' => $data[$name]]);
+
         }
     }
 
