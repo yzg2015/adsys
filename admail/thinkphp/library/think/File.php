@@ -334,6 +334,7 @@ class File extends SplFileObject
             return false;
         }
 
+
         // 检测合法性
         if (!$this->isValid()) {
             $this->error = 'upload illegal files';

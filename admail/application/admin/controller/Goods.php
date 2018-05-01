@@ -38,6 +38,9 @@ class Goods extends Admin
         $order = $this->getOrder('admin_goods.id desc');
         // 数据列表
         $data_list = GoodsModel::getAll($map, $order);
+        foreach ($data_list as &$v){
+            $v['name'] = "<a  target='_blank' href='/public/index.php/index/index/index/id/'".$v['id'].">". $v['name'] ."</a>";
+        }
         // 分页数据
         $page = $data_list->render();
 
@@ -50,7 +53,7 @@ class Goods extends Admin
                 ['name', '商品名称'],
                 ['url', '所选站点'],
                 ['price', '价格'],
-                ['status', '上架状态', 'switch'],
+                ['status', '状态', 'switch'],
                 ['num', '库存'],
                 ['add_time', '添加时间', 'datetime', '', 'Y-m-d H:i:s'],
                 ['right_button', '操作', 'btn']

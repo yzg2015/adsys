@@ -1,5 +1,6 @@
 {extend name="layout" /}
-{block name="page-header"}{/block}
+{block name="page-header"}
+{/block}
 {block name="content"}
 {notempty name="default_pass"}
 <div class="alert alert-danger alert-dismissable">
@@ -9,8 +10,298 @@
 </div>
 {/notempty}
 {// 后台首页钩子}
-<div class="row">
-    {:hook('admin_index')}
+<div class="row" style="">
+    <div class="col-md-12" style="">
+        <div class="block" style="">
+            <ul class="nav nav-tabs" data-toggle="tabs">
+                <li class="active">
+                    <a href="#tab1">通用信息</a>
+                </li>
+                <li class="">
+                    <a href="#tab2">商品描述</a>
+                </li>
+                <li class="">
+                    <a href="#tab3">商品规格</a>
+                </li>
+                <li class="">
+                    <a href="#tab4">商品属性</a>
+                </li>
+                <li class="">
+                    <a href="#tab5">促销</a>
+                </li>
+                <li class="pull-right">
+                    <ul class="block-options push-10-t push-10-r">
+                        <li>
+                            <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"><i class="si si-size-fullscreen"></i></button>
+                        </li>
+                        <li>
+                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                        </li>
+                        <li>
+                            <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                        </li>
+                        <li>
+                            <button type="button" data-toggle="block-option" data-action="close"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form action="/admin.php/goods/index/save.html" name="form-builder" method="post" class="form-horizontal form-builder" style="">
+                <div class="block-content tab-content" style="">
+                    <div class="tab-pane fade push-20 active in" id="tab1">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">商品名称</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="goods_name" name="goods_name" value="" placeholder="请输入商品名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">SPU</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="spu" name="spu" value="" placeholder="请输入商品spu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="pid">站点</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="site_id" name="site_id">
+                                    <option value="">请选择：</option>
+                                    <option value="136">http://aosois.com</option>
+                                    <option value="135">http://juiceboo.com</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">负责人</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="principal" name="principal" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">商品库存</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="goods_number" name="goods_number" value="" placeholder="请输入商品库存">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">原价</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="market_price" name="market_price" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">折扣价格</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="shop_price" name="shop_price" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">自定义内容</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="custom_content" name="custom_content" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">活动倒计时</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" id="countdown" name="countdown" value="">
+                                <div class="help-block">小时 <span style="color:red;">（请填写整数）</span></div>
+                            </div>
+                        </div>
+                        <div id="form_group_url_target" class="form-group">
+                            <div class="col-xs-6">
+                                <label for="url_target" class="col-xs-12">上架状态</label>
+                                <label class="css-input css-radio css-radio-primary css-radio-sm push-10-r  ">
+                                    <input type="radio" checked="" value="1" id="url_target1" name="is_on_sale">
+                                    <span></span>上架</label>
+                                <label class="css-input css-radio css-radio-primary css-radio-sm push-10-r  ">
+                                    <input type="radio" value="0" id="url_target2" name="is_on_sale">
+                                    <span></span>下架</label>
+                            </div>
+                            <div class="col-xs-3">
+                                <label class="col-xs-12">已搶購數量</label>
+                                <input class="form-control" type="text" id="click_count" name="click_count" value="">
+                            </div>
+                        </div>
+                        <div id="form_group_avatar" class="form-group">
+                            <label for="avatar" class="col-xs-12">商品图片</label>
+                            <div class="col-xs-12">
+                                <div id="file_list_avatar" class="uploader-list">
+
+                                </div>
+                                <div class="clearfix"></div>
+                                <input type="hidden" value="" id="cover_id_multi" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false" name="image">
+                                <div id="picker_avatar" class="">
+                                    <div id="" class="uploadify-button uploadify">
+                                        <span class="uploadify-button-text"><i class="icon_export"></i>上传图片</span>
+                                        <input id="fileupload" class="input-file" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/goods.html" multiple="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade auth-node" id="tab2" style="">
+                        <div class="form-group" style="">
+                            <label class="col-xs-12" for="title">产品介绍</label>
+                            <div class="col-sm-9" style="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade auth-node" id="tab3">
+                        <div class="push-20">
+                            <button class="btn btn-minw btn-primary add_spec_box" target-form="form-builder" type="button">
+                                新增规格
+                            </button>
+                        </div>
+                        <div class="spec_comtent_list">
+
+                        </div>
+                        <div style="clear:both;"> </div>
+                    </div>
+                    <div class="tab-pane fade auth-node" id="tab4">
+                        <div class="push-20">
+                            <button class="btn btn-minw btn-primary add_property" target-form="form-builder" type="button">
+                                新增属性
+                            </button>
+                        </div>
+                        <div class="property_box">
+
+                            <div class="form-group item_pro">
+                                <div class="pro-item">
+                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
+                                        <div class="file_list_avatar uploader-list">
+
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: 40px;margin-top: 5px;">
+                                        <div class="del_propery">删除属性</div>
+                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <div class="">
+                                            <div class="uploadify-button uploadify" style="width:80px;">
+                                                <span class="uploadify-button-text">上传图片</span>
+                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <input type="hidden" class="img_id" value="">
+                                    <input type="hidden" name="property[]" class="property" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group item_pro">
+                                <div class="pro-item">
+                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
+                                        <div class="file_list_avatar uploader-list">
+
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: 40px;margin-top: 5px;">
+                                        <div class="del_propery">删除属性</div>
+                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <div class="">
+                                            <div class="uploadify-button uploadify" style="width:80px;">
+                                                <span class="uploadify-button-text">上传图片</span>
+                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <input type="hidden" class="img_id" value="">
+                                    <input type="hidden" name="property[]" class="property" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group item_pro">
+                                <div class="pro-item">
+                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
+                                        <div class="file_list_avatar uploader-list">
+
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: 40px;margin-top: 5px;">
+                                        <div class="del_propery">删除属性</div>
+                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <div class="">
+                                            <div class="uploadify-button uploadify" style="width:80px;">
+                                                <span class="uploadify-button-text">上传图片</span>
+                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <input type="hidden" class="img_id" value="">
+                                    <input type="hidden" name="property[]" class="property" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group item_pro">
+                                <div class="pro-item">
+                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
+                                        <div class="file_list_avatar uploader-list">
+
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: 40px;margin-top: 5px;">
+                                        <div class="del_propery">删除属性</div>
+                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <div class="">
+                                            <div class="uploadify-button uploadify" style="width:80px;">
+                                                <span class="uploadify-button-text">上传图片</span>
+                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <input type="hidden" class="img_id" value="">
+                                    <input type="hidden" name="property[]" class="property" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear:both;"> </div>
+                    </div>
+                    <div class="tab-pane fade auth-node" id="tab5">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="title">促销活动</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" id="prom_type" name="prom_type">
+                                    <option value="0">普通商品</option>
+                                    <option value="1">满减</option>
+                                    <option value="2">阶梯折扣</option>
+                                    <option value="3">买送</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select class="form-control" id="prom_id" name="prom_id" style="display:none;">
+                                    <option value="0">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="push-20">
+                        <input type="hidden" value="" name="goods_desc" id="goods_desc">
+                        <input type="hidden" name="step" value="1" id="step">
+                        <input type="hidden" name="id" value="" id="id">
+                        <button class="btn btn-minw btn-primary ajax-post submi_btn" target-form="form-builder" type="submit">
+                            确定
+                        </button>
+                        <button class="btn btn-default" type="button" onclick="javascript:history.back(-1);return false;">
+                            返回
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 {/block}
 

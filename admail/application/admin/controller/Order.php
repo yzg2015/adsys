@@ -11,6 +11,7 @@
 
 namespace app\admin\controller;
 use app\admin\model\Order as OrderModel;
+use app\admin\model\Goods as GoodsModel;
 use think\Cache;
 use think\helper\Hash;
 use think\Db;
@@ -46,8 +47,8 @@ class Order extends Admin
             ->addColumns([ // 批量添加数据列
                 ['id', 'ID'],
                 ['order_sn', '订单号'],
-                ['username', '用户名'],
-                ['address', '收货地址'],
+                ['wfname', '姓名'],
+                ['wfaddress', '收货地址'],
                 ['total_money', '总金额'],
                 ['url', '来源网站'],
                 ['status', '订单状态', 'switch'],
@@ -55,8 +56,8 @@ class Order extends Admin
                 ['order_time', '下单时间', 'time', '', 'Y-m-d'],
                 ['right_button', '操作', 'btn']
             ])
-            ->addOrder(['order_sn' => 'admin_order', 'address' => 'admin_delivery','url' => 'admin_goods'])
-            ->addFilter(['admin_order.order_sn', 'admin_delivery.address','admin_goods.url'])
+            ->addOrder(['order_sn' => 'admin_order', 'wfaddress' => 'admin_order','url' => 'admin_site'])
+            ->addFilter(['admin_order.order_sn', 'admin_order.wfaddress','admin_goods.url'])
             ->addTopButtons('add,enable,delete,disable')
             ->addRightButtons('edit,delete')
             ->addRightButton('edit', ['icon' => 'fa fa-eye', 'title' => '详情', 'href' => url('details', ['id' => '__id__'])])
@@ -76,6 +77,9 @@ class Order extends Admin
         // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post('', null, 'trim');
+            if(empty($data['order_sn'])){
+                $data['order_sn'] = rand(1,100).'_'.time().'_'.$id;
+            }
             // 验证
             $result = $this->validate($data, 'Order');
             // 验证失败 输出错误信息
@@ -89,27 +93,33 @@ class Order extends Admin
                 $this->error('编辑失败');
             }
         }
-        $list_status = ['0' => '未付款', '-1' => '取消','1' => '取消'];
+        $info = OrderModel::get($id);
+        $goods_info = GoodsModel::get($info['goods_id']);
+        $info['goods_name']= $goods_info['name'];
+        $list_status = ['0' => '未付款', '-1' => '取消','1' => '已付款'];
         return ZBuilder::make('form')
             ->setUrl(url('save'))
             ->setPageTitle('订单详情')
             ->addFormItems([
-                ['text','name','商品名称'],
+                ['hidden','id'],
+                ['hidden','goods_id'],
+                ['text','goods_name','商品名称'],
+                ['text','order_sn','订单号'],
                 ['text','spu','SPU'],
-                ['text','who','款式和数量'],
+                ['text','wfnums','款式和数量'],
                 ['text','num','赠品'],
-                ['text','price','金额'],
-                ['text','z_price','姓名'],
-                ['text','dao_time','手机'],
-                ['text','content','Email'],
-                ['text','num','详细地址'],
-                ['text','pic','郵編'],
-                ['text','pic','留言'],
+                ['text','total_money','金额'],
+                ['text','wfname','姓名'],
+                ['text','wfmob','手机'],
+                ['text','wfemail','Email'],
+                ['text','wfaddress','详细地址'],
+                ['text','fpost','郵編'],
+                ['text','remark','留言'],
 
             ])
             ->addRadio('status', '上架状态', '', $list_status,0)
+            ->setFormData($info)
             ->fetch();
-
 
     }
 
@@ -118,17 +128,16 @@ class Order extends Admin
     {        // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post();
+            $data['update_time'] = time();
             if(!empty($data['id'])){
-                $data['update_time'] = time();
-                if (false !==Model::where('id', $data['id'])->update($data)) {
+                if (false !==OrderModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
-
                     $this->error('保存失败，请重试');
                 }
             }else{
-                $data['add_time'] = time();
-                if (false !== Model::create($data)) {
+                $data['order_time'] = time();
+                if (false !== OrderModel::create($data)) {
                     $this->success('新增成功','index');
                 } else {
                     $this->error('新增失败，请重试');
@@ -140,22 +149,23 @@ class Order extends Admin
 
     public function add()
     {
-        $list_status = ['0' => '未付款', '-1' => '取消','1' => '取消'];
+        $list_status = ['0' => '未付款', '-1' => '取消','1' => '已付款'];
         return ZBuilder::make('form')
             ->setUrl(url('save'))
             ->setPageTitle('新增订单')
             ->addFormItems([
-                ['text','name','商品名称'],
+                ['text','goods_name','商品名称'],
+                ['text','order_sn','订单号'],
                 ['text','spu','SPU'],
-                ['text','who','款式和数量'],
+                ['text','wfnums','款式和数量'],
                 ['text','num','赠品'],
-                ['text','price','金额'],
-                ['text','z_price','姓名'],
-                ['text','dao_time','手机'],
-                ['text','content','Email'],
-                ['text','num','详细地址'],
-                ['text','pic','郵編'],
-                ['text','pic','留言'],
+                ['text','total_money','金额'],
+                ['text','wfname','姓名'],
+                ['text','wfmob','手机'],
+                ['text','wfemail','Email'],
+                ['text','wfaddress','详细地址'],
+                ['text','fpost','郵編'],
+                ['text','remark','留言'],
             ])
             ->addRadio('status', '上架状态', '', $list_status,0)
             ->fetch();

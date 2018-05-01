@@ -19,7 +19,7 @@ use think\Model;
  */
 class Attachment extends Model
 {
-    // 设置当前模型对应的完整数据表名称
+    //设置当前模型对应的完整数据表名称
     protected $table = '__ADMIN_ATTACHMENT__';
 
     // 自动写入时间戳

@@ -33,9 +33,9 @@ class Order extends Model
     public static function getAll($map = [], $order = '')
     {
         $data_list = self::view('admin_order', true)
-            ->view('admin_site', 'title,url', 'admin_order.site_id=admin_site.id', 'left')
-            ->view('admin_user', 'username,nickname', 'admin_user.id=admin_order.user_id', 'left')
-            ->view('admin_delivery', 'address', 'admin_order.delivery_id=admin_delivery.id', 'left')
+            ->view('admin_goods', 'name', 'admin_order.goods_id=admin_goods.id', 'left')
+            ->view('admin_site', 'title,url', 'admin_goods.site_id=admin_site.id', 'left')
+        ->view('admin_delivery', 'address', 'admin_order.delivery_id=admin_delivery.id', 'left')
             ->where($map)
             ->order($order)
             ->paginate();

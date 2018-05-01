@@ -40,4 +40,11 @@ class Comment extends Model
             ->paginate();
         return $data_list;
     }
+
+    public static function getList($goods_id)
+    {
+//        $data_list = self::get('admin_comment', true)
+//
+//        return $data_list;
+    }
 }

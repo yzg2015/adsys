@@ -249,6 +249,8 @@ class Attachment extends Admin
         }
 
         // 移动到框架应用根目录/uploads/ 目录下
+
+
         $info = $file->move(config('upload_path') . DS . $dir);
         if($info){
             // 缩略图路径

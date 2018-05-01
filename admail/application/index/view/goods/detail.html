@@ -2,11 +2,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>在線快速訂購 - 新款春秋碎花連衣裙兩件套</title>
+    <title>在線快速訂購 - {$info.name}</title>
     <meta name="generator" content="订单系统">
     <script type="text/javascript" src="/public/static/home/js/wfjq.js"></script>
-    <script type="text/javascript" src="/public/static/home/js/layui.js"></script>
+    <script type="text/javascript" src="/public/static/home/js/layer/layer.js"></script>
     <script type="text/javascript" src="/public/static/home/js/wfjqcity.js"></script>
+    <script type="text/javascript" src="/public/static/home/js/jquery.form.js"></script>
     <script type="text/javascript">
         $("document").ready(function(){
             $(".size a").click(function(){
@@ -43,7 +44,7 @@
             });
         });
     </script>
-    <link href="/public/static/home/css//style.css" rel="stylesheet" type="text/css">
+    <link href="/public/static/home/css/style.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         .wforder{max-width:950px;}
         .wftitle{background:#FF9900;}
@@ -80,30 +81,34 @@
     </style>
     <link id="layuicss-skinlayercss" rel="stylesheet" href="http://unn.tw/zztemps/zzproduct/wfpublic/layui/css/modules/layer/default/layer.css?v=3.0.11110" media="all"><link id="layuicss-laydatecss" rel="stylesheet" href="http://unn.tw/zztemps/zzproduct/wfpublic/layui/css/modules/laydate/laydate.css" media="all"></head>
 <body>
-<div style="position:fixed; bottom:120px; overflow:hidden; width:60px;height: 60px; margin:0 auto; z-index:12512; left:10px; text-align:center;"><a onclick="history.go(-1)"><img border="0" width="60" height="60" src="/public/static/home/img/backpage.png"></a></div>
+<div style="position:fixed; bottom:120px; overflow:hidden; width:60px;height: 60px; margin:0 auto; z-index:12512; left:10px; text-align:center;">
+<a onclick="history.go(-1);">
+    <img border="0" width="60" height="60" src="/public/static/home/img/backpage.png">
+</a>
+</div>
 <div class="wforder">
     <div class="wftitle" style="position:fixed; top:0; overflow:hidden; width:100%; margin:0 auto; z-index:12509; left:0;height: 36px;line-height: 36px;background-color: rgba(222, 35, 39, 1); text-align:center; ">線上快速訂購</div>
     <br><br>
-    <form id="wfform" name="wfform" method="post" class="wfform" target="_blank">
+    <form id="wfform" name="wfform" method="post" action="/public/index.php/index/goods/save/id/{$info.id}" class="wfform" target="_blank">
         <input type="hidden" name="wfbuildFB" value="">
-        <input type="hidden" name="wfnotnull" value="b7e5713dcc595cd93d7b">
         <input type="hidden" name="wfpid" value="3">
         <input type="hidden" name="wftid" value="2">
         <input type="hidden" name="WFDDURL" id="WFDDURL" value="http://unn.tw/zztemps/zzproduct/wfdata/item/f495b6ab9dcf8d3b.html?wfid=site">
-        <input type="hidden" name="wfproname" id="wfproname" value="新款春秋碎花連衣裙兩件套">
-        <input type="hidden" name="wfprosize" id="wfprosize" value="M">				<input type="hidden" name="wfprocolour" id="wfprocolour" value="綠色">				<input type="hidden" name="wfpayment" id="wfpayment" value="scan">
+        <input type="hidden" name="goods_name" id="wfproname" value="{$info.name}">
+        <input type="hidden" name="wfprosize" id="wfprosize" value="M">
+        <input type="hidden" name="wfprocolour" id="wfprocolour" value="綠色">
+        <input type="hidden" name="wfpayment" id="wfpayment" value="scan">
         <input type="hidden" name="wfpayzk" id="wfpayzk" value="1">
-        <input type="hidden" name="wfproup" id="wfproup" value="1398">
-
-        <input type="hidden" name="wfprice" id="wfprice" value="1398.00">
+        <input type="hidden" name="wfproup" id="wfproup" value="{$info.price}">
+        <input type="hidden" name="wfprice" id="wfprice" value="{$info.price}">
         <input type="hidden" name="wfuprovince" id="wfuprovince" value="广东">
         <input type="hidden" name="wfucity" id="wfucity" value="深圳">
         <input type="hidden" name="wfismob" id="wfismob" value="pc">
         <div class="wfwrap">
             <div class="wfwrapbox">
                 <div class="wfform-box">
-                    <img src="../../wfdata/upload/20171017183809.jpg" style="width:100%;">
-                    <div class="wfproimg"><p>新款春秋碎花連衣裙兩件套<br><span style="font-size:12px;font-weight:100;color:#999;">貨到付款，免運，7天無理由退換</span></p></div>
+                    <img src="{$info.pic}" style="width:100%;">
+                    <div class="wfproimg"><p>{$info.name}<br><span style="font-size:12px;font-weight:100;color:#999;">貨到付款，免運，7天無理由退換</span></p></div>
                 </div>
 
                 <!---------- 产品套餐 ---------->
@@ -134,8 +139,8 @@
                     <label class="wfform-label">顔色</label>
                     <div class="wfform-pro frame">
                         <ul class="colour">
-                            <li><a href="javascript:void(0);" class="" data-colour="紅色"><img style="width:100px;height:100px;" src="../../wfdata/upload/20171017183835.jpg" alt="紅色" title="紅色"><br>紅色</a></li>
-                            <li><a href="javascript:void(0);" class="curcolour" data-colour="綠色"><img style="width:100px;height:100px;" src="../../wfdata/upload/20171017183838.jpg" alt="綠色" title="綠色"><br>綠色</a></li>
+                            <li><a href="javascript:void(0);" class="" data-colour="紅色"><img style="width:100px;height:100px;" src="{$info.pic}" alt="紅色" title="紅色"><br>紅色</a></li>
+                            <li><a href="javascript:void(0);" class="curcolour" data-colour="綠色"><img style="width:100px;height:100px;" src="{$info.pic}" alt="綠色" title="綠色"><br>綠色</a></li>
 
                         </ul>
 
@@ -149,7 +154,7 @@
                         <a onclick="numdec()" title="减1" class="dec"></a>
                         <input type="text" id="wfnums" name="wfnums" value="1" readonly="">
                         <a onclick="numlnc()" title="加1" class="lnc"></a>
-                        <strong><em class="rmb">NT$</em><em id="showprice">1398.00</em></strong>
+                        <strong><em class="rmb">NT$</em><em id="showprice">{$info.price}</em></strong>
                     </div>
                 </div>
                 <!---------- 数量价格 ---------->
@@ -204,7 +209,6 @@
                         <textarea name="wfguest" placeholder="請儘快安排發貨，送貨之前手機聯系，謝謝！【可不填】" class="textarea"></textarea>
                     </div>
                 </div>
-
                 <!---------- 表单选项 ---------->
                 <!---------- 付款方式 ---------->
                 <div class="wfform-box">
@@ -228,7 +232,7 @@
         <!---------- 表单主体 ---------->
         <div class="wfwrap">
             <div class="wfform-box">
-                <button id="wfsubmit" lay-submit="" lay-filter="wfsubmit" class="wfbtn btn-g">立即提交訂單</button>
+                <button id="submit" type="submit" lay-submit="" lay-filter="submit" class="wfbtn btn-g">立即提交訂單</button>
             </div>
         </div>
     </form>
@@ -254,7 +258,8 @@
             </div>
         </div>
     </div>
-    <div style="height:8px;"></div>
+
+    <div style="height:8px;" id="output"></div>
 </div>
 <script type="text/javascript">
     var rmb = document.getElementsByClassName("rmb");
@@ -264,6 +269,40 @@
             rmb[0].innerText = coin;
         }
     }
+
+    var id=0;
+    $(document).ready(function () {
+        var options = {
+            target : '#output',    // 把服务器返回的内容放入id为output的元素中
+            dataType: 'html',
+            beforeSubmit : showRequest,    // 提交前的回调函数
+            success : showResponse    // 提交后的回调函数
+        };
+        // ajaxForm
+        $("#wfform").ajaxForm(options);
+
+    });
+    function showRequest(formData, jqForm, options){
+
+        var queryString=$.param(formData); // name=1&address=2
+        var formElement=jqForm[0]; // 将jqForm转换为DOM对象
+        var name = formElement.wfname.value;
+        return true; // 只要不返回false，表单都会提交，在这里可以对表单元素进行验证
+    }
+
+    function showResponse(d,statusText){
+        if(d=='ok')
+        {
+            alert('订购成功');
+            setTimeout(function () {
+                window.location.reload();
+            },2000);
+
+        }else{
+            alert();
+        }
+    }
+
 </script>
 <script type="text/javascript" src="/public/static/home/js/wfpost.js"></script>
 
