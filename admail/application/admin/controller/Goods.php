@@ -50,7 +50,7 @@ class Goods extends Admin
                 ['name', '商品名称'],
                 ['url', '所选站点'],
                 ['price', '价格'],
-                ['status', '状态', 'switch'],
+                ['status', '上架状态', 'switch'],
                 ['num', '库存'],
                 ['add_time', '添加时间', 'datetime', '', 'Y-m-d H:i:s'],
                 ['right_button', '操作', 'btn']
