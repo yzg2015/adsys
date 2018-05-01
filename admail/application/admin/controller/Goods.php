@@ -138,7 +138,6 @@ class Goods extends Admin
                         ['hidden','id'],
                         ['ueditor','content','产品详情'],
                     ])
-                    ->addRadio('status', '上架状态', '', $list_status,0)
                     ->setFormData($info)
                     ->fetch();
                 break;
