@@ -12,6 +12,8 @@
 namespace app\index\controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Comment as CommentModel;
+use app\admin\model\Order as OrderModel;
+
 /**
  * 前台首页控制器
  * @package app\index\controller
@@ -33,8 +35,11 @@ class Index extends Home
         if (config('home_default_module') != 'index') {
             $this->redirect(config('home_default_module'). '/index/index');
         }
-//        CommentModel::getAll();
+        $c_list = CommentModel::getList($id);
         $this->assign('info',$info);
+        $this->assign('c_list',$c_list);
+        $this->assign('c_count',count($c_list));
+  
         return $this->fetch();
     }
 

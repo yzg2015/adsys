@@ -43,8 +43,11 @@ class Comment extends Model
 
     public static function getList($goods_id)
     {
-//        $data_list = self::get('admin_comment', true)
-//
-//        return $data_list;
+
+        // 数据列表
+        $map['goods_id'] = $goods_id;
+        $data_list = self::where($map)->column(true);
+
+        return $data_list;
     }
 }

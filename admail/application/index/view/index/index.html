@@ -149,7 +149,7 @@
                 <a name="js"></a>
                 <div class="mod_tab_wrap">
                     <div class="mod_tab">
-                        <span class="cur" id="tab1"><a href="#js" style="color: #FF0000;">商品介紹</a></span><span class="" id="tab2"><a href="#cs">商品參數</a></span><span class="" id="tab3"><a href="#pl">評價(<em id="evalNum">10</em>)</a></span>
+                        <span class="cur" id="tab1"><a href="#js" style="color: #FF0000;">商品介紹</a></span><span class="" id="tab2"><a href="#cs">商品參數</a></span><span class="" id="tab3"><a href="#pl">評價(<em id="evalNum">{$c_count}</em>)</a></span>
                     </div>
                 </div>
                 <div class="detail_info_wrap" style="border-top: 0px;">
@@ -171,7 +171,7 @@
                             <div class="mod_tab">
                                 <span class="" id="tab1"><a href="#js">商品介绍</a></span>
                                 <span class="cur" id="tab2"><a href="#cs" style="color: #FF0000;">商品參數</a></span>
-                                <span class="" id="tab3"><a href="#pl">評價(<em id="evalNum">10</em>)</a></span>
+                                <span class="" id="tab3"><a href="#pl">評價(<em id="evalNum">{$c_count}</em>)</a></span>
                             </div>
                         </div>
                         <!-- 商品参数 开始--><!-- 商品参数 结束-->
@@ -181,58 +181,14 @@
                                 <h2>客戶評價</h2>
                                 <div id="pingjia" class="pingjia">
                                     <ul class="allpj" id="allpj">
-                                    <li class="le" style="height: 100px; display: list-item;">
-                                        <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                        <section class="l">真的非常好，穿著很大氣
-                                            <div></div>
-                                        </section>
-                                    </li><li class="ri" style="height: 100px; display: list-item;">
-                                        <section class="r">這款料子還可以，還沒有穿，摸起來很舒服
-                                            <div></div>
-                                        </section>
-                                        <img class="lj" src="/public/static/home/img/r.png"><span class="touxiang"></span>
-                                    </li><li class="le" style="height: 100px; display: list-item;">
-                                        <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                        <section class="l">質量不錯，價格合理，穿上很舒服
-                                            <div></div>
-                                        </section>
-                                    </li><li class="ri" style="height: 100px; display: list-item;">
-                                        <section class="r">穿了幾次，質量還行，好
-                                            <div></div>
-                                        </section>
-                                        <img class="lj" src="/public/static/home/img/r.png"><span class="touxiang"></span>
-                                    </li><li class="le" style="height: 100px; display: list-item;">
-                                        <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                        <section class="l">不錯的壹件衣服 媽媽很喜歡
-                                            <div></div>
-                                        </section>
-                                    </li><li class="ri" style="height: 100px; display: list-item;">
-                                        <section class="r">衣服不錯，很喜歡，下次還來買
-                                            <div></div>
-                                        </section>
-                                        <img class="lj" src="/public/static/home/img/r.png"><span class="touxiang"></span>
-                                    </li><li class="le" style="height: 100px; display: list-item;">
-                                        <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                        <section class="l">我媽很滿意
-                                            <div></div>
-                                        </section>
-                                    </li><li class="ri" style="height: 100px; display: list-item;">
-                                        <section class="r">樣式做工很好，面料柔軟舒服上身效果不錯，顏色比圖片深，滿意
-                                            <div></div>
-                                        </section>
-                                        <img class="lj" src="/public/static/home/img/r.png"><span class="touxiang"></span>
-                                    </li><li class="le" style="height: 100px; display: list-item;">
-                                        <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                        <section class="l">這衣服蠻喜歡的，價格又實惠，蠻好看的
-                                            <div></div>
-                                        </section>
-                                    </li><li class="ri" style="height: 100px; display: list-item;">
-                                        <section class="r">收到，非常滿意，衣服柔軟，穿上很舒服，衣服尺碼標準，下次還會再來
-                                            <div></div>
-                                        </section>
-                                        <img class="lj" src="/public/static/home/img/r.png"><span class="touxiang"></span>
-                                    </li>
-
+                                        {volist name="c_list" id="vo"}
+                                        <li class="le" style="height: 100px; display: list-item;">
+                                            <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
+                                            <section class="l">{$vo.content}
+                                                <div></div>
+                                            </section>
+                                        </li>
+                                        {/volist}
                                     </ul>
                                 </div>
                             </article>
