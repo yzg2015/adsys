@@ -1,334 +1,1144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta content="320" name="MobileOptimized">
-    <meta content="telephone=no" name="format-detection">
-    <link rel="stylesheet" href="/public/static/home/css/active.css">
-    <link rel="stylesheet" href="/public/static/home/css/detailv3.css">
-    <link href="/public/static/home/css/styles.css" rel="stylesheet">
-    <link href="img/favicon.ico" type="image/x-icon" rel="icon">
-    <link rel="stylesheet" href="/public/static/home/css/myl.css">
-    <title>{$info.name}</title>
-    <meta name="keywords" content="{$info.name}">
-    <meta name="description" content="{$info.name}">
-    <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="/public/static/home/js/jquery.js"></script>
-    <script src="/public/static/home/js/time.lesser.js"></script>
-    <style>
-        ::-webkit-scrollbar {
-            width: 10px;
-            background-color: #F5F5F5;
-        }
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: rgba(241, 241, 242, 1);
-        }
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background-color: #F90;
-            border-radius: 10px;
-            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .5)
-            25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .5) 50%,
-            rgba(255, 255, 255, .5) 75%, transparent 75%, transparent )
-        }
-        ::-webkit-scrollbar-thumb:window-inactive {
-            background: rgba(144, 24, 53, 0.8);
-        }
-    </style>
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-            document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1686555304707949'); // Insert your pixel ID here.
-        fbq('track', 'PageView');
-        fbq('track', 'ViewContent');
-    </script>
-    <noscript>&lt;img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1686555304707949&amp;ev=PageView&amp;noscript=1"
-        /&gt;</noscript>
-    <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-            document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '373453946408103'); // Insert your pixel ID here.
-        fbq('track', 'PageView');
-        fbq('track', 'ViewContent');
-    </script>
-    <noscript>&lt;img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=373453946408103&amp;ev=PageView&amp;noscript=1"
-        /&gt;</noscript>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>首頁</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="購物中心擁有二十大商品類別，上千件以上的豐富商品，商品類別包括消費電子、美妝、新品男鞋、潮流女裝、時尚女鞋、性感內衣、家居用品、廚房用品等。VIVISHOP 購物中心熱衷於讓客戶在線購物變得更輕松愉快，在更短的時間享受更愉悅的購物體驗，以更便宜的價格買到想要的商品。並享有七天猶豫期，信用卡、貨到付款等支付方式，讓您購物最便利。">
+    <meta name="keywords" content="台灣網絡購物商城，品牌服飾，男女背包，性感內衣，床罩，枕頭">
+    <meta name="robots" content="INDEX,FOLLOW">
 
-    <!-- DO NOT MODIFY -->
-    <!-- End Facebook Pixel Code -->
-    <!-- Facebook Pixel Code -->
-
-    <!-- End Facebook Pixel Code -->
-</head>
-<body>
-<div class="mod_bar" id="header_normal" style="position: fixed; top: 0; overflow: hidden; width: 100%; margin: 0 auto; z-index: 12509; left: 0; height: 47px; line-height: 47px;">
-    <div class="mod_bar_tit">
-        {$info.name}
-    </div>
-</div>
-<br>
-<br>
-<div class="mod_slider" id="loopImgDiv">
-    <div class="inner">
-        <div class="pic_list" id="loopImgUl">
-            <div id="mainPicDiv" style="padding: 4px; background-color: #fff; border: 1px solid rgba(0, 0, 0, 0.2); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                <img width="100%" src="{$info.pic}">
-
-            </div>
-        </div>
-    </div>
-    <div class="bar_wrap">
-    </div>
-</div>
-<div class="buy_area">
-    <div class="buyinfo" id="buyinfoCount">
-        <div class="inforContent">
-            <div class="i-p-top">
-                <span> {$info.name}</span>
-                <br>
-                <span class="acticePrice"><span></span>NT$  {$info.price}</span>
-                <br>
-                <span class="oldPrice">原價：<span>NT${$info.price}</span></span>
-            </div>
-            <div class="i-p-m buyinfo_post">
-                <span class="flag1">限時搶購</span><span class="flag1">在綫支付</span><span class="flag1">免運費</span><span class="timeWrap"><span class="soldPart">已搶購 <span id="soldNum" style="color: #FF0000;">{$info.buy_num}</span>件</span></span>
-            </div>
-            <div id="here">
-            </div>
-            <div class="i-p-b">
-                <div class="time-count" style="background-color: rgb(173, 20, 21); position: relative;">
-                    <p class="time-count-bg" style="width: 20.42361111111111%; background-color: #d21f17; position: absolute; z-index: 99;">
-                        <span class="loading" style="position: absolute; background-size: 100% 100%; left: 0; top: 0; background-position: center center; background-repeat: no-repeat;"></span>
-                    </p>
-                    <center>
-                        <div id="remainTime_1" style="color: #FFFFFF;">
-                            <span>00</span>天<span>02</span>小时<span>43</span>分<span>12</span>秒
-                        </div>
-                    </center>
-                </div>
-            </div>
-            <div class="i-p-b">
-                <div class="orderInf font-desc">
-                    <font style="color: #FF0000;">
-                        【官方店限時搶購】【原價NT${$info.price}】
-                        【在綫支付】【促銷僅NT${$info.price}】。免運費+支持七天無理由退換貨！發現非正品，商家承擔來回運費！
-                    </font>
-                </div>
-            </div>
-            <div class="i-p-b" style="border: none;">
-                <div style="float: left; width: 48%; height: 100%; text-align: center;">
-                    <div>
-                        <img src="/public/static/home/img/icon-post.svg" alt="" style="height: 20px; width: 8%"><span style="font-size: 10px;">免運費</span>
-                    </div>
-                </div>
-                <div style="float: left; width: 48%; height: 100%; text-align: center;">
-                    <div>
-                        <img src="/public/static/home/img/icon-seven.svg" alt="" style="height: 20px; width: 8%"><span style="font-size: 10px;">7天無理由退換貨</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn">
-                <a href="/public/index.php/index/goods/detail/id/{$info.id}" class="conbtn">立即搶購</a>
-            </div>
-        </div>
-        <div id="order" class="order-now">
-            <article class="ordercontent">
-                <a name="js"></a>
-                <div class="mod_tab_wrap">
-                    <div class="mod_tab">
-                        <span class="cur" id="tab1"><a href="#js" style="color: #FF0000;">商品介紹</a></span><span class="" id="tab2"><a href="#cs">商品參數</a></span><span class="" id="tab3"><a href="#pl">評價(<em id="evalNum">{$c_count}</em>)</a></span>
-                    </div>
-                </div>
-                <div class="detail_info_wrap" style="border-top: 0px;">
-                    <div class="detail_list" id="detailCont">
-
-                        <div class="detail_item p_desc" id="detail_tab1" style="padding: 4px 4px;">
-                            <div id="commDesc" class="detail_pc">
-                                <!-- 商品介绍 开始-->
-                                <div class="detail_con">
-                                    {$info.content}
-
-                                </div>
-                                <!-- 商品介绍 结束-->
-                            </div>
-                        </div>
-                        <a name="cs"></a>
-
-                        <div class="mod_tab_wrap">
-                            <div class="mod_tab">
-                                <span class="" id="tab1"><a href="#js">商品介绍</a></span>
-                                <span class="cur" id="tab2"><a href="#cs" style="color: #FF0000;">商品參數</a></span>
-                                <span class="" id="tab3"><a href="#pl">評價(<em id="evalNum">{$c_count}</em>)</a></span>
-                            </div>
-                        </div>
-                        <!-- 商品参数 开始--><!-- 商品参数 结束-->
-                        <a name="pl"></a><!-- 评论 結束-->
-                        <div class="detail_item3" id="detail_tab3">
-                            <article>
-                                <h2>客戶評價</h2>
-                                <div id="pingjia" class="pingjia">
-                                    <ul class="allpj" id="allpj">
-                                        {volist name="c_list" id="vo"}
-                                        <li class="le" style="height: 100px; display: list-item;">
-                                            <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                            <section class="l">{$vo.content}
-                                                <div></div>
-                                            </section>
-                                        </li>
-                                        {/volist}
-                                    </ul>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- 评论 結束 -->
-                        <div id="desc detail-pic" class="page-item detail-item">
-                            <h2 style="padding-left: 10px;">商品運送</h2>
-                            <div style="clear: both">
-                            </div>
-                            <br style="clear: both">
-                            <div class="content">
-                                <div class="Notes copywriting">
-                                    <ul>
-                                        <li>免運費。</li>
-                                        <li>在綫支付。</li>
-                                        <li>我們所提供的產品配送區域僅限於臺灣本島<em>（外島地區的朋友請利用台灣親友地址做為收貨地址）</em>。</li>
-                                        <li>这些配送地點需加收<em>NT$500運費</em>(<em>蘭嶼、澎湖、綠島、七星岩、崇明島、金門、媽祖、連江、小琉璃
-                                        </em>)，其它地區不另收運費。</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <br style="clear: both">
-                        </div>
-                        <div>
-                            <div>
-                                <h1 style="color: #F00; font-size: 34px;">温馨提示</h1>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                        <div id="buy" class="buy-now">
-                            <article class="info" style="border:none;"> 溫馨提示：支持在綫支付+免郵費+七天無理由退換貨！
-                                收到貨有任何疑問請聯繫我們在線客服! 也可隨時聯繫:
-                                <a href="mailto:service.kf766@outlook.com">service.kf766@outlook.com</a>。同時請附上您的姓名及聯繫方式及訂單編號在郵件當中，以便我們能快速的給您及時處理，祝您購物愉快！！！
-                                <br>
-                                <br>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-        <div class="copr">
-            <ul>
-                <li><a href="html/ys.html">隱私協議</a></li>
-                <li><a href="html/a.html">服務條款</a></li>
-                <li><a href="html/th.html">退換貨政策</a></li>
-                <li class="nobor"><a href="html/bz.html">購物保障</a></li>
-            </ul>
-            <div class="clr">
-            </div>
-            <p>
-                郵箱：service.kf766@outlook.com<br>
-
-                <br>
-
-            </p>
-        </div>
-    </div>
-</div>
-<br>
-<br>
-<br>
-<a name="order"></a>
-<div style="position: fixed; bottom: 0; overflow: hidden; width: 100%; margin: 0 auto; z-index: 12509; left: 0">
-    <a href="/public/index.php/index/goods/detail/id/{$info.id}" onclick="getUrl()" style="line-height: 45px; text-align: center; width: 100%; float: right; display: block; height: 45px; background-color: #DE2327; color: white">立即搶購</a>
-</div>
-<script type="text/javascript">
-    $(function(){
-        function scollDown(id,time){
-            var liHeight=$("#"+id+" ul li").height();
-            var time=time||2500;
-            setInterval(function(){
-                $("#"+id+" ul").prepend($("#"+id+" ul li:last").css("height","0px").animate({
-                    height:liHeight+"px"
-                },"slow"));
-            },time);
-        }
-        scollDown("pingjia",3000);
-        ///////////////////////////////
-        //懒加载
-        num = document.getElementsByTagName('img').length;
-        img = document.getElementsByTagName("img");
-        lazyload(true); //页面载入完毕加载可是区域内的图片
-        window.addEventListener('scroll',throttle(lazyload,200,500));//采用了节流函数
-    });
-    ///////////////////////////////
-    //主图视频
-    sessionStorage.hb="NT$";
-    var mUrl = "./product/59e5dd47302080mh.jpg";
-    var ie = mUrl.lastIndexOf(".");
-    var ku = mUrl.substring(ie+1);
-    if(ku == "mp4"){
-        var mpd = document.getElementById("mainPicDiv");
-        if(mpd){
-            mpd.innerHTML = '<video width="100%" height="100%" src="'+mUrl+'" loop="true" autoplay="true" controls="controls">';
-        }
-    }
-
-    //懒加载
-    var num;
-    var img;
-    var n = 0; //存储图片加载到的位置，避免每次都从第一张图片开始遍历
-    function lazyload(m) { //监听页面滚动事件
-        var seeHeight = document.documentElement.clientHeight; //可见区域高度
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //滚动条距离顶部高度
-        var k = 0;
-        for (var i = n; i < num; i++) {
-            if (img[i].offsetTop < seeHeight + scrollTop) {
-                if (img[i].getAttribute("src") == "./img/k.jpg") {
-                    img[i].src = img[i].getAttribute("data-src");
-                    k++;
-                    if(m && k>=5) break;
-                }
-                //n = i + 1;
-            }
-        }
-    }
-    function throttle(fun, delay, time) {
-        var timeout,startTime = new Date();
-        return function() {
-            var context = this,
-                args = arguments,
-                curTime = new Date();
-            clearTimeout(timeout);
-            // 如果达到了规定的触发时间间隔，触发 handler
-            if (curTime - startTime >= time) {
-                fun.apply(context, args);
-                startTime = curTime;
-                // 没达到触发间隔，重新设定定时器
-            } else {
-                timeout = setTimeout(function(){
-                    fun.apply(context, args);
-                }, delay);
-            }
-        };
-    };
-    ///////////////////////////////
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="https://www.baidu.com/"><!--[if lt IE 7]>
+    <script type="text/javascript">
+        //<![CDATA[
+    var BLANK_URL = 'https://www.vivishop.tw//js/blank.html';
+    var BLANK_IMG = 'https://www.vivishop.tw//js/spacer.gif';
+//]]>
 </script>
-<div style="display: none;">
-</div>
+<![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//js/prototype/windows/themes/default.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/yisainuo/wap/css/iconfont.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/yisainuo/wap/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/yisainuo/wap/css/swiper.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/yisainuo/wap/css/public.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/base/default/aw_blog/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/base/default/cryozonic_stripe/css/cctype.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://www.vivishop.tw//skin/frontend/base/default/cryozonic_stripe/css/savedcards.css" media="all">
+    <script async="" src="//pixeltrack.clientgear.com/mk228103936293371_v20180425.js?"></script><script src="https://pagead2.googlesyndication.com/pagead/js/r20180425/r20180501/osd.js"></script><script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-5386615416001865.js"></script><script src="https://s.yimg.com/wi/ytc.js" async=""></script><script src="//bat.bing.com/bat.js" async=""></script><script src="https://s.yimg.com/wi/ytc.js" async=""></script><script type="text/javascript" async="" src=" https://js.ptengine.cn/74f0d649.js"></script><script src="https://s.yimg.com/wi/ytc.js" async=""></script><script type="text/javascript" async="" src="https://d10lpsik1i8c69.cloudfront.net/w.js"></script><script src="https://s.yimg.com/wi/ytc.js" async=""></script><script async="" src="//pixeltrack.clientgear.com/mkq.min.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="https://www.vivishop.tw//js/prototype/prototype.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/lib/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/lib/jquery/noconflict.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/lib/ccard.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/prototype/validation.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/scriptaculous/builder.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/scriptaculous/effects.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/scriptaculous/dragdrop.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/scriptaculous/controls.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/scriptaculous/slider.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/varien/js.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/varien/form.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/mage/translate.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//js/mage/cookies.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap/js/jian.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap/js/main.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap/js/base.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap/js/index.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/base/default/cryozonic_stripe/js/cryozonic_stripe.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/base/default/cryozonic_stripe/js/cctype.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/base/default/cryozonic_stripe/js/prototype/window.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap/js/hhSwipe.js"></script>
+    <script type="text/javascript" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap/js/swiper-3.4.0.jquery.min.js"></script>
+    <link href="https://www.vivishop.tw/blog/rss/index/store_id/6/" title="Blog" rel="alternate" type="application/rss+xml">
+    <script type="text/javascript">Mage.Cookies.path ='/';Mage.Cookies.domain ='.www.vivishop.tw';</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script type="text/javascript">optionalZipCountries =["MO","HK","PA","IE"];</script>
+    <script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-108411509-4','auto');ga('set','anonymizeIp',true);ga('require','displayfeatures');ga('set','dimension2','');ga('send','pageview');</script>
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','688362901327152');fbq('track','PageView');</script>
+    <noscript>
+        &lt;img height="1" width="1" src="https://www.facebook.com/tr?id=688362901327152&amp;ev=PageView&amp;noscript=1"/&gt;
+    </noscript>
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1465545393483417');fbq('track','PageView');</script>
+    <noscript>
+        &lt;img height="1" width="1" src="https://www.facebook.com/tr?id=1465545393483417&amp;ev=PageView&amp;noscript=1"/&gt;
+    </noscript>
+    <script type="text/javascript">!function(w,o,s,r,p,k,e){if(w.mkq){return}p=w.mkq=function(){p.invokeFunc?p.invokeFunc.apply(p,arguments):p.qu.push(arguments)};if(!w._mkq){w._mkq=p}p.push=p;p.qu=[];k=o.createElement(s);k.async=!0;k.src=r;e=o.getElementsByTagName(s)[0];e.parentNode.insertBefore(k,e)}(window,document,"script","//pixeltrack.clientgear.com/mkq.min.js");var uid =false;uid?mkq('init','228103936293371',uid):mkq('init','228103936293371');mkq('track','PageView');</script>
+    <script>function custom(name)
+    {fbq("trackCustom",name);mkq("trackCustom",name);ga('send','event','Product',name);}
+    jQuery(function(){jQuery('#cd-menu-trigger').click(function(){custom('click_menu');});jQuery('.newicon-sousuotiaofangdajingqz11').click(function(){custom('click_search');});jQuery('#bag').click(function(){custom('click_gouwudai');});jQuery('#newbag').click(function(){custom('pageout_gouwudai');});});</script>
+    <script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'10044846'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script><script type="text/javascript">var Translator =new Translate({"HTML tags are not allowed":"\u4e0d\u5141\u8a31HTML\u6a19\u7c64","Please select an option.":"\u8acb\u9078\u64c7\u4e00\u500b\u9078\u9805\u3002","This is a required field.":"\u9019\u662f\u5fc5\u586b\u5340\u57df\u3002","Please enter a valid number in this field.":"\u8acb\u5728\u6b64\u5340\u57df\u8f38\u5165\u6709\u6548\u7684\u6578\u5b57\u3002","The value is not within the specified range.":"\u6578\u503c\u4e0d\u5728\u6307\u5b9a\u7bc4\u570d\u5167\u3002","Please use numbers only in this field. Please avoid spaces or other characters such as dots or commas.":"\u8acb\u5728\u8a72\u6b04\u4f4d\u4e2d\u53ea\u4f7f\u7528\u6578\u5b57\u3002\u8acb\u4e0d\u8981\u4f7f\u7528\u7a7a\u683c\u6216\u5176\u5b83\u5b57\u7b26\uff0c\u4f8b\u5982\u53e5\u9ede\u6216\u9017\u865f\u3002","Please use letters only (a-z or A-Z) in this field.":"\u5728\u8a72\u6b04\u4f4d\u4e2d\u8acb\u53ea\u4f7f\u7528\u5b57\u6bcd\uff08a-z\u6216A-Z\uff09","Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter.":"\u8a72\u6b04\u4f4d\u4e2d\u8acb\u53ea\u4f7f\u7528\u5b57\u6bcd\uff08a-z\uff09\u3001\u6578\u5b57\uff080-9\uff09\u4ee5\u53ca\u4e0b\u5283\u7dda\uff08_\uff09\uff0c\u7b2c\u4e00\u500b\u5b57\u7b26\u61c9\u70ba\u5b57\u6bcd\u3002","Please use only letters (a-z or A-Z) or numbers (0-9) only in this field. No spaces or other characters are allowed.":"\u8a72\u6b04\u4f4d\u4e2d\u8acb\u53ea\u4f7f\u7528\u5b57\u6bcd\uff08a-z \u6216 A-Z\uff09\u6216\u6578\u5b57\uff080-9\uff09\uff0c\u4e0d\u80fd\u4f7f\u7528\u7a7a\u683c\u6216\u5176\u5b83\u5b57\u7b26\u3002","Please use only letters (a-z or A-Z) or numbers (0-9) or spaces and # only in this field.":"\u8a72\u6b04\u4f4d\u4e2d\u53ea\u80fd\u4f7f\u7528\u5b57\u6bcd\uff08a-z \u6216 A-Z\uff09\u6216\u6578\u5b57\uff080-9\uff09\u6216\u7a7a\u683c\uff0c\u6216 # \u3002","Please enter a valid phone number. For example (123) 456-7890 or 123-456-7890.":"\u8acb\u8f38\u5165\u6709\u6548\u7684\u96fb\u8a71\u865f\u78bc\u3002\u4f8b\u5982 (123) 456-7890 \u6216 123-456-7890\u3002","Please enter a valid fax number. For example (123) 456-7890 or 123-456-7890.":"\u8acb\u8f38\u5165\u6709\u6548\u50b3\u771f\u865f\u78bc\uff0c\u4f8b\u5982 (123) 456-7890 \u6216 123-456-7890\u3002","Please enter a valid date.":"\u8acb\u8f38\u5165\u6709\u6548\u65e5\u671f","Please enter a valid email address. For example johndoe@domain.com.":"\u8acb\u8f38\u5165\u6709\u6548\u90f5\u4ef6\u5730\u5740\u3002\u4f8b\u5982johndoe@domain.com\u3002","Please use only visible characters and spaces.":"\u8acb\u53ea\u4f7f\u7528\u53ef\u898b\u5b57\u7b26\u548c\u7a7a\u683c\u3002","Please enter 6 or more characters. Leading or trailing spaces will be ignored.":"\u8acb\u8f38\u5165\u516d\u500b\u6216\u66f4\u591a\u5b57\u7b26\u3002\u958b\u982d\u6216\u7d50\u5c3e\u8655\u7684\u7a7a\u683c\u6703\u88ab\u5ffd\u7565\u3002","Please enter 7 or more characters. Password should contain both numeric and alphabetic characters.":"\u8acb\u8f38\u5165\u81f3\u5c117\u500b\u5b57\u7b26\u3002\u5bc6\u78bc\u61c9\u5305\u542b\u6578\u5b57\u8207\u5b57\u6bcd\u3002","Please make sure your passwords match.":"\u8acb\u78ba\u4fdd\u5bc6\u78bc\u5339\u914d\u3002","Please enter a valid URL. Protocol is required (http:\/\/, https:\/\/ or ftp:\/\/)":"\u8acb\u8f38\u5165\u6709\u6548URL\u3002\u5354\u8b70\u540d\u662f\u5fc5\u9808\u7684\uff08http:\/\/\u3001https:\/\/\uff0c\u6216ftp:\/\/\uff09","Please enter a valid URL. For example http:\/\/www.example.com or www.example.com":"\u8acb\u8f38\u5165\u6709\u6548\u7684URL\uff0c\u4f8b\u5982http:\/\/www.example.com \u6216 www.example.com","Please enter a valid URL Key. For example \"example-page\", \"example-page.html\" or \"anotherlevel\/example-page\".":"\u8acb\u8f38\u5165\u6709\u6548\u7684 URL \u5bc6\u9470\u3002\u4f8b\u5982\uff0c \"example-page\"\u3001\"example-page.html\"\uff0c\u6216 \"anotherlevel\/example-page\"\u3002","Please enter a valid XML-identifier. For example something_1, block5, id-4.":"\u8acb\u8f38\u5165\u6709\u6548\u7684XML\u6a19\u8b58\u7b26\u3002\u4f8b\u5982\uff0c\u985e\u4f3csomething_1\u3001block5\u3001id-4\u3002","Please enter a valid social security number. For example 123-45-6789.":"\u8acb\u8f38\u5165\u6709\u6548\u793e\u6703\u5b89\u5168\u865f\u78bc\uff0c\u4f8b\u5982123-45-6789\u3002","Please enter a valid zip code. For example 90602 or 90602-1234.":"\u8acb\u8f38\u5165\u6709\u6548\u90f5\u7de8\uff0c\u4f8b\u598290602\u621690602-1234\u3002","Please enter a valid zip code.":"\u8acb\u8f38\u5165\u6709\u6548\u7684\u90f5\u653f\u7de8\u78bc\u3002","Please use this date format: dd\/mm\/yyyy. For example 17\/03\/2006 for the 17th of March, 2006.":"\u8acb\u4f7f\u7528\u9019\u6a23\u7684\u65e5\u671f\u683c\u5f0f\uff1add\/mm\/yyyy\u3002\u4f8b\u598217\/03\/2006\u4ee3\u88682006\u5e743\u670817\u65e5\u3002","Please enter a valid $ amount. For example $100.00.":"\u8acb\u8f38\u5165\u6709\u6548\u7684\u91d1\u984d\uff0c\u4f8b\u5982$100.00\u3002","Please select one of the above options.":"\u8acb\u9078\u64c7\u4e0a\u5217\u9078\u9805\u4e2d\u7684\u4e00\u500b\u3002","Please select one of the options.":"\u8acb\u9078\u64c7\u4e0b\u5217\u4e00\u500b\u9078\u9805\u3002","Please select State\/Province.":"\u8acb\u9078\u64c7\u5dde\/\u7701\u3002","Please enter a number greater than 0 in this field.":"\u8acb\u5728\u8a72\u6b04\u4f4d\u4e2d\u8f38\u5165\u5927\u65bc0\u7684\u6578\u5b57\u3002","Please enter a number 0 or greater in this field.":"\u8acb\u5728\u8a72\u6b04\u4f4d\u4e2d\u8f38\u5165\u6578\u5b570\u6216\u66f4\u5927\u503c\u3002","Please enter a valid credit card number.":"\u8acb\u8f38\u5165\u6709\u6548\u7684\u4fe1\u7528\u5361\u5361\u865f\u3002","Credit card number does not match credit card type.":"\u4fe1\u7528\u5361\u7de8\u865f\u8207\u4fe1\u7528\u5361\u985e\u578b\u4e0d\u5339\u914d\u3002","Card type does not match credit card number.":"\u4fe1\u7528\u5361\u985e\u578b\u8207\u4fe1\u7528\u5361\u865f\u4e0d\u5339\u914d\u3002","Incorrect credit card expiration date.":"\u932f\u8aa4\u7684\u4fe1\u7528\u5361\u5230\u671f\u65e5\u3002","Please enter a valid credit card verification number.":"\u8acb\u8f38\u5165\u6709\u6548\u7684\u4fe1\u7528\u5361\u9a57\u8b49\u78bc\u3002","Please use only letters (a-z or A-Z), numbers (0-9) or underscore(_) in this field, first character should be a letter.":"\u8acb\u4f7f\u7528\u5b57\u6bcd\uff08az\u6216AZ\uff09\uff0c\u6578\u5b57\uff080-9\uff09\u6216\u4e0b\u5283\u7dda\uff08_\uff09\uff0c\u5728\u9019\u65b9\u9762\uff0c\u7b2c\u4e00\u500b\u5b57\u7b26\u5fc5\u9808\u662f\u5b57\u6bcd\u3002","Please input a valid CSS-length. For example 100px or 77pt or 20em or .5ex or 50%.":"\u8acb\u8f38\u5165\u6709\u6548 CSS\u9577\u5ea6\u3002\u4f8b\u5982\uff0c 100px \u6216 77pt \u6216 20em \u6216 .5ex \u6216 50%\u3002","Text length does not satisfy specified text range.":"\u6587\u672c\u9577\u5ea6\u4e0d\u7b26\u5408\u6307\u5b9a\u7684\u6587\u672c\u9577\u5ea6\u7bc4\u570d\u3002","Please enter a number lower than 100.":"\u8acb\u8f38\u5165\u4e0d\u8d85\u904e100\u500b\u6578\u5b57\u3002","Please select a file":"\u8acb\u9078\u64c7\u4e00\u500b\u6587\u4ef6","Please enter issue number or start date for switch\/solo card type.":"\u8acb\u8f38\u5165Switch\/Solo\u985e\u5361\u7684\u9812\u767c\u865f\u6216\u958b\u59cb\u65e5\u671f\u3002","Please wait, loading...":"\u8acb\u7a0d\u5019\uff0c\u6b63\u5728\u8f09\u5165...","This date is a required value.":"\u8a72\u65e5\u671f\u70ba\u5fc5\u9700\u503c\u3002","Please enter a valid day (1-%d).":"\u8acb\u8f38\u5165\u6709\u6548\u5929\u6578\uff081-%d\uff09\u3002","Please enter a valid month (1-12).":"\u8acb\u8f38\u5165\u6709\u6548\u6708\u4efd\uff081-12\uff09\u3002","Please enter a valid year (1900-%d).":"\u8acb\u8f38\u5165\u6709\u6548\u5e74\u4efd\uff081900-%d\uff09\u3002","Please enter a valid full date":"\u8acb\u8f38\u5165\u6709\u6548\u5b8c\u6574\u65e5\u671f","Please enter a valid date between %s and %s":"\u8acb\u5728 %s \u8207 %s \u4e4b\u9593\u8f38\u5165\u6709\u6548\u65e5\u671f\u3002","Please enter a valid date equal to or greater than %s":"\u8acb\u8f38\u5165\u7b49\u65bc\u6216\u5927\u65bc %s \u7684\u6709\u6548\u65e5\u671f","Please enter a valid date less than or equal to %s":"\u8acb\u8f38\u5165\u5c0f\u65bc\u6216\u7b49\u65bc %s \u7684\u6709\u6548\u65e5\u671f","Complete":"\u5b8c\u6210","Add Products":"\u65b0\u589e\u7522\u54c1","Please choose to register or to checkout as a guest":"\u8acb\u9078\u64c7\u8a3b\u518a\u6216\u7d50\u7b97\u4f5c\u70ba\u5609\u8cd3","Your order cannot be completed at this time as there is no shipping methods available for it. Please make necessary changes in your shipping address.":"\u60a8\u7684\u8a02\u55ae\u7121\u6cd5\u5b8c\u6210\uff0c\u5728\u9019\u500b\u6642\u5019\uff0c\u6709\u6c92\u6709\u53ef\u7528\u7684\u904b\u8f38\u65b9\u6cd5\u3002\u8acb\u5728\u60a8\u7684\u9001\u8ca8\u5730\u5740\u9032\u884c\u5fc5\u8981\u7684\u4fee\u6539\u3002","Please specify shipping method.":"\u8acb\u6307\u5b9a\u7684\u904b\u8f38\u65b9\u5f0f\u3002","Your order cannot be completed at this time as there is no payment methods available for it.":"\u60a8\u7684\u8a02\u55ae\u7121\u6cd5\u5b8c\u6210\uff0c\u5728\u9019\u500b\u6642\u5019\uff0c\u6709\u6c92\u6709\u53ef\u7528\u7684\u4ed8\u6b3e\u65b9\u5f0f\u3002","Please specify payment method.":"\u8acb\u8a3b\u660e\u4ed8\u6b3e\u65b9\u5f0f\u3002","Add to Cart":"\u65b0\u589e\u5230\u8cfc\u7269\u8eca","In Stock":"\u6709\u8ca8","Out of Stock":"\u7121\u8ca8"});</script><script type="text/javascript">window.__lo_site_id =98327;(function() {var wa =document.createElement('script');wa.type ='text/javascript';wa.async =true;wa.src ='https://d10lpsik1i8c69.cloudfront.net/w.js';var s =document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wa,s);})();</script>
+    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>(adsbygoogle =window.adsbygoogle ||[]).push({google_ad_client:"ca-pub-5386615416001865",enable_page_level_ads:true
+    });</script><script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'10043910'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
+    <script type="text/javascript">window._pt_lt =new Date().getTime();window._pt_sp_2 =[];_pt_sp_2.push('setAccount,74f0d649');var _protocol =(("https:" ==document.location.protocol) ?" https://" :" http://");(function() {var atag =document.createElement('script');atag.type ='text/javascript';atag.async =true;atag.src =_protocol + 'js.ptengine.cn/74f0d649.js';var s =document.getElementsByTagName('script')[0];s.parentNode.insertBefore(atag,s);})();</script>
+    <script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'10046369'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
+    <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"6013837"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript>&lt;img src="//bat.bing.com/action/0?ti=6013837&amp;Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /&gt;</noscript>
+    <script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'10049990'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.vivishop.tw" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.vivishop.tw"></script></head>
 
-</body></html>
+<body class="page-empty  cms-index-index cms-home-wap" style="padding-top: 50px;">
+<div class="layercengtop"></div>
+<header class="maintop" id="header">
+    <div class="header">
+        <a href="javascript:void(0);" id="cd-menu-trigger"><span class="cd-menu-icon"></span></a>
+        <a href="https://www.vivishop.tw/customer/account/"><span
+                class="yh-icon newiconfont newicon-yonghu3"></span></a>
+        <a href="https://www.vivishop.tw/"><img alt="VIVISHOP嚴選品牌旗艦店"
+                                                src="static/home/img/logo.png"></a>
+        <a href="javascript:void(0);" class="seach newiconfont newicon-sousuotiaofangdajingqz11" data-animation="fade"
+           data-reveal-id="myModal"></a>
+        <a id="bag" class="cat newiconfont newicon-gouwudai" href="https://www.vivishop.tw/checkout/cart/">
+            <i data-number="0">0</i>
+        </a>
+    </div>
+</header>
+<nav id="cd-lateral-nav">
+    <div class="nav-container">
+        <ul id="nav">
+            <li class="level0 nav-1 first level-top"><a href="https://www.vivishop.tw/women-dress.html"
+                                                        class="level-top"><span>潮流女裝 </span></a></li>
+            <li class="level0 nav-2 level-top"><a href="https://www.vivishop.tw/women-shoes.html"
+                                                  class="level-top"><span>時尚女鞋</span></a></li>
+            <li class="level0 nav-3 level-top"><a href="https://www.vivishop.tw/lady-bags.html" class="level-top"><span>百搭女包</span></a>
+            </li>
+            <li class="level0 nav-4 level-top"><a href="https://www.vivishop.tw/new-men-shoes.html"
+                                                  class="level-top"><span>新品男鞋</span></a></li>
+            <li class="level0 nav-5 level-top"><a href="https://www.vivishop.tw/men-wear.html" class="level-top"><span>精品男裝</span></a>
+            </li>
+            <li class="level0 nav-6 level-top"><a href="https://www.vivishop.tw/m-package.html" class="level-top"><span>精選男包</span></a>
+            </li>
+            <li class="level0 nav-7 level-top"><a href="https://www.vivishop.tw/underwear.html" class="level-top"><span>性感內衣</span></a>
+            </li>
+            <li class="level0 nav-8 level-top"><a href="https://www.vivishop.tw/3c.html"
+                                                  class="level-top"><span>樂享3C</span></a></li>
+            <li class="level0 nav-9 level-top"><a href="https://www.vivishop.tw/household.html" class="level-top"><span>家居用品</span></a>
+            </li>
+            <li class="level0 nav-10 level-top"><a href="https://www.vivishop.tw/baby-products.html"
+                                                   class="level-top"><span>母嬰用品</span></a></li>
+            <li class="level0 nav-11 last level-top"><a href="https://www.vivishop.tw/kitchen-supplies.html"
+                                                        class="level-top"><span>廚房用品</span></a></li>
+        </ul>
+    </div>
+    <ul class="cd-navigation" style="display:none">
+        <li class="item-has-children currency-select">
+            <a href="#">幣種</a><span class="rightico"><i class="gw-i"></i></span>
+            <ul class="sub-menu">
+                <li>
+                    <a class="TWD"
+                       href="https://www.vivishop.tw/directory/currency/switch/currency/TWD/uenc/aHR0cHM6Ly93d3cudml2aXNob3AudHcvP3JlZnJlc2g9MQ,,/"
+                       title="TWD"><span></span> TWD</a>
+                </li>
+                <li>asd</li>
+                <li>
+                    <a class="JPY"
+                       href="https://www.vivishop.tw/directory/currency/switch/currency/JPY/uenc/aHR0cHM6Ly93d3cudml2aXNob3AudHcvP3JlZnJlc2g9MQ,,/"
+                       title="JPY"><span></span> JPY</a>
+                </li>
+                <li>asd</li>
+                <li>
+                    <a class="EUR"
+                       href="https://www.vivishop.tw/directory/currency/switch/currency/EUR/uenc/aHR0cHM6Ly93d3cudml2aXNob3AudHcvP3JlZnJlc2g9MQ,,/"
+                       title="EUR"><span></span> EUR</a>
+                </li>
+                <li>asd</li>
+                <li>
+                    <a class="THB"
+                       href="https://www.vivishop.tw/directory/currency/switch/currency/THB/uenc/aHR0cHM6Ly93d3cudml2aXNob3AudHcvP3JlZnJlc2g9MQ,,/"
+                       title="THB"><span></span> THB</a>
+                </li>
+                <li>asd</li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<script type="text/javascript">jQuery(function () {
+    jQuery('.seach').click(function () {
+        jQuery('.reveal-modal').slideDown();
+    });
+})
+</script>
+<div class="reveal-modal" id="review-form">
+    <div class="return-icon"><img src="/public/static/home/img/return.svg"></div>
+    <form id="top-search" action="catalogsearch/result/" method="get">
+        <div class="search">
+            <input id="search" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="請輸入關鍵字或品牌">
+            <button type="submit" title="搜尋" class="button"><span><span>搜尋</span></span></button>
+            <div id="search_autocomplete" class="search-autocomplete"></div>
+        </div>
+    </form>
+    <div class="hot">
+        <div class="title">熱門搜尋</div>
+        <ul class="hot-left">
+            <li><a href="javascript:void(0)">塑身褲</a></li>
+            <li><a href="javascript:void(0)">收腹褲</a></li>
+            <li><a href="javascript:void(0)">牛仔褲</a></li>
+            <li><a href="javascript:void(0)">運動鞋</a></li>
+            <li><a href="javascript:void(0)">按摩棒</a></li>
+            <li><a href="javascript:void(0)">休閒皮鞋</a></li>
+            <li><a href="javascript:void(0)">藍牙音響</a></li>
+            <li><a href="javascript:void(0)">as快眠枕</a></li>
+            <li><a href="javascript:void(0)">單肩斜挎包</a></li>
+            <li><a href="javascript:void(0)">車用吸塵器</a></li>
+            <li><a href="javascript:void(0)">多功能錢包</a></li>
+        </ul>
+        <ul class="hot-right">
+            <li><a href="javascript:void(0)">麥飯石炒鍋</a></li>
+            <li><a href="javascript:void(0)">無痕殺菌內褲</a></li>
+            <li><a href="javascript:void(0)">OKO蜂巢不沾鍋</a></li>
+            <li><a href="javascript:void(0)">優奇仕钛鑽鍍膜</a></li>
+            <li><a href="javascript:void(0)">骨傳導藍牙耳機</a></li>
+            <li><a href="javascript:void(0)">INTEX懶人充氣沙發</a></li>
+            <li><a href="javascript:void(0)">CoolBell防盜後背包</a></li>
+            <li><a href="javascript:void(0)">Rontion磁懸浮地球儀</a></li>
+            <li><a href="javascript:void(0)">Maidini油蠟牛皮托特包</a></li>
+        </ul>
+    </div>
+</div>
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none;">
+    <ins id="aswift_0_expand"
+         style="display:inline-table;border:none;height:NaNpx;margin:0;padding:0;position:relative;visibility:visible;width:NaNpx;background-color:transparent;">
+        <ins id="aswift_0_anchor"
+             style="display:block;border:none;height:NaNpx;margin:0;padding:0;position:relative;visibility:visible;width:NaNpx;background-color:transparent;">
+            <iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true"
+                    scrolling="no" allowfullscreen="true"
+                    onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}"
+                    id="aswift_0" name="aswift_0"
+                    style="left:0;position:absolute;top:0;width:NaNpx;height:NaNpx;"></iframe>
+        </ins>
+    </ins>
+</ins>
+<script type="application/javascript" id="ywa-1525281203638-877626" class="ywa-10000" defer=""
+        src="https://sp.analytics.yahoo.com/sp.pl?a=10000&amp;jsonp=YAHOO.ywa.I13N.handleJSONResponse&amp;d=Wed%2C%2002%20May%202018%2017%3A13%3A23%20GMT&amp;n=-8&amp;b=%E9%A6%96%E9%A0%81%20%7C%20VIVISHOP%E5%9A%B4%E9%81%B8%E5%93%81%E7%89%8C%E6%97%97%E8%89%A6%E5%BA%97&amp;.yp=10044846&amp;f=https%3A%2F%2Fwww.vivishop.tw%2F&amp;enc=UTF-8"></script>
+<script type="application/javascript" id="ywa-1525281203639-906220" class="ywa-10000" defer=""
+        src="https://sp.analytics.yahoo.com/sp.pl?a=10000&amp;jsonp=YAHOO.ywa.I13N.handleJSONResponse&amp;b=%E9%A6%96%E9%A0%81%20%7C%20VIVISHOP%E5%9A%B4%E9%81%B8%E5%93%81%E7%89%8C%E6%97%97%E8%89%A6%E5%BA%97&amp;.yp=10043910&amp;f=https%3A%2F%2Fwww.vivishop.tw%2F&amp;enc=UTF-8"></script>
+<script type="application/javascript" id="ywa-1525281203639-792947" class="ywa-10000" defer=""
+        src="https://sp.analytics.yahoo.com/sp.pl?a=10000&amp;jsonp=YAHOO.ywa.I13N.handleJSONResponse&amp;b=%E9%A6%96%E9%A0%81%20%7C%20VIVISHOP%E5%9A%B4%E9%81%B8%E5%93%81%E7%89%8C%E6%97%97%E8%89%A6%E5%BA%97&amp;.yp=10046369&amp;f=https%3A%2F%2Fwww.vivishop.tw%2F&amp;enc=UTF-8"></script>
+<script type="application/javascript" id="ywa-1525281203639-49378" class="ywa-10000" defer=""
+        src="https://sp.analytics.yahoo.com/sp.pl?a=10000&amp;jsonp=YAHOO.ywa.I13N.handleJSONResponse&amp;b=%E9%A6%96%E9%A0%81%20%7C%20VIVISHOP%E5%9A%B4%E9%81%B8%E5%93%81%E7%89%8C%E6%97%97%E8%89%A6%E5%BA%97&amp;.yp=10049990&amp;f=https%3A%2F%2Fwww.vivishop.tw%2F&amp;enc=UTF-8"></script>
+<script type="text/javascript">var searchForm = new Varien.searchForm('search_mini_form', 'search', '在這裡搜寻整個商店...');
+searchForm.initAutocomplete('https://www.vivishop.tw/catalogsearch/ajax/suggest/', 'search_autocomplete');</script>
+<script>jQuery(function () {
+    jQuery('.hot a').click(function () {
+        var query = jQuery(this).html();
+        var url = '/catalogsearch/result/?q=' + query;
+        location.href = url;
+    });
+});</script>
+<div style="display:none">
+    <section style="position: fixed;top:50px;left: 0;right: 0;z-index:2;height: 100%;" id="top-banner-fix">
+        <p><a href="customer/account/login/"><img
+                src="https://vivishop.s3-ap-southeast-1.amazonaws.com/wysiwyg/wap/670-60_labor-day.jpg" alt=""></a><span
+                class="ibox"></span></p>
+        <img id="top-close" src="https://www.vivishop.tw//skin/frontend/yisainuo/wap//images/close.png"
+             style="position: absolute; right: 4px; top: 54.0313px; width: 20px;">
+    </section>
+    <script type="text/javascript">var bH = jQuery('html,body').width() / 640 * 60;
+    jQuery('body').css('padding-top', 50);
+    jQuery('#top-close').css('top', (bH - 20) / 2)
+    jQuery('#top-close').click(function (e) {
+        jQuery('#top-banner-fix').hide();
+        jQuery('body').css('padding-top', 120);
+        e.stopPropagation()
+    });
+    jQuery(function () {
+        jQuery('.return-icon').click(function () {
+            jQuery('.reveal-modal').slideUp();
+        });
+        jQuery.ajax({
+            url: '/customshippingmethod/cartcount/index', type: 'post', success: function (data) {
+                jQuery('.newicon-gouwudai i').html(data);
+            }
+        });
+    });</script>
+</div>
+<div class="std">
+    <p>
+        <script type="text/javascript">var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 4,
+            loop: true,
+            paginationClickable: true,
+            spaceBetween: 10,
+            freeMode: true
+        });</script>
+    </p>
+</div>
+<div class="addWrap">
+    <div class="swipe" id="mySwipes" style="visibility: visible;">
+        <div class="swipe-wrap" style="width: 3120px;">
+            <div data-index="0"
+                 style="width: 780px; left: 0px; transition-duration: 300ms; transform: translate(0px, 0px) translateZ(0px);">
+                <a href="/light-thin.html"><img class="img-responsive" src="/image/cache/catalog/mianma-730x400.jpg"
+                                                alt=""></a></div>
+            <div data-index="1"
+                 style="width: 780px; left: -780px; transition-duration: 0ms; transform: translate(780px, 0px) translateZ(0px);">
+                <a href="/zngym-bag.html"><img class="img-responsive"
+                                               src="/image/cache/catalog/QQ图片20180227150004-730x400.jpg" alt=""></a>
+            </div>
+            <div data-index="2"
+                 style="width: 780px; left: -1560px; transition-duration: 300ms; transform: translate(-780px, 0px) translateZ(0px);">
+                <a href="/as-pillow.html"><img class="img-responsive" src="/image/cache/catalog/hometw1654-730x400.jpg"
+                                               alt=""></a></div>
+            <div data-index="3"
+                 style="width: 780px; left: -2340px; transition-duration: 300ms; transform: translate(-780px, 0px) translateZ(0px);">
+                <a href="/kitchen-supplies-korea-rice-stone-fry.html"><img class="img-responsive"
+                                                                           src="/image/cache/catalog/QQ图片20180112160501-730x400.jpg"
+                                                                           alt=""></a></div>
+        </div>
+    </div>
+    <ul id="position">
+        <li class="cur"></li>
+        <li class=" "></li>
+        <li class=" "></li>
+        <li class=" "></li>
+    </ul>
+</div>
+<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.4993569225357617"><img
+        style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.2062977666210557" width="0"
+        height="0" alt=""
+        src="https://bat.bing.com/action/0?ti=6013837&amp;Ver=2&amp;mid=b920aa32-6aa7-4057-e9a6-26a0cf213237&amp;evt=pageLoad&amp;sid=3f598e04-0&amp;pi=-1978200868&amp;lg=zh-CN&amp;sw=1366&amp;sh=768&amp;sc=24&amp;tl=%E9%A6%96%E9%A0%81%20%7C%20VIVISHOP%E5%9A%B4%E9%81%B8%E5%93%81%E7%89%8C%E6%97%97%E8%89%A6%E5%BA%97&amp;kw=vivishop%E8%B3%BC%E7%89%A9%E4%B8%AD%E5%BF%83%EF%BC%8C%E5%8F%B0%E7%81%A3%E7%B6%B2%E7%B5%A1%E8%B3%BC%E7%89%A9%E5%95%86%E5%9F%8E%EF%BC%8C%E5%93%81%E7%89%8C%E6%9C%8D%E9%A3%BE%EF%BC%8C%E7%94%B7%E5%A5%B3%E8%83%8C%E5%8C%85%EF%BC%8C%E6%80%A7%E6%84%9F%E5%85%A7%E8%A1%A3%EF%BC%8C%E5%BA%8A%E7%BD%A9%EF%BC%8C%E6%9E%95%E9%A0%AD&amp;p=https%3A%2F%2Fwww.vivishop.tw%2F&amp;r=&amp;msclkid=N&amp;rn=566306">
+</div>
+<script>var bullets = document.getElementById('position').getElementsByTagName('li');
+var banner = Swipe(document.getElementById('mySwipes'), {
+    auto: 4000,
+    continuous: true,
+    disableScroll: false,
+    callback: function (pos) {
+        var i = bullets.length;
+        while (i--) {
+            bullets[i].className = ' ';
+        }
+        bullets[pos].className = 'cur';
+    }
+})</script>
+<div class="static_nav">
+    <div class="ind-nav" style="visibility: visible;">
+        <ul class="li_nav">
+            <li><a href="/women-dress.html"><img class="img-responsive" src="/public/static/home/img/jog-150x168.jpg"
+                                                 alt=""></a></li>
+            <li><a href="/lady-bags.html"><img class="img-responsive" src="/public/static/home/img/wer-150x168.jpg"
+                                               alt=""></a></li>
+            <li><a href="/women-shoes.html"><img class="img-responsive"
+                                                 src="/public/static/home/img/kuiui-150x168.jpg" alt=""></a></li>
+            <li><a href="/underwear.html"><img class="img-responsive" src="/public/static/home/img/twny-150x168.jpg"
+                                               alt=""></a></li>
+            <li><a href="/3c.html"><img class="img-responsive" src="/public/static/home/img/asd-150x168.jpg"
+                                        alt=""></a></li>
+            <li><a href="/men-wear.html"><img class="img-responsive" src="/public/static/home/img/jgui-150x168.jpg"
+                                              alt=""></a></li>
+            <li><a href="/m-package.html"><img class="img-responsive" src="/public/static/home/img/yuh-150x168.jpg"
+                                               alt=""></a></li>
+            <li><a href="/new-men-shoes.html"><img class="img-responsive"
+                                                   src="/public/static/home/img/jguk-150x168.jpg" alt=""></a></li>
+            <li><a href="/kitchen-supplies.html"><img class="img-responsive"
+                                                      src="/public/static/home/img/jiaju-150x168.jpg" alt=""></a></li>
+            <li><a href="/women-dress.html"><img class="img-responsive" src="/public/static/home/img/eew-150x168.jpg"
+                                                 alt=""></a></li>
+        </ul>
+    </div>
+</div>
+<div class="djs">
+    <div class="djstu1">
+        <a href="/yundongxie.html">
+            <img src="/public/static/home/img/jop.jpg" width="308" height="380">
+        </a>
+    </div>
+    <div class="djstu2">
+        <div class="djs01">
+            <a href="/best-selling.html">
+                <img src="/public/static/home/img/jop2.jpg" width="308" height="190">
+            </a>
+        </div>
+        <div class="djs02">
+            <a href="/new-product.html ">
+                <img src="/public/static/home/img/jop1.jpg" width="308" height="190">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="cp_fl">
+</div>
+<div class="newsale-title">
+    <div class="newsale_r">
+        限量搶購中
+    </div>
+</div>
+<div class="new-sale-big">
+    <a href="/tooxie.html"><img src="/public/static/home/img/xinpin.jpg"></a>
+</div>
+<div class="clear"></div>
+
+<div class="home_category_list">
+    <ul class="prolist">
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/linen-ninth-pants.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/2/e/2e8ab0ab10a5660002b3f2e71d6a8b3d.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/linen-ninth-pants.html">【春季熱賣】女士棉麻哈倫休閒褲【買一送一】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,398</span>
+                    <span class="oldprice">NT$ 4,299</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/ink-cotton-dress.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/6/1/613zer52zkek2o07w26591tpy1b1aa444a13038f4aed0c671506a72b1b.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/ink-cotton-dress.html">LUXLEAD水墨棉麻背心連衣裙開衫兩件套</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,480</span>
+                    <span class="oldprice">NT$ 3,688</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/haren-seven-points-jeans.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/5/a/5a60ff2e1cce9fc9082e873160e46734.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/haren-seven-points-jeans.html">清涼哈倫七分冰絲牛仔褲【第二件僅需400】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,298</span>
+                    <span class="oldprice">NT$ 1,898</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/shirt-skirt.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/2/0/2043a34ea60ad5b2da7959c08620a0c7.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/shirt-skirt.html">爆款女裝襯衫裙【+400搶第二件】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,180</span>
+                    <span class="oldprice">NT$ 3,933</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/fdey-hfda-kjsa.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/v/u/vut0bu15mm2c3286w03oj5i9a701.gif"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/fdey-hfda-kjsa.html">SHEEWA100%羊奶絲薄款無痕T恤【第二件500】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 998</span>
+                    <span class="oldprice">NT$ 2,996</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/loukong-doudoux.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/b/1/b17fff581536aa7e14613a81298a7dfa.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/loukong-doudoux.html">平底星星鏤空軟底豆豆鞋【買一送一】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,398</span>
+                    <span class="oldprice">NT$ 4,094</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>
+<div class="hsale-title">
+    <div class="timer" id="timer"><span>倒数</span><span id="h" class="timerk">22</span>:<span id="m"
+                                                                                             class="timerk">43</span>:<span
+            id="s" class="timerk">10</span>结束
+    </div>
+</div>
+<script language="javascript">
+    (function ($) {
+        var endtime = '24:00:00';
+        $.ajax({
+            type: 'post',
+            url: '/customshippingmethod/countdown/index',
+            data: {'endtime': endtime},
+            success: function (datetime) {
+                if (datetime) {
+                    countDown(datetime);
+                }
+            }
+        });
+        function countDown(datetime) {
+            var h = Math.floor(datetime / 3600);
+            var m = Math.floor((datetime % 3600) / 60);
+            var s = (datetime % 3600) % 60;
+
+            if (h < 10) h = "0" + h;
+            if (m < 10) m = "0" + m;
+            if (s < 10) s = "0" + s;
+
+            $("#timer").html('<span>倒数</span><span id="h" class="timerk">' + h + '</span>:<span id="m" class="timerk">' + m + '</span>:<span id="s" class="timerk">' + s + '</span>结束');
+
+            setTimeout(function () {
+                countDown(datetime - 1);
+            }, 1000);
+        }
+
+    })(jQuery);
+</script>
+<div class="clear"></div>
+
+<div class="home_category_list">
+    <ul class="prolist">
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/floveme-wallet.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/5/151wdf5e3654vu400vr1sppoi729_---_750-0.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/floveme-wallet.html">【一包多用】FLOVEME復古牛皮多功能錢包</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,380</span>
+                    <span class="oldprice">NT$ 4,380</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/eu-three-pieces-of-motion.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/9/1965l57q58zi160727ksxw73601.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/eu-three-pieces-of-motion.html">【超值爆款】EU2018新款男士運動三件套 專業健身服</a>
+                </h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,499</span>
+                    <span class="oldprice">NT$ 5,280</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/beach-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/e/a/ea695661f8ea04b207b4980cb6c51f89.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/beach-shoes.html">沙灘男士一腳蹬涼鞋【第二雙僅400】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 988</span>
+                    <span class="oldprice">NT$ 3,326</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/shirt-skirt.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/2/0/2043a34ea60ad5b2da7959c08620a0c7.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/shirt-skirt.html">爆款女裝襯衫裙【+400搶第二件】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,180</span>
+                    <span class="oldprice">NT$ 3,933</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/action-power.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/7/6/76f3c695028a549438392cdf41f51792.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/action-power.html">哆啦A夢帶電風扇行動電源【第二件僅售400】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,288</span>
+                    <span class="oldprice">NT$ 4,290</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/leisi-lianyiq.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/a/6/a6575b51237e910ed6816663e2ce5173.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/leisi-lianyiq.html">【名媛優雅】女裝镂空鈎花蕾絲連衣裙【第二件僅需400】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,260</span>
+                    <span class="oldprice">NT$ 3,880</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/silk-cotton-pants-two.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/b/9/b91a116a58bc9840ab466c3a3164bdb8.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/silk-cotton-pants-two.html">冰絲棉麻褲【第二件$500】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,298</span>
+                    <span class="oldprice">NT$ 3,894</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/pearl-sandals.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/f/e/fec3e34171851c3b33580cd547c7d910_1.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <h3><a href="https://www.vivishop.tw/pearl-sandals.html">珍珠柳丁一字拖涼鞋【第二件僅需300】</a></h3>
+                <div class="p3">
+                    <span class="newprice">NT$ 1,098</span>
+                    <span class="oldprice">NT$ 10,000</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>
+<div class="cp_fl">
+</div>
+<div class="hotsale-title">
+    <div class="hotsale_r">
+        挑戰最低價
+    </div>
+</div>
+<div class="home_category_list" id="descDiv">
+    <ul class="prolist">
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/men-colour-shi.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/8/9/898c824ea2c5c28fa00195739d438131.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,388</i></span>
+                    <span class="oldprice">NT$ 4,626</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/men-colour-shi.html">男士拼色襯衫【L-5XL•買一贈一】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/haren-seven-points-jeans.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/5/a/5a60ff2e1cce9fc9082e873160e46734.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,298</i></span>
+                    <span class="oldprice">NT$ 1,898</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/haren-seven-points-jeans.html">清涼哈倫七分冰絲牛仔褲【第二件僅需400】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/curling-machine.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/7/9/79f0c35c7bb18bda708557ed99183482_1.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">998</i></span>
+                    <span class="oldprice">NT$ 1,996</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/curling-machine.html">【髮型DIY】吹風捲髮神器【第二件僅需200】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/short-sleeve.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/b/a/bad775a24fcd78d438318d2dc28ca461.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,280</i></span>
+                    <span class="oldprice">NT$ 4,266</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/short-sleeve.html">新款純棉純色polo衫【加$200再得一件】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/beach-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/e/a/ea695661f8ea04b207b4980cb6c51f89.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">988</i></span>
+                    <span class="oldprice">NT$ 3,326</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/beach-shoes.html">沙灘男士一腳蹬涼鞋【第二雙僅400】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/gdsw-gsti-sfger.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/6/0/603c619b36cba05d6057faa926299286.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,380</i></span>
+                    <span class="oldprice">NT$ 3,894</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/gdsw-gsti-sfger.html">經典男士純色短袖T恤【買一送一】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/puda-shi.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/7/f/7fc72e86ffc5068056fae44f43a876d4.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,388</i></span>
+                    <span class="oldprice">NT$ 3,698</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/puda-shi.html">PUDASHI休閑冰絲棉麻男士長褲【買一送一】</a></h3>
+            </div>
+        </li>
+        <li style="display: block;">
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/diamond-sandals.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/f/0/f05224cabc132435b1aab73343e1ab32.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,298</i></span>
+                    <span class="oldprice">NT$ 4,320</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/diamond-sandals.html">RUIT優雅顯高閃亮水鑽涼鞋【第二雙僅400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/hanxi-embroidered-jeans.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/c/b/cbf708d016b1785dfa68d9d66ac5619e.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,298</i></span>
+                    <span class="oldprice">NT$ 4,233</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/hanxi-embroidered-jeans.html">HANXI韓版修身顯瘦刺繡牛仔褲【第二件NT$400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/goodb-yeto-osquitoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/9/2/92a80024d4f74064650d6f0daeba356f.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,190</i></span>
+                    <span class="oldprice">NT$ 2,380</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/goodb-yeto-osquitoes.html">【告別蚊蟲煩惱！】室内/戶外便攜式香薰驅蚊器</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/the-sloping-shoe.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/3/1/31d63d8ce3206b5a3b120e5244c28eb8_1.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,380</i></span>
+                    <span class="oldprice">NT$ 4,600</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/the-sloping-shoe.html">真皮坡跟女士鬆糕鞋【第二雙僅$400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/silk-cotton-pants.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/4/8/48f16e081db77138fae1253ffb7cc24f.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,298</i></span>
+                    <span class="oldprice">NT$ 4,326</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/silk-cotton-pants.html">薄款冰絲棉九分褲【限時秒殺：第二件400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/pure-cotton-haren.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/5/5/550795d6525a8374bac27a96161a94f8.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,288</i></span>
+                    <span class="oldprice">NT$ 1,998</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/pure-cotton-haren.html">寬鬆純棉哈倫褲【5色可選•第二件僅400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/swimming-suit-k.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/f/5/f5c4f7474310350fa0370864f9977ac9.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,380</i></span>
+                    <span class="oldprice">NT$ 2,760</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/swimming-suit-k.html">保守分體裙式比基尼泳衣四件套【加$480得第二套】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/rest-foot-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/9/a/9a10233dfe22b9b33316cd2d8c5bad6b.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,360</i></span>
+                    <span class="oldprice">NT$ 4,533</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/rest-foot-shoes.html">軟底休閑健步一腳蹬懶人鞋【第二雙僅需500】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/hand-mad-cowhide.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/a/0/a085a06739acb93fd5e2e56b068670c7.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,480</i></span>
+                    <span class="oldprice">NT$ 2,960</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/hand-mad-cowhide.html">【民族風】女士手工牛皮涼拖鞋【第二雙低至600】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/fashion-chain-bag.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/8/3/83731470813d7eff20a41e8e5cdb640e.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,380</i></span>
+                    <span class="oldprice">NT$ 4,398</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/fashion-chain-bag.html">2018新款百變風格鏈條包【7種顏色•第二件僅需500】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/pure-cotton-suit.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/b/d/bdcf0336f57b7494368c990cc2dc2227.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,198</i></span>
+                    <span class="oldprice">NT$ 2,036</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/pure-cotton-suit.html">寬鬆顯瘦純棉套裝(五分袖+九分褲)【第二套僅$400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/linen-fabric.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/j/x/jxuy1hu52ah243e7r59f36oc0906a610191c6bfcbe869998676a9d5fe5_2.gif"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,298</i></span>
+                    <span class="oldprice">NT$ 3,098</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/linen-fabric.html">抗皺免燙男士亞麻休閒褲【第二件僅需$300】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/increase-leather-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/n/1npui0523r2147yl54w068o7v88752cb2d90887f15593e38876153f298.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,360</i></span>
+                    <span class="oldprice">NT$ 2,720</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/increase-leather-shoes.html">英倫風柔軟牛皮單鞋【第二雙500】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/hiking-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/n/1/n137j58o1jksd7za8098k78jo21.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,368</i></span>
+                    <span class="oldprice">NT$ 2,736</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/hiking-shoes.html">sports【全新升級】2018新款戶外運動男士防滑登山鞋</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/cowhide-working-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/q/1q51r37ed66t25qz2q18p31fu12_.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,180</i></span>
+                    <span class="oldprice">NT$ 2,680</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/cowhide-working-shoes.html">JIRONG新款百搭軟底女鞋【第二雙僅$100搶購中】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/manual-man-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/z/1/z15m17s46269m735a9v7q3nb17750750-1.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,580</i></span>
+                    <span class="oldprice">NT$ 4,899</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/manual-man-shoes.html">英倫透氣純手工牛皮鞋【第二雙半價】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/casual-leather-sho.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/y/l/yl153upjfpo17gy05qdu6r3346750.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,380</i></span>
+                    <span class="oldprice">NT$ 4,140</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/casual-leather-sho.html">ENGLE新款男士英倫復古休閒皮鞋【第二件僅$400】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/supe-straw-boar.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/w/1wo5ifcag12c75t95v829i0069_1.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">998</i></span>
+                    <span class="oldprice">NT$ 2,994</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/supe-straw-boar.html">美國超級麥秸稈砧板【第二件$300】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/hip-stovepipe-socks.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/5/153i17x58dvre55qpsax535894banner01-750.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">998</i></span>
+                    <span class="oldprice">NT$ 2,998</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/hip-stovepipe-socks.html">LUXWAY爆款提臀瘦腿壓力襪【買一送二】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/manual-cashmere-leather-shoes.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/3/13gbt5q1kg6j497g858k7b7o56257a01.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,180</i></span>
+                    <span class="oldprice">NT$ 3,680</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/manual-cashmere-leather-shoes.html">2018新款反絨皮女單鞋【第二雙$300】</a></h3>
+            </div>
+        </li>
+        <li>
+            <div class="pro-tu">
+                <a href="https://www.vivishop.tw/packet.html"><img
+                        src="https://vivishop.s3-ap-southeast-1.amazonaws.com/catalog/product/cache/6/small_image/400x/c96a280f94e22e3ee3823dd0a1a87606/1/l/1lxzo5810566wu630uf1jj8zr9b750-1.jpg"
+                        width="400" height="400" alt=""></a>
+            </div>
+            <div class="pro-tex">
+                <div class="p3">
+                    <span class="newprice">NT$ <i class="fprice">1,088</i></span>
+                    <span class="oldprice">NT$ 1,880</span>
+                </div>
+                <h3><a href="https://www.vivishop.tw/packet.html">百搭OSMAN水洗皮小方包【第二件僅需$300】</a></h3>
+            </div>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>
+<div id="load" style="width:100%;text-algin:center;height:40px;padding:8px 0;"><img
+        src="https://www.vivishop.tw///public/static/home/img/loading.gif"
+        style="width: auto; margin: 0px auto; display: none;"></div>
+<script>jQuery(document).ready(function () {
+    var state = true;
+    var linum = jQuery("#descDiv ul li").length;
+    jQuery("#descDiv ul li:lt(4)").show();
+    jQuery(window).scroll(function () {
+        var scrot = jQuery(document).scrollTop() + 100;
+        if (scrot >= jQuery(document).height() - jQuery(window).height()) {
+            if (state == true) {
+                state = false;
+                jQuery("#load img").css("display", "block");
+                setTimeout(function () {
+                    jQuery("#load img").css("display", "none");
+                    var lilen = jQuery("#descDiv ul li:visible").length;
+                    var lilent = lilen + 4;
+                    jQuery("#descDiv ul li:lt(" + lilent + ")").show();
+                    if (lilent >= linum) {
+                        jQuery("#load").html("<p style='text-align:center;line-height:30px;font-size:14px;'>已經到最底端了</p>").css({"margin-top": "1px"});
+                    } else {
+                        state = true;
+                    }
+                }, 1000);
+            }
+        }
+    });
+});</script>
+<style>#descDiv .prolist li {
+    padding: 5px;
+    box-sizing: border-box;
+    border: 0;
+    box-shadow: none;
+    display: none;
+}
+
+#descDiv .prolist li .newprice {
+    font-weight: normal;
+}
+
+#descDiv .prolist li .newprice .fprice {
+    font-style: normal;
+    font-size: 18px;
+}</style>
+<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+<script type="text/javascript">var deviceType = (window.innerWidth <= 767) ? 'm' : (window.innerWidth >= 980) ? 'd' : 't';
+window.criteo_q = window.criteo_q || [];
+window.criteo_q.push({"event": "setSiteType", "type": deviceType, "ecpplugin": "magento-1.6.4"});
+window.criteo_q.push({"event": "setAccount", "account": "48663"}, {
+    "event": "setEmail",
+    "email": ""
+}, {"event": "viewHome"});</script>
+<script type="text/javascript">window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+    "event": "crto_homepage", "crto": {"email": ""}
+});</script>
+<div class="footer4">
+    <div class="baozhang">
+        <div class="buy-logo"><img src="//public/static/home/img/buy-logo.png"></div>
+        <div class="buy-p">
+            <h3>買家保障</h3>
+            <p><em></em>如果您未收到商品<b>全額退款！</b></p>
+            <p><em></em>如果您購買的商品與描述不符，<b>全額或部分退款！</b></p>
+        </div>
+    </div>
+    <div class="footmenu">
+        <div class="fot-zf"><img src="//public/static/home/img/zhifuyinh02.png" alt=""></div>
+        <div class="footmenu-list">
+            <ul class="f-list">
+                <li>
+                    <a href="/about">關於我們</a>
+                    <a href="/service">服務條款</a>
+                    <a href="/shipping">物流條款</a>
+                    <a href="/return">退換貨政策</a>
+                    <a href="/privacy">隱私協議</a>
+                </li>
+                <li>© 2017 <a href="/" title="">vivishop.tw</a>. All rights reserved</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<ul class="rightmenu">
+    <li id="go_top" style="display: none;"></li>
+</ul>
+<script>jQuery(document).ready(function () {
+    jQuery("#go_top").hide();
+    jQuery(window).scrollTop(0);
+    jQuery(function () {
+        var height = jQuery(window).height();
+        jQuery(window).scroll(function () {
+            if (jQuery(window).scrollTop() > height) {
+                jQuery("#go_top").fadeIn(500);
+            } else {
+                jQuery("#go_top").fadeOut(500);
+            }
+        });
+        jQuery("#go_top").click(function () {
+            jQuery('body,html').animate({scrollTop: 0}, 100);
+            return false;
+        });
+    });
+});</script>
+
+
+<iframe id="google_osd_static_frame_4446764417180" name="google_osd_static_frame"
+        style="display: none; width: 0px; height: 0px;"></iframe>
+<script>!function (win, doc, tag, src, app, ele, root) {
+    if (win.wmkq) {
+        return
+    }
+    app = win.wmkq = function () {
+        app.invokeFunc ? app.invokeFunc.apply(app, arguments) : app.qu.push(arguments)
+    };
+    app.push = app;
+    app.qu = [];
+    ele = doc.createElement(tag);
+    ele.async = true;
+    ele.src = src;
+    root = doc.getElementsByTagName(tag)[0];
+    root ? root.parentNode.insertBefore(ele, root) : doc.getElementsByTagName("head")[0].appendChild(ele)
+}(window, document, "script", "//pixeltrack.clientgear.com/mk228103936293371_v20180425.js?");</script>
+<div id="criteo-tags-div" style="display: none;"></div>
+</body>
+
+
+</html>
