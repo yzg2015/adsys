@@ -26,7 +26,7 @@ class Classify extends Home
     }
 
 
-    public function detail()
+    public function search()
     {
         return $this->fetch();
     }
