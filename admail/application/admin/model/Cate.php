@@ -15,10 +15,11 @@ use think\Model;
  * 日志记录模型
  * @package app\admin\model
  */
-class Goods extends Model
+class Cate extends Model
 {
     // 设置当前模型对应的完整数据表名称
-    protected $table = '__ADMIN_GOODS__';
+    protected $table = '__ADMIN_CATE__';
+
     // 自动写入时间戳
     protected $autoWriteTimestamp = true;
 
@@ -31,31 +32,43 @@ class Goods extends Model
      */
     public static function getAll($map = [], $order = '')
     {
-        $data_list = self::view('admin_goods', true)
-            ->view('admin_site', 'url,title', 'admin_site.id=admin_goods.site_id', 'left')
+        $data_list = self::view('admin_cate', true)
             ->where($map)
             ->order($order)
             ->paginate();
-
         return $data_list;
     }
 
-    public static function getTreeList()
+
+    public static function getTreeList($id=0)
     {
-        $map['status']=1;
+
+        $map['pid']=0;
+        $map['id']=array('neq',$id);
         $data_list = self::where($map)
-            ->column('id,name');
+            ->column('id,title');
         return  $data_list;
     }
 
-    public static function getAllList($cate_id=0)
+    public static function getAllList($id=0)
     {
         $map['status']=1;
-        if($cate_id){
-            $map['cid'] = $cate_id;
-        }
         $data_list = self::where($map)
-            ->column('id,name,price,num,pic,cid');
+            ->order('sort desc')
+            ->column('id,title,pid,active,selected');
+        if($id){
+            foreach ($data_list as &$v){
+                if($id==$v['id']){
+                    $v['active'] ='active';
+                    $v['selected'] ='selected';
+                    break;
+                }
+            }
+        }else{
+
+        }
         return  $data_list;
     }
+
+
 }

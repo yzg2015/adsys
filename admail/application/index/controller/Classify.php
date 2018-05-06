@@ -13,6 +13,7 @@ namespace app\index\controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Comment as CommentModel;
 use app\admin\model\Order as OrderModel;
+use app\admin\model\Cate as CateModel;
 
 /**
  * 前台首页控制器
@@ -22,9 +23,16 @@ class Classify extends Home
 {
     public function index()
     {
+        $id=input('id');
+        $id= !$id?1:$id;
+        $info = CateModel::get($id);
+        $_list = CateModel::getAllList($id);
+        $goods = GoodsModel::getAllList($id);
+        $this->assign('goods_list',$goods);
+        $this->assign('title',$info['title']);
+        $this->assign('cate_list',$_list);
         return $this->fetch();
     }
-
 
     public function search()
     {

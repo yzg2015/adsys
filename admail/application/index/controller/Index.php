@@ -22,7 +22,8 @@ class Index extends Home
 {
     public function index()
     {
-  
+        $goods = GoodsModel::getAllList();
+        $this->assign('goods_list',$goods);
         return $this->fetch();
     }
 

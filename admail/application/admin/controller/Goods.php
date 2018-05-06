@@ -19,6 +19,7 @@ use app\user\model\User as UserModel;
 
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Site as SiteModel;
+use app\admin\model\Cate as CateModel;
 /**
  * 后台默认控制器
  * @package app\admin\controller
@@ -117,6 +118,7 @@ class Goods extends Admin
                         ['text','name','商品名称'],
                         ['text','spu','SPU'],
                         ['select','site_id','站点','',  SiteModel::getTreeList()],
+                        ['select','cid','分类','',  CateModel::getTreeList()],
                         ['text','who','负责人'],
                         ['number','num','商品库存'],
                         ['text','price','原价'],
@@ -202,6 +204,10 @@ class Goods extends Admin
     {        // 保存数据
         if ($this->request->isPost()) {
             $data = $this->request->post();
+            $group = input('group');
+            if(empty($data['cid'])&&$group=='tab1'){
+                $this->error('请选择分类');
+            }
             if(!empty($data['id'])){
                 $data['update_time'] = time();
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
@@ -241,6 +247,7 @@ class Goods extends Admin
                         ['text','name','商品名称'],
                         ['text','spu','SPU'],
                         ['select','site_id','站点','',  SiteModel::getTreeList()],
+                        ['select','cid','分类','',  CateModel::getTreeList()],
                         ['text','who','负责人'],
                         ['number','num','商品库存'],
                         ['text','price','原价'],

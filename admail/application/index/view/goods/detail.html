@@ -107,7 +107,7 @@
         <div class="wfwrap">
             <div class="wfwrapbox">
                 <div class="wfform-box">
-                    <img src="{$info.pic}" style="width:100%;">
+                    <img src="{$info.pic|get_file_path}" style="width:100%;">
                     <div class="wfproimg"><p>{$info.name}<br><span style="font-size:12px;font-weight:100;color:#999;">貨到付款，免運，7天無理由退換</span></p></div>
                 </div>
 
@@ -139,8 +139,8 @@
                     <label class="wfform-label">顔色</label>
                     <div class="wfform-pro frame">
                         <ul class="colour">
-                            <li><a href="javascript:void(0);" class="" data-colour="紅色"><img style="width:100px;height:100px;" src="{$info.pic}" alt="紅色" title="紅色"><br>紅色</a></li>
-                            <li><a href="javascript:void(0);" class="curcolour" data-colour="綠色"><img style="width:100px;height:100px;" src="{$info.pic}" alt="綠色" title="綠色"><br>綠色</a></li>
+                            <li><a href="javascript:void(0);" class="" data-colour="紅色"><img style="width:100px;height:100px;" src="{$info.pic|get_file_path}" alt="紅色" title="紅色"><br>紅色</a></li>
+                            <li><a href="javascript:void(0);" class="curcolour" data-colour="綠色"><img style="width:100px;height:100px;" src="{$info.pic|get_file_path}" alt="綠色" title="綠色"><br>綠色</a></li>
 
                         </ul>
 
