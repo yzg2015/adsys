@@ -42,22 +42,20 @@ class Order extends Admin
         // 使用ZBuilder快速创建数据表格
         return ZBuilder::make('table')
             ->setPageTitle('订单管理') // 设置页面标题
-            ->setSearch(['admin_order.order_sn' => '订单号', 'admin_delivery.w_sn' => '物流单号','admin_delivery.z_sn' => '转寄物流单号']) // 设置搜索框
-            ->hideCheckbox()
+            ->setSearch(['admin_order.order_sn' => '订单号', 'admin_site.url' => '站点','admin_goods.who' => '负责人','admin_order.wfname' => '电话']) // 设置搜索框
             ->addColumns([ // 批量添加数据列
-                ['id', 'ID'],
                 ['order_sn', '订单号'],
                 ['wfname', '姓名'],
+                ['wfmob', '电话'],
                 ['wfaddress', '收货地址'],
                 ['total_money', '总金额'],
                 ['url', '来源网站'],
-                ['status', '订单状态', 'switch'],
-                ['ip', '客户IP'],
+                ['status', '付款状态', 'switch'],
                 ['order_time', '下单时间', 'time', '', 'Y-m-d'],
                 ['right_button', '操作', 'btn']
             ])
             ->addOrder(['order_sn' => 'admin_order', 'wfaddress' => 'admin_order','url' => 'admin_site'])
-            ->addFilter(['admin_order.order_sn', 'admin_order.wfaddress','admin_goods.url'])
+            ->addFilter(['admin_order.order_sn', 'admin_order.wfaddress','admin_site.url'])
             ->addTopButtons('add,enable,delete,disable')
             ->addRightButtons('edit,delete')
             ->addRightButton('edit', ['icon' => 'fa fa-eye', 'title' => '详情', 'href' => url('details', ['id' => '__id__'])])
@@ -112,8 +110,9 @@ class Order extends Admin
                 ['text','wfname','姓名'],
                 ['text','wfmob','手机'],
                 ['text','wfemail','Email'],
+
                 ['text','wfaddress','详细地址'],
-                ['text','fpost','郵編'],
+                ['text','wfpost','郵編'],
                 ['text','remark','留言'],
 
             ])
@@ -163,8 +162,9 @@ class Order extends Admin
                 ['text','wfname','姓名'],
                 ['text','wfmob','手机'],
                 ['text','wfemail','Email'],
+
                 ['text','wfaddress','详细地址'],
-                ['text','fpost','郵編'],
+                ['text','wfpost','郵編'],
                 ['text','remark','留言'],
             ])
             ->addRadio('status', '上架状态', '', $list_status,0)

@@ -75,7 +75,7 @@ class Goods extends Home
             exit('请填写姓名');
         }
 
-        if(empty($data['address'])){
+        if(empty($data['wfaddress'])){
             exit('请填写具体收货地址');
         }
 

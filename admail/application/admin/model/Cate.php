@@ -54,7 +54,7 @@ class Cate extends Model
         $map['status']=1;
         $data_list = self::where($map)
             ->order('sort desc')
-            ->column('id,title,pid,active,selected');
+            ->column('id,title,pid,active,selected,pic');
         if($id){
             foreach ($data_list as &$v){
                 if($id==$v['id']){

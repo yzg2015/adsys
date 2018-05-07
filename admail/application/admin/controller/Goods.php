@@ -124,6 +124,7 @@ class Goods extends Admin
                         ['text','price','原价'],
                         ['text','z_price','折扣价'],
                         ['text','dao_time','活动倒计时'],
+                        ['text','remark','自定义内容'],
                         ['number','num','已搶購數量'],
                         ['image','pic','商品图片']
                     ])
@@ -172,27 +173,7 @@ class Goods extends Admin
                     ->fetch();
                 break;
             default:
-                return ZBuilder::make('form')
-                    ->setTabNav($list_tab,  $group)
-                    ->setUrl(url('save'))
-                    ->setPageTitle('编辑商品')
-                    ->addFormItems([
-                        ['hidden','id'],
-                        ['text','name','商品名称'],
-                        ['text','spu','SPU'],
-                        ['select','site_id','站点','',  SiteModel::getTreeList()],
-                        ['text','who','负责人'],
-                        ['number','num','商品库存'],
-                        ['text','price','原价'],
-                        ['text','z_price','折扣价'],
-                        ['text','dao_time','活动倒计时'],
-                        ['ueditor','content','商品内容'],
-                        ['number','num','已搶購數量'],
-                        ['image','pic','商品图片']
-                    ])
-                    ->addRadio('status', '上架状态', '', $list_status,0)
-                    ->setFormData($info)
-                    ->fetch();
+
                 break;
         }
 
@@ -217,6 +198,9 @@ class Goods extends Admin
                 }
             }else{
                 $data['add_time'] = time();
+                if($group=='tab2'||$group=='tab3'||$group=='tab4'){
+
+                }
                 if (false !== GoodsModel::create($data)) {
                     $this->success('新增成功','index');
                 } else {
@@ -254,6 +238,7 @@ class Goods extends Admin
                         ['text','z_price','折扣价'],
                         ['text','dao_time','活动倒计时'],
                         ['ueditor','content','商品内容'],
+                        ['text','remark','自定义内容'],
                         ['number','num','已搶購數量'],
                         ['image','pic','商品图片']
                     ])
@@ -285,54 +270,8 @@ class Goods extends Admin
                     ->fetch();
                 break;
         }
-
     }
 
 
-    /**
-     * 检查版本更新
-     * @author 蔡伟明 <314013107@qq.com>
-     * @return \think\response\Json
-     */
-    public function checkUpdate()
-    {
-        $params = config('dolphin');
-        $params['domain']  = request()->domain();
-        $params['website'] = config('web_site_title');
-        $params['ip']      = $_SERVER['SERVER_ADDR'];
-        $params['php_os']  = PHP_OS;
-        $params['php_version'] = PHP_VERSION;
-        $params['mysql_version'] = db()->query('select version() as version')[0]['version'];
-        $params['server_software'] = $_SERVER['SERVER_SOFTWARE'];
-        $params = http_build_query($params);
 
-        $opts = [
-            CURLOPT_TIMEOUT        => 20,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_URL            => config('dolphin.product_update'),
-            CURLOPT_USERAGENT      => $_SERVER['HTTP_USER_AGENT'],
-            CURLOPT_POST           => 1,
-            CURLOPT_POSTFIELDS     => $params
-        ];
-
-        // 初始化并执行curl请求
-        $ch = curl_init();
-        curl_setopt_array($ch, $opts);
-        $data  = curl_exec($ch);
-        curl_close($ch);
-
-        $result = json_decode($data, true);
-
-        if ($result['code'] == 1) {
-            return json([
-                'update' => '<a class="badge badge-primary" href="http://www.admail.com/download" target="_blank">有新版本：'.$result["version"].'</a>',
-                'auth'   => $result['auth']
-            ]);
-        } else {
-            return json([
-                'update' => '',
-                'auth'   => $result['auth']
-            ]);
-        }
-    }
 }
