@@ -1,0 +1,55 @@
+
+<ul class="dux-tab am-cf">
+    <!--loop{$saleList as $vo}-->
+    <li class="{$type == $vo.type ? 'active' : ''}">
+        <a href="{url('', ['type' => $vo.type])}">{$vo.name}({$vo.total})</a>
+    </li>
+    <!--{/loop}-->
+
+</ul>
+
+
+
+<div class="dux-page">
+
+
+    <table class="am-table am-table-hover am-table-striped">
+        <thead>
+        <tr>
+            <th colspan="2">用户</th>
+            <th >加入时间</th>
+            <th width="100">分销商</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--if{empty($pageList)}-->
+        <tr>
+            <td colspan="4" class="am-text-center">暂无记录</td>
+        </tr>
+        <!--{/if}-->
+        <!--loop{$pageList as $vo}-->
+        <tr>
+            <td width="80">
+                <img src="{$vo.user_avatar}?t={time()}" class="am-img-thumbnail" width="50">
+            </td>
+            <td class="am-text-middle">{$vo.show_name}</td>
+            <td class="am-text-middle am-text-danger">
+                {date('Y-m-d H:i', $vo.join_time)}
+            </td>
+            <td class="am-text-middle">
+                <!--if{$vo.agent}-->
+                <span class="am-text-warning">分销用户</span>
+                <!--{else}-->
+                <span class="am-text-success">普通用户</span>
+                <!--{/if}-->
+            </td>
+        </tr>
+        <!--{/if}-->
+        </tbody>
+    </table>
+
+</div>
+
+<div class="dux-pages">
+    {$page}
+</div>

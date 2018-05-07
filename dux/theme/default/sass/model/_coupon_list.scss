@@ -1,0 +1,95 @@
+.dux-coupon-list {
+  margin-right: -20px;
+  li {
+    margin-top:20px;
+    padding-right:20px;
+  }
+}
+
+.dux-coupon-box {
+  display: flex;
+  height: 190px;
+  overflow: hidden;
+  .box-info {
+    color: #fff;
+    flex: 1;
+    height: 190px;
+    background: #5e9ff0;
+    padding: 10px 20px;
+    position: relative;
+    .line {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      left: -13px;
+      top: 80px;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .name {
+      border-bottom:1px dotted #fff;
+      padding: 10px 0;
+      font-size:1.6rem;
+      margin-bottom:10px;
+    }
+    .subname {
+      height: 40px;
+      overflow: hidden;
+      margin-bottom:10px;
+    }
+    .btn {
+      a {
+        display: block;
+        line-height: 30px;
+        border: 2px solid #fff;
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+        &.disable {
+          background: rgba(255,255,255,.5);
+        }
+      }
+      margin-bottom:10px;
+    }
+    .progress {
+      display: flex;
+      .am-progress {
+        margin-top:5px;
+        flex: 1;
+        background-color: rgba(0,0,0,.1);
+        .am-progress-bar {
+          background-color: rgba(255,255,255,.5);
+        }
+      }
+      .tip {
+        width: 60px;
+        padding-left:10px;
+        font-size:1.2rem;
+      }
+
+    }
+
+  }
+  .box-price {
+    height: 190px;
+    width: 140px;
+    border-right: 2px solid #5e9ff0;
+    background: #fff;
+    text-align: center;
+    .money {
+      margin-top:50px;
+      color: #5e9ff0;
+      font-size:4rem;
+      font-weight: bold;
+      small {
+        font-size:1.6rem;
+        font-weight: normal;
+      }
+    }
+    .tip {
+      color: #999;
+
+    }
+
+  }
+}

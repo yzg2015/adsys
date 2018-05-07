@@ -1,0 +1,691 @@
+.dux-login {
+  background: #f5f5f5;
+
+  form {
+    margin-top: 10px;
+    .am-btn {
+      font-size: 1.4rem;
+      padding: .8rem;
+    }
+    label {
+      padding: 5px 0;
+      font-weight: normal;
+      font-size: 1.4rem;
+    }
+    input {
+      font-size: 1.4rem !important;
+      padding: .8rem !important;;
+    }
+    .info {
+      font-size: 1.2rem;
+      color: #666;
+      label {
+        padding: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .login-header {
+    padding: 10px 0;
+    height: 95px;
+    a {
+      color: $color-main;
+    }
+    .am-g {
+      position: relative;
+    }
+    .info {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 1.4rem;
+
+    }
+  }
+  .login-body {
+    height: 480px;
+    padding: 30px 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    .banner {
+      float: left;
+      img {
+        width: 450px;
+        height: 370px;
+      }
+    }
+    .login-layout {
+      float: right;
+      border: 1px solid #ddd;
+      border-top: 3px solid $color-main;
+      width: 350px;
+      padding: 10px;
+      padding-top: 0;
+      a {
+        color: $color-main;
+      }
+      h1 {
+        font-weight: normal;
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+
+  .reg-body {
+    padding: 10px 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+    .reg-layout {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 10px;
+
+      .form {
+        float: left;
+        width: 720px;
+        border-right: 1px solid #ddd;
+        padding: 0 120px;
+      }
+      .other {
+        float: right;
+        width: 220px;
+        margin-right: 10px;
+        .title {
+          font-size: 1.4rem;
+          padding: 10px 0;
+        }
+
+      }
+
+    }
+  }
+
+  .login-title {
+    border-left: 5px solid $color-main;
+    font-size: 1.4rem;
+    padding-left: 10px;
+  }
+
+  .dux-footer {
+    border: none;
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+}
+
+.dux-member-header {
+  background: $color-main;
+  padding: 10px 0;
+  .logo {
+    float: left;
+  }
+  .info {
+    float: left;
+    border-left: 1px solid #f5f5f5;
+    color: #fff;
+    padding: 10px 0;
+    padding-left: 10px;
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+      font-size: 1.8rem;
+    }
+    a {
+      color: #fff;
+      border: 1px solid #fff;
+      padding: .2rem .5rem;
+      display: block;
+      margin-top: 5px;
+    }
+  }
+  .nav {
+    margin-top: 30px;
+    float: right;
+    li {
+      float: left;
+      color: #fff;
+      margin-left: 30px;
+      a {
+        font-size: 1.6rem;
+        color: #fff;
+        padding: 8px 0px;
+        &:hover {
+          border-bottom: 2px solid #fff;
+        }
+      }
+    }
+  }
+}
+
+.dux-member-layout {
+  margin-top: 20px;
+  .member-sidebar {
+    background: #f5f5f5;
+    padding: 10px;
+    float: left;
+    width: 200px;
+    .user-info {
+      text-align: center;
+      line-height: 25px;
+      margin-bottom: 20px;
+      .img {
+
+      }
+      img {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        padding: 5px;
+        background: #fff;
+      }
+      .name {
+        margin-top: 10px;
+        color: $color-main;
+        font-size: 1.6rem;
+      }
+      .level {
+        color: #666;
+      }
+    }
+    .menu-title {
+      margin-top: 10px;
+      font-size: 1.4rem;
+      color: $color-main;
+    }
+    .menu-list {
+      padding-left: 20px;
+      li {
+        padding: 5px 0;
+      }
+    }
+
+  }
+  .member-body {
+    float: right;
+    width: 780px;
+
+  }
+
+  form {
+    margin: 0;
+    label {
+      font-weight: normal;
+      font-size: 1.2rem;
+    }
+    input {
+      font-size: 1.4rem;
+    }
+    button, .am-btn {
+      font-size: 1.4rem;
+    }
+    .am-form-group:last-child {
+      margin: 0;
+    }
+  }
+
+  .am-btn-sm {
+    font-size: 1.2rem;
+  }
+}
+
+.dux-member-title {
+  padding: 5px 0;
+
+  .title {
+    border-left: 5px solid $color-main;
+    padding-left: 5px;
+    font-size: 1.4rem;
+  }
+}
+
+.dux-member-index {
+  .order-box {
+    border: 1px solid #ddd;
+    float: left;
+    width: 540px;
+    border-bottom: none;
+    border-right: none;
+    padding: 10px;
+    background: #f5f5f5;
+    height: 305px;
+
+  }
+  .cart-box {
+    border: 1px solid #ddd;
+    float: right;
+    width: 240px;
+    border-bottom: none;
+    padding: 10px;
+    height: 305px;
+
+    .cart-list {
+      li {
+        padding: 0;
+        margin: 0;
+        height: 70px;
+      }
+      .info {
+        width: 140px;
+        padding-top: 5px;
+      }
+    }
+
+  }
+  .follow-box {
+    border: 1px solid #ddd;
+    float: left;
+    width: 540px;
+    border-right: none;
+    padding: 10px;
+    height: 350px;
+
+  }
+  .history-box {
+    border: 1px solid #ddd;
+    float: right;
+    width: 240px;
+    padding: 10px;
+    height: 350px;
+
+    .dux-member-images {
+      .price {
+        color: $color-main;
+      }
+      li {
+        width: 85px;
+        margin-top: 15px;
+        margin-left: 10px;
+      }
+      img {
+
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+  }
+
+  .more-btn {
+    border-top: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.dux-member-images {
+  li {
+
+  }
+}
+
+.dux-member-order {
+  margin-top: 5px;
+  li {
+    height: 75px;
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+
+  }
+  .img {
+    float: left;
+    width: 70px;
+
+  }
+  .info {
+    float: left;
+    width: 300px;
+    .title {
+      color: #333;
+      font-weight: bold;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      a {
+        color: #333;
+      }
+    }
+    .date {
+      color: #666;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .status {
+      color: #666;
+    }
+
+    span {
+      color: $color-main;
+    }
+  }
+  .btn {
+    float: right;
+    .am-btn {
+      margin-top: 15px;
+      font-size: 1.2rem;
+    }
+  }
+  img {
+    width: 54px;
+    height: 54px;
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+}
+
+.dux-member-images {
+  li {
+    float: left;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    margin-top: 8px;
+    margin-left: 15px;
+  }
+  a {
+    display: block;
+  }
+  .img {
+    img {
+      width: 90px;
+      height: 90px;
+    }
+    position: relative;
+    span {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0 2px;
+      background: $color-main;
+      color: #fff;
+    }
+  }
+  .title {
+    margin-top: 5px;
+    color: #666;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.dux-member-info {
+  padding: 20px 0;
+  font-size: 1.4rem;
+  text-align: center;
+  li {
+    float: left;
+    width: 25%;
+    border-left: 1px solid #ccc;
+    &:first-child {
+      border: none;
+    }
+
+  }
+  i {
+    color: #666;
+    margin-right: 10px;
+  }
+  span {
+    color: $color-main;
+  }
+}
+
+.dux-member-box {
+  border: 1px solid #ddd;
+  padding: 20px 0px;
+  margin-top: 10px;
+  border-top: 3px solid #ddd;
+}
+
+
+
+.dux-member-images-xl {
+  margin-left: -20px;
+  margin-right: -20px;
+  li {
+    width: 138px;
+    a {
+      display: block;
+    }
+  }
+  .img {
+    img {
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 128px;
+      height: 128px;
+    }
+  }
+  span {
+    color: $color-main;
+  }
+}
+
+.dux-cart-header {
+  float: right;
+  margin-top: 10px;
+  li {
+    float: left;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #999;
+    i {
+      font-size: 2.5rem;
+      display: block;
+      border-bottom: 2px solid #DDD;
+      padding: 5px 50px;
+      margin-bottom: 10px;
+    }
+    &.active {
+      color: $color-main;
+      i {
+        border-bottom-color: $color-main;
+        &:before {
+          color: $color-main;
+        }
+      }
+    }
+  }
+}
+
+
+
+.dux-steps {
+  dl {
+    font-size: 12px;
+    line-height: 20px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 155px;
+    height: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    position: relative;
+    z-index: auto;
+    &.active {
+      .bg, .node {
+
+        background: $color-main;
+      }
+      .node {
+        &:before {
+          display: block;
+        }
+      }
+    }
+    dt {
+      text-align: center;
+      width: 70px;
+      position: absolute;
+      z-index: 1;
+      top: -30px;
+      left: -20px;
+    }
+    dd {
+      margin: 0;
+
+    }
+    .bg {
+      width: 180px;
+      height: 10px;
+      background: #ddd;
+      position: absolute;
+      z-index: 1;
+      top: 10px;
+      right: 0;
+      left: 1px;
+    }
+    .date {
+      font-size: 1.2rem;
+      color: #999;
+      text-align: center;
+      width: 80px;
+      height: 10px;
+      position: absolute;
+      left: -20px;
+      bottom: -20px;
+
+    }
+    .node {
+      background: #ddd;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      color: #fff;
+      &:before {
+        display: none;
+        content: '\2713';
+        font-size: 1.4rem;
+      }
+    }
+    &:last-child {
+      width: 40px;
+    }
+  }
+}
+
+.dux-order-info {
+  .order-box {
+    float: left;
+    width: 270px;
+    min-height: 300px;
+    box-shadow: none;
+    background: #f5f5f5;
+    dl {
+      margin-bottom: 10px;
+      dt {
+        float: left;
+        width: 60px;
+        color: #999;
+        margin: 0;
+
+      }
+      dd {
+        margin: 0;
+        margin-left: 70px;
+
+      }
+    }
+    .line {
+      border-top: 1px dotted #ddd;
+      padding-top: 10px;
+    }
+  }
+  .order-tips {
+    float: right;
+    border: 1px solid #ddd;
+    border-left: none;
+    min-height: 300px;
+    width: 510px;
+    .title {
+      padding: 10px;
+    }
+    dl {
+      margin-bottom: 10px;
+      margin-left: 10px;
+      color: #666;
+      dt {
+        float: left;
+        width: 150px;
+        margin: 0;
+
+      }
+      dd {
+        margin: 0;
+        margin-left: 150px;
+      }
+
+      &:first-child {
+        color: $color-main;
+      }
+
+    }
+  }
+}
+
+.dux-tip-panel {
+  margin-top: 20px;
+  padding: 20px;
+
+  background: #f5f5f5;
+  h1 {
+    color: $color-main;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+  }
+  p {
+    padding: 10px 0;
+    margin: 0;
+  }
+}
+
+.dux-comment-post {
+  padding: 10px;
+  dl {
+    padding: 5px 10px;
+    dt {
+      float: left;
+      width: 90px;
+      margin: 0;
+
+    }
+    dd {
+      margin: 0;
+      margin-left: 100px;
+
+      label {
+        font-weight: normal;
+        margin-right: 10px;
+      }
+
+      textarea {
+        border: 1px solid #ccc;
+        width: 350px;
+        height: 100px;
+        &:focus {
+          outline: none;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,51 @@
+input,button {
+  &:focus {
+    outline: none;
+  }
+}
+
+html,body {
+  color: $color-text;
+  background: #f5f5f5;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl,dt,dd {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+input,button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.am-g-fixed {
+  width: 1200px;
+}
+
+
+
+.am-table {
+  margin: 0;
+  thead > tr > th {
+    padding: .7rem .5rem;
+    font-size:1.2rem;
+    background: #f5f5f5;
+    border-bottom: none;
+    font-weight: normal;
+
+  }
+  td {
+  }
+
+}
+
+blockquote {
+  font-family: normal;
+}

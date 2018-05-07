@@ -1,0 +1,51 @@
+<ul class="am-avg-sm-3 dux-tabs">
+    <li class="{$type == 0 ? 'active' : 0}">
+        <a href="{url('')}">全部</a>
+    </li>
+    <li class="{$type == 1 ? 'active' : 0}">
+        <a href="{url('', ['type' => 1])}">未使用</a>
+    </li>
+    <li class="{$type == 2 ? 'active' : 0}">
+        <a href="{url('', ['type' => 2])}">已过期</a>
+    </li>
+</ul>
+<!--if{empty($pageList)}-->
+<div class="dux-box am-padding am-text-center">
+    暂无记录
+</div>
+<br>
+<!--{/if}-->
+<ul class="dux-coupon-list">
+    <!--loop{$pageList as $vo}-->
+    <li id="item-{$vo.log_id}">
+        <a href="{$vo.url}" class="dux-coupon-box {$vo.end_time < time() ? 'dux-coupon-failure' : ''}">
+            <div class="info">
+                <div class="price">
+                    ￥{$vo.money} <small>满{$vo.meet_money}可用</small>
+                </div>
+                <div class="name">
+                    {$vo.name}
+                </div>
+            </div>
+            <div class="date">
+                <!--if{$vo.end_time < time()}-->
+                <div class="failure">已失效</div>
+                <!--{else}-->
+                <div class="tip">有效期</div>
+                {date('Y-m-d', $vo.start_time)}
+                <br>
+                -
+                <br>
+                {date('Y-m-d', $vo.end_time)}
+                <!--{/if}-->
+            </div>
+            <div class="icon am-icon-angle-right"></div>
+        </a>
+    </li>
+    <!--{/if}-->
+
+</ul>
+<div class="dux-pages am-cf">
+    {$page}
+</div>
+

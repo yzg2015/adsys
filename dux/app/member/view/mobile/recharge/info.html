@@ -1,0 +1,38 @@
+
+<div class="am-padding am-text-lg am-padding-bottom-0">
+    {$info.money}元
+</div>
+<div class="dux-box ">
+    <div class="am-form dux-form dux-form-right">
+        <div class="am-input-group">
+            <span class="am-input-group-label">充值状态</span>
+            <div class="am-form-content">{$info.status ? '充值成功' : '未完成'}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">充值时间</span>
+            <div class="am-form-content">{date('Y-m-d H:i:s', $info.create_time)}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">流水号</span>
+            <div class="am-form-content">{$info.recharge_no}</div>
+        </div>
+        <!--if{$info.complete_time}-->
+        <div class="am-input-group">
+            <span class="am-input-group-label">完成时间</span>
+            <div class="am-form-content">{date('Y-m-d H:i:s', $info.complete_time)}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">充值备注</span>
+            <div class="am-form-content">{$info.remark ? $info.remark : '无'}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">支付方式</span>
+            <div class="am-form-content">{$info.pay_name}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">支付单号</span>
+            <div class="am-form-content">{$info.pay_no}</div>
+        </div>
+        <!--{/if}-->
+    </div>
+</div>

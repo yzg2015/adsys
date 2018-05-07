@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{$sysPublic}/common/css/amazeui.min.css">
+    <link rel="stylesheet" href="{$sysPublic}/common/css/fix.css">
+    <link rel="stylesheet" href="{$sysPublic}/system/css/style.css">
+    <script type="text/javascript" src="{$sysPublic}/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/amazeui.js"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/do.js" data-cfg-autoload="false"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/package.js" data-path="{$sysPublic}/" data-role="<?php echo ROLE_NAME; ?>" data-root="<?php ROOT_URL; ?>"></script>
+    <script type="text/javascript" src="{$sysPublic}/system/js/lib.js"></script>
+</head>
+<style>
+    body,html {
+        background: #fff;
+        height: auto;
+    }
+    body {
+        padding-bottom:60px;
+    }
+</style>
+<body>
+{$layout}
+</body>
+<script>
+    Do('base', function () {
+        base.frame();
+    });
+</script>
+</html>

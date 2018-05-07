@@ -1,0 +1,159 @@
+
+.dux-top {
+  background: #363636;
+  color: #bfbfbf;
+  font-size: 1.2rem;
+  line-height: 30px;
+  height: 30px;
+  li {
+  }
+  a {
+    color: #bfbfbf;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .top-left {
+    li {
+      float: left;
+      margin-right: 10px;
+    }
+
+  }
+  .top-right {
+    text-align: right;
+    li {
+      float: right;
+      margin-left: 10px;
+    }
+
+  }
+}
+
+.dux-header {
+  background: #fff;
+  padding: 10px 0;
+  .header-logo {
+    img {
+    }
+  }
+  .header-nav {
+    font-size: 1.4rem;
+    text-align: left;
+    margin-top:10px;
+    ul {
+      li {
+        float: right;
+        margin-left: 10px;
+      }
+    }
+
+    a {
+      line-height: 30px;
+      display: block;
+      padding: 0 20px;
+      text-align: center;
+      color: #666;
+      i {
+        display: block;
+        font-size:26px;
+        height: 30px;
+        text-align: center;
+        color: #333;
+      }
+      &:hover {
+
+      }
+    }
+  }
+
+}
+
+.dux-main-layout {
+  margin-top: 20px;
+  .layout-sidebar {
+    padding-right: 20px;
+    .side-user {
+      .user-title {
+        background: #e53142;
+        color: #fff;
+        font-size: 1.4rem;
+        padding: 10px 20px;
+        font-weight: bold;
+      }
+      .user-info {
+        background: #ff5c60;
+        color: #fff;
+        padding: 10px 20px;
+        .avatar {
+          float: left;
+          width: 64px;
+          img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+          }
+        }
+        .menu {
+          font-size: 12px;
+          margin-left: 90px;
+          a {
+            color: rgba(255, 255, 255, .9);
+            line-height: 22px;
+            i {
+              width: 15px;
+              text-align: center;
+            }
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+        .name {
+          margin-top: 10px;
+          font-weight: bold;
+        }
+      }
+    }
+    .side-nav {
+      background: #fff;
+      margin-top: 20px;
+      .nav-title {
+        font-size: 1.4rem;
+        padding: 10px 20px;
+        background: #eee;
+        font-weight: bold;
+      }
+      .nav-list {
+        padding: 10px;
+        li {
+          line-height: 30px;
+          a {
+            padding: 2px 20px;
+            display: block;
+            i {
+              color: #666;
+              width: 20px;
+              text-align: center;
+              margin-right:5px;
+            }
+            &:hover {
+              background: #eee;
+              color: #333;
+            }
+          }
+          &.active {
+            a {
+              color: $color-main;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+  .layout-body {
+  }
+}

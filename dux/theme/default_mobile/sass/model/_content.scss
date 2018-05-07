@@ -1,0 +1,316 @@
+.dux-pro-slider {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  .am-slides {
+    li {
+      text-align: center;
+      height: 250px;
+      img {
+        width: 250px;
+        height: 250px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.dux-pro-info {
+  border: 1px solid #eee;
+  border-left: 0;
+  border-right: 0;
+  padding: 1rem;
+  font-size: 1.4rem;
+  h1.info-title {
+    font-weight: normal;
+    font-size: 1.6rem;
+    margin: 0;
+    .am-badge {
+      font-size: 1.1rem;
+      font-weight: normal;
+    }
+    &, a {
+      color: #333;
+
+    }
+  }
+  .info-desc {
+    color: #999;
+  }
+  .info-number {
+    font-size: 1.1rem;
+    margin-top: .5rem;
+  }
+  .info-price {
+    color: #aaa;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    h2 {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      color: $color-main;
+      margin-right: 1rem;
+      font-size: 1.6rem;
+      ~ em {
+        text-decoration: line-through;
+      }
+    }
+    em {
+      font-style: normal;
+    }
+  }
+  .info-btn {
+    padding-top: 10px;
+    button {
+      width: 48%;
+      float: left;
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+}
+
+.dux-pro-data {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  padding: 10px;
+  li {
+    border-right: 1px solid #ddd;
+    padding: 0 10px;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  span {
+    display: block;
+    color: $color-main;
+    font-size: 1.4rem;
+  }
+}
+
+.dux-pro-spec {
+  padding-bottom: 10px;
+  border: 1px solid #eee;
+  border-left: 0;
+  border-right: 0;
+  .spec-list {
+    font-size: 1.1rem;
+    margin: 0;
+    dt {
+      float: left;
+      display: inline-block;
+      margin: 0;
+      font-weight: normal;
+      padding-top: 10px;
+      padding-left: 10px;
+      width: 90px;
+    }
+    dd {
+      margin: 0;
+      padding-left: 100px;
+      a {
+        margin-top: 10px;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 2px 10px;
+        border-radius: 2px;
+        display: inline-block;
+      }
+      a.active {
+        color: $color-main;
+        border-color: $color-main;
+      }
+    }
+  }
+  .shop-count {
+
+  }
+  .spec-item {
+    padding-top: 10px;
+    .title {
+      float: left;
+      display: inline-block;
+      padding-left: 10px;
+      width: 90px;
+      line-height: 25px;
+    }
+    .info {
+      margin: 0;
+      padding-left: 100px;
+      line-height: 25px;
+    }
+  }
+  .info-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    button {
+      width: 48%;
+      float: left;
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+
+}
+
+.dux-pro-menu {
+  margin-top: 10px;
+  background: #fff;
+  li {
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    a {
+      display: block;
+      color: #333;
+      span {
+        float: right;
+        font-size: 1.4rem;
+        color: #999;
+      }
+    }
+
+  }
+}
+
+.dux-pro-action-br {
+  height: 55px;
+}
+
+.dux-pro-action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255, .9);
+  z-index: 2;
+  border-top:1px solid #eee;
+  display: flex;
+  .action-count {
+    flex:1;
+    padding: 3px;
+    padding-left:10px;
+    p {
+      margin: 0;
+      &.total {
+        font-size:1.4rem;
+        font-weight: bold;
+        font-style: normal;
+        line-height:20px;
+      }
+      em {
+        font-style: normal;
+      }
+      small {
+        font-weight: normal;
+        font-size:1.4rem;
+      }
+    }
+  }
+  .action-info {
+    flex:1;
+    display: flex;
+    a {
+      flex:1;
+      display: block;
+      padding: 0 15px;
+      text-align: center;
+      &.active {
+        color: $color-main;
+      }
+      i {
+        font-size:1.8rem;
+        &.am-icon-heart {
+          color: #dc3b1f;
+        }
+      }
+      .title {
+        font-size:1.4rem;
+      }
+      position: relative;
+      .am-badge {
+        font-size:1.4rem;
+        background: #dc3b1f;
+        padding: 1px 5px;
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        border-radius: 5px;
+      }
+    }
+
+  }
+  .action-btn {
+    display: flex;
+    a {
+      flex:1;
+      text-align: center;
+      display: block;
+      padding: 0 20px;
+      height: 50px;
+      line-height:50px;
+      color: #fff;
+      font-size:1.4rem;
+      font-weight: bold;
+      &.btn-add {
+        background: #ffb03f;
+      }
+      &.btn-submit {
+        background: $color-main;
+
+      }
+    }
+
+
+  }
+}
+
+.dux-comment-list {
+  > li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  .info {
+    .stars {
+      float: left;
+      i {
+        color: $color-main;
+      }
+    }
+    .name {
+      float: right;
+    }
+  }
+  .content {
+    padding: 10px 0;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  .images {
+    li {
+      float: left;
+      margin-right:10px;
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        margin-top:10px;
+      }
+    }
+  }
+  .time {
+    color: #999;
+    text-align: right;
+  }
+}
+
+.dux-content {
+  line-height:2.5rem;
+  img {
+    max-width: 100%;
+  }
+}

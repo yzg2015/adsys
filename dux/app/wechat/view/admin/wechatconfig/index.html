@@ -1,0 +1,46 @@
+<div class="dux-body">
+    <div class="dux-alert-list">
+        <p>设置公众号接口URL</p>
+        http://<?php  echo $_SERVER['HTTP_HOST']; ?>{url('api/wechat/App/index')}
+    </div>
+    <br>
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">微信配置</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" method="post" action="{url()}" data-dux="form-bind">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">AppID</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="appid" placeholder="应用ID" value="{$info.appid}" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">AppSecret</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="secret" placeholder="公众号密钥" value="{$info.secret}" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">Token</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="token" placeholder="安全验证码,需自己定义" value="{$info.token}" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">EncodingAESKey</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="aeskey" placeholder="安全模式下填写" value="{$info.aeskey}">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                            <button class="am-btn am-btn-primary" type="submit">保存</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

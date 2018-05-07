@@ -1,0 +1,209 @@
+@import "color";
+
+$color-main: #5eb95e;
+
+label {
+  font-weight: normal;
+}
+
+.am-form {
+  .am-form-field, input[type=number], input[type=search], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=email], input[type=url], input[type=tel], input[type=color], select, textarea {
+    line-height: 1.35;
+    padding: .6em;
+    border: 1px solid #ddd;
+    font-size: 1.4rem;
+    &:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-color: #99baca;
+      background: #f5fbfe;
+    }
+  }
+
+  select {
+    padding-right: 1.5em;
+  }
+
+  input[type=color] {
+    padding: 0;
+    height: 2.8rem;
+  }
+
+}
+
+.am-input-group .am-form-field, .am-input-group-btn > .am-btn {
+  height: 35px;
+}
+
+.am-input-group .am-input-group-label {
+  height: 33px;
+  line-height: 33px;
+}
+
+.dux-step {
+  font-size: 0;
+  letter-spacing: -4px;
+  dl {
+    font-size: 1.4rem;
+    line-height: 25px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 20%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: auto;
+    text-align: center;
+    &.active {
+      .node {
+        background: $color-main;
+        border-color: lighten($color-main, 35);
+        background-clip: padding-box;
+      }
+      .bg {
+        background: $color-main;
+      }
+    }
+
+    &:first-child {
+      .bg {
+        position: relative;
+        width: 50%;
+        left: 50%;
+      }
+    }
+
+    &:last-child {
+      .bg {
+        width: 50%;
+      }
+    }
+
+    dt {
+      text-align: center;
+      position: relative;
+      top: -20px;
+    }
+    dd {
+      margin: 0;
+
+    }
+    .bg {
+      height: 5px;
+      background: #eee;
+    }
+    .date {
+      font-size: 1.2rem;
+      color: #999;
+      text-align: center;
+      position: relative;
+      top: -10px;
+
+    }
+    .node {
+      background: #ccc;
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      border-radius: 50%;
+      text-align: center;
+      color: #fff;
+      border: 5px solid #eee;
+      position: relative;
+      top: -15px;
+    }
+  }
+
+}
+
+.am-btn {
+  outline: none;
+  line-height: 1.4;
+  font-size: 1.4rem;
+  &:active:focus, &:focus {
+    outline: none;
+  }
+}
+
+.am-btn-xs {
+  font-size: 1.2rem;
+}
+
+.dux-stat-widget {
+  .media-icon {
+    float: left;
+    height: 64px;
+    width: 64px;
+    line-height: 64px;
+    color: #fff;
+  }
+  .media-body {
+    height: 64px;
+    h1 {
+      margin-bottom: 1rem;
+    }
+    text-align: right;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.dux-field-inline {
+  display: inline-block !important;
+  width: auto !important;
+}
+
+.dux-field-sm {
+  width: 50px !important;
+}
+
+.dux-field-md {
+  width: 100px !important;
+}
+
+.dux-field-lg {
+  width: 150px !important;
+}
+
+.dux-spec-group {
+  input[type=text] {
+    min-width: 60px;
+    max-width: 100px;
+  }
+  .spec-list {
+    display: table;
+    .list-item {
+      display: table-cell;
+      height: 35px;
+      padding: 5px;
+
+    }
+    .list-add {
+      display: table-cell;
+      padding: 5px;
+    }
+
+    @media screen and (max-width: 641px) {
+      .list-add, .list-item {
+        width: auto;
+      }
+
+    }
+
+  }
+}
+
+.dux-dialog-foot {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 50px;
+  background: #fff;
+}

@@ -1,0 +1,35 @@
+.am-layout-other {
+  background: #ffffff;
+}
+.dux-layout-main {
+  margin: 10px;
+  position: relative;
+}
+.dux-layout-page {
+  width: 100%;
+  padding: 10px;
+}
+.dux-layout-foot {
+  padding: 20px;
+  text-align: center;
+  font-size:1.4rem;
+  color: #777;
+  border-top: 1px solid #ddd;
+  margin-top:20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.dux-layout-action {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  right: 20px;
+}
+
+.dux-flex {
+  display: flex !important;
+  .flex-1 {
+    flex: 1 !important;
+  }
+}

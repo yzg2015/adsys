@@ -1,0 +1,84 @@
+<div class="dux-tip dux-box am-cf">
+    <div class="tip-header">
+        <h1><i class="am-icon-check success"></i>订单已提交，请您进行支付！</h1>
+        <p><span class="am-text-danger">￥{$totalPrice}</span>元
+            <!--loop{$currencyAppend as $vo}-->
+            + <span class="am-text-danger">{$vo.money}</span> {$vo.name}
+
+            <!--{/if}-->
+        </p>
+    </div>
+</div>
+<form action="{url('pay')}" data-dux="form-bind" method="post" data-callback="submit"  data-advanced="false">
+    <!--if{$currencyList}-->
+<div class="dux-box dux-pay-body">
+    <div class="box-header">
+        兑换方式
+    </div>
+
+    <ul class="dux-type-list">
+        <!--loop{$currencyList as $key => $vo}-->
+        <li>
+            <label class="am-checkbox dux-flex">
+                <div class="am-fl flex-1">
+                    {$vo.name}
+                    <!--if{$currencyExchange[$key]}-->
+                    <p><span class="am-text-danger">{$currencyExchange[$key]['money']}{$currencyExchange[$key]['unit']} 抵扣 {$currencyExchange[$key]['deduct']}元</span></p>
+                    <!--{/if}-->
+                    <p>余额 {$vo.amount}</p>
+                </div>
+                <div>
+                    <input type="checkbox"  name="currency[]" value="{$key}" checked>
+                </div>
+            </label>
+        </li>
+        <!--{/loop}-->
+    </ul>
+</div>
+
+    <!--{/if}-->
+
+<div class="dux-box">
+    <div class="box-header">
+        请选择支付方式
+    </div>
+    <ul class="dux-type-list">
+        <?php $i = 0; ?>
+        <!--loop{$payList as $type => $vo}-->
+        <?php $i++; ?>
+        <li>
+            <label class="am-radio am-cf">
+                <div class="am-fl">{$vo.name}</div>
+                <div class="am-fr">
+                    <!--if{$i == 1}-->
+                    <input type="radio" name="type" value="{$type}" checked>
+                    <!--{else}-->
+                    <input type="radio" name="type" value="{$type}">
+                    <!--{/if}-->
+                </div>
+            </label>
+
+        </li>
+        <!--{/loop}-->
+    </ul>
+</div>
+<div class="am-padding">
+    <input type="hidden" name="order_no" value="{$orderNo}">
+    <button class="am-btn am-btn-primary am-btn-block" type="submit">确认订单，立即支付</button>
+</div>
+
+</form>
+
+
+<script>
+    Do('base', function () {
+        window.submit = function (msg, url) {
+            dialog.alert({
+                title: msg,
+                callback: function () {
+                    window.location.href = url;
+                }
+            });
+        };
+    });
+</script>

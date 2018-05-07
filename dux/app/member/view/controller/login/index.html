@@ -1,0 +1,57 @@
+<div class="am-container">
+
+    <div class="dux-login am-cf">
+
+        <div class="login-show">
+            <img src="<?php echo ROOT_URL . '/' . $memberInfo['login']; ?>">
+        </div>
+
+        <div class="login-form">
+            <div class="form-title">
+                会员登录
+            </div>
+            <div class="form-body">
+                <form class="am-form am-form-horizontal"  action="{url('', [action => $action])}" method="post"  data-dux="form-bind" data-advanced="false" data-callback="login">
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">登录账号</label>
+                        <div class="form-field">
+                            <input type="text" name="username" placeholder="邮箱/手机号码">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">密码</label>
+                        <div class="form-field">
+                            <input type="password" name="password" placeholder="请输入登录密码">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="form-field">
+                            <label><input type="checkbox" name="remember" value="1"> 一个月内免登录</label> <a href="{url('member/Register/forgot')}"  class="link">忘记密码?</a>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-cf">
+                        <div class="form-field">
+                            <button type="submit" class="form-submit am-btn am-btn-primary am-btn-block">立即登录</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="form-foot">
+                还不是会员? <a href="{url('member/register/index')}" class="link">立即注册</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    Do('base', function () {
+        window.login = function (msg, url) {
+            window.location.href = url;
+        }
+    });
+</script>

@@ -1,0 +1,71 @@
+.dux-slogen {
+  background: #ffffff;
+  border-top: solid 1px #E8E8E8;
+  margin-top: 50px;
+  padding: 20px 0;
+  font-size: 1.8rem;
+  text-align: center;
+  .item {
+    border-right: solid 1px #E8E8E8;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  i {
+    color: $color-main;
+    border: 2px solid $color-main;
+    border-radius: 50%;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    height: 36px;
+    line-height: 34px;
+    margin: 10px 10px 0 0;
+    vertical-align: top;
+    width: 36px;
+    font-size:1.8rem;
+  }
+  .title {
+    padding-left: 5px;
+    line-height: 60px;
+
+  }
+}
+
+
+
+.dux-faq {
+  padding:30px 0;
+  background: #ffffff;
+  border-top: solid 1px #E8E8E8;
+  .item {
+  }
+  dl {
+    dt {
+      font-size: 1.6rem;
+      font-weight: normal;
+      padding: 6px 0;
+      color: #333;
+
+    }
+    dd {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #848484;
+      font-size: 12px;
+      line-height: 30px;
+      a {
+        color: #666;
+      }
+    }
+  }
+}
+
+.dux-footer {
+  background: #ffffff;
+  border-top: solid 1px #E8E8E8;
+  text-align: center;
+  padding: 30px 0;
+  font-size:1.2rem;
+  color: #666;
+}

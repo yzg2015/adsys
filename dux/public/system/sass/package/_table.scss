@@ -1,0 +1,87 @@
+
+.dux-table {
+  background: #fff;
+  color: #555;
+  p {
+    margin: 0;
+    color: #999;
+  }
+  @at-root .dux-table-dialog, & {
+
+    margin: 0;
+    >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th {
+      border: none;
+      padding: 10px 10px;
+      display: table-cell;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: normal;
+    }
+    >tbody>tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    th {
+      color: #333;
+    }
+    td,th {
+      font-size:1.4rem;
+    }
+
+    thead {
+      background: #e7e8ea;
+      font-size: 1.4rem;
+    }
+
+  }
+
+  @media only screen and (max-width: 992px) {
+
+
+    &.am-table {
+      border: 0;
+      thead {
+        display: none;
+      }
+      tr {
+        margin-bottom: 10px;
+        display: block;
+      }
+      td,th {
+        display: block;
+        text-align: right !important;
+        font-size: 13px;
+        min-height: 38px;
+        &:last-child {
+          border-bottom: 0;
+        }
+        &:before {
+          content: attr(data-label);
+          float: left;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+      }
+    }
+
+  }
+
+}
+
+.dux-table-lg {
+  th {
+    font-size:1.4rem;
+    font-weight:normal;
+    color: #444;
+  }
+  td {
+    padding: 1.1rem 1.5rem !important;
+  }
+}
+
+.am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover {
+  font-size:1.4rem;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}

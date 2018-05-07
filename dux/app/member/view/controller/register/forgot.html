@@ -1,0 +1,73 @@
+<div class="am-container">
+
+    <div class="dux-login am-cf">
+
+        <div class="login-show">
+            <img src="{$sysPublic}/member/images/login-banner.png" alt="">
+        </div>
+
+        <div class="login-form">
+            <div class="form-title">
+                找回密码
+            </div>
+            <div class="form-body">
+                <form class="am-form am-form-horizontal"  action="{url()}" method="post"  data-dux="form-bind" data-advanced="false">
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">登录账号</label>
+                        <div class="form-field">
+                            <input type="text" name="username" id="username" placeholder="邮箱/手机号码">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">图片验证</label>
+                        <div class="form-field am-cf">
+                            <div class="am-fl">
+                                <img src="{url('member/register/code')}" onclick="this.src ='{url("member/register/code")}?'+Math.random()">
+                            </div>
+                            <div class="am-fr" style="width: 160px">
+                                <input type="text" placeholder="图片验证码" name="imgcode" id="imgcode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-form-label">验证码</label>
+                        <div class="form-field am-cf">
+                            <div class="am-fl" style="width: 130px">
+                                <input type="text" placeholder="验证码" name="code">
+                            </div>
+                            <div class="am-fr">
+                                <a href="javascript:;" class="am-btn am-btn-warning" data-dux="page-ajaxLink" data-url="{url('member/Register/getCode')}" data-field="username,imgcode">获取验证码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">密码</label>
+                        <div class="form-field">
+                            <input type="password" name="password" placeholder="请输入新密码">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">确认密码</label>
+                        <div class="form-field">
+                            <input type="password" name="password2" placeholder="请再次输入新密码">
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group am-cf">
+                        <div class="form-field">
+                            <button type="submit" class="form-submit am-btn am-btn-primary am-btn-block">立即更改</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="form-foot">
+                已经注册? <a href="{url('member/login/index')}"  class="link">立即登录</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

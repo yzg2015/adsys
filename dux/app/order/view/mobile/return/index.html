@@ -1,0 +1,83 @@
+<ul class="am-avg-sm-2 dux-tabs">
+    <li>
+        <a href="{url('order/Refund/index')}">退款</a>
+    </li>
+    <li class="active">
+        <a href="{url('order/Return/index')}">退货</a>
+    </li>
+
+</ul>
+<ul class="am-avg-sm-6 dux-tabs">
+    <li class="{$type == 0 ? 'active' : 0}">
+        <a href="{url('')}">全部</a>
+    </li>
+    <li class="{$type == 1 ? 'active' : 0}">
+        <a href="{url('', ['type' => 1])}">待审核</a>
+    </li>
+    <li class="{$type == 2 ? 'active' : 0}">
+        <a href="{url('', ['type' => 2])}">待退货</a>
+    </li>
+    <li class="{$type == 3 ? 'active' : 0}">
+        <a href="{url('', ['type' => 3])}">已退款</a>
+    </li>
+
+    <li class="{$type == 4 ? 'active' : 0}">
+        <a href="{url('', ['type' => 4])}">已拒绝</a>
+    </li>
+
+    <li class="{$type == 5 ? 'active' : 0}">
+        <a href="{url('', ['type' => 5])}">已取消</a>
+    </li>
+
+</ul>
+
+<!--if{empty($pageList)}-->
+<div class="dux-box am-padding am-text-center">
+    暂无记录
+</div>
+<!--{else}-->
+
+<ul class="dux-pro-list">
+    <!--loop{$pageList as $vo}-->
+    <li>
+        <a class="am-cf dux-pro-item" href="{url('info', ['return_no' => $vo['return_no']])}">
+            <div class="item-img">
+                <img src="{$vo.goods_image}">
+            </div>
+            <div class="item-info">
+                <div class="title">{$vo.goods_name}</div>
+                <p>
+                    <!--loop{(array)$vo.goods_options as $v}-->
+                    {$v.value}
+                    <!--{/loop}-->
+                </p>
+                <p class="am-text-danger">
+                    ￥{$vo.goods_price} × {$vo.goods_qty}
+                </p>
+                <!--if{!$vo.status}-->
+                <span class="am-badge ">已取消</span>
+                <!--{/if}-->
+                <!--if{$vo.status == 1}-->
+                <span class="am-badge am-badge-warning">待审核</span>
+                <!--{/if}-->
+                <!--if{$vo.status == 2}-->
+                <span class="am-badge am-badge-warning">待退货</span>
+                <!--{/if}-->
+                <!--if{$vo.status == 3}-->
+                <span class="am-badge am-badge-success">已退款</span>
+                <!--{/if}-->
+                <!--if{$vo.status == 4}-->
+                <span class="am-badge am-badge-danger">拒绝退货</span>
+                <!--{/if}-->
+            </div>
+        </a>
+    </li>
+    <!--{/loop}-->
+</ul>
+
+<div class="dux-pages am-cf">
+    {$page}
+</div>
+
+
+<!--{/if}-->

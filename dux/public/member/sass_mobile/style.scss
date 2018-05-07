@@ -1,0 +1,35 @@
+$color-main: #db3652;
+$color-text: #363636;
+$color-test-secondary: #777;
+
+$color-secondary: #6dc1ff;
+$color-warning : #F7BA2A;
+$color-danger : #FF4949;
+$color-success : #00a930;
+
+
+@import "model/_fix";
+@import "model/_icon";
+@import "model/_layout";
+@import "model/_element";
+
+@import "model/_header";
+
+@import "model/_list";
+@import "model/_form";
+@import "model/_box";
+
+@import "model/_other";
+@import "model/_component";
+@import "model/_index";
+@import "model/_button";
+
+@import "model/_avatar";
+@import "model/_order";
+@import "model/_pay";
+@import "model/_cart";
+
+
+@import "model/_coupon";
+
+@import "model/_js";

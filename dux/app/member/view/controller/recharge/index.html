@@ -1,0 +1,62 @@
+<ul class="dux-tab am-cf">
+    <li class="active">
+        <a href="{url('index')}">账户充值</a>
+    </li>
+    <li class="">
+        <a href="{url('log')}">充值记录</a>
+    </li>
+</ul>
+
+<div class="dux-page">
+    <div class="page-box">
+        <form class="dux-form am-form am-form-horizontal">
+            <div class="am-form-group">
+                <label class="am-form-label">充值金额</label>
+                <div class="am-form-content">
+                    <input type="tel" name="money" placeholder="请输入充值金额">
+                    <div class="am-form-help">充值单位:元</div>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">充值方式</label>
+                <div class="am-form-content">
+                    <!--php{$i = 0}-->
+                    <!--loop{$payList as $type => $vo}-->
+                    <!--php{$i++}-->
+                    <label class="am-radio-inline">
+                        <input type="radio" name="type" value="{$type}" {$i == 1 ? 'checked' : 0} data-am-ucheck >{$vo.name}
+
+                    </label>
+                    <!--{/loop}-->
+                </div>
+            </div>
+            <div class="am-form-group">
+                <div class="am-form-content am-u-sm-offset-2">
+                    <button type="button" class="am-btn am-btn-success" id="pay">确认充值</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    Do('base', function () {
+        $('#pay').click(function () {
+            app.ajax({
+                url: '{url()}',
+                type: 'post',
+                data: {
+                    type: $('[name=type]:checked').val(),
+                    money: $('[name=money]').val()
+                },
+                success: function (msg, url) {
+                    window.location.href = url;
+                },
+                error: function (msg) {
+                    app.error(msg);
+                }
+            });
+        });
+    });
+</script>

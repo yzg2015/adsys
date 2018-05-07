@@ -1,0 +1,42 @@
+<form class="am-form  am-form-horizontal dux-form"  method="post">
+    <fieldset>
+        <div class="am-form-group">
+            <div class="am-u-md-10 am-u-sm-12">
+                <div>
+                    {$info.order_price}(商品) + {$info.delivery_price}(运费) = <span class="am-text-danger">{price_format($info.order_price + $info.delivery_price, 2)}元 </span>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-md-2 am-u-sm-12 am-form-label">实收金额</label>
+            <div class="am-u-md-10 am-u-sm-12">
+                <input type="text" name="money" value="{price_format($info.order_price + $info.delivery_price, 2)}">
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-md-2 am-u-sm-12 am-form-label">收款备注</label>
+            <div class="am-u-md-10 am-u-sm-12">
+                <textarea name="remark"  placeholder="可选备注信息"></textarea>
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{$info.receipt_id}">
+    </fieldset>
+</form>
+<div class="dux-dialog-foot">
+    <button class="am-btn am-btn-primary" id="submit" type="button">确认</button>
+</div>
+
+<script>
+    Do('base', function() {
+        $('#submit').click(function() {
+            app.ajax({
+                url : '{url()}',
+                type : 'post',
+                data : $('form').serialize(),
+                success : function(info) {
+                    parent.location.reload();
+                }
+            });
+        });
+    });
+</script>

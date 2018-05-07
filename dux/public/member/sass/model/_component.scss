@@ -1,0 +1,97 @@
+
+
+.dux-tab {
+  margin-bottom: 10px;
+  li {
+    float: left;
+    margin-right: 5px;
+    a {
+      display: block;
+      background: #ddd;
+      color: #000;
+      padding: 5px 25px;
+    }
+    &.active {
+      a {
+        background: #fff;
+        color: $color-main;
+      }
+    }
+    &.more {
+      float: right;
+      margin-left:5px;
+      margin-right: 0;
+      a {
+        background: $color-main;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.dux-pages {
+  margin-top: 20px;
+  text-align: center;
+  a, span {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #ddd;
+    margin: 0 2px;
+  }
+  .current {
+    background: $color-main;
+    color: #fff;
+  }
+
+}
+
+.dux-timeline {
+  padding: 20px;
+  dl, dt, dd {
+    margin: 0;
+    padding: 0;
+  }
+
+  dl {
+    border-left: 1px solid #ccc;
+    min-height: 30px;
+    padding-bottom: 15px;
+    &:first-child {
+      color: $color-main;
+      dt {
+        color: $color-main;
+      }
+      dt:before {
+        border-color: $color-main;
+      }
+    }
+  }
+
+  dt {
+    padding-left: 20px;
+    width: 180px;
+    float: left;
+    position: relative;
+    font-weight: normal;
+    color: #999;
+  }
+
+  dt:before {
+    position: absolute;
+    content: '';
+    border: 2px solid #ccc;
+    background-color: #fff;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    left: -7px;
+    border-radius: 50%;
+    top: 5px;
+  }
+
+  dd {
+    margin-left: 200px;
+    line-height: 22px;
+  }
+
+}

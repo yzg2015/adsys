@@ -1,0 +1,92 @@
+<!--#include file="common_head.html"-->
+<div class="am-panel am-panel-default dux-pro-filter">
+    <div class="am-panel-bd ">
+        <ul class="am-avg-sm-{count($typeList) + 1} am-text-center">
+            <li>
+                <a href="{url('')}">全部</a>
+            </li>
+            <!--loop{$typeList as $key => $vo}-->
+            <li>
+                <a href="{url('', ['type' => $key])}">{$vo.name}</a>
+            </li>
+            <!--{/loop}-->
+        </ul>
+    </div>
+</div>
+
+<main class="dux-main" >
+
+    <!--if{$pageList}-->
+    <ul class="dux-coupon-list">
+        <!--loop{$pageList as $vo}-->
+        <li>
+            <div class="dux-coupon-box">
+                <div class="box-info">
+                    <div class="line"></div>
+                    <div class="name">
+                        <!--if{$vo.exchange_price}-->
+                        {$vo.exchange_price}{$vo.currencyInfo.name}兑换
+                        <!--{else}-->
+                        免费领取
+                        <!--{/if}-->
+                    </div>
+                    <div class="subname">{$vo.name}</div>
+                    <div class="progress">
+                        <div class="am-progress am-progress-xs">
+                            <div class="am-progress-bar" style="width: 80%"></div>
+                        </div>
+                        <div class="tip">
+                            <!--if{!stock}-->
+                            已抢光
+                            <!--{else}-->
+                            已抢{round($vo.receive * $vo.stock / 100)}%
+                            <!--{/if}-->
+                        </div>
+                    </div>
+                </div>
+                <div class="box-price">
+                    <div class="money"><small>￥</small>{$vo.money}</div>
+                    <div class="tip">满{$vo.meet_money}可用</div>
+                    <div class="btn">
+                        <a href="javascript:;" class="receive" data-id="{$vo.coupon_id}">立即领取</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!--{/if}-->
+    </ul>
+
+    <!--{else}-->
+    <div class="am-padding am-text-center">
+        <h2>暂无相关商品</h2>
+    </div>
+    <!--{/if}-->
+
+    <div class="dux-pages am-cf">
+        {$page}
+    </div>
+</main>
+
+<!--#include file="common_foot.html"-->
+<script>
+    Do('base', function () {
+        $('.receive').on('click', function () {
+            var obj = this;
+            app.ajax({
+                url : "{url('receive')}",
+                data : {
+                    id : $(this).data('id')
+                },
+                success : function (msg) {
+                    dialog.msg(msg);
+                    $(obj).text('已领取').addClass('disable');
+                },
+                error : function (msg) {
+                    dialog.msg(msg);
+                }
+            });
+
+        });
+    });
+</script>
+</html>

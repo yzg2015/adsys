@@ -1,0 +1,172 @@
+<ul class="dux-tab am-cf">
+    <li>
+        <a href="{url('member/setting/index')}">基本资料</a>
+    </li>
+    <li class="active">
+        <a href="{url('member/Real/index')}">实名制认证</a>
+    </li>
+    <li>
+        <a href="{url('member/Card/index')}">银行卡管理</a>
+    </li>
+</ul>
+
+<div class="dux-page">
+    <div class="page-header">
+        实名认证
+    </div>
+
+    <div class="page-box">
+    <!--if{!empty($info) && $info.status == 0}-->
+        <div class="am-alert am-alert-danger">您的资料审核不通过，请重新修改后提交！</div>
+    <!--{/if}-->
+
+
+    <!--if{$info.status == 2}-->
+        <div class="am-panel am-panel-success">
+            <div class="am-panel-hd">实名信息已认证成功</div>
+            <div class="am-panel-bd">
+                <div class="am-form dux-form dux-form-right">
+                    <div class="am-form-group">
+                        <span class="am-form-label">姓名</span>
+                        <div class="am-form-content">{hide_str($info.name, 3, 2, 4)}</div>
+                    </div>
+                    <div class="am-form-group am-margin-0">
+                        <span class="am-form-label">身份证</span>
+                        <div class="am-form-content">{hide_str($info.idcard, 3, 4, 4)}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        您的实名信息将用于提现等认证，认证通过后将无法进行更改！
+    <!--{/if}-->
+
+
+    <!--if{$info.status == 1}-->
+        <div class="am-panel am-panel-warning">
+            <div class="am-panel-hd">实名制认证申请已提交</div>
+            <div class="am-panel-bd">
+                <div class="am-form dux-form dux-form-right">
+                    <div class="am-form-group">
+                        <span class="am-form-label">姓名</span>
+                        <div class="am-form-content">{hide_str($info.name, 3, 2, 4)}</div>
+                    </div>
+                    <div class="am-form-group am-margin-0">
+                        <span class="am-form-label">身份证</span>
+                        <div class="am-form-content">{hide_str($info.idcard, 3, 4, 4)}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        您的实名信息将用于提现等认证，认证通过后将无法进行更改！
+    <!--{/if}-->
+
+
+    <!--if{empty($info) || $info['status'] == 0}-->
+
+    <form class="am-form am-form-horizontal dux-form " action="{url('')}" method="post" data-dux="form-bind" data-advanced="false">
+
+        <div class="am-form-group">
+            <span class="am-form-label">验证方式</span>
+
+            <div class="am-form-content">
+                <select name="valtype" id="valtype" class="am-form-field">
+                    <option value="0">手机验证</option>
+                    <option value="1">邮箱验证</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="am-form-group am-cf">
+            <label class="am-form-label">安全验证</label>
+            <div class="am-form-content am-cf">
+                <div class="am-fl">
+                    <img src="{url('member/register/code')}" onclick="this.src ='{url("member/register/code")}?'+Math.random()">
+                </div>
+                <div class="am-fl" style=" width: 166px; margin-left: 10px;">
+                    <input type="text" placeholder="图片验证码" name="imgcode" id="imgcode">
+                </div>
+
+                <div class="am-fl" style="width: 166px; margin-left: 10px; margin-right: 10px;">
+                    <input type="text" placeholder="账号验证码" name="code">
+                </div>
+                <div class="am-fl">
+                    <a href="javascript:;" class="am-btn am-btn-warning" data-dux="page-ajaxLink" data-url="{url('getCode')}" data-field="valtype,imgcode">获取验证码</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="am-form-group">
+            <span class="am-form-label">所属银行</span>
+
+            <div class="am-form-content">
+                <select name="label" class="am-form-field">
+                    <!--loop{$bankList as $vo}-->
+                    <option value="{$vo.label}">{$vo.name}</option>
+                    <!--{/loop}-->
+                </select>
+            </div>
+        </div>
+
+        <div class="am-form-group">
+            <span class="am-form-label">开户银行</span>
+
+            <div class="am-form-content">
+                <input type="text" class="am-form-field" placeholder="如:XXXX支行" name="account_bank"
+                       value="{$info.account_bank}">
+            </div>
+        </div>
+        <div class="am-form-group">
+            <span class="am-form-label">银行卡号</span>
+
+            <div class="am-form-content">
+                <input type="text" class="am-form-field" placeholder="请输入银行卡号" name="account" value="{$info.account}">
+            </div>
+        </div>
+        <div class="am-form-group">
+            <span class="am-form-label">开户姓名</span>
+
+            <div class="am-form-content">
+                <input type="text" class="am-form-field" name="name" placeholder="真实姓名">
+            </div>
+        </div>
+        <div class="am-form-group">
+            <span class="am-form-label">身份证号</span>
+
+            <div class="am-form-content">
+                <input type="text" class="am-form-field" name="idcard" placeholder="身份证号码">
+            </div>
+        </div>
+
+        <div class="am-form-group">
+            <span class="am-form-label">开户电话</span>
+
+            <div class="am-form-content">
+                <input type="text" class="am-form-field" name="tel" placeholder="开户手机号码">
+            </div>
+        </div>
+
+
+        <div class="am-form-group">
+            <div class="am-form-content">
+                <button class="am-btn am-btn-danger" type="submit">立即认证</button>
+            </div>
+        </div>
+
+    </form>
+
+
+    <!--{/if}-->
+
+</div>
+</div>
+
+<script>
+    Do('distpicker', function () {
+        $(function () {
+            $('#distpicker').distpicker();
+        });
+    });
+</script>

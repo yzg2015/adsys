@@ -1,0 +1,47 @@
+<form class="am-form dux-form  dux-form-right" action="{url('', ['action' => $action])}" method="post"
+      data-dux="form-bind">
+    <div class="am-input-group">
+        <span class="am-input-group-label">姓名</span>
+        <input type="text" class="am-form-field" placeholder="收件人姓名" name="name" value="{$info.name}">
+    </div>
+    <div class="am-input-group">
+        <span class="am-input-group-label">电话</span>
+        <input type="text" class="am-form-field" placeholder="收件人电话" name="tel" value="{$info.tel}">
+    </div>
+    <div id="distpicker">
+        <div class="am-input-group">
+            <span class="am-input-group-label">省份</span>
+            <select name="province" class="am-form-field" data-province="{$info.province}"></select>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">城市</span>
+            <select name="city" class="am-form-field" data-city="{$info.city}"></select>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">地区</span>
+            <select name="region" class="am-form-field" data-district="{$info.region}"></select>
+        </div>
+    </div>
+    <div class="am-input-group">
+        <span class="am-input-group-label">地址</span>
+        <input type="text" class="am-form-field" placeholder="详细地址到门牌号" name="address" value="{$info.address}">
+    </div>
+    <div class="am-input-group">
+        <span class="am-input-group-label">邮编</span>
+        <input type="text" class="am-form-field" placeholder="选填，邮政编码" name="zip" value="{$info.zip}">
+    </div>
+    <div class="am-padding">
+        <input type="hidden" name="add_id" value="{$info.add_id}">
+        <button class="am-btn am-btn-primary am-btn-block" type="submit">
+            保存地址
+        </button>
+    </div>
+</form>
+
+<script>
+    Do('distpicker', function () {
+        $(function () {
+            $('#distpicker').distpicker();
+        });
+    });
+</script>

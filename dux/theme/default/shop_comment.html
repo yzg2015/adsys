@@ -1,0 +1,170 @@
+<!--#include file="common_head.html"-->
+
+<div class="dux-page-head">
+    <div class="am-g am-g-fixed">
+        <ol class="am-breadcrumb dux-page-crumb">
+            <li><a href="/">首页</a></li>
+            <!--loop{$pageInfo.crumb as $vo}-->
+            <li><a href="{$vo.url}">{$vo.name}</a></li>
+            <!--{/loop}-->
+        </ol>
+
+
+    </div>
+
+</div>
+
+<div class="am-g am-g-fixed dux-shop-layout">
+    <div class="layout-sidebar">
+        <div class="dux-page-box">
+            <div class="box-title box-title-b">商品信息</div>
+
+            <ul class="dux-shop-sidebar">
+                <li class="dux-shop-item">
+                    <div class="img">
+                        <a href="{$info.url}"><img src="{$info.image}"></a>
+                    </div>
+                    <div class="title"><a href="{$info.url}">{$info.title}</a></div>
+                    <div class="price">
+                        ￥{$info.sell_price}
+                    </div>
+                    <div>
+                        <a href="{$info.url}" class="am-btn am-btn-primary">查看详情</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layout-body">
+        <div class="dux-comment-info am-cf">
+            <div class="rate">
+                <strong>{$commentRate.positive ? $commentRate.positive : 100}
+                    <small>%</small>
+                </strong>
+                <p>好评度</p>
+            </div>
+            <div class="percent">
+                <dl>
+                    <dt>好评({$commentRate.positive}%)</dt>
+                    <dd>
+                        <div class="am-progress am-progress-sm">
+                            <div class="am-progress-bar" style="width: {$commentRate.positive}%"></div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>中评({$commentRate.neutral}%)</dt>
+                    <dd>
+                        <div class="am-progress am-progress-sm">
+                            <div class="am-progress-bar" style="width: {$commentRate.neutral}%"></div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>差评({$commentRate.negative}%)</dt>
+                    <dd>
+                        <div class="am-progress am-progress-sm">
+                            <div class="am-progress-bar" style="width: {$commentRate.negative}%"></div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <p>购买商品后才可以评价</p>
+                <a class="am-btn am-btn-primary " href="{url('order/order/index')}"><i
+                        class="am-icon-comment-o"></i> 评价商品</a>
+            </div>
+        </div>
+
+
+        <div class="dux-comment-list">
+            <ul class="list-type am-cf">
+                <li><a href="{url('shop/comment/index', ['id' => $info.mall_id, 'app' => $app])}">全部评价</a></li>
+                <li>
+                    <a href="{url('shop/comment/index', ['id' => $info.mall_id, 'app' => $app, 'type' => 1])}">好评({$commentCount.positive})</a>
+                </li>
+                <li>
+                    <a href="{url('shop/comment/index', ['id' => $info.mall_id, 'app' => $app, 'type' => 2])}">中评({$commentCount.neutral})</a>
+                </li>
+                <li>
+                    <a href="{url('shop/comment/index', ['id' => $info.mall_id, 'app' => $app, 'type' => 3])}">差评({$commentCount.negative})</a>
+                </li>
+            </ul>
+            <!--if{empty($pageList)}-->
+            <div class="am-padding am-text-center">
+                暂无商品评论
+            </div>
+            <!--{else}-->
+            <ul class="list-items">
+                <!--loop{$pageList as $vo}-->
+                <li class="am-cf">
+                    <div class="user">
+                        <div class="img">
+                            <img src="{$vo.user_avatar}"
+                                 alt="">
+                        </div>
+                        <div class="name">{$vo.user_nickname}</div>
+                    </div>
+                    <div class="body">
+                        <div class="info am-cf">
+                                    <span class="stars">
+                                        <!--if{!$vo.level}-->
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <!--{/if}-->
+                                        <!--if{$vo.level == 1}-->
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <!--{/if}-->
+                                        <!--if{$vo.level == 2}-->
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <!--{/if}-->
+                                    </span>
+                            <span class="time">{date('Y-m-d H:i', $vo.time)}</span>
+                        </div>
+                        <div class="content">
+                            {$vo.content}
+                            <!--if{!empty($vo.images)}-->
+                            <ul class="images am-cf">
+                                <!--loop{$vo.images as $img}-->
+                                <li>
+                                    <a href="{$img}" target="_blank"><img src="{$img}"></a>
+                                </li>
+                                <!--{/loop}-->
+                            </ul>
+                            <!--{/if}-->
+                        </div>
+
+                        <div class="spec">
+                            {$vo.spec}
+                        </div>
+                    </div>
+                </li>
+                <!--{/loop}-->
+            </ul>
+
+
+            <div class="dux-page-pager">
+                {$page}
+            </div>
+
+            <br>
+
+            <!--{/if}-->
+        </div>
+    </div>
+</div>
+
+
+<!--#include file="common_footer.html"-->
+</html>

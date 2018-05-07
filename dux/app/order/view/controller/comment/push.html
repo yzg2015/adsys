@@ -1,0 +1,71 @@
+<div class="dux-box am-cf am-padding">
+    <div class="img am-fl">
+        <a href="{$info.goods_url}"><img src="{$info.goods_image}" width="70" height="70"></a>
+    </div>
+    <div class="am-fl am-padding-left">
+        <p><a href="{$info.goods_url}" target="_blank">{$info.goods_name}</a></p>
+        <p class="dux-text-disabled">
+            <!--loop{(array)$info.goods_options as $v}-->
+            {$v.value}
+            <!--{/loop}-->
+        </p>
+        <p><span class="am-text-danger">￥{$info.goods_price}</span> × {$info.goods_qty}</p>
+        <p class="dux-text-disabled">购买时间: {date('Y-m-d H:i', $orderInfo.order_create_time)}</p>
+    </div>
+</div>
+<br>
+<div class="dux-box">
+    <div class="box-header">商品评价</div>
+    <div class="box-body am-padding">
+        <form class="dux-form am-form am-form-horizontal" action="{url('', ['action' => $action])}" method="post" data-dux="form-bind">
+            <div class="am-form-group">
+                <label class="am-form-label">评价</label>
+                <div class="am-form-content">
+                    
+                    <label class="am-radio-inline">
+                        <input type="radio" name="level" value="2" checked  data-am-ucheck> 好评
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="level" value="1"  data-am-ucheck> 中评
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="level" value="0"  data-am-ucheck> 差评
+                    </label>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">晒单</label>
+                <div class="am-form-content">
+                    <ul class="dux-upload-list">
+                        <span id="images"></span>
+                        <li>
+                            <a href="javascript:;" class="add-img" data-dux="form-images" data-img-warp="#images"
+                               data-img-name="images" data-num="5" data-tpl-el="#tpl" data-url="{url('member/Upload/index')}"></a>
+                        </li>
+                    </ul>
+                 </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">商品评价</label>
+                <div class="am-form-content">
+                    <textarea rows="3" placeholder="请客观的发表您的评论,以便他人能够进行参考" name="content"></textarea>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <div class="am-form-content">
+                    <input type="hidden" name="id" value="{$id}">
+                    <button type="submit" class="am-btn am-btn-danger am-btn-sm">提交评价</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<script type="text/html" id="tpl">
+    <li>
+        <a href="{{ d.data.url }}" target="_blank"><img src="{{ d.data.url }}"></a>
+        <i class="close">×</i>
+        <input type="hidden" name="{{ d.name }}[]" value="{{ d.data.url }}">
+    </li>
+</script>

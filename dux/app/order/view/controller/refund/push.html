@@ -1,0 +1,88 @@
+<div class="dux-box am-cf am-padding">
+    <div class="img am-fl">
+        <a href="{$info.goods_url}"><img src="{$info.goods_image}" width="70" height="70"></a>
+    </div>
+    <div class="am-fl am-padding-left">
+        <p><a href="{$info.goods_url}" target="_blank">{$info.goods_name}</a></p>
+        <p class="dux-text-disabled">
+            <!--loop{(array)$info.goods_options as $v}-->
+            {$v.value}
+            <!--{/loop}-->
+        </p>
+        <p><span class="am-text-danger">￥{$info.goods_price}</span> × {$info.goods_qty}</p>
+        <p class="dux-text-disabled">购买时间: {date('Y-m-d H:i', $orderInfo.order_create_time)}</p>
+    </div>
+</div>
+<br>
+<div class="dux-step">
+    <dl class="active" style=" height: auto">
+        <dt>提交申请</dt>
+        <dd class="bg"></dd>
+        <dd class="node"></dd>
+    </dl>
+
+    <dl style="height: auto">
+        <dt>等待审核</dt>
+        <dd class="bg"></dd>
+        <dd class="node"></dd>
+    </dl>
+
+    <dl style="height: auto">
+        <dt>
+            退款成功
+        </dt>
+        <dd class="node"></dd>
+    </dl>
+</div>
+<br>
+<div class="dux-box">
+    <div class="box-header">退款申请</div>
+    <div class="box-body am-padding">
+
+        <form class="dux-form am-form am-form-horizontal" action="{url('', ['action' => $action])}" method="post"
+              data-dux="form-bind" data-advanced="false">
+            <div class="am-form-group">
+                <label class="am-form-label">退款原因</label>
+                <div class="am-form-content">
+                    <select name="cause">
+                        <option>请选择原因</option>
+                        <!--loop{$causeList as $vo}-->
+                        <option value="{$vo}">{$vo}</option>
+                        <!--{/loop}-->
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">退款金额</label>
+                <div class="am-form-content">
+                    <input type="text" name="money" value="{$info.price_total}">
+                    <div class="am-form-help">您最多可退 <span class="am-text-danger">{$info.price_total}</span> 元</div>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">详细原因</label>
+                <div class="am-form-content">
+                    <textarea rows="3" placeholder="请详细说明退款原因" name="content"></textarea>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">凭证</label>
+                <div class="am-form-content">
+                    <ul class="dux-upload-list">
+                        <span id="images"></span>
+                        <li>
+                            <a href="javascript:;" class="add-img" data-dux="form-images" data-img-warp="#images"
+                               data-img-name="images" data-num="5"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="am-form-group">
+                <div class="am-form-content">
+                    <input type="hidden" name="id" value="{$id}">
+                    <button type="submit" class="am-btn am-btn-danger am-btn-sm">提交申请</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="dux-page">
+    <div class="page-header">
+        提现申请
+    </div>
+    <div class="page-box">
+
+        <div class="am-panel am-panel-success">
+            <div class="am-panel-hd">银行卡信息</div>
+            <div class="am-panel-bd">
+                <div class="am-form dux-form ">
+                    <div class="am-form-group">
+                        <span class="am-form-label">银行</span>
+                        <div class="am-form-content">{$cardInfo.name} ({$cardInfo.account_bank})</div>
+                    </div>
+                    <div class="am-form-group ">
+                        <span class="am-form-label">帐号</span>
+                        <div class="am-form-content">{$cardInfo.account}</div>
+                    </div>
+
+
+                    <div class="am-form-group ">
+                        <span class="am-form-label">开户人</span>
+                        <div class="am-form-content">{$cardInfo.account_name}</div>
+                    </div>
+
+                    <div class="am-form-group am-margin-0">
+                        <span class="am-form-label">开户电话</span>
+                        <div class="am-form-content">{$cardInfo.account_tel}</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <form class="dux-form am-form am-form-horizontal" action="{url('')}" method="post" data-dux="form-bind" data-advanced="false">
+            <div class="am-form-group">
+                <label class="am-form-label">提现金额</label>
+                <div class="am-form-content">
+                    <input type="tel" name="money">
+                    <div class="am-form-help">最多{$userInfo.money}元</div>
+                </div>
+            </div>
+
+            <div class="am-form-group">
+                <div class="am-form-content">
+                    <button type="submit" class="am-btn am-btn-danger am-btn-sm">提交申请</button>
+                    <div class="am-form-help">提现申请后系统将进行审核预计7个工作日内到账</div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

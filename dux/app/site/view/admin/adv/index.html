@@ -1,0 +1,75 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <a class="am-btn am-btn-block am-btn-primary" href="{url('add', array('pos_id' => $posId))}">添加广告</a>
+            <br>
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">广告位</div>
+                <div class="am-panel-bd">
+                    <div class="dux-tree">
+                        <!--if{empty($posList)}-->
+                        请先添加广告位
+                        <!--{/if}-->
+                        <ul>
+                            <!--loop{$posList as $vo}-->
+                            <!--if{$posId == $vo.pos_id}-->
+                            <li class="active">
+                                <!--{else}-->
+                            <li>
+                                <!--{/if}-->
+                                <h2><a href="{url('', array('pos_id' => $vo.pos_id))}">{$vo.name}[{$vo.type ? '图片' : '文字'}]</a></h2></li>
+                            <!--{/loop}-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div data-dux="table-bind"  class=" dux-g">
+                <div class="dux-page-table">
+                    <!--if{!empty($list)}-->
+                    <table class="am-table dux-table" data-table>
+                        <thead>
+                        <tr>
+                            <th width="100">#</th>
+                            <th>标题</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th width="100">顺序</th>
+                            <th class="am-text-center">状态</th>
+                            <th class="am-text-center" width="120">管理</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--loop{$list as $vo}-->
+                        <tr>
+                            <td>{$vo.pos_id}</td>
+                            <td>{$vo.title}</td>
+                            <td>{$vo.start_time ? date('Y-m-d H:i', $vo.start_time) : '无'}</td>
+                            <td>{$vo.stop_time ? date('Y-m-d H:i', $vo.stop_time) : '无'}</td>
+                            <td>{$vo.sort}</td>
+                            <td class="am-text-center">
+                                <!--if{$vo.status}-->
+                                <span data-id="{$vo.adv_id}" data-name="status" data-url="{url('status')}" data-status="1" class="am-text-success am-icon-circle"></span>
+                                <!--{else}-->
+                                <span data-id="{$vo.adv_id}" data-name="status" data-url="{url('status')}" data-status="0" class="am-text-danger am-icon-circle"></span>
+                                <!--{/if}-->
+                            </td>
+                            <td class="am-text-center">
+                                <a class="am-btn am-btn-primary am-btn-xs" href="{url('edit', ['id'=>$vo[$pri]])}" title="编辑"><i class="am-icon-pencil"></i></a>
+                                <a class="am-btn am-btn-danger am-btn-xs" href="javascript:;" data-url="{url('del')}" data-id="{$vo[$pri]}" title="删除" data-del><i class=" am-icon-trash"></i></a>
+                            </td>
+                        </tr>
+                        <!--{/loop}-->
+                        </tbody>
+                    </table>
+                    <!--{else}-->
+                    <div class="am-panel dux-panel">
+                        <div class="am-panel-bd am-text-center">暂无添加广告</div>
+                    </div>
+                    <!--{/if}-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

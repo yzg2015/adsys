@@ -1,0 +1,114 @@
+<div class="dux-page">
+    <div class="page-header">
+        提现详情
+    </div>
+    <div class="page-box">
+
+        <div class="am-panel am-panel-success">
+            <div class="am-panel-hd">银行卡信息</div>
+            <div class="am-panel-bd">
+                <div class="am-form dux-form ">
+                    <div class="am-form-group">
+                        <span class="am-form-label">银行</span>
+                        <div class="am-form-content">{$info.bank} ({$info.account_bank})</div>
+                    </div>
+                    <div class="am-form-group ">
+                        <span class="am-form-label">帐号</span>
+                        <div class="am-form-content">{$info.account}</div>
+                    </div>
+
+
+                    <div class="am-form-group ">
+                        <span class="am-form-label">开户人</span>
+                        <div class="am-form-content">{$info.account_name}</div>
+                    </div>
+
+                    <div class="am-form-group am-margin-0">
+                        <span class="am-form-label">开户电话</span>
+                        <div class="am-form-content">{$info.account_tel}</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <form class="dux-form am-form am-form-horizontal" action="{url('')}" method="post" data-dux="form-bind" data-advanced="false">
+            <div class="am-form-group">
+                <label class="am-form-label">申请单号</label>
+                <div class="am-form-content">
+                    <div class="am-form-text">
+                        {$info.cash_no}
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-form-group">
+                <label class="am-form-label">申请时间</label>
+                <div class="am-form-content">
+                    <div class="am-form-text">
+                        {date('Y-m-d H:i:s', $info.create_time)}
+                    </div>
+                </div>
+            </div>
+
+
+            <!--if{$info.complete_time}-->
+            <div class="am-form-group">
+                <label class="am-form-label">处理时间</label>
+                <div class="am-form-content">
+                    <div class="am-form-text">
+                        {date('Y-m-d H:i:s', $info.complete_time)}
+                    </div>
+                </div>
+            </div>
+            <!--{/if}-->
+
+            <div class="am-form-group">
+                <label class="am-form-label">申请金额</label>
+                <div class="am-form-content">
+                    <div class="am-form-text am-text-danger">
+                        ￥{$info.money}
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-form-group">
+                <label class="am-form-label">申请状态</label>
+                <div class="am-form-content">
+                    <div class="am-form-text">
+                        <!--if{!$info.status}-->
+                        <span class="am-text-danger">失败</span>
+                        <!--{/if}-->
+                        <!--if{$info.status == 1}-->
+                        <span class="am-text-warning">处理中</span>
+                        <!--{/if}-->
+                        <!--if{$info.status == 2}-->
+                        <span class="am-text-success">成功</span>
+                        <!--{/if}-->
+                    </div>
+                </div>
+            </div>
+
+
+            <!--if{!$info.status}-->
+            <div class="am-form-group">
+                <label class="am-form-label">失败原因</label>
+                <div class="am-form-content">
+                    <div class="am-form-text">
+                    {$info.auth_remark}
+                    </div>
+                </div>
+            </div>
+            <!--{/if}-->
+
+            <div class="am-form-group">
+                <div class="am-form-content">
+                    <a href="{url('index')}" class="am-btn am-btn-danger">返回列表</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

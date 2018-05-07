@@ -1,0 +1,57 @@
+<div class="dux-tabs-fixed">
+    <ul class="am-avg-sm-4 dux-tabs">
+        <li class="{$type == 0 ? 'active' : 0}">
+            <a href="{url('')}">全部</a>
+        </li>
+        <li class="{$type == 1 ? 'active' : 0}">
+            <a href="{url('', ['type' => 1])}">处理中</a>
+        </li>
+        <li class="{$type == 2 ? 'active' : 0}">
+            <a href="{url('', ['type' => 2])}">已完成</a>
+        </li>
+        <li class="{$type == 3 ? 'active' : 0}">
+            <a href="{url('', ['type' => 3])}">失败</a>
+        </li>
+    </ul>
+</div>
+<div data-dux="list-ajax" data-list="#list" data-tpl="#list-tpl" data-url='{url("ajax", $urlParams)}' data-page="1">
+    <ul class="am-list am-list-border dux-list" id="list">
+    </ul>
+</div>
+
+
+<script type="text/html" id="list-tpl">
+    {{# for(var i = 0, len = d.length; i < len; i++){ }}
+    <li>
+        <a href="{{d[i].url}}" class="dux-flex">
+        <div>
+            <div class="title">
+                {{ d[i].bank }}
+            </div>
+            <p>尾号{{ d[i].account}}</p>
+        </div>
+        <div class="flex-1 am-text-center am-padding">
+            {{# if(d[i].status == 2){ }}
+            <span class="am-text-success">
+            {{# } }}
+            {{# if(d[i].status == 1){ }}
+            <span class="am-text-warning">
+            {{# } }}
+            {{# if(d[i].status == 0){ }}
+            <span class="am-text-danger">
+            {{# } }}
+            {{d[i].show_status}}
+                </span>
+        </div>
+        <div class="am-text-right">
+            <div class="title">
+                <span class="am-text-danger">
+                {{ d[i].money }}
+                </span>
+            </div>
+            <p>{{ d[i].show_time}}</p>
+        </div>
+        </a>
+    </li>
+    {{# } }}
+</script>

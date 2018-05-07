@@ -1,0 +1,116 @@
+<!--#include file="common_top.html"-->
+
+<header class="dux-header ">
+
+    <div class="am-g am-g-fixed am-g-collapse">
+
+        <div class="am-u-md-3 header-logo">
+            <h1>
+                <a href="{url('index/index/index')}">
+                    <div class="logo-text">DuxMall商城系统</div>
+                    <img src="images/header-logo.png" alt="DuxMall商城系统">
+                </a>
+            </h1>
+        </div>
+
+        <div class="am-u-md-6 header-search">
+            <form class="search-body am-cf" action="{url('mall/Search/index')}" method="get">
+                <input type="text" placeholder="商品关键词" name="keyword">
+                <button type="submit">
+                    <i class="am-icon-search"></i>
+                </button>
+            </form>
+            <div class="search-keywords">
+                <!--list{app="site" label="search" type="mall" limit=5}-->
+                <a href="{$list.url}">{$list.keyword}</a>
+                <!--{/list}-->
+            </div>
+        </div>
+
+        <div class="am-u-md-3 header-cart">
+            <div class="cart-body " data-dux="common-cart" data-url="{url('order/Cart/getJson')}"
+                 data-url-del="{url('order/Cart/del')}">
+                <div class="cart-button">
+                    <a href="{url('order/Cart/index')}"><i class="am-icon-shopping-cart"></i>我的购物车 <span
+                            class="num">(<span data-num>0</span>)</span></a>
+                </div>
+                <div class="cart-list  am-cf">
+                    <div class="list-body">
+                        <ul data-list>
+
+
+                        </ul>
+                    </div>
+                    <div class="list-foot am-cf">
+                        <div class="am-fl">
+                            共<span data-num>0</span>件商品　共计￥<span data-price>0</span>
+                        </div>
+                        <div class="am-fr am-text-right">
+                            <a class="am-btn am-btn-primary am-btn-sm" href="{url('order/cart/index')}">去购物车</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</header>
+<nav class="dux-nav">
+    <div class="am-g am-g-fixed am-g-collapse nav-body am-cf">
+        <div class="nav-class {$open ? 'open' : ''}" data-dux="common-nav">
+            <div class="class-btn">
+                <i class="am-icon-bars"></i>
+                全部分类
+            </div>
+            <div class="class-body">
+                <ul class="class-list">
+                    <!--list{app="mall" label="classTreeList" parent_id=0 limit=10}-->
+                    <li class="">
+                        <div class="info">
+                            <h3><a href="{$list.url}">{$list.name}</a></h3>
+                            <i>></i>
+                        </div>
+                        <div class="item am-cf ">
+                            <div class="list">
+                                <!--loop{$list.children as $class}-->
+                                <dl>
+                                    <dt><a href="{$class.url}">{$class.name} <i>></i></a></dt>
+                                    <dd>
+                                        <!--loop{$class.children as $vo}-->
+                                        <a href="{$vo.url}">{$vo.name}</a>
+                                        <!--{/loop}-->
+                                    </dd>
+                                </dl>
+                                <!--{/list}-->
+
+                            </div>
+                        </div>
+
+                    </li>
+                    <!--{/list}-->
+                </ul>
+            </div>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="{url('index/index/index')}">首页</a>
+            </li>
+            <li>
+                <a href="{url('mall/index/index')}">商城</a>
+            </li>
+            <li>
+                <a href="{url('order/coupon/index')}">领券</a>
+            </li>
+            <li>
+                <a href="{url('article/index/index')}">资讯</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>

@@ -1,0 +1,353 @@
+
+.dux-top {
+  color: #fff;
+  font-size: 1.1rem;
+  background: #363636;
+  a {
+    color: #bfbfbf;
+    margin-left: 5px;
+    &:hover {
+      color:#fff;
+    }
+  }
+  .top-body {
+    height: 30px;
+    line-height:30px;
+  }
+  .top-right {
+    li {
+      float: right;
+      margin-left:10px;
+    }
+  }
+}
+
+.dux-header {
+  background: #fff;
+  padding-top:20px;
+  padding-bottom:10px;
+  .header-logo {
+    h1 {
+      margin: 0;
+      padding: 0;
+      .logo-text {
+        display: none;
+      }
+    }
+  }
+  .header-search {
+    padding-top:10px;
+    .search-body {
+      position: relative;
+      height: 40px;
+      input {
+        border: 1px solid $color-main;
+        line-height: 25px;
+        height: 40px;
+        padding: 5px;
+        padding-right:90px;
+        font-size: 1.4rem;
+        width: 100%;
+      }
+      button {
+        margin: 0;
+        border: none;
+        padding: 0;
+        background: $color-main;
+        color: #fff;
+        height: 40px;
+        width: 80px;
+        font-size: 1.8rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+    .search-keywords {
+      margin-top: 5px;
+      overflow: hidden;
+      height: 25px;
+      line-height: 25px;
+      a {
+        margin-right: 10px;
+        font-size: 1.1rem;
+        color: $color-text;
+        &:hover {
+          color: $color-main;
+        }
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .header-cart {
+    margin-top:10px;
+    .cart-body {
+      position: relative;
+      .cart-button {
+        display: inline-block;
+        border: 1px solid #ddd;
+        background: #fafafa;
+        padding: 9px;
+        line-height: 22px;
+        float: right;
+        position: relative;
+        z-index: 1000;
+        font-size:1.2rem;
+        i {
+          color: #999;
+          margin-right: 5px;
+        }
+        .num {
+          color: $color-main;
+        }
+        a {
+          display: block;
+        }
+      }
+
+      .cart-list {
+        display: none;
+        position: absolute;
+        z-index: 999;
+        border: 1px solid #ddd;
+        background: #fff;
+        top: 40px;
+        width: 280px;
+        right: 0;
+        font-size: 1rem;
+
+        .tip {
+          padding: 20px;
+          color: #666;
+          text-align: center;
+          background: #f5f5f5;
+          margin:10px;
+        }
+        .list-body {
+          max-height: 350px;
+          overflow: auto;
+          ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          li {
+            border-bottom: 1px solid #ddd;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            .img {
+              float: left;
+              width: 50px;
+              height: 50px;
+              margin-left: 10px;
+              img {
+                width: 50px;
+                height: 50px;
+                border: 1px solid #ddd;
+              }
+
+            }
+            .title {
+              float: left;
+              width: 100px;
+              margin-left: 10px;
+
+            }
+            .info {
+              float: right;
+              margin-right: 10px;
+              text-align: right;
+              .price {
+                font-weight: bold;
+              }
+
+            }
+          }
+        }
+        .list-foot {
+          background: #f5f5f5;
+          padding: .5rem;
+          line-height: 34px;
+          color: #666;
+        }
+
+      }
+      &.open {
+        .cart-button {
+          background: #fff;
+          border-bottom: none;
+        }
+        .cart-list {
+          display: block;
+        }
+      }
+
+    }
+  }
+
+
+}
+
+
+
+.dux-nav {
+  background: #fff;
+  border-bottom: 1px solid $color-secondary;
+  position: relative;
+  .nav-class.open {
+    .class-body {
+      display: block;
+    }
+  }
+  .nav-class.active {
+    .class-body {
+      display: block;
+    }
+  }
+  .nav-class {
+    position: absolute;
+    .class-btn {
+      width: 210px;
+      background: $color-secondary;
+      height: 35px;
+      line-height: 35px;
+      font-size: 1.4rem;
+      padding: 0;
+      padding-left: 20px;
+      color: #fff;
+      i {
+        margin-right:5px;
+        color: #eee;
+      }
+
+    }
+    .class-body {
+      position: absolute;
+      top: 36px;
+      display: none;
+    }
+    .class-list {
+      background: rgba(255,255,255,.88);
+      color: $color-secondary;
+      width: 210px;
+      height: 432px;
+      position: relative;
+      z-index: 5;
+      &, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        &.active {
+          .info {
+            background: #fff;
+          }
+          .item {
+            display: block;
+          }
+        }
+
+      }
+
+      .info {
+        position: relative;
+        height: 54px;
+        z-index: 5;
+        h3 {
+          margin: 0;
+          float: left;
+          font-size: 1.4rem;
+          line-height: 54px;
+          font-weight: normal;
+          padding-left:20px;
+        }
+        i {
+          position: absolute;
+          z-index: 1;
+          top: 20px;
+          right: 14px;
+          width: 4px;
+          height: 14px;
+          font: 400 9px/14px consolas;
+        }
+      }
+
+      .item {
+        position: absolute;
+        margin-left: 210px;
+        width: 760px;
+        top: 0;
+        min-height: 432px;
+        border-top: 0;
+        background: #ffffff;
+        display: none;
+        .list {
+          padding: 20px;
+          dl {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            overflow: hidden;
+            dt {
+              line-height:30px;
+              margin: 0;
+              position: relative;
+              float: left;
+              width: 100px;
+              padding: 5px 30px 0 0;
+              text-align: right;
+              font-weight: 600;
+              i {
+                position: absolute;
+                top: 13px;
+                right: 18px;
+                width: 4px;
+                height: 14px;
+                font: 400 9px/14px consolas;
+              }
+            }
+            dd {
+              margin: 0;
+              float: left;
+              padding: 8px 0 6px;
+              width: 610px;
+              border-bottom: 1px dashed #ddd;
+              min-height: 30px;
+              a {
+                float: left;
+                padding: 0 10px;
+                line-height: 25px;
+                height: 25px;
+                white-space: nowrap;
+
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+  .nav-list {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    margin-left:220px;
+    &, li {
+    }
+    li {
+      float: left;
+      line-height: 35px;
+      height: 35px;
+      padding: 0 20px;
+      font-size: 1.4rem;
+      a {
+      }
+    }
+    float: left;
+    position: relative;
+  }
+}
+

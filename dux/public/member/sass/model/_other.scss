@@ -1,0 +1,132 @@
+.dux-other-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px #ddd;
+  .header-logo {
+    float: left;
+    img {
+      height: 55px;
+    }
+  }
+  .header-info {
+    float: right;
+    text-align: right;
+    line-height: 30px;
+    margin-top: 20px;
+    a {
+      color: $color-main;
+    }
+  }
+  .header-name {
+    float: left;
+    border-left: 1px solid #ddd;
+    height: 55px;
+    line-height: 55px;
+    margin-left: 5px;
+    padding-left: 20px;
+    font-size: 1.8rem;
+    color: #666;
+  }
+  .header-user {
+    float: right;
+    height: 55px;
+    line-height: 55px;
+    a {
+      margin-left: 20px;
+      color: #666;
+      border-left: 1px solid #ddd;
+      padding-left: 20px;
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}
+
+.dux-other-footer {
+  margin-top: 30px;
+  font-size: 1.4rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+  padding: 50px 0;
+  text-align: center;
+}
+
+
+
+
+.dux-other-layout {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  .layout-form {
+
+  }
+  .layout-sidebar {
+
+  }
+}
+
+
+
+.dux-login {
+
+  .link {
+
+    color: $color-main;
+  }
+  margin-top: 20px;
+
+  .login-show {
+    img {
+      max-width: 660px;
+      max-height: 500px
+    }
+    text-align: center;
+    float: left;
+    width: 660px;
+  }
+  .login-form {
+    border: 1px solid #ddd;
+    background: #fff;
+    float: right;
+    width: 400px;
+    margin-top: 50px;
+    label {
+      font-weight: normal;
+    }
+    .form-title {
+      background: #f9f9f9;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.6rem;
+    }
+    .form-body {
+      background: #fff;
+      padding: 20px;
+      padding-bottom: 10px;
+      .am-form-label {
+        float: left;
+        width: 80px;
+      }
+      .form-field {
+        margin-left: 100px;
+        color: #666;
+
+      }
+      .form-submit {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+    .form-foot {
+      border-top: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      color: #666;
+
+    }
+
+  }
+}

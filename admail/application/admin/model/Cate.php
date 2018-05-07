@@ -39,7 +39,6 @@ class Cate extends Model
         return $data_list;
     }
 
-
     public static function getTreeList($id=0)
     {
 

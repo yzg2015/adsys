@@ -1,0 +1,70 @@
+<div data-dux="table-bind">
+    <div class="dux-page-header am-cf">
+        <div class="page-title">
+            <form class="am-form-inline" method="get" action="{url()}">
+                <div class="am-form-group">
+                    <input type="text" name="keyword" class="am-form-field" value="{$pageMaps.keyword}"
+                           placeholder="搜索">
+                </div>
+                <div class="am-form-group">
+                    <button type="submit" class="am-btn am-btn-primary am-icon-search"></button>
+                </div>
+            </form>
+        </div>
+        <div class="page-action">
+            <a class="am-btn am-btn-primary" href="{url('add')}">添加</a>
+        </div>
+    </div>
+    <div class="dux-page-table">
+        <table class="am-table dux-table" data-table>
+            <thead>
+            <tr>
+                <th width="160">#</th>
+                <th>模板名称</th>
+                <th>首重</th>
+                <th>续重</th>
+                <th>保价</th>
+                <th class="am-text-center" width="120">管理</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--loop{$list as $vo}-->
+            <tr>
+                <td>
+                    {$vo.delivery_id}
+                </td>
+                <td>
+                    {$vo.name}
+                </td>
+                <td>
+                    {$vo.first_price}元
+                    /
+                    {$vo.first_weight}g
+                </td>
+                <td>
+                    {$vo.second_price}元
+                    /
+                    {$vo.second_weight}g
+                </td>
+                <td class="{$vo.support_status ? 'am-text-success' : 'am-text-danger'} ">
+                    {$vo.support_rate}元
+                    /
+                    {$vo.support_price}g
+                </td>
+                <td class="am-text-center">
+                    <a class="am-btn am-btn-primary am-btn-xs"
+                       href="{url('edit', ['id'=>$vo['delivery_id']])}" title="编辑"><i
+                            class="am-icon-pencil"></i></a>
+                    <a class="am-btn am-btn-danger am-btn-xs" href="javascript:;"
+                       data-url="{url('del')}" data-id="{$vo.delivery_id}" title="删除" data-del><i
+                            class=" am-icon-trash"></i></a>
+                </td>
+            </tr>
+            <!--{/loop}-->
+            </tbody>
+        </table>
+    </div>
+    <div class="dux-page-foot am-cf">
+        {$page}
+    </div>
+</div>

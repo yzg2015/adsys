@@ -1,0 +1,95 @@
+<!--#include file="common_head.html"  data="open=true"-->
+<div class="dux-index-banner">
+    <div class="am-g am-g-fixed am-g-collapse banner-body">
+        <div class="banner-sidebar">
+            <div class="title">商城动态</div>
+            <ul class="list">
+                <!--list{app="article" label="contentList" limit=7}-->
+                <li><a href="{$list.url}">{$list.title}</a></li>
+                <!--{/list}-->
+            </ul>
+
+            <div class="ad">
+                <!--list{app="site" label="adv" pos="banner-small" limit=2}-->
+                <a href="{$list.url ? $list.url : '#'}" target="_blank"><img src="{$list.image}"  width="200" alt=""></a>
+                <!--{/list}-->
+            </div>
+        </div>
+    </div>
+    <div class="am-slider am-slider-default banner-focus" data-am-flexslider="{ directionNav: false}">
+        <ul class="am-slides">
+            <li><a href="#" style="background-image: url('__TPL__/images/banner/adv1.jpg')"></a></li>
+            <li><a href="#" style="background-image: url('__TPL__/images/banner/adv2.jpg')"></a></li>
+            <li><a href="#" style="background-image: url('__TPL__/images/banner/adv3.jpg')"></a></li>
+        </ul>
+    </div>
+</div>
+<div class="am-g am-g-fixed am-cf am-margin-top-sm">
+    <ul class="dux-index-hot am-cf am-g">
+        <!--list{app="mall" label="contentList" limit=3}-->
+        <li class="am-u-md-4">
+            <div class="body">
+                <div class="img">
+                    <img src="{$list.image}" alt="{$list.title}">
+                </div>
+                <div class="info">
+                    <div class="title"><a href="{$list.url}" target="_blank">{$list.title}</a></div>
+                    <div class="subtitle">{$list.subtitle}</div>
+                    <div class="price">{$list.sell_price}元</div>
+                </div>
+            </div>
+        </li>
+        <!--{/list}-->
+    </ul>
+</div>
+
+
+<?php $i=0; ?>
+<!--class{app="mall" label="classTreeList" limit=3}-->
+<?php $i++; ?>
+<div class="am-g am-g-fixed am-cf am-margin-top-sm">
+    <div class="dux-index-class">
+        <div class="class-head am-cf">
+            <div class="title">{$class.name}</div>
+            <ul class="list">
+                <!--loop{$class.children as $vo}-->
+                <li>
+                    <a href="{$vo.url}">{$vo.name}</a>
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <a class="more" href="{$class.url}">更多 <i>></i></a>
+        </div>
+        <div class="class-body am-cf">
+            <div class="body-left">
+                <div class="class-img">
+                    <img src="images/adv/class{$class.i}.jpg" alt="">
+                </div>
+                <div class="foot-show">
+                    <img src="https://p.ssl.qhmsg.com/dr/480_280_/t01914c74cb1356796e.webp" alt="">
+                </div>
+            </div>
+            <div class="pro-list">
+                <ul class="am-avg-sm-4">
+                    <!--list{app="mall" label="contentList" limit=8 class_id=$class.class_id sub=true}-->
+                    <li>
+                        <a href="{$list.url}">
+                            <div class="title">{$list.title}</div>
+                            <div class="subtitle">{$list.subtitle}</div>
+                            <div class="price">¥{$list.sell_price}
+                                <small>¥{$list.market_price}</small>
+                            </div>
+                            <div class="img">
+                                <img src="{$list.image}" alt="{$list.title}">
+                            </div>
+                        </a>
+                    </li>
+                    <!--{/list}-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--{/list}-->
+<!--#include file="common_footer.html"-->
+</html>

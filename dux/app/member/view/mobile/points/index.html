@@ -1,0 +1,32 @@
+<ul class="am-avg-sm-3 dux-tabs">
+    <li class="{$type == 0 ? 'active' : 0}">
+        <a href="{url('')}">全部</a>
+    </li>
+    <li class="{$type == 1 ? 'active' : 0}">
+        <a href="{url('', ['type' => 1])}">收入</a>
+    </li>
+    <li class="{$type == 2 ? 'active' : 0}">
+        <a href="{url('', ['type' => 2])}">支出</a>
+    </li>
+</ul>
+<!--if{empty($pageList)}-->
+<div class="dux-box am-padding am-text-center">
+    暂无记录
+</div>
+<!--{/if}-->
+<ul class="am-list am-list-static am-list-border dux-list">
+    <!--loop{$pageList as $vo}-->
+    <li>
+         <span class="am-badge  {$vo.type ? 'am-badge-success' : 'am-badge-danger'}">
+             {$vo.type ? '+' : '-'}{$vo.money}
+         </span>
+        <div class="title">{$vo.remark}</div>
+        <p>{date('Y-m-d H:i:s', $vo.time)}</p>
+        <p>{$vo.log_no}</p>
+    </li>
+    <!--{/if}-->
+</ul>
+
+<div class="dux-pages am-cf">
+    {$page}
+</div>

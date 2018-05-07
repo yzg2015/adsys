@@ -1,0 +1,51 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <ul class="am-nav">
+                    <li><a href="{url('index')}">购物设置</a></li>
+                    <li class="am-active"><a href="{url('store')}">店铺信息</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">店铺信息</div>
+                <div class="am-panel-bd">
+                    <form class="am-form  am-form-horizontal dux-form" method="post" action="{url()}" data-dux="form-bind">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">店铺名称</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                        <input type="text" class="am-form-field" name="info_name" value="{$info.info_name}">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">店铺LOGO</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <input class="am-form-field" name="info_logo" id="info_logo" value="{$info.info_logo}"
+                                               placeholder="上传店铺LOGO">
+                                        <span class="am-input-group-btn">
+                                            <button class="am-btn am-btn-default" type="button" data-dux="form-upload"
+                                                    data-target="#info_logo" data-type="jpg,png,bmp"><i
+                                                    class="am-icon-upload"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

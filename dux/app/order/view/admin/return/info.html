@@ -1,0 +1,232 @@
+<div class="dux-page-header am-cf">
+    <div class="page-title">
+        <a class="am-btn am-btn-primary" href="{url('index')}"> 退款列表</a>
+    </div>
+</div>
+
+<div class="dux-body">
+    <table class="dux-table am-table">
+        <thead>
+        <th width="70">图片</th>
+        <th>商品</th>
+        <th>用户</th>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td class="am-text-middle">
+                <a href="{$info.goods_url}" target="_blank"><img src="{$info.goods_image}" width="60" height="60"></a>
+            </td>
+            <td class="am-text-middle">
+                <div><a href="{$info.goods_url}" target="_blank" class="link">{$info.goods_name}</a>
+                </div>
+                <div class="dux-text-disabled">
+                    <!--loop{(array)$info.goods_options as $v}-->
+                    {$v.value}
+                    <!--{/loop}-->
+                </div>
+                <div class="dux-text-disabled">￥{$info.goods_price} × {$info.goods_qty} = ￥{$info.price_total}</div>
+            </td>
+            <td><a data-dux="dialog-open" data-url="{url('member/MemberUser/dialogUser', ['id' => $info.user_id])}"
+                   data-title="用户信息" data-height="250px" href="javascript:;">{$info.user_nickname}({$info.user_tel})</a>
+            </td>
+
+        </tbody>
+    </table>
+    <br>
+    <table class="am-table dux-table dux-table-lg">
+        <thead>
+        <tr>
+            <th colspan="2">申请信息</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>退款单号: {$info.return_no}</td>
+            <td>申请时间:
+                <span class="am-text-danger">￥{date('Y-m-d H:i:s', $info.create_time)}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>退款原因: {$info.cause}</td>
+            <td>退款金额:
+                <span class="am-text-danger">￥{$info.money}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">退款详情: {$info.content}</td>
+        </tr>
+        <!--if{$info.images}-->
+        <tr>
+            <td colspan="2">
+                <!--loop{$info.images as $image}-->
+                <a href="{$image}" target="_blank"><img src="{$image}" width="60" height="60"></a>
+                <!--{/loop}-->
+            </td>
+        </tr>
+        <!--{/if}-->
+        </tbody>
+    </table>
+    <br>
+
+    <table class="am-table dux-table dux-table-lg">
+        <thead>
+        <tr>
+            <th colspan="2">订单信息</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>订单号: <a href="{url($orderInfo.order_app . '/Order/index', ['keyword' => $orderInfo.order_no])}" target="_blank">{$orderInfo.order_no}</a></td>
+            <td>完成时间:
+                <span class="am-text-danger">{date('Y-m-d H:i:s', $orderInfo.order_complete_time)}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>收货姓名: {$orderInfo.receive_name}</td>
+            <td>收货电话: {$orderInfo.receive_tel}</td>
+        </tr>
+        <tr>
+            <td colspan="2">收货地址: {$orderInfo.receive_province} {$orderInfo.receive_city} {$orderInfo.receive_region} {$orderInfo.receive_address}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <!--if{$info.status > 1}-->
+    <table class="am-table dux-table dux-table-lg">
+        <thead>
+        <tr>
+            <th colspan="2">退货信息</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <!--if{$info.status > 1}-->
+        <tr>
+            <td>退货快递:
+                <span class="am-text-danger">{$info.delivery_name ? $info.delivery_name : '暂无单号'}</span>
+            </td>
+            <td>快递单号: {$info.delivery_no ? $info.delivery_no : '空'}</td>
+        </tr>
+        <!--{/if}-->
+            <td>处理状态:
+                <!--if{$info.status == 0}-->
+                已取消
+                <!--{/if}-->
+                <!--if{$info.status == 2}-->
+                <span class="am-text-warning">待退货</span>
+                <!--{/if}-->
+                <!--if{$info.status == 3}-->
+                <span class="am-text-success">已退款</span>
+                <!--{/if}-->
+                <!--if{$info.status == 4}-->
+                <span class="am-text-danger">已拒绝</span>
+                <!--{/if}-->
+            </td>
+            <td>处理时间:
+                <!--if{$info.process_time}-->
+                <span class="am-text-danger">{date('Y-m-d H:i:s', $info.process_time)}</span>
+                <!--{else}-->
+                无
+                <!--{/if}-->
+                <br>
+                退款时间:
+                <!--if{$info.complete_time}-->
+                <span class="am-text-danger">{date('Y-m-d H:i:s', $info.complete_time)}</span>
+                <!--{else}-->
+                无
+                <!--{/if}-->
+            </td>
+        </tr>
+        <!--if{$info.admin_user_id}-->
+        <tr>
+            <td>处理人员:
+                <span class="am-text-danger">{$adminInfo.username}【{$adminInfo.nickname}】</span>
+            </td>
+            <td>处理意见: {$info.admin_remark}</td>
+        </tr>
+        <!--{/if}-->
+
+
+        </tbody>
+    </table>
+    <br>
+    <!--{/if}-->
+    <!--if{$info.status == 1}-->
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">退货处理</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" data-dux="form-bind" method="post">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">处理意见</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <select name="status">
+                                <option value="1">
+                                    同意退货
+                                </option>
+                                <option value="0">
+                                    拒绝退货
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">处理原因</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <textarea name="remark" placeholder="可选处理原因"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="{$info.return_id}">
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <button type="submit" class="am-btn am-btn-primary">确认处理</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <!--{/if}-->
+
+    <!--if{$info.status == 2}-->
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">退款处理</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" data-dux="form-bind" method="post">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">处理意见</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <select name="status">
+                                <option value="1">
+                                    同意退款
+                                </option>
+                                <option value="0">
+                                    拒绝退款
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">处理原因</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <textarea name="remark" placeholder="可选处理原因"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="{$info.return_id}">
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <button type="submit" class="am-btn am-btn-primary">确认处理</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <!--{/if}-->
+
+</div>

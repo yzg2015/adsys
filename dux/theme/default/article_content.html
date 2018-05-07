@@ -1,0 +1,63 @@
+<!--#include file="common_head.html"-->
+
+<div class="dux-page-head">
+    <div class="am-g am-g-fixed">
+        <ol class="am-breadcrumb dux-page-crumb">
+            <li><a href="/">首页</a></li>
+            <!--loop{$pageInfo.crumb as $vo}-->
+            <li><a href="{$vo.url}">{$vo.name}</a></li>
+            <!--{/loop}-->
+        </ol>
+    </div>
+</div>
+
+<div class="am-g am-g-fixed dux-shop-layout">
+    <div class="layout-sidebar">
+        <div class="dux-page-box">
+            <div class="box-title">{$classInfo.name}</div>
+
+            <ul class="dux-news-list">
+                <!--assign{app="article" label="classList" limit="8" parent_id=$classInfo.class_id list="classList"}-->
+
+                <!--if{!empty($subList)}-->
+                    <!--loop{$subList as $vo}-->
+                    <li>
+                        <a href="{$class.url}">
+                            {$class.name}
+                        </a>
+                    </li>
+                    <!--{/loop}-->
+                <!--{else}-->
+
+                    <!--class{app="article" label="classList" limit="8" parent_id=$parentClassInfo.class_id }-->
+                    <li>
+                        <a href="{$class.url}">
+                            {$class.name}
+                        </a>
+                    </li>
+                    <!--{/class}-->
+
+                <!--{/if}-->
+            </ul>
+        </div>
+    </div>
+    <div class="layout-body">
+
+        <div class="dux-news-content">
+            <div class="content-title">{$info.title}</div>
+            <div class="content-info">
+                时间:{date('Y-m-d H:i', $info.create_time)}
+                浏览:{$info.view}
+                来源:{$info.source ? $info.source : '本站'}
+            </div>
+            <div class="content-body">{html_out($info.content)}</div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!--#include file="common_footer.html"-->
+</html>

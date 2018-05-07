@@ -1,0 +1,179 @@
+
+.am-btn {
+  padding: .7em 1em;
+  border-radius: 2px;
+}
+
+.am-btn-sm {
+  font-size: 1.4rem;
+  padding: .4em .8em;
+}
+.am-btn-lg {
+  font-size: 1.6rem;
+  padding: .8em .1em;
+}
+.am-btn-primary {
+  color: #fff;
+  background-color: $color-main;
+  border-color: $color-main
+}
+
+
+a.am-btn-primary:visited {
+  color: #fff
+}
+
+.am-btn-primary.am-active, .am-btn-primary:active, .am-btn-primary:focus, .am-btn-primary:hover, .am-dropdown.am-active .am-btn-primary.am-dropdown-toggle {
+  color: #fff;
+  border-color: lighten($color-main, 5%)
+}
+
+.am-btn-primary:focus, .am-btn-primary:hover {
+  background-color: lighten($color-main, 5%)
+}
+
+.am-btn-primary.am-active, .am-btn-primary:active, .am-dropdown.am-active .am-btn-primary.am-dropdown-toggle {
+  background-image: none;
+  background-color: darken($color-main, 5%)
+}
+
+.am-btn-primary.am-disabled, .am-btn-primary.am-disabled.am-active, .am-btn-primary.am-disabled:active, .am-btn-primary.am-disabled:focus, .am-btn-primary.am-disabled:hover, .am-btn-primary[disabled], .am-btn-primary[disabled].am-active, .am-btn-primary[disabled]:active, .am-btn-primary[disabled]:focus, .am-btn-primary[disabled]:hover, fieldset[disabled] .am-btn-primary, fieldset[disabled] .am-btn-primary.am-active, fieldset[disabled] .am-btn-primary:active, fieldset[disabled] .am-btn-primary:focus, fieldset[disabled] .am-btn-primary:hover {
+  background-color: $color-main;
+  border-color: $color-main
+}
+
+.am-btn-group .am-btn-primary, .am-btn-group-stacked .am-btn-primary {
+  border-color: $color-main
+}
+
+.am-btn-secondary {
+  color: #fff;
+  background-color: $color-secondary;
+  border-color: $color-secondary
+}
+
+a.am-btn-secondary:visited {
+  color: #fff
+}
+
+.am-btn-secondary.am-active, .am-btn-secondary:active, .am-btn-secondary:focus, .am-btn-secondary:hover, .am-dropdown.am-active .am-btn-secondary.am-dropdown-toggle {
+  color: #fff;
+  border-color: lighten($color-secondary, 5%)
+}
+
+.am-btn-secondary:focus, .am-btn-secondary:hover {
+  background-color: lighten($color-secondary, 5%)
+}
+
+.am-btn-secondary.am-active, .am-btn-secondary:active, .am-dropdown.am-active .am-btn-secondary.am-dropdown-toggle {
+  background-image: none;
+  background-color: darken($color-secondary, 5%)
+}
+
+.am-btn-secondary.am-disabled, .am-btn-secondary.am-disabled.am-active, .am-btn-secondary.am-disabled:active, .am-btn-secondary.am-disabled:focus, .am-btn-secondary.am-disabled:hover, .am-btn-secondary[disabled], .am-btn-secondary[disabled].am-active, .am-btn-secondary[disabled]:active, .am-btn-secondary[disabled]:focus, .am-btn-secondary[disabled]:hover, fieldset[disabled] .am-btn-secondary, fieldset[disabled] .am-btn-secondary.am-active, fieldset[disabled] .am-btn-secondary:active, fieldset[disabled] .am-btn-secondary:focus, fieldset[disabled] .am-btn-secondary:hover {
+  background-color: $color-secondary;
+  border-color: $color-secondary
+}
+
+.am-btn-group .am-btn-secondary, .am-btn-group-stacked .am-btn-secondary {
+  border-color: $color-secondary
+}
+
+.am-btn-warning {
+  color: #fff;
+  background-color: $color-warning;
+  border-color: $color-warning
+}
+
+a.am-btn-warning:visited {
+  color: #fff
+}
+
+.am-btn-warning.am-active, .am-btn-warning:active, .am-btn-warning:focus, .am-btn-warning:hover, .am-dropdown.am-active .am-btn-warning.am-dropdown-toggle {
+  color: #fff;
+  border-color: lighten($color-warning, 5%)
+}
+
+.am-btn-warning:focus, .am-btn-warning:hover {
+  background-color: lighten($color-warning, 5%)
+}
+
+.am-btn-warning.am-active, .am-btn-warning:active, .am-dropdown.am-active .am-btn-warning.am-dropdown-toggle {
+  background-image: none;
+  background-color: darken($color-warning, 5%)
+}
+
+.am-btn-warning.am-disabled, .am-btn-warning.am-disabled.am-active, .am-btn-warning.am-disabled:active, .am-btn-warning.am-disabled:focus, .am-btn-warning.am-disabled:hover, .am-btn-warning[disabled], .am-btn-warning[disabled].am-active, .am-btn-warning[disabled]:active, .am-btn-warning[disabled]:focus, .am-btn-warning[disabled]:hover, fieldset[disabled] .am-btn-warning, fieldset[disabled] .am-btn-warning.am-active, fieldset[disabled] .am-btn-warning:active, fieldset[disabled] .am-btn-warning:focus, fieldset[disabled] .am-btn-warning:hover {
+  background-color: $color-warning;
+  border-color: $color-warning
+}
+
+.am-btn-group .am-btn-warning, .am-btn-group-stacked .am-btn-warning {
+  border-color: $color-warning
+}
+
+.am-btn-danger {
+  color: #fff;
+  background-color: $color-danger;
+  border-color: $color-danger
+}
+
+a.am-btn-danger:visited {
+  color: #fff
+}
+
+.am-btn-danger.am-active, .am-btn-danger:active, .am-btn-danger:focus, .am-btn-danger:hover, .am-dropdown.am-active .am-btn-danger.am-dropdown-toggle {
+  color: #fff;
+  border-color: lighten($color-danger, 5%)
+}
+
+.am-btn-danger:focus, .am-btn-danger:hover {
+  background-color: lighten($color-danger, 5%)
+}
+
+.am-btn-danger.am-active, .am-btn-danger:active, .am-dropdown.am-active .am-btn-danger.am-dropdown-toggle {
+  background-image: none;
+  background-color: darken($color-danger, 5%)
+}
+
+.am-btn-danger.am-disabled, .am-btn-danger.am-disabled.am-active, .am-btn-danger.am-disabled:active, .am-btn-danger.am-disabled:focus, .am-btn-danger.am-disabled:hover, .am-btn-danger[disabled], .am-btn-danger[disabled].am-active, .am-btn-danger[disabled]:active, .am-btn-danger[disabled]:focus, .am-btn-danger[disabled]:hover, fieldset[disabled] .am-btn-danger, fieldset[disabled] .am-btn-danger.am-active, fieldset[disabled] .am-btn-danger:active, fieldset[disabled] .am-btn-danger:focus, fieldset[disabled] .am-btn-danger:hover {
+  background-color: $color-danger;
+  border-color: $color-danger
+}
+
+.am-btn-group .am-btn-danger, .am-btn-group-stacked .am-btn-danger {
+  border-color: $color-danger
+}
+
+.am-btn-success {
+  color: #fff;
+  background-color: $color-success;
+  border-color: $color-success
+}
+
+a.am-btn-success:visited {
+  color: #fff
+}
+
+.am-btn-success.am-active, .am-btn-success:active, .am-btn-success:focus, .am-btn-success:hover, .am-dropdown.am-active .am-btn-success.am-dropdown-toggle {
+  color: #fff;
+  border-color: lighten($color-success, 5%)
+}
+
+.am-btn-success:focus, .am-btn-success:hover {
+  background-color: lighten($color-success, 5%)
+}
+
+.am-btn-success.am-active, .am-btn-success:active, .am-dropdown.am-active .am-btn-success.am-dropdown-toggle {
+  background-image: none;
+  background-color: darken($color-success, 5%)
+}
+
+.am-btn-success.am-disabled, .am-btn-success.am-disabled.am-active, .am-btn-success.am-disabled:active, .am-btn-success.am-disabled:focus, .am-btn-success.am-disabled:hover, .am-btn-success[disabled], .am-btn-success[disabled].am-active, .am-btn-success[disabled]:active, .am-btn-success[disabled]:focus, .am-btn-success[disabled]:hover, fieldset[disabled] .am-btn-success, fieldset[disabled] .am-btn-success.am-active, fieldset[disabled] .am-btn-success:active, fieldset[disabled] .am-btn-success:focus, fieldset[disabled] .am-btn-success:hover {
+  background-color: $color-success;
+  border-color: $color-success
+}
+
+.am-btn-group .am-btn-success, .am-btn-group-stacked .am-btn-success {
+  border-color: $color-success
+}

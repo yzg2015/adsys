@@ -1,0 +1,38 @@
+<div class="dux-tabs-fixed">
+<ul class="am-avg-sm-2 dux-tabs">
+    <li class="">
+        <a href="{url('index')}">账户充值</a>
+    </li>
+    <li class="active">
+        <a href="{url('log')}">充值记录</a>
+    </li>
+</ul>
+</div>
+
+<div data-dux="list-ajax" data-list="#list" data-tpl="#list-tpl" data-url='{url("ajax", $urlParams)}' data-page="1">
+    <ul class="am-list am-list-border dux-list" id="list">
+    </ul>
+</div>
+
+<script type="text/html" id="list-tpl">
+    {{# for(var i = 0, len = d.length; i < len; i++){ }}
+    <li>
+        <a href="{{ d[i].url }}" class="am-cf">
+        <div class="am-fl">
+            <div class="title">
+                {{ d[i].pay_name }}
+            </div>
+            <p>{{ d[i].show_time }}</p>
+        </div>
+        <div class="am-fr am-text-right">
+
+            <div class="title">
+                <span class="am-text-success">{{ d[i].money }}
+                </span>
+            </div>
+            <p>{{ d[i].status_name }}</p>
+        </div>
+        </a>
+    </li>
+    {{# } }}
+</script>

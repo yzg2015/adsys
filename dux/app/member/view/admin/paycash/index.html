@@ -1,0 +1,95 @@
+<div data-dux="table-bind">
+    <div class="dux-page-header am-cf">
+        <div class="page-title">
+            <form class="am-form-inline" method="get" action="{url()}">
+                <div class="am-form-group">
+                    <input type="text" name="keyword" class="am-form-field" value="{$pageMaps.keyword}" placeholder="手机号">
+                </div>
+                <div class="am-form-group">
+                    <input type="text" name="cash_no" class="am-form-field" value="{$pageMaps.cash_no}" placeholder="流水号">
+                </div>
+
+                <div class="am-form-group">
+                    <input type="date" name="start_time" class="am-form-field" value="{$pageMaps.start_time}" placeholder="开始时间">
+                </div>
+
+                <div class="am-form-group">
+                    <input type="date" name="stop_time" class="am-form-field" value="{$pageMaps.stop_time}" placeholder="结束时间">
+                </div>
+
+                <div class="am-form-group">
+                    <select class="am-form-field" name="status">
+                        <option value="3">全部</option>
+                        <option value="0" <!--if{$pageMaps.status =='0'}-->selected <!--{/if}-->>已拒绝</option>
+                        <option value="1" <!--if{$pageMaps.status == 1}-->selected <!--{/if}-->>待处理</option>
+                        <option value="2" <!--if{$pageMaps.status == 2}-->selected <!--{/if}-->>已完成</option>
+                    </select>
+                    </div>
+                <div class="am-form-group">
+                    <button type="submit" class="am-btn am-btn-primary am-icon-search"></button>
+                </div>
+            </form>
+        </div>
+        <div class="page-action">
+            <a class="am-btn am-btn-success" href="{url('export', $pageMaps)}">导出</a>
+        </div>
+    </div>
+    <div class="dux-page-table">
+        <table class="am-table dux-table" data-table>
+            <thead>
+            <tr>
+                <th width="100">
+                    <input type="checkbox" data-all value="">
+                </th>
+                <th width="100">#</th>
+                <th>流水号</th>
+                <th>用户</th>
+                <th>提现金额</th>
+                <th>手续费</th>
+                <th>提现账号</th>
+                <th width="80">状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--loop{$list as $vo}-->
+            <tr>
+                <td>
+                    <input type="checkbox" name="id[]" value="{$vo.cash_id}">
+                </td>
+                <td>{$vo.cash_id}</td>
+                <td><a href="{url('info', ['id'=>$vo.cash_id])}">{$vo.cash_no}</a>
+                <p>{date('Y-m-d H:i:s', $vo.create_time)}</p>
+                </td>
+                <td><a href="{url('member/PayAccount/index', ['keyword' => $vo.user_tel])}">{$vo.show_name}</a></td>
+                <td class="am-text-danger">{$vo.money}元</td>
+                <td class="am-text-warning">{$vo.money_tax}元</td>
+                <td>{$vo.bank} {$vo.account_name}<p>{$vo.account}</p></td>
+                <!--if{$vo.status == 0}-->
+                <td class="am-danger">已拒绝</td>
+                <!--{/if}-->
+                <!--if{$vo.status == 1}-->
+                <td class="am-warning">待处理</td>
+                <!--{/if}-->
+                <!--if{$vo.status == 2}-->
+                <td class="am-success">已完成</td>
+                <!--{/if}-->
+            </tr>
+            <!--{/loop}-->
+            <!--if{empty($list)}-->
+            <tr>
+                <td colspan="6" class="am-text-center">暂无提现记录</td>
+            </tr>
+            <!--{/if}-->
+            </tbody>
+        </table>
+    </div>
+    <div class="dux-page-foot am-cf">
+        <form class="am-form-inline foot-batch"  data-batch action="{url('action')}">
+            <select class="am-form-field" name="action">
+                <option value="2">提现完成</option>
+            </select>
+            <button type="submit" class="am-btn am-btn-primary">批量处理</button>
+        </form>
+        {$page}
+    </div>
+</div>

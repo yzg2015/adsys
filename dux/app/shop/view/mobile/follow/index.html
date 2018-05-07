@@ -1,0 +1,24 @@
+<!--if{empty($pageList)}-->
+<div class="dux-box am-padding am-text-center">
+    暂无收藏
+</div>
+<!--{/if}-->
+<ul class="dux-images-list am-cf">
+    <!--loop{$pageList as $key => $vo}-->
+    <li>
+        <a href="{url($vo['app'].'info/index', ['id' => $vo['has_id']])}">
+            <div class="img">
+                <img src="{$vo.image}">
+            </div>
+            <div class="title">
+                {$vo.title}
+            </div>
+            <div class="price">¥{$vo.price}</div>
+        </a>
+    </li>
+    <!--{/loop}-->
+</ul>
+
+<div class="dux-pages am-cf">
+    {$page}
+</div>

@@ -1,0 +1,66 @@
+<!--#include file="common_head.html"  data="backBar=1"-->
+
+<main class="dux-main">
+    <div class="dux-box">
+        <!--if{empty($pageList)}-->
+        <div class="am-padding am-text-center">
+            暂无商品评论
+        </div>
+        <!--{else}-->
+        <ul class="dux-comment-list">
+            <!--loop{$pageList as $vo}-->
+            <li>
+                <div class="info am-cf">
+                                    <span class="stars">
+                                        <!--if{!$vo.level}-->
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <!--{/if}-->
+                                        <!--if{$vo.level == 1}-->
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <i class="am-icon-star-o"></i>
+                                        <!--{/if}-->
+                                        <!--if{$vo.level == 2}-->
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <i class="am-icon-star"></i>
+                                        <!--{/if}-->
+                                    </span>
+                    <span class="name">{$vo.show_name}</span>
+                </div>
+                <div class="content">
+                    {$vo.content}
+                    <!--if{!empty($vo.images)}-->
+                    <ul class="images am-cf">
+                        <!--loop{$vo.images as $img}-->
+                        <li>
+                            <a href="{$img}" target="_blank"><img src="{$img}"></a>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                    <!--{/if}-->
+                </div>
+                <div class="time">
+                    {date('Y-m-d H:i', $vo.time)}
+                </div>
+            </li>
+            <!--{/loop}-->
+        </ul>
+        <!--{/if}-->
+    </div>
+    <div class="dux-pages am-cf">
+        {$page}
+    </div>
+</main>
+
+<!--#include file="common_foot.html"-->
+
+</html>

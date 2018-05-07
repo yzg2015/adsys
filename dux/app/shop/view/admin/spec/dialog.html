@@ -1,0 +1,281 @@
+<style>
+    body {
+        padding: 10px;
+    }
+
+    .am-tab-panel {
+        height: 320px;
+        overflow: scroll;
+    }
+
+    .select-box {
+        margin-bottom: 10px;
+    }
+
+    .am-tabs-nav li {
+        position: relative;
+        z-index: 1;
+    }
+
+    .am-tabs-nav .am-icon-close {
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        color: #888;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .am-tabs-nav .am-icon-close:hover {
+        color: #333;
+    }
+
+    .am-tabs-nav .am-icon-close ~ a {
+        padding-right: 25px !important;
+    }
+
+
+</style>
+<div class="select-box">
+    <select class="select-spec am-form-field" data-dux="form-select" style="width: 100%" data-placeholder="请选择需要的规格"
+            tabindex="-1">
+        <option value=""></option>
+        <!--loop{$specGroup as $k => $v}-->
+        <optgroup label="{$v.name}">
+            <!--loop{(array)$v.spec as $key => $vo}-->
+            <option value="{$vo.spec_id}">{$vo.name}</option>
+            <!--{/loop}-->
+        </optgroup>
+        <!--{/loop}-->
+
+    </select>
+</div>
+<div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="tabs">
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+    </ul>
+
+    <div class="am-tabs-bd">
+
+    </div>
+
+    <div class="dux-dialog-foot">
+        <button class="am-btn am-btn-success" type="button" id="add">确认添加</button>
+    </div>
+
+
+    <script id="tpl-spec" type="text/html">
+        <tr>
+            <td>{{ d.name }}
+                <input type="hidden" class="js-spec-json" value="{{ d.value }}">
+            <td>
+                <button class="am-btn am-btn-primary am-btn-xs js-up" type="button">上移</button>
+                <button class="am-btn am-btn-primary am-btn-xs js-down" type="button">下移</button>
+                <button class="am-btn am-btn-danger am-btn-xs js-del" type="button">删除</button>
+            </td>
+        </tr>
+    </script>
+
+
+    <script id="tpl-tab" type="text/html">
+
+        <div class="am-tab-panel">
+            <div>点击选择需要规格，如没有需要规格，请在规格管理中添加。</div>
+            <div class="spec-list am-margin-bottom">
+                {{# for (var i in d.value){ }}
+                <a class="am-badge am-badge-secondary" href="javascript:;"
+                   data-info="{'id':'{{ d.spec_id }}','value':'{{ d.value[i] }}','name':'{{ d.name }}'}">{{ d.value[i]
+                    }}</a>
+                {{# } }}
+            </div>
+            <div class="table">
+                <table class="am-table dux-table-dialog">
+                    <thead>
+                    <tr>
+                        <th>规格</th>
+                        <th class="am-text-center" width="180">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+
+    <script>
+        Do('base', 'select', 'tpl', function () {
+
+
+            var specList = {json_encode($specList)};
+            var specIds = {json_encode($specIds)};
+
+            var tabCounter = 0;
+            var $tab = $('#tabs');
+            var $nav = $tab.find('.am-tabs-nav');
+            var $bd = $tab.find('.am-tabs-bd');
+
+
+            var addTab = function (index) {
+                if ($('[data-tab=' + index + ']').length > 0) {
+                    return false;
+                }
+                var data = specList[index];
+                var nav = '<li data-tab="' + index + '"><span class="am-icon-close"></span><a href="javascript: void(0)">' + data.name + '</a></li>';
+                $nav.append(nav);
+                var gettpl = $('#tpl-tab').html();
+                laytpl(gettpl).render(specList[index], function (html) {
+                    $bd.append(html);
+                });
+                tabCounter++;
+                $tab.tabs('refresh');
+            };
+
+            var init = function () {
+                if (specIds.length < 1) {
+                    return false;
+                }
+                for (var i in specIds) {
+                    addTab(specIds[i]);
+                }
+            };
+            init();
+
+            $nav.on('click', '.am-icon-close', function () {
+                var $item = $(this).closest('li');
+                var index = $nav.children('li').index($item);
+                $item.remove();
+                $bd.find('.am-tab-panel').eq(index).remove();
+                $tab.tabs('open', index > 0 ? index - 1 : index + 1);
+                $tab.tabs('refresh');
+
+                $('.select-spec').find("option[value='" + $item.data('tab') + "']").prop("disabled", false);
+                $('.select-spec').select2();
+
+            });
+
+
+            $('.select-spec').on('select2:select', function () {
+                addTab($(this).val());
+                $(this).find(':selected').prop("disabled", true);
+                $(this).find(':selected').prop("selected", false);
+                $(this).select2();
+            });
+
+
+            $('.am-tabs-bd').on('click', '.spec-list a', function () {
+                var value = $(this).data('info');
+                var tbody = $(this).parents('.am-tab-panel').find('tbody');
+                if (tbody.find('input[value*=\"' + value + '\"]').length > 0) {
+                    alert('此规格已经添加');
+                    return false;
+                } else {
+                    var data = {
+                        name: $(this).text(),
+                        value: value
+                    };
+                    var gettpl = $('#tpl-spec').html();
+                    laytpl(gettpl).render(data, function (html) {
+                        tbody.append(html);
+                    });
+                }
+            });
+
+            $('.am-tabs-bd').on('click', '.am-table .js-up', function () {
+                var $tr = $(this).parents("tr");
+                if ($tr.index() != 0) {
+                    $tr.prev().before($tr);
+                }
+            });
+            $('.am-tabs-bd').on('click', '.am-table .js-down', function () {
+                var trLength = $(this).parents('table').find(".js-down").length;
+                var $tr = $(this).parents("tr");
+                if ($tr.index() != trLength - 1) {
+                    $tr.next().after($tr);
+                }
+            });
+            $('.am-tabs-bd').on('click', '.am-table .js-del', function () {
+                $(this).parents('tr').remove();
+            });
+
+            $('#add').click(function () {
+                //遍历规格
+                var specValueData = {};
+                var specData = {};
+
+                $('.js-spec-json').each(function () {
+                    var jsonText = $(this).val().replace(/\'/g, "\"");
+                    var json = $.parseJSON(jsonText);
+                    if (!specValueData[json.id]) {
+                        specData[json.id] = {'id': json.id, 'name': json.name};
+                        specValueData[json.id] = [];
+                    }
+                    specValueData[json.id].push(json['value']);
+                });
+
+
+                //生成笛卡尔积
+                var specMaxData = descartes(specValueData, specData);
+
+
+                function descartes(list, specData) {
+                    //parent上一级索引;count指针计数
+                    var point = {};
+                    var result = [];
+                    var pIndex = null;
+                    var tempCount = 0;
+                    var temp = [];
+
+                    //根据参数列生成指针对象
+                    for (var index in list) {
+                        if (typeof list[index] == 'object') {
+                            point[index] = {'parent': pIndex, 'count': 0}
+                            pIndex = index;
+                        }
+                    }
+                    //单维度数据结构直接返回
+                    if (pIndex == null) {
+                        return list;
+                    }
+                    //动态生成笛卡尔积
+                    while (true) {
+                        for (var index in list) {
+                            tempCount = point[index]['count'];
+                            temp.push({
+                                "id": specData[index].id,
+                                "name": specData[index].name,
+                                "value": list[index][tempCount]
+                            });
+                        }
+
+                        //压入结果数组
+                        result.push(temp);
+                        temp = [];
+                        //检查指针最大值问题
+                        while (true) {
+                            if (point[index]['count'] + 1 >= list[index].length) {
+                                point[index]['count'] = 0;
+                                pIndex = point[index]['parent'];
+                                if (pIndex == null) {
+                                    return result;
+                                }
+
+                                //赋值parent进行再次检查
+                                index = pIndex;
+                            }
+                            else {
+                                point[index]['count']++;
+                                break;
+                            }
+                        }
+                    }
+                }
+                window.parent.addData(specData, {
+                    spec_list: specMaxData
+                });
+                parent.dialog.close();
+            });
+        });
+    </script>
+
+

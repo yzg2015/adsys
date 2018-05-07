@@ -1,0 +1,96 @@
+<div class="dux-page-header am-cf">
+    <div class="page-title">
+        <a class="am-btn am-btn-primary" href="{url('index')}"> 分类列表</a>
+    </div>
+    <div class="page-action">
+        <a class="am-btn am-btn-danger" href="javascript:location.reload();"><i class="am-icon-refresh"></i></a>
+    </div>
+</div>
+
+<div class="dux-body">
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">{$assignName}分类</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" data-dux="form-bind" method="post">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-form-label">帮助分类</label>
+                        <div class="am-u-md-10">
+                            <select data-dux="form-select" name="class_id" id="class_id" required>
+                                <!--loop{(array)$classList as $vo}-->
+                                <option <!--if{$vo.class_id == $classId}--> selected <!--{/if}-->value="{$vo.class_id}">{$vo.name}</option>
+                                <!--{/loop}-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">内容标题</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="title" value="{$info.title}" placeholder="请输入内容标题" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">正文内容</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <textarea data-dux="form-editor" name="content"
+                                      style="height: 400px">{$info.content}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">内容关键词</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="keyword" value="{$info.keyword}" placeholder="可选,请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">内容描述</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <textarea name="description" placeholder="可选,内容描述信息">{$info.description}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">内容顺序</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="number" name="sort" value="{$info.sort ? $info.sort : 0}" placeholder="请输入顺序" >
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-form-label">内容状态</label>
+                        <div class="am-u-md-10">
+                            <?php $info['status'] = isset($info['status']) ? $info['status'] : 1;  ?>
+                            <label class="am-radio-inline">
+                                <!--if{$info['status']}-->
+                                <input name="status" value="1" checked="checked" type="radio">
+                                <!--{else}-->
+                                <input name="status" value="1" type="radio">
+                                <!--{/if}-->
+                                正常
+                            </label>
+                            <label class="am-radio-inline">
+                                <!--if{!$info['status']}-->
+                                <input name="status" checked="checked" value="0" type="radio">
+                                <!--{else}-->
+                                <input name="status" value="0" type="radio">
+                                <!--{/if}-->
+                                隐藏
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                            <input type="hidden" name="help_id" value="{$info.help_id}">
+                            <button class="am-btn am-btn-primary" type="submit" disabled>保存</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="am-padding am-text-center">
+    <p>微信支付</p>
+    <h1 class="am-margin-0" style="font-size: 4rem;">￥{$getData.amount}</h1>
+</div>
+<div class="dux-box">
+    <form class="am-form dux-form dux-form-right">
+        <div class="am-input-group">
+            <span class="am-input-group-label">收款方</span>
+            <div class="am-form-content">{$site.info_name}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">订单号</span>
+            <div class="am-form-content">{$getData.order_no}</div>
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">商品名</span>
+            <div class="am-form-content">{$getData.subject}</div>
+        </div>
+    </form>
+</div>
+<div class="am-padding am-text-center">
+    <button class="am-btn am-btn-success am-btn-block" id="pay" disabled type="button">微信系统支付中...</button>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+
+    var url = '{$data.url}';
+    function onBridgeReady() {
+        $('#pay').attr('disabled', true).text('微信系统支付中...');
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', {
+                "appId": "{$data.appId}",
+                "timeStamp": "{$data.timeStamp}",
+                "nonceStr": "{$data.nonceStr}",
+                "package": "{$data.package}",
+                "signType": "{$data.signType}",
+                "paySign": "{$data.paySign}"
+            },function(res) {
+                if( res.err_msg == "get_brand_wcpay_request:ok"){
+                    window.location.href = url;
+                    return;
+                }
+                if( res.err_msg == "get_brand_wcpay_request:fail"){
+                    alert(res.err_msg);
+                }
+                $('#pay').attr('disabled', false).text('支付订单');
+            });
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+    $('#pay').click(function () {
+        onBridgeReady();
+    });
+
+
+</script>

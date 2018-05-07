@@ -1,0 +1,206 @@
+<div class="am-container ">
+    <div class="dux-page">
+        <div class="dux-cart" data-dux="cart-submit">
+            <!--if{!empty($addInfo)}-->
+            <div class="cart-title">收货人信息</div>
+            <ul class="add-list am-cf am-avg-sm-5">
+                <!--loop{$addList as $vo}-->
+                <li class="{$addInfo.add_id == $vo.add_id ? 'active' : ''}">
+                    <a href="{url('', array_merge($urlParams, ['add_id' => $vo.add_id]))}">
+                        <div class="title">
+                            {$vo.name} {$vo.tel} 收
+
+                        </div>
+                        <div class="info">
+                            {$vo.province} {$vo.city} {$vo.region}
+                            <br>
+                            {$vo.address} {$vo.zip}
+                        </div>
+                    </a>
+                </li>
+                <!--{/loop}-->
+
+                <li>
+                    <a href="{url('order/Address/index')}" target="_blank">
+                        <div class="plus">
+                            <i class="am-icon-plus"></i>
+                            管理地址
+                        </div>
+                    </a>
+                </li>
+                <input name="add_id" type="hidden" value="{$addId}">
+            </ul>
+
+            <!--{else}-->
+            <div class="cart-title">收货人信息</div>
+            <form class="add-info" action="{url('order/Address/add')}" method="post" data-dux="form-bind" data-advanced="false" data-callback="addressSava">
+                <dl class="am-cf">
+                    <dt>姓名</dt>
+                    <dd><input class="am-form-field" name="name" placeholder="收件人姓名"></dd>
+                </dl>
+                <dl class="am-cf">
+                    <dt>电话</dt>
+                    <dd><input class="am-form-field" name="tel" placeholder="收件人电话"></dd>
+                </dl>
+                <dl class="am-cf">
+                    <dt>地区</dt>
+                    <dd id="distpicker">
+                        <select class="am-form-field" name="province" data-province=""></select>
+                        <select class="am-form-field" name="city" data-city=""></select>
+                        <select class="am-form-field" name="region" data-district=""></select>
+                    </dd>
+                </dl>
+                <dl class="am-cf">
+                    <dt>地址</dt>
+                    <dd>
+                        <input class="am-form-field" name="address" placeholder="请填写街道门牌号码">
+                    </dd>
+                </dl>
+                <dl class="am-cf">
+                    <dt>邮编</dt>
+                    <dd><input class="am-form-field" name="zip" placeholder="邮政编码"></dd>
+                </dl>
+                <dl class="am-cf">
+                    <dt></dt>
+                    <input type="hidden" name="default" value="1">
+                    <input type="hidden" name="refresh" value="1">
+                    <dd>
+                        <button class="am-btn am-btn-danger" type="submit">保存地址</button>
+                    </dd>
+                </dl>
+            </form>
+            <!--{/if}-->
+
+            <!--if{$orderConfig.cod_status}-->
+            <div class="cart-title">确认付款方式</div>
+
+            <div class="cart-box">
+                <ul class="select-box am-cf">
+                    <li class="{$codStatus == 0 ? 'active' : ''}">
+                        <a href="{url('', array_merge($urlParams, ['cod_status' => 0]))}">在线支付</a>
+                    </li>
+                    <li class="{$codStatus == 1 ? 'active' : ''}">
+                        <a href="{url('', array_merge($urlParams, ['cod_status' => 1]))}">货到付款</a>
+                    </li>
+                </ul>
+                <input name="cod_status" type="hidden" value="{$codStatus}">
+            </div>
+            <!--{/if}-->
+
+
+            <div class="cart-title">确认订单信息</div>
+
+            <!--loop{$list as $orderKey => $order}-->
+            <div class="cart-table">
+                <table class="am-table">
+                    <thead>
+                    <tr>
+                        <th colspan="2">商品</th>
+                        <th class="am-text-center">单价</th>
+                        <th class="am-text-center" width="110">数量</th>
+                        <th class="am-text-center">小计</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--loop{$order.items as $key => $vo}-->
+                    <tr>
+                        <td class="am-text-middle dux-page-goods" width="90">
+                            <a href="{$vo.url}" target="_blank"><img src="{$vo.image}" alt="{$vo.name}" width="64"
+                                                                     height="64"></a>
+                        </td>
+                        <td class="am-text-middle dux-page-goods">
+                            <div class="title"><a href="{$vo.url}" target="_blank">{$vo.name}</a></div>
+                            <!--if{!empty($vo.options)}-->
+                            <div class="am-text-grey">
+                                <!--loop{$vo.options as $v}-->
+                                {$v.value}
+                                <!--{/loop}-->
+                            </div>
+                            <!--{/if}-->
+                        </td>
+                        <td class="am-text-center am-text-middle">
+                            <div class="am-text-danger">
+                                {price_format($vo.price)} 元
+                                <!--if{$vo.currency}-->
+                                {$vo.currency.type ? '/' : '+'} <span>{$vo.currency.amount}</span> {$vo.currency.name}
+                                <!--{/if}-->
+                            </div>
+                            <div class="am-text-grey">{$vo.weight/1000}kg</div>
+                        </td>
+                        <td class="am-text-center am-text-middle">
+                            {$vo.qty}
+                        </td>
+                        <td class="am-text-center am-text-middle">
+                            <div>{price_format($vo.total)} 元
+                                <!--if{$vo.currency}-->
+                                {$vo.currency.type ? '/' : '+'} <span>{$vo.currency.amount*$vo.qty}</span> {$vo.currency.name}
+                                <!--{/if}-->
+                            </div>
+                        </td>
+                    </tr>
+                    <!--{/loop}-->
+                    </tbody>
+                </table>
+                <div class="table-foot">
+                    <div class="am-g">
+                        <div class="am-u-sm-6">
+                            <input class="table-input" type="text" name="remark" placeholder="买家留言">
+                        </div>
+                        <div class="am-u-sm-6 am-text-right">
+                            <div>合计
+                                <span class="am-text-danger">￥{price_format($order.order_price + $order.delivery_price)}</span> (含运费 ￥{price_format($order.delivery_price)})
+                                <span>
+                                    <!--loop{$info.currency as $k => $v}-->
+                                                            <!--if{$v.type}-->
+                                        + ( <span class="am-text-danger">{$v.money}</span> 元 / <span class="am-text-danger" data-count-currency="{$k}" data-decimal="{$v.decimal}">{$v.amount}</span> {$v.name} )
+                                                            <!--{else}-->
+                                        + <span class="am-text-danger" data-count-currency="{$k}" data-decimal="{$v.decimal}">{$v.amount}</span> {$v.name}
+                                                            <!--{/if}-->
+                                                            <!--{/loop}-->
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--{/loop}-->
+
+            <!--if{$couponList}-->
+            <div class="cart-title">可用优惠券</div>
+
+            <div class="cart-box">
+                <ul class="select-list">
+                    <!--loop{$couponList as $vo}-->
+                    <li><label><input type="radio" name="coupon" value="{$vo.log_id}"> {$vo.name} (满{$vo.meet_money}减{$vo.money})</label></li>
+                    <!--{/iloopf}-->
+                </ul>
+            </div>
+            <!--{/if}-->
+
+            <div class="cart-info">
+                共有<em>{$info.items}</em>件商品, 需要<span>{$codStatus ? '货到付款' : '在线支付'}</span> <em data-count-price="{$orderPrice}" class="am-text-danger">￥{price_format($orderPrice + $deliveryPrice)}</em> (含运费 <span>￥{price_format($deliveryPrice)}</span>)
+                <!--loop{$info.currency as $k => $v}-->
+                + <em class="am-text-danger">{$v.amount}</em> {$v.name}
+                <!--{/loop}-->
+                <a href="javascript:;" class="am-btn am-btn-danger" data-url='{url("submit")}' data-submit>提交订单</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="am-g am-g-fixed">
+
+</div>
+
+<!--#include file="common_footer.html"-->
+
+<script>
+    window.addressSava = function () {
+        location.reload();
+    };
+    Do('distpicker', function () {
+        $(function () {
+            $('#distpicker').distpicker();
+        });
+    });
+</script>

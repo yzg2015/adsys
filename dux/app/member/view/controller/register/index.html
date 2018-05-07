@@ -1,0 +1,103 @@
+<div class="am-container">
+
+    <div class="dux-login am-cf">
+
+        <div class="login-show">
+            <img src="{$sysPublic}/member/images/login-banner.png" alt="">
+        </div>
+
+        <div class="login-form">
+            <div class="form-title">
+                会员注册
+            </div>
+            <div class="form-body">
+                <form class="am-form am-form-horizontal"  action="{url()}" method="post"  data-dux="form-bind" data-advanced="false" data-callback="login">
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">登录账号</label>
+                        <div class="form-field">
+                            <input type="text" name="username" id="username" placeholder="邮箱/手机号码">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">密码</label>
+                        <div class="form-field">
+                            <input type="password" name="password" placeholder="请输入登录密码">
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">确认密码</label>
+                        <div class="form-field">
+                            <input type="password" name="password2" placeholder="请再次输入登录密码">
+                        </div>
+                    </div>
+                    <!--if{$userConfig.verify_status || $userConfig.verify_image}-->
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">图片验证</label>
+                        <div class="form-field am-cf">
+                            <div class="am-fl">
+                                <img src="{url('member/register/code')}" onclick="this.src ='{url("member/register/code")}?'+Math.random()">
+                            </div>
+                            <div class="am-fr" style="width: 160px">
+                                <input type="text" placeholder="图片验证码" name="imgcode" id="imgcode">
+                            </div>
+                        </div>
+                    </div>
+                    <!--{/if}-->
+
+                    <!--if{$userConfig.verify_status}-->
+                    <div class="am-form-group">
+                        <label class="am-form-label">账号验证</label>
+                        <div class="form-field am-cf">
+                            <div class="am-fl" style="width: 130px">
+                                <input type="text" placeholder="账号验证码" name="code">
+                            </div>
+                            <div class="am-fr">
+                                <a href="javascript:;" class="am-btn am-btn-warning" data-dux="page-ajaxLink" data-url="{url('member/Register/getCode')}" data-field="username,imgcode">获取验证码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--{/if}-->
+
+                    <!--loop{$hookField as $vo}-->
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label">{$vo.label}</label>
+                        <div class="form-field">
+                            <input type="text" name="{$vo.name}" placeholder="{$vo.tip}" value="{$vo.value}">
+                        </div>
+                    </div>
+                    <!--{/loop}-->
+
+                    <div class="am-form-group am-cf">
+                        <label class="am-form-label"></label>
+                        <label class="am-radio-inline">
+                            <input type="checkbox" name="agreement" value="1" checked>
+                            我已认真阅读并同意该<a href="javascript:;" data-url="{url('member/Register/agreement')}" data-title="用户协议" data-dux="dialog-open" class="am-text-danger">《用户协议》</a>
+                        </label>
+                    </div>
+
+
+
+                    <div class="am-form-group am-cf">
+                        <div class="form-field">
+                            <button type="submit" class="form-submit am-btn am-btn-primary am-btn-block">立即注册</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="form-foot">
+                已经注册? <a href="{url('member/login/index')}"  class="link">立即登录</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    Do('base', function () {
+        window.login = function (msg, url) {
+            window.location.href = url;
+        }
+    });
+</script>

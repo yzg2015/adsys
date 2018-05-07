@@ -1,0 +1,127 @@
+
+<div class="am-container">
+    <div class="dux-tip am-cf">
+        <i class="icon am-icon-check"></i>
+        <div class="tip-body">
+            <h1>您已经提交该订单，请尽快支付！</h1>
+            <p>应付:
+                <span class="am-text-danger">￥{$totalPrice}</span>元 (含运费<span class="am-text-danger">{$deliveryPrice}</span>元)
+                <!--loop{$currency as $vo}-->
+                <!--if{$vo.type}-->
+                + ( <span class="am-text-danger">{$vo.money}</span> 元 / <span class="am-text-danger">{$vo.amount}</span> {$vo.name} )
+                <!--{else}-->
+                + <span class="am-text-danger">{$vo.amount}</span> {$vo.name}
+                <!--{/if}-->
+
+                <!--{/if}-->
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="dux-box">
+        <div class="box-header">
+            订单信息
+        </div>
+        <div class="dux-pay-table">
+        <!--loop{$orderList as $key => $vo}-->
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th colspan="5">
+                        单号: {$vo.order_no}
+                        时间: {date('Y-m-d H:i:s', $vo.order_create_time)}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="am-text-middle" width="70">
+                        <img src="{$vo.order_image}" width="64" height="64">
+                    </td>
+                    <td class="am-text-middle">
+                            <a href="{url($vo.order_app . '/order/info', ['order_no' => $vo.order_no])}" target="_blank" class="link">{$vo.order_title}</a>
+                    </td>
+
+                    <td class="am-text-center am-text-middle" width="100">
+                        {$vo.order_sum}
+                    </td>
+                    <td class="am-text-center am-text-middle" width="200">
+                        <span class="am-text-danger">{$vo.order_price}</span>
+                        <!--if{$vo.currency}-->
+                        {$vo.currency.type ? '/' : '+'} <span>{$vo.currency.amount}</span> {$vo.currency.name}
+                        <!--{/if}-->
+                    </td>
+                    <td class="am-text-center am-text-middle"  rowspan="{$count}" width="200">
+                        <span class="am-text-danger" >￥<span data-price>{$vo.total_price}</span></span>
+                        <br>
+                        (含运费{$vo.delivery_price}元)
+
+                        <!--if{$vo.currency}-->
+                        {$vo.currency.type ? '/' : '+'} <span>{$vo.currency.amount*$vo.qty}</span> {$vo.currency.name}
+                        <!--{/if}-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        <!--{/loop}-->
+        </div>
+    </div>
+    <!--if{$currencyList}-->
+    <div class="dux-box">
+        <div class="box-header">
+            其他货币支付方式
+        </div>
+        <div class="dux-pay-type am-cf">
+            <!--loop{$currencyList as $key => $vo}-->
+            <label class="active">
+                <input type="radio" name="currency" value="{$key}" checked> {$vo.name}支付 (余额 {$vo.amount} {$vo.unit})
+            </label>
+            <!--{/loop}-->
+        </div>
+    </div>
+    <br>
+    <!--{/if}-->
+
+    <div class="dux-box dux-pay-body">
+        <div class="box-header">
+            请选择支付方式并付款
+        </div>
+        <div class="dux-pay-type am-cf">
+            <!--loop{$payList as $type => $vo}-->
+            <label>
+                <input type="radio" name="type"  value="{$type}"> {$vo.name}
+            </label>
+            <!--{/loop}-->
+        </div>
+        <div class="dux-pay-foot">
+            <div class="am-btn am-btn-danger" id="pay">确认订单，立即支付</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var orderNo = '{$orderNo}';
+    Do('base', 'dialog', function () {
+
+        $('.dux-pay-type').on('change', 'input[name="type"]', function () {
+            $('.dux-pay-type').find('label').removeClass('active');
+            $(this).parents('label').addClass('active');
+        });
+        $('#pay').click(function () {
+            app.ajax({
+                url: '{url()}',
+                type: 'post',
+                data: {
+                    type: $('input[name="type"]:checked').val(),
+                    order_no: orderNo
+                },
+                success: function (msg, url) {
+                    window.location.href = url;
+                },
+                error: function (msg) {
+                    app.error(msg);
+                }
+            });
+        });
+    });
+</script>

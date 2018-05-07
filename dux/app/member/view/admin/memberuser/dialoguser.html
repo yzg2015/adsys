@@ -1,0 +1,48 @@
+<style>
+    body {
+        padding: 10px 0;
+        background: #fff;
+    }
+    .am-list li {
+        border: none;
+    }
+    .am-list>li>.am-badge {
+        float: none;
+    }
+</style>
+<div class="am-g">
+    <div class="am-u-sm-4">
+        <!--if{$info.avatar}-->
+        <img src="{$info.avatar}" alt="" width="125" height="125">
+        <!--{else}-->
+        <img src="{$sysPublic}/system/images/nopic-150-150.png" alt="" width="125" height="125">
+        <!--{/if}-->
+    </div>
+    <div class="am-u-sm-8">
+        <ul class="am-list am-list-static">
+            <li>{$info.nickname} ({$info.role_name})</li>
+            <li>{$info.tel} ({$info.email})</li>
+            <li>
+                <!--if{$info.status}-->
+                <span class="am-badge am-badge-success">正常</span>
+                <!--{else}-->
+                <span class="am-badge am-badge-danger">禁用</span>
+                <!--{/if}-->
+                <span class="am-badge am-badge-warning">{$account.money}元</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="dux-dialog-foot">
+
+    <button type="button" class="am-btn am-btn-primary js-url" data-url="{url('member/MemberUser/index', ['keyword' => $info.tel])}">查看资料</button>
+
+    <button type="button" class="am-btn am-btn-primary js-url" data-url="{url('member/PayAccount/index', ['keyword' => $info.tel])}">查看资金</button>
+</div>
+<script>
+    Do.ready('base', function () {
+        $('.js-url').click(function() {
+            parent.location.href= $(this).data('url');
+        });
+    });
+</script>

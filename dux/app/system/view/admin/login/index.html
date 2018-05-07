@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$sysInfo.title} - 登录</title>
+    <link rel="stylesheet" href="<?php echo ROOT_URL; ?>/public/common/css/amazeui.min.css">
+    <link rel="stylesheet" href="<?php echo ROOT_URL; ?>/public/system/css/login.css">
+</head>
+<body>
+<div class="login-body">
+    <header>
+        {$sysInfo.title}
+        <p>{$sysInfo.team}</p>
+    </header>
+    <main>
+
+        <form method="post" class="am-form" action="{url()}">
+            <div class="am-form-group">
+                <label><i class="am-icon-user"></i></label>
+                <input type="text" name="username" value="">
+            </div>
+            <div class="am-form-group">
+                <label><i class="am-icon-key"></i></label>
+                <input type="text" onfocus="this.type='password'" name="password" value="">
+            </div>
+            <div class="am-form-group">
+                <div class="alert hide"></div>
+            </div>
+            <div class="am-form-group">
+                <button type="submit" class="am-btn am-btn-primary am-btn-block">登 录</button>
+            </div>
+
+        </form>
+    </main>
+    <footer>
+        Copyright © {date('Y')} <a href="{$sysInfo.home}" target="_blank">{$sysInfo.name}</a>
+    </footer>
+</div>
+</body>
+
+
+<script type="text/javascript" src="<?php echo ROOT_URL; ?>/public/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo ROOT_URL; ?>/public/common/js/do.js" data-cfg-autoload="false"></script>
+<script type="text/javascript" src="<?php echo ROOT_URL; ?>/public/common/js/package.js" data-path="<?php echo ROOT_URL; ?>/public/" data-role="<?php echo ROLE_NAME; ?>" data-root="<?php ROOT_URL; ?>"></script>
+<script type="text/javascript" src="<?php echo ROOT_URL; ?>/public/system/js/lib.js"></script>
+<script>
+    $(function () {
+        Do('base', function() {
+        $('form').submit(function (e) {
+            e.preventDefault();
+            app.ajax({
+                url : '{url()}',
+                type : 'post',
+                data : $('form').serialize(),
+                tip : false,
+                success : function(msg) {
+                    $('.alert').addClass('hide');
+                    window.location.href = '{url("system/Index/index")}';
+                },
+                error : function(msg) {
+                    $('.alert').removeClass('hide').text(msg);
+                }
+            });
+        });
+
+        });
+    });
+</script>
+</html>

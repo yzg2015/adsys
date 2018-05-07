@@ -1,0 +1,46 @@
+<div class="dux-box">
+    <div class="box-header am-cf">
+        <div class="title">
+            我的订单
+        </div>
+        <div class="more">
+            <a href="{url('order/order/index')}" class="">
+                全部订单
+            </a>
+        </div>
+    </div>
+    <ul class="am-avg-sm-4 dux-index-icon">
+        <li>
+            <a href="{url('order/order/index',['type' => 1])}">
+                <i class="am-icon-credit-card"></i>
+                <div class="name">待付款</div>
+                <!--if{$orderCount.pay}-->
+                <span class="am-badge am-badge-danger">{$orderCount.pay}</span>
+                <!--{/if}-->
+            </a>
+        </li>
+        <li>
+            <a href="{url('order/order/index',['type' => 3])}">
+                <i class="am-icon-dropbox"></i>
+                <div class="name">待收货</div>
+                <!--if{$orderCount.complete}-->
+                <span class="am-badge am-badge-danger">{$orderCount.complete}</span>
+                <!--{/if}-->
+            </a>
+        </li>
+
+        <li>
+            <a href="{url('order/order/index',['type' => 4])}">
+                <i class="am-icon-commenting"></i>
+                <div class="name">待评价</div>
+            </a>
+        </li>
+        <li>
+            <a href="{url('order/Return/index')}">
+                <i class="am-icon-send"></i>
+                <div class="name">售后</div>
+            </a>
+        </li>
+    </ul>
+
+</div>

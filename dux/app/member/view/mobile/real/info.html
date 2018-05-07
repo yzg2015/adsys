@@ -1,0 +1,34 @@
+<form class="am-form dux-form" action="{url('')}" method="post" data-dux="form-bind" data-advanced="false">
+    <div class="dux-form-title">实名信息
+    <div class="am-input-group">
+        <span class="am-input-group-label">姓名</span>
+        <input type="text" class="am-form-field" placeholder="身份证姓名" name="name">
+    </div>
+    <div class="am-input-group">
+        <span class="am-input-group-label">身份证号码</span>
+        <input type="text" class="am-form-field" placeholder="身份证号码" name="idcard">
+    </div>
+
+    <div class="dux-form-title">用户验证信息</div>
+    <div class="am-input-group">
+        <span class="am-input-group-label">验证方式</span>
+        <select name="val_type" class="am-form-field">
+            <option value="0">手机验证</option>
+            <option value="1">邮箱验证</option>
+        </select>
+    </div>
+    <div class="am-input-group">
+        <span class="am-input-group-label">账号验证</span>
+        <input type="text" class="am-form-field" placeholder="请输入验证码" name="val_code">
+
+        <span class="am-input-group-btn">
+                                            <button href="javascript:;" class="am-btn am-btn-sm am-btn-primary" data-dux="page-getCode"
+                                                    data-url="{url('member/Real/getCode')}" data-field="val_type"
+                                                    type="button">获取验证码</button>
+                                        </span>
+    </div>
+    <input type="hidden" name="card_id" value="{$info.card_id}">
+    <div class="am-padding">
+        <button class="am-btn am-btn-primary am-btn-block" type="submit">确认认证</button>
+    </div>
+</form>

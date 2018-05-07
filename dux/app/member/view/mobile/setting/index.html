@@ -1,0 +1,48 @@
+
+
+<form class="am-form dux-form dux-form-right" action="{url('index')}" method="post" data-dux="form-bind" data-advanced="false">
+        <div class="am-input-group">
+            <span class="am-input-group-label">手机</span>
+            <!--if{$userInfo.tel}-->
+            <div class="am-form-content">{$userInfo.tel} (已设置)</div>
+            <!--{else}-->
+            <input type="text" name="tel" class="am-form-field"  placeholder="手机,绑定无法更改">
+            <!--{/if}-->
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">邮箱</span>
+            <!--if{$userInfo.email}-->
+            <div class="am-form-content">{$userInfo.email} (已设置)</div>
+            <!--{else}-->
+            <input type="text" name="email" class="am-form-field"  placeholder="邮箱，绑定无法更改">
+            <!--{/if}-->
+        </div>
+        <div class="am-input-group">
+            <span class="am-input-group-label">昵称</span>
+            <input type="text" class="am-form-field" placeholder="昵称" name="nickname" value="{$userInfo.nickname}">
+        </div>
+        <div id="distpicker">
+            <div class="am-input-group">
+                <span class="am-input-group-label">省份</span>
+                <select name="province" class="am-form-field" data-province="{$userInfo.province}"></select>
+            </div>
+            <div class="am-input-group">
+                <span class="am-input-group-label">城市</span>
+                <select name="city" class="am-form-field" data-city="{$userInfo.city}"></select>
+            </div>
+            <div class="am-input-group">
+                <span class="am-input-group-label">地区</span>
+                <select name="region" class="am-form-field" data-district="{$userInfo.region}"></select>
+            </div>
+        </div>
+        <div class="am-padding">
+            <button class="am-btn am-btn-primary am-btn-block" type="submit">保存资料</button>
+        </div>
+    </form>
+<script>
+    Do('distpicker', function () {
+        $(function () {
+            $('#distpicker').distpicker();
+        });
+    });
+</script>

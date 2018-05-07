@@ -1,0 +1,74 @@
+<!--#include file="common_head.html"-->
+
+<div class="dux-page-head">
+    <div class="am-g am-g-fixed">
+        <ol class="am-breadcrumb dux-page-crumb">
+            <li><a href="/">首页</a></li>
+            <!--loop{$pageInfo.crumb as $vo}-->
+            <li><a href="{$vo.url}">{$vo.name}</a></li>
+            <!--{/loop}-->
+        </ol>
+    </div>
+</div>
+
+<br>
+    <div class="dux-news-head am-g am-g-fixed">
+        <div class="head-banner am-u-sm-8">
+            <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+                <ul class="am-slides">
+                    <!--list{app="site" label="adv" pos="news" limit=5 }-->
+                    <li><img src="{$list.image}" /></li>
+                    <!--{/list}-->
+                </ul>
+            </div>
+        </div>
+        <div class="head-topic  am-u-sm-4">
+            <div class="dux-page-box">
+                <div class="box-title box-title-b">推荐新闻</div>
+                <ul class="dux-news-list dux-news-topic">
+                    <!--list{app="article" label="contentList" limit="9" pos_id=1}-->
+                    <li>
+                        <i>{$list.i}</i>
+                        <a href="{$list.url}">
+                            {$list.title}
+                        </a>
+                    </li>
+                    <!--{/list}-->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="am-g am-g-fixed">
+
+    <!--class{app="article" label="classList" limit="8"}-->
+    <div class="am-u-sm-6">
+        <div class="dux-page-box am-margin-bottom">
+            <div class="box-title box-title-b am-cf">{$class.name}
+
+                <a class="more" href="{$class.url}">更多</a>
+            </div>
+            <ul class="dux-news-list">
+                <!--list{app="article" label="contentList" limit="10" class_id=$class.class_id sub=true}-->
+                <li>
+                    <a href="{$list.url}">
+                        <div class="date">{date('m-d', $list.create_time)}</div>
+                        <div class="title">{$list.title}</div>
+                    </a>
+                </li>
+                <!--{/list}-->
+            </ul>
+        </div>
+
+
+    </div>
+
+    <!--{/class}-->
+
+</div>
+
+
+<!--#include file="common_footer.html"-->
+</html>

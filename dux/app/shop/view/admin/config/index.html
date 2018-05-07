@@ -1,0 +1,69 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <ul class="am-nav">
+                    <li class="am-active"><a href="{url('index')}">购物设置</a></li>
+                    <li><a href="{url('store')}">店铺信息</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">购物设置</div>
+                <div class="am-panel-bd">
+                    <form class="am-form  am-form-horizontal dux-form" method="post" action="{url()}" data-dux="form-bind">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">减库方式</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="stock_type" {$info.stock_type == 0 ? 'checked' : ''}   value="0">
+                                        下单
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="stock_type" {$info.stock_type ? 'checked' : ''} value="1">
+                                        支付
+                                    </label>
+                                    <div class="am-form-help">购物库存减少方式</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">购物送积分</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="point_status" {$info.point_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="point_status" {$info.point_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                    <div class="am-form-help">购物完成后赠送对应积分</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">赠送数量</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <input type="text" class="am-form-field" name="point_rate" value="{$info.point_rate}">
+                                        <span class="am-input-group-label">%</span>
+                                    </div>
+                                    <div class="am-form-help">赠送积分百分比数量</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

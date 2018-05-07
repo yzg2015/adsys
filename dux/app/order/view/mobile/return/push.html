@@ -1,0 +1,70 @@
+<div class="dux-pro-list">
+<!--loop{$orderGoods as $vo}-->
+<li class="am-cf dux-pro-item">
+    <div class="item-radio am-vertical-align">
+        <label class="am-radio-inline am-vertical-align-middle"><input type="checkbox" value="{$vo.rowid}" {$vo.checked ? checked : ''}></label>
+    </div>
+    <div class="item-img">
+        <a href="{url($orderInfo.order_app . '/order/info', ['order_no' => $orderInfo.order_no])}"><img
+                src="{$vo.goods_image}" alt="" width="70" height="70"></a>
+    </div>
+    <div class="item-info">
+        <div class="title am-text-truncate">{$vo.goods_name}</div>
+        <div class="am-text-danger am-text-lg">￥{$vo.price_total}</div>
+        <!--if{!empty($vo.goods_options)}-->
+        <p class="am-text-sm am-margin-top-sm">
+            <!--loop{$vo.goods_options as $v}-->
+            <span class="am-padding-right-sm am-text-truncate">{$v.name}：{$v.value}</span>
+            <!--{/loop}-->
+        </p>
+        <!--{/if}-->
+    </div>
+</li>
+</div>
+<!--{/loop}-->
+
+<div class="box-body am-padding">
+    <form class="dux-form am-form" action="{url('', ['action' => $action])}" method="post" data-dux="form-bind">
+        <div class="am-form-group">
+            <label class="am-form-label">退货原因</label>
+            <div class="am-form-content">
+                <select name="cause">
+                    <option>请选择原因</option>
+                    <!--loop{$causeList as $vo}-->
+                    <option value="{$vo}">{$vo}</option>
+                    <!--{/loop}-->
+                </select>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-form-label">退货金额 <small>最多{$info.price_total}</small></label>
+            <div class="am-form-content">
+                <input type="tel" name="money">
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-form-label">详细原因</label>
+            <div class="am-form-content">
+                <textarea rows="3" placeholder="请详细说明退货原因" name="content"></textarea>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <div class="am-form-content">
+                <label class="am-form-label">凭证</label>
+                <ul class="dux-upload-list am-cf">
+                    <span id="images"></span>
+                    <li>
+                        <a href="javascript:;" class="add-img" data-dux="form-images" data-img-warp="#images"
+                           data-img-name="images" data-num="5"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <div class="am-form-content">
+                <input type="hidden" name="id" value="{$id}">
+                <button type="submit" class="am-btn am-btn-danger am-btn-sm am-btn-block">提交申请</button>
+            </div>
+        </div>
+    </form>
+</div>

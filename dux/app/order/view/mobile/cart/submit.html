@@ -1,0 +1,253 @@
+<form action="{url()}" data-dux="form-bind" method="post" data-callback="submit" data-advanced="false">
+    <!--if{!empty($addInfo)}-->
+    <div class="dux-box-address-fixed">
+        <div class="dux-box-address">
+            <a href="{url('order/Address/index', ['action' => url('', $urlParams)])}">
+                <div>{$addInfo.name} {$addInfo.tel}</div>
+                <p class="am-text-truncate">{$addInfo.province}{$addInfo.city}{$addInfo.region}{$addInfo.address}</p>
+            </a>
+        </div>
+    </div>
+    <!--{else}-->
+    <div class="dux-box-address-fixed">
+        <div class="dux-box-address">
+            <a href="{url('order/Address/add', ['action' => url('', $urlParams)])}">
+                <div class="am-text-danger">请添加收货地址</div>
+                <p class="am-text-truncate">首次购买请添加收货地址</p>
+            </a>
+        </div>
+    </div>
+    <!--{/if}-->
+
+    <!--loop{$cartData as $data}-->
+    <div class="dux-box dux-pro-list">
+        <div class="box-header box-header-color dux-flex">
+            <div class="title">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAABbUlEQVRIie2WvUsDQRDFf7dKWgsNpMjZiwgiFhIFUcTCPqbzb9s22FvYpNGIoKLYBOzk1EIsbMQIfhS7G9f1XJXc7jV5cBzMG+Y9ZpeZTaSUWKgC+8A8YXAObAL3JiCchDSgOLr2tB0YdxLOgHVgke/mhsUbcAKc+gwAdPQXBbaBSWAiku4j8OAa2AXWIhnooI56cM41YDWSOFqrZhtoUvyl80FozYFoK6K4wbYxkAKNEgwsA6lpRVKCgQRoCsppv0FLALOehGfgKSA/J4AjT8IB0A3IHyZSygZqMFQc8oXPwRSMF9rhFtCzyJ6OdUPzifMeqOt/Rj4K593pl6FmwsYPBTJP8d/4BWDG5d11vAK0gVfUgLrziP0HVdRlrwBLwLEh3A6YdTwGTBUkDmrxmEv4pW7MBZSLkYGRgbxXscEealwWAXcM/8lA3cMVBvcI3mOI+gxc4N/fw6IPXPoM3KCeaFcBxG+BHeDaDn4An9FUlK80XA8AAAAASUVORK5CYII=">
+                {$data.seller_name}
+            </div>
+        </div>
+        <!--loop{$data.items as $key => $vo}-->
+        <div class="dux-pro-item">
+            <div class="item-img">
+                <img src="{$vo.image}" width="90" height="90">
+            </div>
+            <div class="item-info">
+                <div class="title">{$vo.name}</div>
+                <!--if{!empty($vo.options)}-->
+                <p class="am-text-sm am-margin-top-sm am-text-truncate">
+                    <!--loop{$vo.options as $k => $v}-->{$k ? ',': ''} {$v.value}<!--{/loop}-->
+                </p>
+                <!--{/if}-->
+                <div class="dux-flex am-padding-top-xs">
+                    <div class="flex-1 am-text-danger">￥{price_format($vo.price)}</div>
+                    <div class="am-text-right">x{$vo.qty}</div>
+                </div>
+            </div>
+        </div>
+        <!--{/loop}-->
+    </div>
+    <!--{/loop}-->
+
+
+    <ul class="dux-menu-list">
+        <!--if{$orderConfig.cod_status}-->
+        <li>
+            <a href="javascript:;" data-am-modal="{target: '#pay-type'}">
+                <div class="title">付款方式</div>
+                <div class="more more-right">
+                    {$codStatus ? '货到付款' : '在线支付'}
+                </div>
+            </a>
+            <input name="cod_status" type="hidden" value="{$codStatus}">
+        </li>
+        <!--{/if}-->
+        <li>
+            <a href="javascript:;" data-am-modal="{target: '#delivery-type'}">
+                <div class="title">配送服务</div>
+                <div class="more more-right">
+                    <!--if{$takeInfo}-->
+                    {$takeInfo.name}
+                    <!--{else}-->
+                    快递运输
+                    <!--{/if}-->
+                </div>
+            </a>
+            <input name="take_id" type="hidden" value="{$takeInfo.take_id}">
+        </li>
+
+        <li>
+            <a href="javascript:;" data-am-modal="{target: '#coupon-type'}">
+                <div class="title">
+                    优惠券
+                </div>
+                <div class="more more-right am-text-right">
+                    <!--if{$couponInfo}-->
+                    <span class="am-text-primary">已抵扣￥{$couponInfo.money}</span>
+                    <!--{else}-->
+                    不使用优惠券
+                    <!--{/if}-->
+                </div>
+            </a>
+            <input name="coupon_id" type="hidden" value="{$couponInfo.coupon_id}">
+        </li>
+
+    </ul>
+
+    <div class="am-form dux-form dux-form-right">
+        <div class="am-input-group">
+            <span class="am-input-group-label">订单备注</span>
+            <input type="text" class="am-form-field" placeholder="选填，给商家留言" name="remark" value="">
+        </div>
+    </div>
+    <ul class="dux-box am-padding dux-row-list">
+        <li>
+            <div>商品总额</div>
+            <div class="am-text-right am-text-danger">￥{$orderPrice}</div>
+        </li>
+        <li>
+            <div>运费</div>
+            <div class="am-text-right am-text-danger">{$deliveryPrice ? '+' : ''} ￥{$deliveryPrice}</div>
+        </li>
+        <li>
+            <div>优惠</div>
+            <div class="am-text-right am-text-danger">{$discountsPrice ? '-' : ''} ￥{$discountsPrice}</div>
+        </li>
+        <!--loop{$currencyAppend as $vo}-->
+        <li>
+            <div>{$vo.name}</div>
+            <div class="am-text-right am-text-danger">{$vo.money}</div>
+        </li>
+        <!--{/loop}-->
+        <li>
+            <div>支付总额</div>
+            <div class="am-text-right am-text-lg">
+                <span class="am-text-danger">￥{$totalPrice}</span>
+                <!--loop{$currencyAppend as $vo}-->
+                <p class="am-text-sm">+{$vo.money}{$vo.name}</p>
+                <!--{/loop}-->
+            </div>
+        </li>
+    </ul>
+
+    <!--if{$currencyExchange}-->
+    <div class="am-padding am-padding-bottom-0 am-text-shallow am-text-sm">
+        使用以下支付将抵扣部分消费
+    </div>
+    <ul class="dux-box am-padding dux-menu-list">
+        <!--loop{$currencyExchange as $vo}-->
+        <li class="am-padding-xs dux-flex">
+            <span class="flex-1">{$vo.name}</span>
+            <span class="am-text-danger am-text-right">{$vo.money}{$vo.unit} 抵 {$vo.deduct}元</span>
+        </li>
+        <!--{/loop}-->
+    </ul>
+    <!--{/if}-->
+    <div class="am-padding">
+        <button type="submit" class="am-btn am-btn-primary am-btn-block am-btn-lg" data-submit {$addInfo ? '' : 'disabled'}>提交订单</button>
+    </div>
+</form>
+
+<div class="am-modal-actions" id="pay-type">
+    <div class="am-modal-actions-group">
+        <ul class="am-list">
+            <li class="am-modal-actions-header">付款方式</li>
+            <li><a href="{url('', array_merge($urlParams, ['cod_status' => 0]))}">在线支付</a></li>
+            <li><a href="{url('', array_merge($urlParams, ['cod_status' => 1]))}">货到付款</a></li>
+        </ul>
+    </div>
+    <div class="am-modal-actions-group">
+        <button class="am-btn am-btn-primary am-btn-block" data-am-modal-close>取消</button>
+    </div>
+</div>
+
+<div class="am-popup" id="delivery-type">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">配送服务</h4>
+            <span data-am-modal-close class="am-close">&times;</span>
+        </div>
+
+        <div class=" am-margin-top-0 dux-box am-popup-bd am-padding-0">
+            <ul class="dux-menu-list">
+                <li>
+                    <a href="{url('', array_merge($urlParams, ['take_id' => 0]))}">
+                        <div class="title">
+                            快递运输
+                            <p>付款后72小时内发货</p>
+                        </div>
+                        <div class="more more-right"></div>
+                    </a>
+                </li>
+                <!--if{$takeList}-->
+                <li class="list-interval">
+                    自提点
+                </li>
+                <!--loop{$takeList as $vo}-->
+                <li>
+                    <a href="{url('', array_merge($urlParams, ['take_id' => $vo.take_id]))}"
+                       class="{$vo.take_id == $takeId ? 'active' : ''}">
+                        <div class="title">
+                            <span class="am-badge am-badge-primary">自提</span> {$vo.name}
+                            <p>{$vo.region}{$vo.address}</p>
+                        </div>
+                        <div class="more more-right"></div>
+                    </a>
+                </li>
+                <!--{/loop}-->
+                <!--{/if}-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="am-popup" id="coupon-type">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">可用优惠券</h4>
+            <span data-am-modal-close class="am-close">&times;</span>
+        </div>
+
+        <div class=" am-margin-top-0 dux-box am-popup-bd am-padding-0">
+            <ul class="dux-menu-list">
+                <li>
+                    <a href="{url('', array_merge($urlParams, ['coupon_id' => 0]))}"
+                       class="{$couponId == 0 ? 'active' : ''}">
+                        <div class="title">
+                            不使用优惠券
+                        </div>
+                        <div class="more more-right"></div>
+                    </a>
+                </li>
+                <!--loop{$couponList as $vo}-->
+                <li>
+                    <a href="{url('', array_merge($urlParams, ['coupon_id' => $vo.log_id]))}"
+                       class="{$vo.log_id == $couponId ? 'active' : ''}">
+                        <div class="title">
+                            {$vo.name}
+                            <p>满{$vo.meet_money}减{$vo.money}</p>
+                        </div>
+                        <div class="more more-right"></div>
+                    </a>
+                </li>
+                <!--{/loop}-->
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    Do('base', function () {
+        window.submit = function (msg, url) {
+            dialog.alert({
+                title: msg,
+                callback: function () {
+                    window.location.href = url;
+                }
+            });
+        };
+    });
+</script>

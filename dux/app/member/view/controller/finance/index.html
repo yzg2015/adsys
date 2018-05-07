@@ -1,0 +1,136 @@
+<div class="dux-index-count am-margin-top-0">
+    <ul class=" am-g ">
+        <li class="am-u-sm-6">
+            <div class="item item1 am-margin-right-sm">
+                <div class="icon">
+                    <i class="am-icon-money"></i>
+                </div>
+                <div class="info">
+                    <div class="count">￥{$userInfo.money}</div>
+                    <div class="name">账户余额</div>
+                </div>
+            </div>
+        </li>
+        <li class="am-u-sm-6">
+            <div class="item item2 am-margin-left-sm">
+                <div class="icon">
+                    <i class="am-icon-database"></i>
+                </div>
+                <div class="info">
+                    <div class="count">{$userInfo.points}</div>
+                    <div class="name">账户积分</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<br>
+
+<div class="am-g">
+    <div class="am-u-sm-6">
+        <div class="dux-page am-margin-right-sm">
+            <div class="page-header">
+                总消费
+            </div>
+            <div class="page-box">
+                <p>支出: <span class="am-text-danger">￥{$userInfo.money_charge}</span></p>
+                <p>收入: <span class="am-text-danger">￥{$userInfo.money_spend}</span></p>
+                <div class="money-chart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="am-u-sm-6">
+        <div class="dux-page am-margin-left-sm">
+            <div class="page-header">
+                积分
+            </div>
+            <div class="page-box">
+                <p>支出: <span class="am-text-danger">{$userInfo.points_charge}</span></p>
+                <p>收入: <span class="am-text-danger">{$userInfo.points_spend}</span></p>
+                <div class="points-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="am-g">
+    <div class="am-u-sm-6">
+        <div class="dux-page am-margin-right-sm">
+            <div class="page-header">
+                今日消费
+            </div>
+            <div class="page-box">
+                <p>支出: <span class="am-text-danger">￥{price_format($dayInfo.spend)}</span></p>
+                <p>收入: <span class="am-text-danger">￥{price_format($dayInfo.charge)}</span></p>
+                <div class="day-chart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="am-u-sm-6">
+        <div class="dux-page am-margin-left-sm">
+            <div class="page-header">
+                本月消费
+            </div>
+            <div class="page-box">
+                <p>支出: <span class="am-text-danger">￥{price_format($monthInfo.spend)}</span></p>
+                <p>收入: <span class="am-text-danger">￥{price_format($monthInfo.charge)}</span></p>
+                <div class="month-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<div class="dux-page">
+    <div class="page-header">
+        年度消费
+    </div>
+    <div class="page-box">
+        <div class="year-chart"></div>
+
+    </div>
+</div>
+
+<?php $sumMoney = $userInfo['money_charge'] + $userInfo['money_spend']; $sumPoints = $userInfo['points_charge'] + $userInfo['points_spend']; ?>
+<script>
+    Do('chart', function () {
+
+        new Chartist.Pie('.money-chart', {series:[{$sumMoney ? $userInfo.money_charge : 50},{$sumMoney ? $userInfo.money_spend : 50}]}, {
+            donut: true,
+            donutWidth: 30,
+            startAngle: 270,
+            total: 100,
+            showLabel: false
+        });
+
+        new Chartist.Pie('.points-chart', {series:[{$sumPoints ? $userInfo.points_charge : 50},{$sumPoints ? $userInfo.points_spend : 50}]}, {
+            donut: true,
+                    donutWidth: 30,
+                    startAngle: 270,
+                    total: 100,
+                    showLabel: false
+        });
+
+        new Chartist.Pie('.day-chart', {$dayCountJson}, {
+            donut: true,
+            donutWidth: 30,
+            startAngle: 270,
+            total: 100,
+            showLabel: false
+        });
+
+        new Chartist.Pie('.month-chart', {$monthCountJson}, {
+            donut: true,
+            donutWidth: 30,
+            startAngle: 270,
+            total: 100,
+            showLabel: false
+        });
+
+        new Chartist.Line('.year-chart', {$yearCountJson}, {
+            low: 0,
+            showArea: true
+        });
+    });
+</script>

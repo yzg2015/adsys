@@ -1,0 +1,33 @@
+
+
+.dux-form {
+  margin: 0 10%;
+  .am-form-label {
+    font-weight: normal;
+    width: 100px;
+    text-align: right;
+    float: left;
+    color: #333;
+
+  }
+  .am-form-content {
+    margin-left: 120px;
+  }
+
+  .am-form-text {
+    padding-top:8px;
+  }
+
+  .am-ucheck-icons {
+    top: 8px;
+  }
+  .am-form-group {
+    margin-bottom: 2rem;
+  }
+
+  input[type=number], input[type=search], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=email], input[type=url], input[type=tel], input[type=color], select, textarea, .am-form-field {
+    border: 1px solid #ddd;
+    font-size: 1.4rem;
+    padding: .7em .5em;
+  }
+}

@@ -1,0 +1,214 @@
+<div class="dux-box am-cf am-padding">
+    <div class="img am-fl">
+        <a href="{$info.goods_url}"><img src="{$info.goods_image}" width="70" height="70"></a>
+    </div>
+    <div class="am-fl am-padding-left">
+        <p><a href="{$info.goods_url}" target="_blank">{$info.goods_name}</a></p>
+        <p class="dux-text-disabled">
+            <!--loop{(array)$info.goods_options as $v}-->
+            {$v.value}
+            <!--{/loop}-->
+        </p>
+        <p><span class="am-text-danger">￥{$info.goods_price}</span> × {$info.goods_qty}</p>
+        <p class="dux-text-disabled">购买时间: {date('Y-m-d H:i', $orderInfo.order_create_time)}</p>
+    </div>
+</div>
+<br>
+<div class="dux-step">
+    <dl class="active" style=" height: auto">
+        <dt>提交申请</dt>
+        <dd class="bg"></dd>
+        <dd class="node"></dd>
+    </dl>
+
+    <!--if{$info.status > 0}-->
+    <dl class="active" style="height: auto">
+        <dt>等待审核</dt>
+        <dd class="bg"></dd>
+        <dd class="node"></dd>
+    </dl>
+
+
+        <!--if{$info.status == 4}-->
+        <dl class="active" style="height: auto">
+            <dt>拒绝退货</dt>
+            <dd class="bg"></dd>
+            <dd class="node"></dd>
+        </dl>
+        <!--{else}-->
+
+        <!--if{$info.status > 1}-->
+        <dl class="active" style="height: auto">
+        <!--{else}-->
+        <dl style="height: auto">
+        <!--{/if}-->
+            <dt>等待退货</dt>
+            <dd class="bg"></dd>
+            <dd class="node"></dd>
+        </dl>
+
+
+        <!--if{$info.status > 2}-->
+        <dl class="active" style="height: auto">
+        <!--{else}-->
+        <dl style="height: auto">
+        <!--{/if}-->
+            <dt>退款成功</dt>
+            <dd class="node"></dd>
+        </dl>
+
+        <!--{/if}-->
+
+    <!--{else}-->
+    <dl class="active" style="height: auto">
+        <dt>已取消</dt>
+        <dd class="node"></dd>
+    </dl>
+    <!--{/if}-->
+</div>
+<br>
+<div class="dux-box">
+    <div class="box-header">退款详情</div>
+    <div class="box-body am-padding">
+        <?php if($info['status'] == 2 && (empty($info['delivery_name']) || empty($info['delivery_no']))){ ?>
+        <form class="dux-form am-form am-form-horizontal" action="{url('saveDelivery', ['action' => $action])}" method="post" data-dux="form-bind" data-advanced="false">
+            <!--{else}-->
+            <form class="dux-form am-form am-form-horizontal" action="{url('', ['action' => $action])}" method="post">
+                <!--{/if}-->
+            <div class="am-form-group">
+                <label class="am-form-label">申请单号</label>
+                <div class="am-form-content am-form-text">
+                    {$info.return_no}
+                </div>
+            </div>
+
+            <div class="am-form-group">
+                <label class="am-form-label">申请时间</label>
+                <div class="am-form-content am-form-text">
+                    {date('Y-m-d H:i:s', $info.create_time)}
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">退货原因</label>
+                <div class="am-form-content am-form-text">
+                    {$info.cause}
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">退款金额</label>
+                <div class="am-form-content am-form-text am-text-danger">
+                    ￥{$info.money}
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">详细原因</label>
+                <div class="am-form-content am-form-text">
+                    {$info.content}
+                </div>
+            </div>
+            <!--if{$info.images}-->
+            <div class="am-form-group">
+                <label class="am-form-label">凭证</label>
+                <div class="am-form-content">
+                    <ul class="dux-upload-list">
+                        <!--loop{$info.images as $vo}-->
+                        <li>
+                            <a href="{$vo}" target="_blank">
+                                <img src="{$vo}" alt="">
+                            </a>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+            </div>
+            <!--{/if}-->
+
+                <!--if{$info.delivery_name || $info.delivery_no}-->
+                <div class="am-form-group">
+                    <label class="am-form-label">退货快递</label>
+                    <div class="am-form-content am-form-text">
+                        {$info.delivery_name}
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label class="am-form-label">快递单号</label>
+                    <div class="am-form-content am-form-text">
+                        {$info.delivery_no}
+                    </div>
+                </div>
+                <!--{/if}-->
+
+
+            <!--if{$info.process_time}-->
+            <div class="am-form-group">
+                <label class="am-form-label">处理时间</label>
+                <div class="am-form-content am-form-text">
+                    {date('Y-m-d H:i:s', $info.process_time)}
+                </div>
+            </div>
+            <!--{/if}-->
+                <!--if{$info.complete_time}-->
+                <div class="am-form-group">
+                    <label class="am-form-label">完成时间</label>
+                    <div class="am-form-content am-form-text">
+                        {date('Y-m-d H:i:s', $info.complete_time)}
+                    </div>
+                </div>
+                <!--{/if}-->
+            <!--if{$info.admin_remark}-->
+            <div class="am-form-group">
+                <label class="am-form-label">处理备注</label>
+                <div class="am-form-content am-form-text">
+                    {$info.admin_remark}
+                </div>
+            </div>
+            <!--{/if}-->
+
+                <!--if{$info['status'] == 2}-->
+                <div class="am-form-group">
+                    <label class="am-form-label">退货联系</label>
+                    <div class="am-form-content am-form-text">
+                        {$config.contact_name} {$config.contact_tel}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-form-label">退货地址</label>
+                    <div class="am-form-content am-form-text">
+                        {$config.contact_province} {$config.contact_city} {$config.contact_region} {$config.contact_address}  {$config.contact_zip}
+                    </div>
+                </div>
+
+                <!--{/if}-->
+
+            <?php if($info['status'] == 2 && (empty($info['delivery_name']) || empty($info['delivery_no']))){ ?>
+            <div class="am-form-group">
+                <label class="am-form-label">退货快递</label>
+                <div class="am-form-content">
+                    <input type="text" name="delivery_name" placeholder="请输入退货快递名称">
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-form-label">快递单号</label>
+                <div class="am-form-content">
+                    <input type="text" name="delivery_no" placeholder="请输入退货快递单号">
+                </div>
+            </div>
+            <input type="hidden" name="return_no" value="{$info.return_no}">
+            <!--{/if}-->
+
+            <div class="am-form-group">
+                <div class="am-form-content">
+                    <?php if($info['status'] == 2 && (empty($info['delivery_name']) || empty($info['delivery_no']))){ ?>
+                    <button type="submit" class="am-btn am-btn-success am-btn-sm">确认单号</button>
+                    <!--{/if}-->
+                    <!--if{$info.status == 1 || $info.status == 2}-->
+                    <a href="javascript:;" data-dux="dialog-ajaxConfirm" data-url="{url('cancel', ['return_no' => $info.return_no])}" data-title="确认要取消退款申请?" class="am-btn am-btn-danger am-btn-sm">取消申请</a>
+                    <!--{else}-->
+                    <a href="{url('index')}" class="am-btn am-btn-danger am-btn-sm">返回</a>
+                    <!--{/if}-->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

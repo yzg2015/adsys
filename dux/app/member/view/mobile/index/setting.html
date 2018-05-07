@@ -1,0 +1,25 @@
+
+<div class="dux-box">
+    <ul class="dux-menu">
+        <!--loop{$menuList as $vo}-->
+        <li class="am-cf"><a href="{$vo.url}">
+            {$vo.name}
+            <span class="more"><i class="am-icon-angle-right"></i></span>
+        </a></li>
+        <!--{/loop}-->
+    </ul>
+</div>
+
+<div class="dux-box">
+    <ul class="dux-menu">
+        <li>
+            <a href="{url('about')}">
+                关于我们
+                <span class="more"><i class="am-icon-angle-right"></i></span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="am-padding">
+    <a href="{url('member/Login/logout')}" class="am-btn am-btn-primary am-btn-block">退出登录</a>
+</div>

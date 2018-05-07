@@ -1,0 +1,110 @@
+<!--#include file="common_meta.html"-->
+<div style="height: 47px"></div>
+<div class="dux-index-search am-header-fixed">
+    <div class="seach-logo">
+        <img src="images/header-logo.png" alt="">
+    </div>
+    <div class="search-keyword">
+        <form action="{url('mall/Search/index')}" method="get">
+            <input name="keyword" type="text" placeholder="请输入商品名称进行搜索">
+        </form>
+    </div>
+    <div class="search-class">
+        <a href="{url('mall/Category/index')}" class=" am-icon-bars"></a>
+    </div>
+</div>
+<div data-am-widget="slider" class="am-slider am-slider-a5" data-am-slider='{&quot;directionNav&quot;:false}'>
+    <ul class="am-slides">
+        <li>
+            <img src="http://img.vip.xunlei.com/img/banner/201606221841181547.jpg">
+        </li>
+        <li>
+            <img src="http://img.vip.xunlei.com/img/banner/201606211418178466.jpg">
+
+        </li>
+    </ul>
+</div>
+
+<div class="am-g am-g-fixed dux-index-menu">
+    <div class="am-u-sm-4">
+        <a href="{url('member/index/index')}">
+            <div class="icon">
+                <i class="am-icon-user"></i>
+            </div>
+            <div class="title">个人中心</div>
+        </a>
+    </div>
+    <div class="am-u-sm-4">
+        <a href="{url('member/Recharge/index')}">
+            <div class="icon">
+                <i class="am-icon-shopping-cart"></i>
+            </div>
+            <div class="title">购物车</div>
+        </a>
+    </div>
+    <div class="am-u-sm-4">
+        <a href="{url('order/Coupon/index')}">
+            <div class="icon">
+                <i class="am-icon-credit-card-alt"></i>
+            </div>
+            <div class="title">领券</div>
+        </a>
+    </div>
+    <div class="am-u-sm-4">
+        <a href="{url('member/notice/index')}">
+            <div class="icon">
+                <i class="am-icon-inbox"></i>
+            </div>
+            <div class="title">通知消息</div>
+        </a>
+    </div>
+    <div class="am-u-sm-4">
+        <a href="{url('shop/Follow/index')}">
+            <div class="icon">
+                <i class="am-icon-inbox"></i>
+            </div>
+            <div class="title">商品收藏</div>
+        </a>
+    </div>
+    <div class="am-u-sm-4">
+        <a href="{url('mall/Category/index')}">
+            <div class="icon">
+                <i class="am-icon-inbox"></i>
+            </div>
+            <div class="title">商品分类</div>
+        </a>
+    </div>
+</div>
+
+<main class="dux-main">
+    <!--class{app="mall" label="classList" parent_id=0 limit=5}-->
+    <div class="dux-index-title">
+        <a href="{$class.url}">{$class.name}</a>
+    </div>
+    <div class="dux-page-box dux-index-list">
+        <ul class="am-avg-sm-2 am-cf">
+            <!--list{app="mall" label="contentList" class_id=$class.class_id sub=true limit=6}-->
+            <li>
+                <a href="{$list.url}">
+                    <div class="img">
+                        <img src="{$list.image}" alt="{$list.title}">
+                    </div>
+                    <div class="info">
+                        <div class="title">{$list.title}</div>
+                        <div class="price">{$list.sell_price}</div>
+                    </div>
+                </a>
+            </li>
+            <!--{/list}-->
+        </ul>
+    </div>
+    <!--{/class}-->
+</main>
+
+
+<!--#include file="common_nav.html"-->
+
+</body>
+
+<!--#include file="common_foot.html"-->
+</html>

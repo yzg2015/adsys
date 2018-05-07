@@ -1,0 +1,40 @@
+<form class="am-form  am-form-horizontal dux-form"  method="post">
+    <fieldset>
+        <div class="am-form-group">
+            <label class="am-u-md-2 am-u-sm-12 am-form-label">审核状态</label>
+            <div class="am-u-md-10 am-u-sm-12">
+                <div>
+                    <select name="status" data-am-selected="{btnWidth: '100%'}" required>
+                        <option value="2">通过</option>
+                        <option value="0">不通过</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-md-2 am-u-sm-12 am-form-label">审核备注</label>
+            <div class="am-u-md-10 am-u-sm-12">
+                <textarea name="remark"  placeholder="用户审核备注"></textarea>
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{$info.real_id}">
+    </fieldset>
+</form>
+<div class="dux-dialog-foot">
+    <button class="am-btn am-btn-primary" id="submit" type="button">确认审核</button>
+</div>
+
+<script>
+    Do('base', function() {
+        $('#submit').click(function() {
+            app.ajax({
+                url : '{url()}',
+                type : 'post',
+                data : $('form').serialize(),
+                success : function(info) {
+                    parent.location.reload();
+                }
+            });
+        });
+    });
+</script>

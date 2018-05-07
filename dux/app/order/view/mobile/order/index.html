@@ -1,0 +1,91 @@
+<div class="dux-tabs-fixed">
+<ul class="am-avg-sm-5 dux-tabs">
+    <li class="{$type == 0 ? 'active' : 0}">
+        <a href="{url('')}">全部</a>
+    </li>
+    <li class="{$type == 1 ? 'active' : 0}">
+        <a href="{url('', ['type' => 1])}">待付款</a>
+    </li>
+    <li class="{$type == 2 ? 'active' : 0}">
+        <a href="{url('', ['type' => 2])}">待发货</a>
+    </li>
+    <li class="{$type == 3 ? 'active' : 0}">
+        <a href="{url('', ['type' => 3])}">待完成</a>
+    </li>
+
+    <li class="{$type == 4 ? 'active' : 0}">
+        <a href="{url('', ['type' => 4])}">待评价</a>
+    </li>
+</ul>
+</div>
+<!--if{empty($pageList)}-->
+<div class="dux-box am-padding am-text-center">
+    暂无订单
+</div>
+<!--{/if}-->
+
+
+<!--loop{$pageList as $vo}-->
+<div class="dux-order-list">
+    <div class="list-header am-cf">
+        <div class="am-fl header-name">{$vo.order_no}</div>
+        <div class="am-fr header-info"><i class="am-icon-clock-o"></i>{date('Y-m-d H:i', $vo.order_create_time)}</div>
+    </div>
+    <div class="list-box list-box-border">
+        <div class="list-body">
+            <div class="body-header dux-flex">
+                <div class="flex-1 header-name am-text-danger">{$vo.status_data.name}</div>
+                <div class="header-info">
+                    <span class="am-text-danger">￥{$vo.total_price}</span>
+                    <!--if{$vo.delivery_price}-->
+                    <p>含运费：{$vo.delivery_price}</p>
+                    <!--{/if}-->
+                </div>
+            </div>
+            <!--if{count($vo.order_items) > 1}-->
+            <ul class="body-images">
+                <!--loop{$vo.order_items as $k => $item}-->
+                <li>
+                    <div class="item-img">
+                        <a href="{url($vo['order_app'] . '/order/info', ['order_no' => $vo['order_no']])}"><img src="{$item.goods_image}"></a>
+                    </div>
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <!--{else}-->
+            <ul class="body-items">
+                <!--loop{$vo.order_items as $k => $item}-->
+                <li>
+                    <div class="item-img">
+                        <a href="{url($vo['order_app'] . '/order/info', ['order_no' => $vo['order_no']])}"><img src="{$item.goods_image}"></a>
+                    </div>
+                    <div class="item-info">
+                        <div class="title"><a href="{url($vo['order_app'] . '/order/info', ['order_no' => $vo['order_no']])}">{$item.goods_name}</a></div>
+                        <p>数量：{$item.goods_qty}
+                            <!--if{$item.goods_options}-->
+                            <!--loop{$item.goods_options as $v}-->
+                            {$v.name}：{$v.value}
+                            <!--{/loop}-->
+                            <!--{/if}-->
+                        </p>
+                        <p>￥{$item.goods_price}</p>
+                    </div>
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <!--{/if}-->
+        </div>
+        <div class="list-footer">
+            共{$vo.order_sum}件商品
+        </div>
+        <div class="list-action">
+            {$vo.status_data.html}
+        </div>
+    </div>
+</div>
+<!--{/loop}-->
+
+<div class="dux-pages am-margin-top am-cf">
+    {$page}
+</div>
+

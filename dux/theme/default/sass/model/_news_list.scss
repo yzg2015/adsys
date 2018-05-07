@@ -1,0 +1,89 @@
+.dux-news-head {
+  .head-banner {
+    height: 342px;
+    img {
+      height: 342px;
+    }
+    .am-control-nav {
+      bottom:20px;
+    }
+  }
+  .head-topic {
+
+  }
+}
+
+
+.dux-news-list {
+  padding: 10px;
+  padding-left:30px;
+  color:#999;
+  margin-bottom:10px;
+  li {
+    list-style-type : disc;
+    padding: 6px 0;
+    .title {
+      margin-right:120px;
+    }
+    .date {
+      float: right;
+      width: 100px;
+      text-align: right;
+      color: #999;
+    }
+  }
+}
+
+.dux-news-topic {
+  padding-left:10px;
+  li {
+    list-style:none;
+    position: relative;
+    padding-left:30px;
+    &:first-child,&:nth-child(2),&:nth-child(3) {
+      i {
+      background: $color-main;
+      color: #fff;
+      }
+    }
+    i {
+      color: #000;
+      position: absolute;
+      left: 0;
+      font-size:1.2rem;
+      font-style: normal;
+      background: #ddd;
+      display: block;
+      width: 18px;
+      height: 18px;
+      line-height:18px;
+      top: 6px;
+      text-align: center;
+
+    }
+  }
+}
+
+.dux-news-content {
+  .content-title {
+    font-size:1.8rem;
+    font-weight: bold;
+    padding: 30px 0;
+    text-align: center;
+
+  }
+  .content-info {
+    text-align: center;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    padding: 5px;
+    color: #999;
+
+  }
+  .content-body {
+    font-size:1.4rem;
+    padding: 50px 0;
+    padding-bottom:20px;
+
+  }
+}

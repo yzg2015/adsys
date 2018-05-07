@@ -1,0 +1,123 @@
+<!--#include file="common_head.html"-->
+<div class="am-panel am-panel-default dux-pro-filter">
+    <div class="am-panel-bd ">
+        <ul class="am-avg-sm-5 am-text-center">
+            <!--loop{$orderList as $vo}-->
+            <li>
+                <!--if{$vo.up || $vo.down}-->
+                    <a href="{$vo.url}" class="am-text-secondary"> {$vo.name}
+                    <i class="icon-arrow {$vo.up ? 'up' : 'down'}"></i>
+                <!--{else}-->
+                    <a href="{$vo.url}"> {$vo.name}
+                    <i class="icon-arrow"></i>
+                <!--{/if}-->
+            </a></li>
+            <!--{/loop}-->
+            <li>
+                <!--if{$filterStatus}-->
+                <a href="#list-select" data-am-offcanvas=""  class="am-text-secondary">
+                <!--{else}-->
+                <a href="#list-select" data-am-offcanvas="">
+                <!--{/if}-->
+                筛选</a></li>
+        </ul>
+    </div>
+</div>
+<div class="dux-pro-filter-br"></div>
+<div id="list-select" class="am-offcanvas">
+    <form action="{url('index', ['id' => $classInfo.class_id])}" method="get">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip am-offcanvas-bar-overlay">
+        <div class="am-offcanvas-content am-form">
+            <!--if{$priceList}-->
+            <div class="am-form-group am-form-select">
+                <label>价位</label>
+                <select name="price">
+                    <!--loop{$priceList as $vo}-->
+                    <!--if{$vo.cur}-->
+                    <option value="{$vo.value}" selected>
+                        <!--{else}-->
+                    <option value="{$vo.value}">
+                        <!--{/if}-->
+                        {$vo.name}</option>
+                    <!--{/loop}-->
+                </select>
+            </div>
+            <!--{/if}-->
+            <!--if{$brandList}-->
+            <div class="am-form-group am-form-select">
+                <label>品牌</label>
+                <select name="brand">
+                    <!--loop{$brandList as $vo}-->
+                    <!--if{$vo.cur}-->
+                    <option value="{$vo.brand_id}" selected>
+                        <!--{else}-->
+                    <option value="{$vo.brand_id}">
+                        <!--{/if}-->
+                        {$vo.name}</option>
+                    <!--{/loop}-->
+                </select>
+            </div>
+            <!--{/if}-->
+            <!--loop{$attrList as $vo}-->
+            <div class="am-form-group am-form-select">
+                <label>{$vo.name}</label>
+                <select name="attr_{$vo.attr_id}">
+                    <!--loop{$vo.value as $k => $v}-->
+                        <!--if{$v.cur}-->
+                        <option value="{$k ? $v.name : ''}" selected>
+                        <!--{else}-->
+                        <option value="{$k ? $v.name : ''}">
+                        <!--{/if}-->
+                        {$v.name}</option>
+                    <!--{/loop}-->
+                </select>
+            </div>
+            <!--{/loop}-->
+            <div class="am-form-group">
+                <button type="submit" class="am-btn-block am-btn am-btn-danger">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<main class="dux-main">
+    <!--if{$pageList}-->
+    <div data-dux="page-ajaxPage" data-list="#list" data-tpl="#list-tpl" data-url='{url("ajax", $urlParams)}' data-page="1">
+    <ul class="dux-pro-list" id="list">
+    </ul>
+    <!--{else}-->
+    <div class="am-padding am-text-center">
+        <h2>暂无相关商品</h2>
+    </div>
+    <!--{/if}-->
+
+</main>
+
+<script type="text/html" id="list-tpl">
+    {{# for(var i = 0, len = d.length; i < len; i++){ }}
+    <li>
+        <a class="dux-pro-item am-cf" href="{{ d[i].url }}">
+            <div class="item-img">
+                <img src="{{ d[i].image }}" alt="{{ d[i].title }}">
+            </div>
+            <div class="item-info">
+                <div class="title">{{ d[i].title }} {{ d[i].subtitle }}</div>
+                <div class="price">
+                    ￥{{ d[i].sell_price }}
+                    <small>￥{{ d[i].market_price }}</small>
+                </div>
+                <div class="am-g am-g-collapse">
+                    <div class="am-u-sm-6">销量:{{ d[i].sale }}</div>
+                    <div class="am-u-sm-6">喜欢:{{ d[i].favorite }}</div>
+                </div>
+            </div>
+        </a>
+    </li>
+    {{# } }}
+</script>
+<!--#include file="common_foot.html"-->
+
+</html>

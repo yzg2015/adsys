@@ -1,0 +1,242 @@
+
+.dux-index-banner {
+  position: relative;
+  height: 432px;
+
+  .banner-focus {
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    z-index: 1;
+    bottom: 0;
+    a {
+      display: block;
+      height: 432px;
+      background-repeat: no-repeat;
+      background-position: center top;
+    }
+    img {
+      height: 432px;
+    }
+    .am-slider-default {
+      margin: 0;
+    }
+    .am-control-nav {
+      bottom: 0;
+    }
+  }
+  .banner-body {
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner-sidebar {
+    background: rgba(255,255,255,.88);
+    padding: 10px;
+    width: 220px;
+    float: right;
+    margin-top:10px;
+    .title {
+      font-size:1.6rem;
+      color: $color-main;
+      font-weight: bold;
+      line-height:30px;
+      padding: 0 5px;
+    }
+    .list {
+      margin-top:5px;
+      li {
+        line-height:30px;
+        height: 30px;
+        padding: 0 5px;
+        &:nth-child(4) {
+          border-bottom:1px dashed #ccc;
+        }
+      }
+    }
+    .ad {
+      img {
+        margin-top:10px;
+        display: block;
+        width: 200px;
+        height: 60px;
+      }
+    }
+  }
+}
+
+
+.dux-index-hot {
+  li {
+    .body {
+    background: #fff;
+    height: 180px;
+    padding: 20px;
+    }
+    .info {
+      padding-top:10px;
+      margin-right:150px;
+      .title {
+        font-size:1.6rem;
+        color: #000;
+        font-weight: bold;
+        line-height:22px;
+        max-height: 45px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .subtitle {
+        color: #999;
+        font-size:1.2rem;
+        line-height:22px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 45px;
+      }
+      .price {
+        color: $color-main;
+        font-size:1.6rem;
+        font-weight:bold;
+      }
+
+    }
+    .img {
+      float: right;
+      img {
+        width: 140px;
+        height: 140px;
+      }
+
+    }
+  }
+
+}
+
+
+.dux-index-class {
+  .class-head {
+    .title {
+      color: #31373c;
+      float: left;
+      font-size: 20px;
+      line-height: 34px;
+      margin-bottom: 10px;
+    }
+    .list {
+      float: left;
+      margin-top: 10px;
+      padding-left: 20px;
+
+      li {
+        float: left;
+        &:before {
+          content: "|";
+          float: left;
+          margin-top: -1px;
+          padding: 0 8px;
+        }
+        &:first-child:before {
+          content: "";
+          padding: 0;
+        }
+      }
+    }
+    .more {
+      float: right;
+      line-height: 25px;
+      color: #666;
+      margin-top: 5px;
+      i {
+        float: right;
+        margin-left: 5px;
+        font: 14px consolas;
+        border: 1px solid #ddd;
+        display: block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .class-body {
+    .body-left {
+      float: left;
+      width: 240px;
+      .class-img {
+        width: 240px;
+        height: 390px;
+
+      }
+      .foot-show {
+        width: 240px;
+        height: 140px;
+        margin-top:1rem;
+
+      }
+
+    }
+    .pro-list {
+      background: #fff;
+      float: right;
+      width: 950px;
+      height: 542px;
+      overflow: hidden;
+      ul {
+        margin-right:-1px;
+      }
+      li {
+        border-right: 1px solid #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+        margin-top: -1px;
+        position: relative;
+        text-align: center;
+        padding: 10px;
+        height: 272px;
+        a {
+          display: block;
+        }
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      .img {
+        margin-top:20px;
+      }
+      .title {
+        font-size:1.6rem;
+        color: #333;
+        font-weight:600;
+        padding-top:10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+      }
+      .subtitle {
+        font-size:1.2rem;
+        color: #999;
+        line-height:18px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+      }
+      .price {
+        margin-top:10px;
+        color: $color-main;
+        small {
+          color: #999;
+          text-decoration: line-through;
+        }
+
+      }
+    }
+  }
+
+
+}

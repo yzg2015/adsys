@@ -1,0 +1,73 @@
+<div class="dux-page-header am-cf">
+    <div class="page-title">
+        <a class="am-btn am-btn-primary" href="{url('index')}"> 接口列表</a>
+    </div>
+    <div class="page-action">
+        <a class="am-btn am-btn-danger" href="javascript:location.reload();"><i class="am-icon-refresh"></i></a>
+    </div>
+</div>
+<div class="dux-body">
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">{$typeInfo.name}设置</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" data-dux="form-bind" method="post">
+                <fieldset>
+                    <!--loop{$ruleList as $key => $vo}-->
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo}</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <!--if{strstr($key, '_file')}-->
+                            <div class="am-input-group">
+                            <input class="am-form-field" name="{$key}" id="{$key}" type="hidden" value="{$settingInfo[$key]}">
+                            <input type="text" value="{$settingInfo[$key] ? '已上传' : '未上传'}" readonly>
+                            <span class="am-input-group-btn"><button class="am-btn am-btn-default" type="button" data-dux="form-upload" data-target="#{$key}" data-type="pem" data-callback="upload"><i class="am-icon-upload"></i></button></span>
+                            </div>
+                            <!--{else}-->
+                            <input type="text" name="{$key}" value="{$settingInfo[$key]}" required>
+                            <!--{/if}-->
+                        </div>
+                    </div>
+
+                    <!--{/loop}-->
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">状态</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <label class="am-radio-inline">
+                                <!--if{$info['status']}-->
+                                <input name="status" value="1" checked="checked" type="radio">
+                                <!--{else}-->
+                                <input name="status" value="1" type="radio">
+                                <!--{/if}-->
+                                开启
+                            </label>
+                            <label class="am-radio-inline">
+                                <!--if{!$info['status']}-->
+                                <input name="status" checked="checked" value="0" type="radio">
+                                <!--{else}-->
+                                <input name="status" value="0" type="radio">
+                                <!--{/if}-->
+                                关闭
+                            </label>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                            <input type="hidden" name="config_id" value="{$info.config_id}">
+                            <input type="hidden" name="type" value="{$type}">
+                            <button class="am-btn am-btn-primary" type="submit" disabled>保存</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    Do('base', function () {
+        window.upload = function (info) {
+            $($(this).data('target')).val(info.file);
+            $(this).parent().prev('input').val('文件已上传');
+        };
+    });
+</script>

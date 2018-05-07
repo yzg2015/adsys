@@ -1,0 +1,135 @@
+<!--#include file="common_head.html"-->
+<div data-am-widget="slider" class="am-slider am-slider-a1 dux-pro-slider am-cf" data-am-slider='{ directionNav:false}'>
+    <ul class="am-slides am-cf">
+        <!--loop{$info.images as $vo}-->
+        <li>
+            <img src="{$vo.url}">
+        </li>
+        <!--{/loop}-->
+    </ul>
+</div>
+
+<main class="dux-main">
+    <div class="dux-box dux-pro-info">
+        <h1 class="info-title">
+            {$info.title}
+        </h1>
+        <div class="info-desc">
+            {$info.subtitle}
+        </div>
+        <div class="info-price">
+            <h2>￥{$proInfo.sell_price}</h2><em>￥{$proInfo.market_price}</em>
+        </div>
+    </div>
+    <div class="dux-br"></div>
+
+    <ul class="dux-box dux-pro-data am-avg-sm-3">
+        <li>
+            销量 <span>{$info.sale}</span>
+        </li>
+        <li>
+            评论 <span>{$info.comments}</span>
+        </li>
+        <li>
+            收藏 <span>{$info.favorite}</span>
+        </li>
+    </ul>
+
+    <div class="dux-box dux-pro-spec">
+        <dl class="spec-list" data-dux="shop-sku">
+            <!--loop{$specList as $vo}-->
+            <dt>
+                {$vo.name}
+            </dt>
+            <dd>
+                <!--loop{$vo.value as $v}-->
+                <!--if{$v == $vo.cur}-->
+                <a href="javascript:;" class="active" data-id="{$vo.id}" data-name="{$vo.name}" data-value="{$v}">
+                    <!--{else}-->
+                    <a href="javascript:;" data-id="{$vo.id}" data-name="{$vo.name}" data-value="{$v}">
+                        <!--{/if}-->
+                        {$v}</a>
+                    <!--{/loop}-->
+            </dd>
+            <!--{/loop}-->
+        </dl>
+        <div class="spec-item am-cf">
+            <div class="title">数量</div>
+            <div class="info">
+                <div class="shop-count am-cf" data-count="{$proInfo.store}" data-dux="shop-count">
+                    <span class="down">-</span>
+                    <input type="tel" value="1" name="count" id="count">
+                    <span class="up">+</span>
+                </div>
+            </div>
+        </div>
+        <div class="spec-item am-cf">
+            <div class="title">库存</div>
+            <div class="info">
+                {$proInfo.store} {$info.unit}
+            </div>
+        </div>
+    </div>
+
+    <ul class="dux-pro-menu">
+        <li>
+            <a href="{url('shop/comment/index', ['id' => $info.mall_id, 'app' => 'mall'])}">
+                商品评价  ({$info.comments})
+            </a>
+        </li>
+    </ul>
+    <div class="dux-br"></div>
+    <div class="dux-box">
+        <div class="box-header am-cf">商品详情</div>
+        <article data-am-widget="paragraph"  class="am-paragraph am-paragraph-default dux-content" data-am-paragraph="{ tableScrollable: true, pureview: true }">
+            {html_out($info.content)}
+        </article>
+    </div>
+    <div class="dux-pro-action-br"></div>
+    <div class="dux-pro-action am-cf">
+        <div class="action-info am-cf">
+            <a href="javascript:;" data-dux="shop-follow" data-url="{url('mall/Mall/addFollow')}" data-params='{"mall_id" : {$info.mall_id}}' data-status="{$info.follow}">
+                <i class="{$info.follow ? 'am-icon-heart' : 'am-icon-heart-o'}" data-icon></i>
+                <div class="title">收藏</div>
+            </a>
+            <a href="{url('order/Cart/index')}">
+                <i class="am-icon-shopping-cart"></i>
+                <div class="title">购物车</div>
+                <span class="am-badge am-btn-danger" id="cart-num">0</span>
+            </a>
+        </div>
+        <div class="action-btn am-cf">
+            <a href="javascript:;" data-url="{url('mall/Mall/addCart')}"
+               data-params='{"pro_id" : {$proInfo.products_id}}' data-count="#count"
+               data-dux="shop-addCart" class="btn-add" data-callback="refreshCart">
+                加入购物车
+            </a>
+            <a href="{url('order/Cart/index')}" class="btn-submit">
+                结算购物车
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!--#include file="common_foot.html"-->
+
+<script>
+    var productJson = {json_encode($skuList)};
+    Do('base', function () {
+        window.refreshCart = function () {
+            app.ajax({
+                url : "{url('order/Cart/getJson')}",
+                type : 'post',
+                success : function (info) {
+                    $('#cart-num').text(info.items);
+
+                }
+            });
+        };
+        refreshCart();
+    });
+</script>
+</html>
+
+</html>

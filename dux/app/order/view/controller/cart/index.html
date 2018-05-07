@@ -1,0 +1,88 @@
+
+<div class="am-container ">
+    <!--if{empty($list)}-->
+    <div class="am-padding am-text-center dux-page">
+        <h1>购物车没有商品</h1>
+        <p>购物车内暂无商品,请添加商品到购物车内</p>
+        <br>
+        <p>
+            <a class="am-btn am-btn-danger" href="JavaScript:history.go(-1);">继续购物</a>
+        </p>
+    </div>
+    <!--{else}-->
+    <div class="dux-cart" data-dux="cart-count" data-url-num="{url('num')}" data-url-del="{url('del')}">
+        <div class="dux-page">
+            <table class="am-table">
+                <thead>
+                <tr>
+                    <th width="70">图片</th>
+                    <th>商品</th>
+                    <th class="am-text-center">单价</th>
+                    <th class="am-text-center" width="130">数量</th>
+                    <th class="am-text-center">小计</th>
+                    <th class="am-text-center">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--loop{$list as $key => $vo}-->
+                <tr>
+                    <td class="am-text-middle dux-page-goods">
+                        <a href="{$vo.url}" target="_blank"><img src="{$vo.image}" alt="{$vo.name}" width="64"
+                                                                 height="64"></a>
+                    </td>
+                    <td class="am-text-middle dux-page-goods">
+                        <div class="title"><a href="{$vo.url}" target="_blank">{$vo.name}</a></div>
+                        <!--if{!empty($vo.options)}-->
+                        <div class="info">
+                            <!--loop{$vo.options as $v}-->
+                            {$v.value}
+                            <!--{/loop}-->
+                        </div>
+                        <!--{/if}-->
+                    </td>
+                    <td class="am-text-center am-text-middle am-text-danger">
+                        {price_format($vo.price)}元
+                        <!--loop{$vo.currency as $k => $v}-->
+                            + <span>{$v.amount}</span> {$v.name}
+                        <!--{/loop}-->
+
+                    </td>
+                    <td class="am-text-center am-text-middle">
+                        <div class="cart-count" data-dux="cart-num" data-callback="count" data-info='{"rowid" : "{$key}", "price" : {$vo.price}}'>
+                            <a class="up">+</a>
+                            <input type="tel" value="{$vo.qty}" name="count" data-num>
+                            <a class="down">-</a>
+                        </div>
+                    </td>
+                    <td class="am-text-center am-text-middle">
+                        <div data-item-price>
+                            <span">{price_format($vo.total)}</span>元
+                            <!--if{$vo.currency}-->
+                            {$vo.currency.type ? '/' : '+'} <span>{$vo.currency.amount}</span>{$vo.currency.name}
+                            <!--{/loop}-->
+                        </div>
+                    </td>
+                    <td class="am-text-center am-text-middle">
+                        <a href="javascript:;" data-item-del="{$key}">删除</a>
+                    </td>
+                </tr>
+                <!--{/loop}-->
+                </tbody>
+            </table>
+        </div>
+        <div class="cart-info">
+            共有<em data-total>{$info.items}</em>件商品,总计 <strong><em data-decimal>{$info.total}</em></strong> 元
+            <span data-currency>
+            <!--loop{$info.currency as $k => $v}-->
+                <!--if{$v.type}-->
+            + (<span class="am-text-danger">{$v.money}</span>元/<span class="am-text-danger" >{$v.amount}</span>{$v.name})
+                <!--{else}-->
+            + <span class="am-text-danger">{$v.amount}</span> {$v.name}
+                <!--{/if}-->
+                <!--{/loop}-->
+            </span>
+            <a class="am-btn am-btn-danger" href="{url('submit')}">结算购物车</a>
+        </div>
+        <!--{/if}-->
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="dux-slogen">
+    <div class="am-g am-g-fixed am-cf">
+        <div class="am-u-md-3 am-u-sm-6 item">
+            <i>7</i>
+            <span class="title">7天退货</span>
+        </div>
+        <div class="am-u-md-3 am-u-sm-6 item">
+            <i>15</i>
+            <span class="title">品质承诺</span>
+        </div>
+        <div class="am-u-md-3 am-u-sm-6 item">
+            <i>补</i>
+            <span class="title">破损补寄</span>
+        </div>
+        <div class="am-u-md-3 am-u-sm-6 item">
+            <i>速</i>
+            <span class="title">急速物流</span>
+        </div>
+    </div>
+</div>
+
+<div class="dux-faq">
+    <div class="am-g am-g-fixed">
+        <ul class=" am-avg-sm-5">
+            <!--help{app="shop" label="helpTrueList" classLimit=5 helpLimit=5}-->
+            <li class="item">
+                <dl>
+                    <dt>
+                        {$help.name}
+                    </dt>
+                    <dd>
+                        <!--loop{$help.list as $vo}-->
+                        <div>
+                            <a href="{$vo.url}" target="_blank">{$vo.title}</a>
+                        </div>
+                        <!--{/list}-->
+                    </dd>
+                </dl>
+            </li>
+            <!--{/help}-->
+        </ul>
+    </div>
+</div>
+
+<!--#include file="common_foot.html"-->

@@ -1,0 +1,93 @@
+<div class="dux-index-layout am-g ">
+
+    <div class="am-u-sm-9 layout-l">
+        <div class="dux-index-show am-cf">
+            <div class="show-head">
+                欢迎您回来, <span class="am-text-danger">{$userInfo.show_name}</span>
+            </div>
+            <dl>
+                <dt>电话</dt>
+                <dd>{$userInfo.tel ? $userInfo.tel : '未绑定'}</dd>
+            </dl>
+            <dl>
+                <dt>邮箱</dt>
+                <!--if{$userInfo.email}-->
+                <dd>{$userInfo.email ? $userInfo.email : '未绑定'}</dd>
+                <!--{else}-->
+                <dd><a href="{url('member/setting/index')}">未设置</a></dd>
+                <!--{/if}-->
+            </dl>
+            <dl>
+                <dt>登录时间</dt>
+                <dd>{date('Y-m-d H:i:s', $userInfo.login_time)}</dd>
+            </dl>
+            <dl>
+                <dt>登录IP</dt>
+                <dd>{$userInfo.login_ip ? $userInfo.login_ip : '未知'}</dd>
+            </dl>
+
+        </div>
+        <div class="dux-index-side"></div>
+        <div class="dux-index-count">
+            <ul class=" am-g ">
+                <li class="am-u-sm-4">
+                    <div class="item item1">
+                        <div class="icon">
+                            <i class="am-icon-money"></i>
+                        </div>
+                        <div class="info">
+                            <div class="count">￥{$userInfo.money}</div>
+                            <div class="name">账户余额</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="am-u-sm-4">
+                    <div class="item item2">
+                        <div class="icon">
+                            <i class="am-icon-database"></i>
+                        </div>
+                        <div class="info">
+                            <div class="count">{$userInfo.points}</div>
+                            <div class="name">账户积分</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="am-u-sm-4">
+                    <div class="item item3">
+                        <div class="icon">
+                            <i class="am-icon-comment"></i>
+                        </div>
+                        <div class="info">
+                            <div class="count">0</div>
+                            <div class="name">未读消息</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        {$bodyHookHtml}
+
+    </div>
+
+    <div class="am-u-sm-3 layout-r">
+        <div class="dux-index-calendar">
+            <div class="calendar-title">我的日历</div>
+            <div class="calendar-body">
+
+                <div class="day">{date('d')}</div>
+                <div class="info">
+                    <p>
+                        <?php $week = array('天','一','二','三','四','五','六'); ?>
+                        星期<?php echo $week[date('w')]; ?>
+                    </p>
+                    <p>{date('Y.m')}</p>
+                </div>
+
+            </div>
+        </div>
+        {$sideHookHtml}
+
+    </div>
+
+</div>

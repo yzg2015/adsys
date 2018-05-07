@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$pageInfo.title}</title>
+    <link rel="stylesheet" href="{$sysPublic}/common/css/amazeui.min.css">
+    <link rel="stylesheet" href="{$sysPublic}/common/css/fix.css">
+    <link rel="stylesheet" href="{$sysPublic}/member/css/style.css?t={time()}">
+    <script type="text/javascript" src="{$sysPublic}/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/amazeui.js"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/do.js" data-cfg-autoload="false"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/package.js" data-path="{$sysPublic}/"
+            data-role="<?php echo ROLE_NAME; ?>" data-root="<?php ROOT_URL; ?>"></script>
+    <script type="text/javascript" src="{$sysPublic}/member/js/lib.js"></script>
+</head>
+<body>
+<div class="dux-top">
+    <div class="am-container am-cf">
+        <div class="am-g am-g-collapse ">
+            <div class="am-u-sm-6 top-left">
+                <ul>
+                    <li>
+                        <a href="__ROOT__/">返回首页</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="am-u-sm-6 top-right">
+                <ul>
+                    <li>
+                        <a href="{url('member/login/logout')}">[退出登录]</a>
+                    </li>
+                    <li>
+                        <a href="{url('member/index/index')}">{$userInfo.show_name}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dux-header">
+    <div class="am-container  am-cf">
+        <div class="am-g am-g-collapse">
+            <div class="am-u-sm-4 header-logo">
+                <a href="__ROOT__/"><img src="<?php echo ROOT_URL . '/' . $memberInfo['logo']; ?>" height="65"></a>
+            </div>
+
+            <div class="am-u-sm-8 header-nav">
+                <ul>
+                    <li><a href="{url('member/login/logout')}">
+                        <i class="am-icon-power-off am-text-danger"></i>
+                        退出</a></li>
+                    <!--loop{$headMenu as $vo}-->
+                    <li><a href="{$vo.url}">
+                        <i class="am-icon-{$vo.icon}"></i>
+                        {$vo.name}</a></li>
+                    <!--{/loop}-->
+                    <li><a href="{url('member/Notice/index')}">
+                        <i class="am-icon-bell"></i>
+                        消息</a></li>
+                    <li><a href="{url('member/index/index')}">
+                        <i class="am-icon-user"></i>
+                        会员首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="am-container am-cf">
+    <div class="dux-main-layout am-g am-g-collapse">
+        <!--if{$sideBar}-->
+        <div class="layout-sidebar am-u-sm-3">
+
+            <div class="side-user">
+                <div class="user-title">
+                    会员中心
+                </div>
+                <div class="user-info">
+                    <div class="am-cf">
+                        <div class="avatar">
+                            <img src="{$userInfo.avatar}" alt="{$userInfo.nickname}">
+                        </div>
+                        <ul class="menu">
+                            <li>
+                                <a href="{url('member/setting/avatar')}"> <i class="am-icon-camera"></i> 修改头像</a>
+                            </li>
+                            <li>
+                                <a href="{url('member/setting/index')}"><i class="am-icon-edit"></i> 修改资料</a>
+                            </li>
+                            <li>
+                                <a href="{url('member/login/logout')}"><i class="am-icon-power-off"></i> 安全退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--loop{$nav as $vo}-->
+            <div class="side-nav">
+                <div class="nav-title">{$vo.desc}</div>
+                <ul class="nav-list">
+                    <!--loop{$vo.menu as $sub}-->
+                    <li><a href="{$sub.url}">{$sub.name}</a></li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+            <!--{/loop}-->
+
+
+        </div>
+        <!--{/if}-->
+
+
+        <div class="{$sideBar ? 'layout-body am-u-sm-9' : ''}">
+            {$layout}
+        </div>
+    </div>
+</div>
+<div class="dux-other-footer">
+    Copyright 2016 DuxShop.com, All Rights Reserved
+</div>
+</body>
+<script>
+    Do('base', function () {
+        base.frame();
+    });
+</script>
+</html>

@@ -1,0 +1,55 @@
+<section class="dux-layout-page am-margin-top-lg">
+    <form class="am-form dux-form" action="{url()}" method="post" data-dux="form-bind" data-advanced="false">
+        <input type="hidden" name="open_id" value="{$loginInfo.open_id}">
+        <input type="hidden" name="type" value="{$loginInfo.type}">
+
+        <div class="am-input-group">
+            <span class="am-input-group-label">{$nameTip}</span>
+            <input type="text" class="am-form-field" placeholder="{$nameTip}" id="username" name="username">
+        </div>
+        <!--if{$userConfig.verify_status || $userConfig.verify_image}-->
+        <div class="am-input-group">
+            <span class="am-input-group-label"><i class="am-icon-image am-icon-fw"></i></span>
+            <input type="text" class="am-form-field" placeholder="图片验证码" name="imgcode" id="imgcode">
+            <span class="am-input-group-label">
+                                    <img src="{url('member/register/code')}" onclick="this.src ='{url("member/register/code")}?'+Math.random()">
+                        </span>
+        </div>
+        <!--{/if}-->
+        <!--if{$userConfig.verify_status}-->
+        <div class="am-input-group">
+            <span class="am-input-group-label"><i class="am-icon-mobile am-icon-fw"></i></span>
+            <input type="text" class="am-form-field" placeholder="请输入验证码" name="code">
+            <span class="am-input-group-label">
+                            <button href="javascript:;" class="am-btn am-btn-sm am-btn-primary" data-dux="page-getCode"
+                                    data-url="{url('member/Register/getCode')}" data-field="username,imgcode" type="button">获取验证码</button>
+                        </span>
+        </div>
+        <!--{/if}-->
+        <div class="am-input-group">
+            <span class="am-input-group-label">密码</span>
+            <input type="password" class="am-form-field" placeholder="设置密码" name="password">
+            <span class="am-input-group-label"><a href="{url('member/Register/forgot')}" class="dux-text-hg">忘记密码？</a></span>
+        </div>
+        <!--loop{$hookField as $vo}-->
+        <div class="am-input-group">
+            <span class="am-input-group-label">{$vo.label}</span>
+            <input type="text" class="am-form-field" placeholder="{$vo.tip}" name="{$vo.name}" value="{$vo.value}">
+        </div>
+        <!--{/loop}-->
+        <label class="am-radio-inline am-padding-left-0">
+            <input type="checkbox" name="agreement" value="1" checked>
+            我已认真阅读并同意该<a href="{url('member/Register/agreement')}" class="am-text-danger">《用户协议》</a>
+        </label>
+
+        <div class="am-checkbox">
+            <label>
+                <input type="checkbox" name="remember" value="1"> 一个月内免登录
+            </label>
+        </div>
+        <div class="dux-padding am-margin-top-lg">
+            <button class="am-btn am-btn-primary am-btn-block" type="submit">提交信息</button>
+        </div>
+    </form>
+
+</section>

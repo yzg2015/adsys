@@ -1,0 +1,273 @@
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+body, html {
+  color: $color-text;
+  background: #f4f4f4;
+  height: 100%;
+}
+
+a {
+  color: #333;
+  &:hover {
+    color: $color-main;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+input, select, textarea {
+  appearance: none;
+  border-radius: 0;
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+input {
+  &[type=text], &[type=number] {
+    border-radius: 0;
+    border: 0;
+  }
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl, dt, dd, dd + dt {
+  margin: 0;
+  padding: 0;
+}
+
+dt + dd {
+  margin: 0;
+}
+
+br {
+  display: inline;
+  line-height: 2rem;
+}
+
+.am-container {
+  max-width: 1200px;
+  width: 1200px;
+}
+
+.am-breadcrumb {
+  margin-bottom: 0;
+  > li {
+    & + li {
+      &:before {
+        content: '>';
+        color: #777;
+        font: 400 1.4rem consolas;
+      }
+    }
+  }
+}
+
+.am-form-help {
+  margin-bottom: 0;
+}
+
+.am-table {
+  color: #333;
+  > tbody > tr > td, > tbody > tr > th, > tfoot > tr > td, > tfoot > tr > th, > thead > tr > td, > thead > tr > th {
+    font-size: 1.4rem;
+    border-top: 1px solid #eee;
+    padding: 1rem;
+  }
+  > thead > tr > th {
+    border-bottom: none;
+    background: #ddd;
+    padding: .7rem 1rem;
+  }
+}
+
+.am-popup-hd {
+  .am-popup-title {
+    font-size:1.6rem;
+    font-weight: normal;
+  }
+}
+
+.am-padding {
+  padding: 10px;
+}
+
+.am-text-shallow {
+  color: #777;
+}
+
+.am-text-primary {
+  color: $color-main;
+
+}
+
+.am-text-secondary {
+  color: $color-secondary;
+
+}
+
+.am-text-warning {
+  color: $color-warning;
+
+}
+
+.am-text-danger {
+  color: $color-danger;
+
+}
+
+.am-text-success {
+  color: $color-success;
+}
+
+.am-btn-dashed {
+  border: 1px dashed #ccc;
+  i {
+    color: #666;
+  }
+
+}
+
+.dux-text-disabled {
+  color: #666;
+}
+
+.am-text-sm {
+  font-size: 1.2rem;
+}
+.am-text-lg {
+  font-size: 1.6rem;
+
+}
+.am-text-default {
+  font-size: 1.4rem;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  vertical-align: top;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+
+input[type=checkbox]:active,
+input[type=radio]:active {
+  border-color: #c6c6c6;
+  background: #ebebeb;
+}
+
+input[type=radio]:hover,
+input[type=checkbox]:hover {
+  border-color: #c6c6c6;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+input[type=checkbox],
+input[type=radio] {
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+}
+
+input[type=checkbox]:checked,
+input[type=radio]:checked {
+  background: $color-main;
+  border-color: $color-main;
+}
+
+input[type=radio]:checked::after,
+input[type=checkbox]:checked::after {
+  font: normal normal normal 1.6rem/1 FontAwesome, sans-serif;
+  content: "\f00c";
+  display: block;
+  position: relative;
+  text-align: center;
+  width: 14px;
+  height: 14px;
+  top: 1px;
+  left: 0px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+  border-color: $color-main;
+}
+
+input[type=checkbox]:disabled,
+input[type=radio]:disabled {
+  border-color: #c6c6c6;
+  background: #ebebeb;
+  &::after {
+    color: #999;
+  }
+}
+
+.am-checkbox, .am-checkbox-inline, .am-radio, .am-radio-inline {
+  line-height: initial;
+  vertical-align: middle;
+}
+
+.am-checkbox, .am-checkbox-inline {
+  input[type=radio],
+  input[type=checkbox] {
+    border-radius: 0;
+  }
+}
+
+.dux-show {
+  display: block;
+}
+.dux-hide {
+  display: none;
+}
+.am-popup-inner {
+  padding-top: 0;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+}
+.am-popup-hd {
+
+}
+.am-popup-bd {
+  position: absolute;
+  top: 44px;
+  width: 100%;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+
+}

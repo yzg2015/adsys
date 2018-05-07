@@ -1,0 +1,92 @@
+<!--#include file="common_head.html"-->
+<div class="am-panel am-panel-default dux-pro-filter">
+    <div class="am-panel-bd ">
+        <ul class="am-avg-sm-5 am-text-center">
+            <!--loop{$orderList as $vo}-->
+            <li>
+                <!--if{$vo.up || $vo.down}-->
+                    <a href="{$vo.url}" class="am-text-secondary"> {$vo.name}
+                    <i class="icon-arrow {$vo.up ? 'up' : 'down'}"></i>
+                <!--{else}-->
+                    <a href="{$vo.url}"> {$vo.name}
+                    <i class="icon-arrow"></i>
+                <!--{/if}-->
+            </a></li>
+            <!--{/loop}-->
+            <li>
+                <!--if{$filterStatus}-->
+                <a href="#list-select" data-am-offcanvas=""  class="am-text-secondary">
+                <!--{else}-->
+                <a href="#list-select" data-am-offcanvas="">
+                <!--{/if}-->
+                筛选</a></li>
+        </ul>
+    </div>
+</div>
+<div id="list-select" class="am-offcanvas">
+    <form action="{url('index', ['id' => $classInfo.class_id])}" method="get">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip am-offcanvas-bar-overlay">
+        <div class="am-offcanvas-content am-form">
+            <!--if{$priceList}-->
+            <div class="am-form-group am-form-select">
+                <label>价位</label>
+                <select name="price">
+                    <!--loop{$priceList as $vo}-->
+                    <!--if{$vo.cur}-->
+                    <option value="{$vo.value}" selected>
+                        <!--{else}-->
+                    <option value="{$vo.value}">
+                        <!--{/if}-->
+                        {$vo.name}</option>
+                    <!--{/loop}-->
+                </select>
+            </div>
+            <!--{/if}-->
+            <div class="am-form-group">
+                <button type="submit" class="am-btn-block am-btn am-btn-danger">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<main class="dux-main" >
+
+    <!--if{$pageList}-->
+    <ul class="dux-pro-list">
+
+        <!--loop{$pageList as $vo}-->
+        <a class="dux-pro-item am-cf" href="{$vo.url}">
+            <div class="item-img">
+                <img src="{$vo.image}" alt="">
+            </div>
+            <div class="item-info">
+                <div class="title">{$vo.title} {$vo.subtitle}</div>
+                <div class="price">
+                    ￥{$vo.sell_price}
+                    <small>￥{$vo.market_price}</small>
+                </div>
+                <div class="am-g am-g-collapse">
+                    <div class="am-u-sm-6">销量:{$vo.sale}</div>
+                    <div class="am-u-sm-6">喜欢:{$vo.favorite}</div>
+                </div>
+            </div>
+        </a>
+        <!--{/loop}-->
+    </ul>
+    <!--{else}-->
+    <div class="am-padding am-text-center">
+        <h2>暂无相关商品</h2>
+    </div>
+    <!--{/if}-->
+
+    <div class="dux-pages am-cf">
+        {$page}
+    </div>
+</main>
+
+<!--#include file="common_foot.html"-->
+
+</html>

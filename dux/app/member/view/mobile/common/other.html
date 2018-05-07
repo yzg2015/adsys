@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>{$pageInfo.title}</title>
+    <link rel="stylesheet" href="{$sysPublic}/common/css/amazeui.min.css">
+    <link rel="stylesheet" href="{$sysPublic}/common/css/fix.css">
+    <script type="text/javascript" src="{$sysPublic}/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/amazeui.js"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/do.js" data-cfg-autoload="false"></script>
+    <script type="text/javascript" src="{$sysPublic}/common/js/package.js" data-path="{$sysPublic}/"
+            data-role="<?php echo ROLE_NAME; ?>" data-root="<?php ROOT_URL; ?>"></script>
+    <script type="text/javascript" src="{$sysPublic}/member/js/lib_mobile.js"></script>
+    <!--loop{$userCss as $vo}-->
+    <link rel="stylesheet" href="{$vo}">
+    <!--{/loop}-->
+    <!--loop{$userJs as $vo}-->
+    <script type="text/javascript" src="{$vo}"></script>
+    <!--{/loop}-->
+</head>
+<body class="am-layout-other">
+
+<!--if{!isApp()}-->
+<header data-am-widget="header"
+        class="am-header am-header-default dux-header-other am-header-fixed">
+    <div class="am-header-left am-header-nav">
+        <a href="javascript:history.go(-1);" class="">
+            <img class="am-header-icon-custom" src="data:image/svg+xml;charset&#x3D;utf-8,&lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 12 20&quot;&gt;&lt;path d&#x3D;&quot;M10,0l2,2l-8,8l8,8l-2,2L0,10L10,0z&quot; fill&#x3D;&quot;%23fff&quot;/&gt;&lt;/svg&gt;" alt=""/>
+        </a>
+    </div>
+    <h1 class="am-header-title">
+        <a href="{url('index/Index/index')}" class="">
+            {$pageInfo.name}
+        </a>
+    </h1>
+    <!--if{$headNav}-->
+    <div class="am-header-right am-header-nav">
+        <a href="{$headNav.url}">
+            {$headNav.name}
+        </a>
+    </div>
+    <!--{/if}-->
+
+</header>
+
+<!--{/if}-->
+    {$layout}
+
+</body>
+<script>
+    Do('base_mobile', 'base', function () {
+        base.frame();
+    });
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.1&services=true"></script>
+
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width:100%;height:340px;margin:5px auto;border:1px solid gray
+
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+</body>
+<script type="text/javascript">
+    var map = new BMap.Map("container"),marker,point;
+    map.enableScrollWheelZoom();
+    map.enableContinuousZoom();
+    window.search = function(city, keyword) {
+        var search = new BMap.LocalSearch(city, {
+            onSearchComplete: function (results){
+                if (results && results.getNumPois()) {
+                    var points = [];
+                    for (var i=0; i<results.getCurrentNumPois(); i++) {
+                        points.push(results.getPoi(i).point);
+                    }
+                    if (points.length > 1) {
+                        map.setViewport(points);
+                    } else {
+                        map.centerAndZoom(points[0], 13);
+                    }
+                    point = map.getCenter();
+                    marker.setPoint(point);
+                } else {
+                    alert(lang.errorMsg);
+                }
+            }
+        });
+        search.search(keyword || city);
+    };
+    function init(){
+        point = new BMap.Point(116.404, 39.915);    // 创建点坐标
+        marker = new BMap.Marker(point);
+        map.addControl(new BMap.NavigationControl());
+        map.centerAndZoom(point, 10);
+        marker.enableDragging();
+        map.addOverlay(marker);
+    }
+    init();
+    window.getInfo = function(URL, dynamic) {
+        var center = map.getCenter();
+        var zoom = map.zoomLevel;
+        var size = map.getSize();
+        var mapWidth = size.width;
+        var mapHeight = size.height;
+        var point = marker.getPoint();
+
+        if(dynamic) {
+            url = [URL + (/\/$/.test(URL) ? '':'/') + "show.html" +
+                '#center=' + center.lng + ',' + center.lat,
+                    '&zoom=' + zoom,
+                    '&width=' + mapWidth,
+                    '&height=' + mapHeight,
+                    '&markers=' + point.lng + ',' + point.lat,
+                    '&markerStyles=' + 'l,A'].join('');
+            return '<iframe class="ckditor_baidumap" src="' + url + '" frameborder="0" width="' + (mapWidth+4) + '" height="' + (mapHeight+4) + '"></iframe>';
+        } else {
+            url = "http://api.map.baidu.com/staticimage?center=" + center.lng + ',' + center.lat +
+                "&zoom=" + zoom + "&width=" + size.width + '&height=' + size.height + "&markers=" + point.lng + ',' + point.lat;
+            return '<img width="'+ size.width +'"height="'+ size.height +'" src="' + url + '"/>';
+        }
+    }
+</script>
+
+</html>

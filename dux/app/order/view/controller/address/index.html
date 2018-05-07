@@ -1,0 +1,47 @@
+<div class="dux-table-header am-cf">
+    <div class="head-title">收货地址</div>
+    <div class="head-menu">
+        <a href="{url('add')}" class="am-btn am-btn-success am-btn-sm">新增</a>
+    </div>
+</div>
+<div class="dux-page">
+    <table class="am-table am-table-hover am-table-striped">
+        <thead>
+        <tr>
+            <th>联系方式</th>
+            <th width="100">默认</th>
+            <th width="150">编辑</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--if{empty($pageList)}-->
+        <tr>
+            <td colspan="3" class="am-text-center">暂无收货地址</td>
+        </tr>
+        <!--{/if}-->
+        <!--loop{$pageList as $vo}-->
+        <tr>
+            <td class="am-text-middle">
+                <div>姓名: {$vo.name} 电话:{$vo.tel}</div>
+                <div class="dux-text-disabled">{$vo.province} {$vo.city} {$vo.region} {$vo.address} 邮编:{$vo.zip}</div>
+            </td>
+            <td class="am-text-middle">
+                <!--if{$vo.default}-->
+                <span class="am-badge am-badge-danger">默认</span>
+                <!--{/if}-->
+            </td>
+            <td class="am-text-middle">
+                <a class="am-btn-primary am-btn am-btn-sm" href="{url('edit', ['id' => $vo['add_id'], 'action' => $action])}">编辑</a>
+
+                <a class="am-btn am-btn-danger am-btn-sm" href="javascript:;" data-dux="dialog-ajaxConfirm"
+                   data-url="{url('del', ['id' => $vo.add_id, 'action' => $action])}" data-title="您要确认删除该地址吗?">删除</a>
+            </td>
+        </tr>
+        <!--{/if}-->
+        </tbody>
+    </table>
+</div>
+
+<div class="dux-pages">
+    {$page}
+</div>

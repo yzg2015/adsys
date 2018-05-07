@@ -1,0 +1,87 @@
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+body, html {
+  color: #363636;
+  background: #f5f5f5;
+}
+
+a {
+  color: #333;
+  &:hover {
+    color: $color-main;
+  }
+}
+p {
+  margin: 0;
+}
+
+input {
+  &:focus {
+    outline: none !important;
+    box-shadow : none !important;
+  }
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl, dt, dd, dd + dt {
+  margin: 0;
+  padding: 0;
+}
+
+dt + dd {
+  margin: 0;
+}
+
+.am-container {
+  max-width: 1200px;
+  width: 1200px;
+}
+
+.am-breadcrumb {
+  margin-bottom: 0;
+  > li {
+    & + li {
+      &:before {
+        content: '>';
+        color: #999;
+        font: 400 1.4rem consolas;
+      }
+    }
+  }
+
+}
+
+.am-form-help {
+  margin-bottom: 0;
+}
+
+.am-table {
+  color: #333;
+
+  >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th {
+    font-size:1.4rem;
+    border-top: 1px solid #eee;
+    padding: 1rem ;
+  }
+  >thead>tr>th {
+    border-bottom:none;
+    background: #ddd;
+    padding: .7rem 1rem;
+  }
+}
+
+.am-text-grey {
+  color: #999;
+}

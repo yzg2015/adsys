@@ -1,0 +1,49 @@
+<div data-dux="table-bind">
+    <div class="dux-page-header am-cf">
+        <div class="page-title">
+            <a class="am-btn am-btn-primary" href="{url('index')}"> 接口列表</a>
+        </div>
+        <div class="page-action">
+            <a class="am-btn am-btn-danger" href="{url('')}"><i class="am-icon-refresh"></i></a>
+        </div>
+    </div>
+    <div class="dux-page-table">
+        <table class="am-table dux-table" data-table>
+            <thead>
+            <tr>
+                <th width="*">接口名</th>
+                <th width="*">描述</th>
+                <th width="*">标识</th>
+                <th width="*">平台</th>
+                <th width="*">状态</th>
+                <th class="am-text-center" width="120">管理</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--loop{$list as $key => $vo}-->
+            <tr>
+                <td>{$vo.name}</td>
+                <td>{$vo.desc}</td>
+                <td>{$key}</td>
+                <td>
+                    {$vo.platform}
+                </td>
+                <td>
+                    <!--if{$vo.status}-->
+                    <span class="am-text-success">开启</span>
+                    <!--{else}-->
+                    <span class="am-text-danger">关闭</span>
+                    <!--{/if}-->
+                </td>
+                <td class="am-text-center">
+                    <a class="am-btn am-btn-primary am-btn-xs" href="{url('setting',array('type'=>$key))}" title="设置"><i class="am-icon-cog"></i></a>
+                </td>
+            </tr>
+            <!--{/loop}-->
+            </tbody>
+        </table>
+    </div>
+    <div class="dux-page-foot am-cf">
+        {$page}
+    </div>
+</div>

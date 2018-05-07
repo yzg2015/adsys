@@ -1,0 +1,132 @@
+<div class="dux-page-header am-cf">
+    <div class="page-title">
+        <a class="am-btn am-btn-primary" href="{url('index')}"> 返回列表</a>
+    </div>
+    <div class="page-action">
+        <a class="am-btn am-btn-danger" href="javascript:location.reload();"><i class="am-icon-refresh"></i></a>
+    </div>
+</div>
+
+<div class="dux-body">
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">{$assignName}优惠券</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" data-dux="form-bind" method="post">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">类型</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <select name="type" id="type" class="am-form-field" required>
+                                <option value="common">全品优惠券</option>
+                                <!--loop{$typeList as $type => $vo}-->
+                                <option value="{$type}">{$vo.name}优惠券</option>
+                                <!--{/loop}-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group" style="display: none" id="special">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">指定ID</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="number" name="has_id" value="{$info.has_id}" placeholder="指定编号，如商品ID" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">优惠券金额</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="money" value="{$info.money}" placeholder="请输入优惠券金额" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">满减金额</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="meet_money" value="{$info.meet_money ? $info.meet_money : 0}" placeholder="满足使用金额条件" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">发放时间</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" data-dux="form-date" name="start_time" data-format="yyyy-mm-dd hh:ii" value="{$info.start_time ? date('Y-m-d H:i', $info.start_time) : date('Y-m-d H:i')}" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">结束时间</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" data-dux="form-date" name="end_time" data-format="yyyy-mm-dd hh:ii" value="{$info.end_time ? date('Y-m-d H:i', $info.end_time) : date('Y-m-d H:i')}" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">库存数量</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="stock" value="{$info.stock ? $info.stock : 100}" placeholder="" required>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">有效天数</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="number" name="expiry_day" value="{$info.expiry_day ? $info.expiry_day : 10}" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">兑换方式</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <select name="exchange_type" id="exchange_type" class="am-form-field" required>
+                                <!--loop{$currencyList as $type => $vo}-->
+                                <option value="{$type}" {$vo.exchange_type == $type ? 'selected' : ''}>{$vo.name}</option>
+                                <!--{/loop}-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">兑换价格</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="exchange_price" value="{$info.exchange_price ? $info.exchange_price : 0}" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-form-label">状态</label>
+                        <div class="am-u-md-10">
+                            <?php $info['status'] = isset($info['status']) ? $info['status'] : 1;  ?>
+                            <label class="am-radio-inline">
+                                <!--if{$info['status']}-->
+                                <input name="status" value="1" checked="checked" type="radio">
+                                <!--{else}-->
+                                <input name="status" value="1" type="radio">
+                                <!--{/if}-->
+                                上架
+                            </label>
+                            <label class="am-radio-inline">
+                                <!--if{!$info['status']}-->
+                                <input name="status" checked="checked" value="0" type="radio">
+                                <!--{else}-->
+                                <input name="status" value="0" type="radio">
+                                <!--{/if}-->
+                                下架
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                            <input type="hidden" name="coupon_id" value="{$info.coupon_id}">
+                            <button class="am-btn am-btn-primary" type="submit" disabled>保存</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    Do('base', function () {
+        $('#type').change(function () {
+            var type = $(this).val();
+            if(type !== 'common') {
+                $('#special').show();
+            }else {
+                $('#special').hide();
+            }
+        });
+    });
+</script>

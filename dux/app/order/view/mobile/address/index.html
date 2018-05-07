@@ -1,0 +1,61 @@
+<!--if{$pageList}-->
+<div  {$action ? 'data-select' : 'data-address'}>
+<!--loop{$pageList as $vo}-->
+<div class="dux-box">
+    <div class="box-content">
+        <div class="title">{$vo.name} {$vo.tel}</div>
+        <p>{$vo.province} {$vo.city} {$vo.region} {$vo.address}</p>
+    </div>
+    <div class="box-foot dux-flex">
+        <div class="am-text-shallow">
+            <!--if{$action}-->
+            <label class="am-radio-inline"><input type="radio" name="default" data-id="{$vo.add_id}"> 选择地址</label>
+            <!--{else}-->
+            <label class="am-radio-inline"><input type="radio" name="default"  {$vo.default ? checked : ''} data-id="{$vo.add_id}"> 默认地址</label>
+            <!--{/if}-->
+
+        </div>
+        <div class="flex-1 am-text-right">
+            <a href="{url('edit', ['id' => $vo['add_id'], 'action' => $action])}" class="am-text-shallow am-margin-right-xs am-icon-edit"> 编辑</a>
+            <a href="javascript:;" data-dux="dialog-ajaxConfirm" data-title="确认删除该地址？" data-url="{url('del', ['id' => $vo['add_id']])}" class="am-text-shallow am-icon-trash"> 删除</a>
+        </div>
+    </div>
+</div>
+<!--{/loop}-->
+</div>
+<!--{else}-->
+<div class="dux-tip">
+    <h2>暂无收货地址</h2>
+</div>
+<!--{/if}-->
+<div class="am-padding am-text-center">
+    <a href="{url('add', ['action' => $action])}" class="am-btn am-btn-primary am-btn-block"> <i class="am-icon-plus-square-o"></i>
+        新建收货地址</a>
+</div>
+<script>
+    Do('base', function () {
+        $('[data-address]').find('input[type=radio]').on('click', function () {
+            var input = this;
+            if ($(this).is(':checked')) {
+                var id = $(this).data('id');
+                app.ajax({
+                    url : "{url('setting')}?id=" + id,
+                    error : function (msg) {
+                        app.error(msg);
+                        $(input).prop("checked", false);
+                    },
+                    success : function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+        var action = "{$action}";
+        $('[data-select]').find('input[type=radio]').on('click', function () {
+            if ($(this).is(':checked')) {
+                var id = $(this).data('id');
+                window.location.href = action + '?add_id=' + id;
+            }
+        });
+    });
+</script>

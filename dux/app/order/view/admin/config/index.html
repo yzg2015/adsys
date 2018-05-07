@@ -1,0 +1,57 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <ul class="am-nav">
+                    <li class="am-active"><a href="{url('index')}">基本设置</a></li>
+                    <li><a href="{url('info')}">售后信息</a></li>
+                    <li><a href="{url('notice')}">通知设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">基本配置</div>
+                <div class="am-panel-bd">
+                    <form class="am-form  am-form-horizontal dux-form" method="post" action="{url()}" data-dux="form-bind">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">快递查询</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="waybill_type" class="am-form-field" data-am-selected="{btnWidth: '100%'}" required>
+                                        <!--loop{$waybillList as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{ $key == $info['waybill_type'] }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                    <div class="am-form-help">选择所使用的快递查询接口</div>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">货到付款</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="cod_status" {$info.cod_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="cod_status" {$info.cod_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                    <div class="am-form-help">货到付款支持</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

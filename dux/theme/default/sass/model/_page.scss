@@ -1,0 +1,208 @@
+.dux-page-crumb {
+  margin: 0;
+  font-size:1.4rem;
+  & > li + li:before {
+    content: ">";
+    font: 400 1.4rem consolas;
+  }
+}
+
+.dux-page-head {
+  background: #fff;
+}
+
+.dux-page-attr {
+  dl {
+    padding-bottom: 5px;
+    padding-top: 2px;
+    border-top: 1px solid #eee;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  dt {
+    float: left;
+    width: 100px;
+    text-align: left;
+    padding-right: 10px;
+    color: #000;
+    margin-top:15px;
+  }
+  dd {
+    margin-left:120px;
+    min-height: 35px;
+    a {
+      margin-right: 10px;
+      line-height:35px;
+      color: #666;
+      padding-right: 15px;
+      white-space: nowrap;
+      &.active {
+        color: $color-main;
+      }
+      i {
+        font-style: normal;
+        font-weight: bold;
+        font-family: consolas;
+      }
+      i.up {
+        &:before {
+          content: "\2191";
+        }
+      }
+      i.down {
+        &:before {
+          content: "\2193";
+        }
+      }
+
+    }
+
+
+  }
+
+}
+
+
+.dux-page-pager {
+  text-align: center;
+  a, span {
+    background: #fff;
+    display: inline-block;
+    margin-left: 6px;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 6px 12px;
+  }
+  span {
+    color: #ddd;
+  }
+  .current {
+    border-color: $color-main;
+    color: #fff;
+    background:  $color-main;
+  }
+  a:hover {
+
+    border-color: $color-main;
+    color: $color-main;
+    background:  #fff;
+  }
+
+}
+
+.dux-page-count {
+  text-align: center;
+  a,input {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-left: -1px;
+    vertical-align: middle;
+
+  }
+  input {
+    background: #FFF;
+    border: 1px #CCC solid;
+    color: #000;
+    font-family: arial;
+    font-size: 13px;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+  }
+  a {
+    border: 1px solid #CCC;
+    font-family: simsun;
+    font-size: 16px;
+    overflow: hidden;
+    width: 30px;
+  }
+
+
+}
+
+.dux-page-box {
+  background: #fff;
+  .box-title {
+    font-size:1.6rem;
+    color: #333;
+    padding: 10px;
+    .more {
+      float: right;
+      font-size:1.4rem;
+      margin-top:5px;
+      color: #999;
+      font-weight: normal;
+    }
+  }
+  .box-title-b {
+    font-weight: bold;
+    border-bottom:1px solid #ddd;
+  }
+  .box-head {
+    background: #eee;
+    padding: 10px 10px;
+    color: #333;
+    border-top:2px solid $color-main;
+  }
+  .box-info {
+    margin-top:5px;
+  }
+}
+
+.dux-page-goods {
+  .img {
+    width: 70px;
+    float: left;
+    img {
+      border: 1px solid #ddd;
+      width:64px;
+      height: 64px;
+      padding: 5px;
+    }
+  }
+  .body {
+    margin-left:70px;
+    .title {
+      line-height:22px;
+    }
+    .info {
+      font-size:1.2rem;
+      color: #666;
+    }
+  }
+
+}
+
+.dux-page-tabs {
+  .am-nav-tabs {
+    border-bottom:none;
+    background: #fff;
+    border-top:1px solid $color-main;
+
+    > li {
+      > a {
+        padding: 10px 20px;
+        font-size:1.4rem;
+        border: none;
+      }
+      &.am-active {
+        a {
+          background: $color-main;
+          color: #fff;
+          border: none;
+          border-top: 2px solid $color-main;
+          border-bottom: none;
+        }
+      }
+
+    }
+  }
+  .am-tabs-bd {
+    border: none;
+    .am-tab-panel {
+
+    }
+  }
+}

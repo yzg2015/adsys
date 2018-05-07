@@ -1,0 +1,13 @@
+<div class="dux-tip dux-box am-cf">
+    <div class="tip-header am-text-center">
+        <h1><i class="am-icon-check success"></i>{$name}</h1>
+        <p>{$desc}</p>
+    </div>
+    <div class="tip-action">
+        <a class="am-btn am-btn-default am-btn-block " href="{url('index/Index/index')}">继续购物</a>
+        <a class="am-btn am-btn-primary am-btn-block " href="{url('order/Order/index')}">我的订单</a>
+        <!--loop{$hookList as $vo}-->
+        <a class="am-btn am-btn-success am-btn-block " href="{url($vo.url, ['pay_no' => $payNo, 'pay_sign' => $paySign, 'app' => 'order'])}">{$vo.name}</a>
+        <!--{/loop}-->
+    </div>
+</div>

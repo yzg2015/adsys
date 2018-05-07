@@ -1,0 +1,77 @@
+<!--#include file="common_head.html"-->
+
+<div class="dux-page-head">
+    <div class="am-g am-g-fixed">
+        <ol class="am-breadcrumb dux-page-crumb">
+            <li><a href="/">首页</a></li>
+            <!--loop{$pageInfo.crumb as $vo}-->
+            <li><a href="{$vo.url}">{$vo.name}</a></li>
+            <!--{/loop}-->
+        </ol>
+    </div>
+</div>
+
+<div class="am-g am-g-fixed dux-shop-layout">
+    <div class="layout-sidebar">
+        <div class="dux-page-box">
+            <div class="box-title">{$classInfo.name}</div>
+
+            <ul class="dux-news-list">
+                <!--assign{app="article" label="classList" limit="8" parent_id=$classInfo.class_id list="classList"}-->
+
+                <!--if{!empty($subList)}-->
+                    <!--loop{$subList as $vo}-->
+                    <li>
+                        <a href="{$class.url}">
+                            {$class.name}
+                        </a>
+                    </li>
+                    <!--{/loop}-->
+                <!--{else}-->
+
+                    <!--class{app="article" label="classList" limit="8" parent_id=$parentClassInfo.class_id }-->
+                    <li>
+                        <a href="{$class.url}">
+                            {$class.name}
+                        </a>
+                    </li>
+                    <!--{/class}-->
+
+                <!--{/if}-->
+            </ul>
+        </div>
+    </div>
+    <div class="layout-body">
+
+        <!--if{empty($pageList)}-->
+        <div class="am-padding am-text-center">暂无内容</div>
+        <!--{else}-->
+        <ul class="dux-news-list">
+            <!--loop{$pageList as $list}-->
+            <li>
+                <a href="{$list.url}">
+                    <div class="date">{date('m-d', $list.create_time)}</div>
+                    <div class="title">{$list.title}</div>
+                </a>
+            </li>
+            <!--{/loop}-->
+        </ul>
+        <!--{/if}-->
+
+
+
+        <br>
+
+        <div class="dux-page-pager">
+            {$page}
+        </div>
+
+        <br>
+    </div>
+
+
+</div>
+
+
+<!--#include file="common_footer.html"-->
+</html>
