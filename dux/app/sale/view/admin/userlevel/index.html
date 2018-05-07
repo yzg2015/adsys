@@ -1,0 +1,60 @@
+<div data-dux="table-bind">
+    <div class="dux-page-header am-cf">
+        <div class="page-title">
+            <form class="am-form-inline" method="get" action="{url()}">
+                <div class="am-form-group">
+                    <input type="text" name="keyword" class="am-form-field" value="{$pageMaps.keyword}" placeholder="搜索">
+                </div>
+                <div class="am-form-group">
+                    <button type="submit" class="am-btn am-btn-primary am-icon-search"></button>
+                </div>
+            </form>
+        </div>
+        <div class="page-action">
+            <a class="am-btn am-btn-primary" href="{url('add')}">添加</a>
+        </div>
+    </div>
+    <div class="dux-page-table">
+        <table class="am-table dux-table" data-table>
+            <thead>
+            <tr>
+                <th width="100">#</th>
+                <th width="200">等级名称</th>
+                <!--for{$i = 1; $i <= $saleConfig.sale_level; $i++}-->
+                <th>{$i}级佣金</th>
+                <!--{/for}-->
+                <th>升级条件</th>
+                <th class="am-text-center" width="120">管理</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--loop{$list as $vo}-->
+            <tr>
+                <td>{$vo.level_id}</td>
+                <td>{$vo.name}</td>
+                <!--for{$i = 1; $i <= $saleConfig.sale_level; $i++}-->
+                <td>{$vo['comm_rate'][$i]['rate'] ? $vo['comm_rate'][$i]['rate'].'%' : $vo['comm_rate'][$i]['money'].'元'}</td>
+                <!--{/for}-->
+                <!--if{$vo.level_id == 1}-->
+                <td>默认等级</td>
+                <!--{else}-->
+                <!--if{!$vo.special}-->
+                <td>{$levelWhereText[$saleConfig['level_type']]}满{$vo.level_where}</td>
+                <!--{else}-->
+                <td>不参与升级</td>
+                <!--{/if}-->
+                <!--{/if}-->
+
+                <td class="am-text-center">
+                    <a class="am-btn am-btn-primary am-btn-xs" href="{url('edit', ['id'=>$vo[$pri]])}" title="编辑"><i class="am-icon-pencil"></i></a>
+                    <a class="am-btn am-btn-danger am-btn-xs" href="javascript:;" data-url="{url('del')}" data-id="{$vo[$pri]}" title="删除" data-del><i class=" am-icon-trash"></i></a>
+                </td>
+            </tr>
+            <!--{/loop}-->
+            </tbody>
+        </table>
+    </div>
+    <div class="dux-page-foot am-cf">
+        {$page}
+    </div>
+</div>

@@ -13,6 +13,7 @@ namespace app\index\controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Comment as CommentModel;
 use app\admin\model\Order as OrderModel;
+use app\admin\model\Cate as CateModel;
 
 /**
  * 前台首页控制器
@@ -22,8 +23,10 @@ class Index extends Home
 {
     public function index()
     {
+        $_list = CateModel::getAllList();
         $goods = GoodsModel::getAllList();
         $this->assign('goods_list',$goods);
+        $this->assign('cate_list',$_list);
         return $this->fetch();
     }
 

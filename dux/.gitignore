@@ -1,0 +1,16 @@
+/.idea/
+.DS_Store
+/data/cache/*
+/data/log/*
+/upload/*
+/theme/chb/
+/theme/chb_mobile/
+/theme/duxcms/
+/app/huitong/
+/app/topics/
+/app/service/
+/app/merchant/
+/public/topics/
+/theme/dux/
+/install.lock
+.DS_Store

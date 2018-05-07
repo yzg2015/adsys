@@ -1,0 +1,229 @@
+<div class="dux-box-header">
+    <h1>订单状态：{$info.status_data.name}</h1>
+    <p><i class="am-icon-{$info.status_data.icon}"></i> {$info.status_data.message}</p>
+</div>
+<div class="dux-box-address">
+    <div>{$info.receive_name} {$info.receive_tel}</div>
+    <p><i class="am-icon-map-marker"></i> {$info.receive_province}{$info.receive_city}{$info.receive_region}{$info.receive_address}</p>
+</div>
+<!--if{$deliveryInfo}-->
+<div class="dux-box am-cf">
+    <div class="dux-table-cell am-vertical-align-middle am-padding-sm">
+        <i class="am-icon-truck dux-text-disabled"></i>
+    </div>
+    <div class="box-content dux-table-cell">
+        快递公司： {$deliveryInfo.delivery_name}
+        <br>
+        快递单号： {$deliveryInfo.delivery_no}
+    </div>
+    <hr class="am-margin-0">
+    <div class="box-content am-text-right">
+        <a href="{url('order/Order/delivery', ['order_no' => $info.order_no])}" class="am-btn am-btn-danger am-btn-sm">查看物流</a>
+    </div>
+</div>
+<!--{/if}-->
+
+<!--if{$takeInfo}-->
+<div class="dux-box am-cf">
+    <div class="dux-table-cell am-vertical-align-middle am-padding-sm">
+        <i class="am-icon-bank dux-text-disabled"></i>
+    </div>
+    <div class="box-content dux-table-cell">
+        自提点： {$takeInfo.name}
+        <br>
+        地址： {$takeInfo.city}{$takeInfo.region}{$takeInfo.address}
+        <br>
+        电话：{$takeInfo.tel}
+        <br>
+        营业时间： {$takeInfo.start_time} ~ {$takeInfo.stop_time}
+    </div>
+    <hr class="am-margin-0">
+    <div class="box-content am-text-right">
+        <a href="javascript:;" id="openMap" class="am-btn am-btn-danger am-btn-sm">查看地图</a>
+    </div>
+</div>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+    wx.config(<?php echo $js->config(['openLocation'], false); ?>);
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    wx.ready(function () {
+        $('#openMap').click(function () {
+            wx.openLocation({
+                latitude: {$takeInfo.lat},
+                longitude: {$takeInfo.lng},
+                name: '{$takeInfo.name}',
+                scale: 3
+            });
+        });
+    });
+</script>
+<!--{/if}-->
+
+<div class="dux-order-list am-margin-top">
+    <div class="list-box ">
+        <div class="list-body">
+            <div class="body-header am-cf">
+                <a href="{$info.order_seller_url}">{$info.order_seller_name}</a>
+            </div>
+
+            <ul class="body-items">
+                <!--loop{$orderGoods as $k => $item}-->
+                <li>
+                    <div class="item-img">
+                        <a href="{$item.goods_url}"><img src="{$item.goods_image}"></a>
+                    </div>
+                    <div class="item-info">
+                        <div class="title"><a  href="{$item.goods_url}">{$item.goods_name}</a></div>
+                        <p>
+                            数量：{$item.goods_qty}
+                            <!--if{$item.goods_options }-->
+                            <!--loop{$item.goods_options as $v}-->
+                            {$v.name}：{$v.value}
+                            <!--{/loop}-->
+                            <!--{/if}-->
+                        </p>
+                        <p class="info">￥{$item.goods_price}</p>
+                        <div class="item-action">
+                            <!--if{$item.action_service}-->
+                            <a href="{url('order/refund/push', 'id' => $item.id)}" class="am-btn am-btn-default am-btn-sm">申请退款</a>
+                            <!--{/if}-->
+                            <!--if{$item.action_comment}-->
+                            <a href="{url('order/comment/push', ['id' => $item.id, 'action' => url('', ['order_no' => $info.order_no])])}"
+                               class="am-btn am-btn-default am-btn-sm">评价商品</a>
+                            <!--{/if}-->
+                        </div>
+                        <!--if{$item.service_status == 1}-->
+                        <div class="item-action am-text-warning">售后处理中</div>
+                        <!--{/if}-->
+                        <!--if{$item.service_status == 2}-->
+                        <div class="item-action am-text-success">售后完成</div>
+                        <!--{/if}-->
+                    </div>
+                </li>
+                <!--{/if}-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<ul class="dux-box am-padding dux-row-list">
+    <li>
+        <div>订单编号</div>
+        <div class="am-text-right am-text-shallow">{$info.order_no}</div>
+    </li>
+    <li>
+        <div>支付类型</div>
+        <div class="am-text-right am-text-shallow">
+            <!--if{$info.pay_type}-->
+            在线支付
+            <!--{else}-->
+            货到付款
+            <!--{/if}-->
+        </div>
+    </li>
+    <!--if{$payData}-->
+    <li>
+        <div>支付方式</div>
+        <div class="am-text-right am-text-shallow">
+            <!--loop{$payData as $key => $vo}-->
+            {$key ? '、': ''}
+            {$vo.pay_type}
+            <!--{/loop}-->
+        </div>
+    </li>
+    <!--{/if}-->
+    <li>
+        <div>下单时间</div>
+        <div class="am-text-right am-text-shallow">{date('Y-m-d H:i:s', $info.order_create_time)}</div>
+    </li>
+    <li>
+        <div>付款时间</div>
+        <div class="am-text-right am-text-shallow">{date('Y-m-d H:i:s', $info.pay_time)}</div>
+    </li>
+    <!--if{$deliveryInfo}-->
+    <li>
+        <div>发货时间</div>
+        <div class="am-text-right am-text-shallow">{date('Y-m-d H:i:s', $deliveryInfo.create_time)}</div>
+    </li>
+    <!--{/if}-->
+    <!--if{$info.order_complete_time}-->
+    <li><div>完成时间</div>
+        <div class="am-text-right am-text-shallow">{date('Y-m-d H:i:s', $info.order_complete_time)}</div>
+    </li>
+    <!--{/if}-->
+
+</ul>
+
+<ul class="dux-box am-padding dux-row-list">
+    <li>
+        <div>订单总额</div>
+        <div class="am-text-right">￥{$info.order_price}</div>
+    </li>
+    <li>
+        <div>运费</div>
+        <div class="am-text-right">￥{$info.delivery_price}</div>
+    </li>
+    <!--loop{$info.pay_currency.exchange as $k => $v}-->
+    <li>
+        <div>{$v.name}</div>
+        <span class="am-text-right">{$v.money}{$v.unit} 抵 {$v.deduct} 元</span>
+    </li>
+    <!--{/loop}-->
+    <!--loop{$info.pay_currency.append as $k => $v}-->
+    <li>
+        <div>{$v.name}</div>
+        <span class="am-text-right">{$v.money} {$v.unit}</span>
+    </li>
+    <!--{/loop}-->
+</ul>
+<div class="dux-box am-padding am-margin-top-0 dux-border-top am-text-default dux-flex">
+    <div class="">实付款</div>
+    <div class="flex-1 am-text-right">
+    <span class="am-text-danger">￥{$info.total_price}</span>
+    </div>
+</div>
+
+<div class="dux-box am-padding am-margin-top-0 dux-border-top am-text-default dux-flex">
+    <div class="">优惠</div>
+    <div class="flex-1 am-text-right am-text-danger">
+        ￥{$info.pay_discount}
+    </div>
+</div>
+
+<!--if{bccomp($info.refund_price, 0) === 1}-->
+<div class="dux-box am-padding am-margin-top-0 dux-border-top am-text-default dux-flex">
+    <div class="">退款金额</div>
+    <div class="flex-1 am-text-right am-text-danger">
+        ￥{$info.refund_price}
+    </div>
+</div>
+<!--{/if}-->
+
+<div class="dux-box-action">
+    <div class="action">
+        {$info.status_data.html}
+    </div>
+</div>
+
+<script>
+    Do('base', 'tpl', function () {
+        $('[data-service]').on('click', function () {
+            var tpl = $('#tpl').html();
+            var data = {
+                id: $(this).data('service')
+            };
+            laytpl(tpl).render(data, function (html) {
+                $(html).appendTo('body').modal().on('closed.modal.amui', function () {
+                    $(this).remove();
+                });
+            });
+        });
+    });
+</script>
+
+</html>

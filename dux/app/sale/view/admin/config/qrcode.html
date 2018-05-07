@@ -1,0 +1,339 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <ul class="am-nav">
+                    <li><a href="{url('index')}">基本设置</a></li>
+                    <li><a href="{url('apply')}">申请设置</a></li>
+                    <li><a href="{url('level')}">升级设置</a></li>
+                    <li class="am-active"><a href="{url('qrcode')}">二维码设置</a></li>
+                    <li><a href="{url('notice')}">消息设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">二维码配置</div>
+                <div class="am-panel-bd">
+                    <form class="am-form  am-form-horizontal dux-form" method="post" action="{url()}"
+                          data-dux="form-bind">
+                        <fieldset>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">二维码底图</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <input class="am-form-field" name="qrcode_image" id="image" value="{$info.qrcode_image}"
+                                               placeholder="只能上传png格式图片">
+                                        <span class="am-input-group-btn">
+                                            <button class="am-btn am-btn-default" type="button" data-dux="form-upload"
+                                                    data-target="#image" data-type="png"><i
+                                                    class="am-icon-upload"></i></button>
+                                        </span>
+                                        <span class="am-input-group-btn">
+                                            <button class="am-btn am-btn-default" type="button" data-dux="form-imgShow"
+                                                    data-target="#image" ><i class="am-icon-photo"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">二维码位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_status" value="1" {$info.qrcode_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_x"
+                                               value="{$info['qrcode_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_y"
+                                               value="{$info['qrcode_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">二维码大小</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-g am-g-collapse">
+                                        <div class="am-u-md-6 am-u-sm-12">
+                                            <div class="am-input-group">
+                                                <input type="text" name="qrcode_width"
+                                                       value="{$info['qrcode_width']}" placeholder="像素">
+                                                <span class="am-input-group-label">宽</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="am-u-md-6 am-u-sm-12">
+                                            <div class="am-input-group">
+                                                <input type="text" name="qrcode_height"
+                                                       value="{$info['qrcode_height']}" placeholder="像素">
+                                                <span class="am-input-group-label">高</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-help">二维码大小像素</div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">推荐码位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_code_status" value="1" {$info.qrcode_code_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_code_x"
+                                               value="{$info['qrcode_code_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_code_y"
+                                               value="{$info['qrcode_code_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                        <input type="text" name="qrcode_code_size"
+                                               value="{$info.qrcode_code_size}" placeholder="文字大小，像素">
+                                        <span class="am-input-group-label">大小</span>
+                                        <input type="text" name="qrcode_code_color" value="{$info.qrcode_code_color}" placeholder="文字颜色,如000000">
+                                        <span class="am-input-group-label">颜色</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素，推荐码如x83g4</div>
+                                </div>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">头像位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_avatar_status" {$info.qrcode_avatar_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_avatar_x"
+                                               value="{$info['qrcode_avatar_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_avatar_y"
+                                               value="{$info['qrcode_avatar_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">头像大小</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-g am-g-collapse">
+                                        <div class="am-u-md-6 am-u-sm-12">
+                                            <div class="am-input-group">
+                                                <input type="text" name="qrcode_avatar_width"
+                                                       value="{$info['qrcode_avatar_width']}" placeholder="像素">
+                                                <span class="am-input-group-label">宽</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="am-u-md-6 am-u-sm-12">
+                                            <div class="am-input-group">
+                                                <input type="text" name="qrcode_avatar_height"
+                                                       value="{$info['qrcode_avatar_height']}" placeholder="像素">
+                                                <span class="am-input-group-label">高</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-form-help">头像大小像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">用户名位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_username_status" value="1" {$info.qrcode_username_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_username_x"
+                                               value="{$info['qrcode_username_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_username_y"
+                                               value="{$info['qrcode_username_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                        <input type="text" name="qrcode_username_size" value="{$info.qrcode_username_size}" placeholder="文字大小，像素">
+                                        <span class="am-input-group-label">大小</span>
+                                        <input type="text" name="qrcode_username_color" value="{$info.qrcode_username_color}" placeholder="文字颜色,如000000">
+                                        <span class="am-input-group-label">颜色</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素，大小为像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">用户名对齐</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="qrcode_username_align">
+                                        <option value="0" {$info.qrcode_username_align == 0 ? 'selected' : ''}>左对齐</option>
+                                        <option value="1" {$info.qrcode_username_align == 1 ? 'selected' : ''}>居中</option>
+                                    </select>
+
+                                    <div class="am-form-help">用户名对齐方式</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语1文字</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="qrcode_ad1_text"
+                                           value="{$info['qrcode_ad1_text']}" placeholder="广告语1">
+                                    <div class="am-form-help">二维码广告语</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语1位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_ad1_status" value="1" {$info.qrcode_ad1_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_ad1_x"
+                                               value="{$info['qrcode_ad1_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_ad1_y"
+                                               value="{$info['qrcode_ad1_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                        <input type="text" name="qrcode_ad1_size"
+                                               value="{$info.qrcode_ad1_size}" placeholder="文字大小，像素">
+                                        <span class="am-input-group-label">大小</span>
+                                        <input type="text" name="qrcode_ad1_color" value="{$info.qrcode_ad1_color}" placeholder="文字颜色,如000000">
+                                        <span class="am-input-group-label">颜色</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素，如我为xxx代言，大小为像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语1对齐</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+
+                                    <select name="qrcode_ad1_align">
+                                        <option value="0" {$info.qrcode_ad1_align == 0 ? 'selected' : ''}>左对齐</option>
+                                        <option value="1" {$info.qrcode_ad1_align == 1 ? 'selected' : ''}>居中</option>
+                                    </select>
+
+                                    <div class="am-form-help">广告对齐方式</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语2文字</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="qrcode_ad2_text"
+                                           value="{$info['qrcode_ad2_text']}" placeholder="广告语2">
+                                    <div class="am-form-help">二维码广告语</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语2位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_ad2_status" value="1" {$info.qrcode_ad2_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_ad2_x"
+                                               value="{$info['qrcode_ad2_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_ad2_y"
+                                               value="{$info['qrcode_ad2_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                        <input type="text" name="qrcode_ad2_size"
+                                               value="{$info.qrcode_ad2_size}" placeholder="文字大小，像素">
+                                        <span class="am-input-group-label">大小</span>
+                                        <input type="text" name="qrcode_ad2_color" value="{$info.qrcode_ad2_color}" placeholder="文字颜色,如000000">
+                                        <span class="am-input-group-label">颜色</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素，如我为xxx代言，大小为像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语2对齐</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+
+                                    <select name="qrcode_ad2_align">
+                                        <option value="0" {$info.qrcode_ad2_align == 0 ? 'selected' : ''}>左对齐</option>
+                                        <option value="1" {$info.qrcode_ad2_align == 1 ? 'selected' : ''}>居中</option>
+                                    </select>
+
+                                    <div class="am-form-help">广告对齐方式</div>
+                                </div>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语3文字</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="qrcode_ad3_text"
+                                           value="{$info['qrcode_ad3_text']}" placeholder="广告语3">
+                                    <div class="am-form-help">二维码广告语</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语3位置</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <div class="am-input-group">
+                                        <label class="am-input-group-label">
+                                            <input type="checkbox" name="qrcode_ad3_status" value="1" {$info.qrcode_ad3_status ? 'checked' : ''}> 开启
+                                        </label>
+                                        <input type="text" name="qrcode_ad3_x"
+                                               value="{$info['qrcode_ad3_x']}" placeholder="横向坐标">
+                                        <span class="am-input-group-label">x</span>
+                                        <input type="text" name="qrcode_ad3_y"
+                                               value="{$info['qrcode_ad3_y']}" placeholder="纵向坐标">
+                                        <span class="am-input-group-label">y</span>
+                                        <input type="text" name="qrcode_ad3_size"
+                                               value="{$info.qrcode_ad3_size}" placeholder="文字大小，像素">
+                                        <span class="am-input-group-label">大小</span>
+                                        <input type="text" name="qrcode_ad3_color" value="{$info.qrcode_ad3_color}" placeholder="文字颜色,如000000">
+                                        <span class="am-input-group-label">颜色</span>
+                                    </div>
+                                    <div class="am-form-help">相对地图横向(x)与纵向(y)像素，如我为xxx代言，大小为像素</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">广告语3对齐</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+
+                                    <select name="qrcode_ad3_align">
+                                        <option value="0" {$info.qrcode_ad3_align == 0 ? 'selected' : ''}>左对齐</option>
+                                        <option value="1" {$info.qrcode_ad3_align == 1 ? 'selected' : ''}>居中</option>
+                                    </select>
+
+                                    <div class="am-form-help">广告对齐方式</div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

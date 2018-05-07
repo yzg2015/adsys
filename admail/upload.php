@@ -6,6 +6,15 @@
  * Time: 16:55
  */
 
+echo  strtotime('+2 week');
+$start_time_1 = '2018-12-21';
+if(!preg_match('/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/',$start_time_1)){
+    $start_time_1 = date('Y-m-d');
+}
+
+
+exit();
+
 require(dirname(__FILE__).'/httpupload.class.php');
 
 

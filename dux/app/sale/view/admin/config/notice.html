@@ -1,0 +1,492 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <ul class="am-nav">
+                    <li><a href="{url('index')}">基本设置</a></li>
+                    <li><a href="{url('apply')}">申请设置</a></li>
+                    <li><a href="{url('level')}">升级设置</a></li>
+                    <li><a href="{url('qrcode')}">二维码设置</a></li>
+                    <li class="am-active"><a href="{url('notice')}">消息设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-body">
+            <form class="am-form  am-form-horizontal dux-form am-padding-0" method="post" action="{url()}"
+                  data-dux="form-bind">
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">加入分销通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_join_status" {$info.notice_join_status ? 'checked' : ''} value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_join_status" {$info.notice_join_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_join_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_join_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_join_title" value="{$info.notice_join_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_join_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_join_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [推荐人] [时间]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">新增下级通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_next_status" {$info.notice_next_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_next_status" {$info.notice_next_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_next_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_next_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                        <input type="number" name="notice_next_level" value="{$info.notice_next_level}">
+                                    <div class="am-form-help">通知最大层级</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_next_title" value="{$info.notice_next_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_next_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_next_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [时间] [下线层级]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">下级付款通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_pay_status" {$info.notice_pay_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_pay_status" {$info.notice_pay_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_pay_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_pay_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="number" name="notice_pay_level" value="{$info.notice_pay_level}">
+                                    <div class="am-form-help">通知最大层级</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_pay_title" value="{$info.notice_pay_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_pay_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_pay_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [订单编号] [订单金额] [订单名称] [佣金金额] [时间] [下线层级]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">下级完成通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_confirm_status" {$info.notice_confirm_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_confirm_status" {$info.notice_confirm_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_confirm_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_confirm_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="number" name="notice_confirm_level" value="{$info.notice_confirm_level}">
+                                    <div class="am-form-help">通知最大层级</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_confirm_title" value="{$info.notice_confirm_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_confirm_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_confirm_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [订单编号] [订单金额] [订单名称] [佣金金额] [时间] [下线层级]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">提现申请提交通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_cash_status" {$info.notice_cash_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_cash_status" {$info.notice_cash_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_cash_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_cash_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_cash_title" value="{$info.notice_cash_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_cash_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_cash_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [时间] [金额] [提现方式]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">提现申请完成通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_com_status" {$info.notice_com_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_com_status" {$info.notice_com_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_com_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_com_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_com_title" value="{$info.notice_com_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_com_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_com_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [时间] [金额] [提现方式]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">佣金打款通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_sale_status" {$info.notice_sale_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_sale_status" {$info.notice_sale_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_sale_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_sale_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_sale_title" value="{$info.notice_sale_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_sale_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_sale_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [时间] [金额] [提现方式]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default dux-panel ">
+                    <div class="am-panel-hd">分销升级通知</div>
+                    <div class="am-panel-bd">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知开关</label>
+                                <div class="am-u-md-10 am-u-sm-12 am-form-content">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_level_status" {$info.notice_level_status ? 'checked' : ''}   value="1">
+                                        开启
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" name="notice_level_status" {$info.notice_level_status == 0 ? 'checked' : ''} value="0">
+                                        关闭
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">通知方式(多选)</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="notice_level_class[]" class="am-form-field" data-am-selected="{btnWidth: '100%'}" multiple required>
+                                        <!--loop{$sendClass as $key => $vo}-->
+                                        <option value="{$key}"
+                                        <!--if{in_array($key, (array)unserialize($info['notice_level_class'])) }--> selected <!--{/if}-->
+                                        >{$vo.name}</option>
+                                        <!--{/loop}-->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label"></label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <input type="text" name="notice_level_title" value="{$info.notice_level_title}" required>
+                                    <div class="am-form-help">通知标题，短信无标题</div>
+                                </div>
+                            </div>
+
+                            <!--loop{$sendClass as $key => $vo}-->
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">{$vo.name}</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <textarea name="notice_level_{$key}_tpl" rows="{$vo.editor ? '15' : '6'}"  {$vo.editor ? 'data-dux="form-editor"' : ''} >{$info['notice_level_'.$key.'_tpl']}</textarea>
+                                    <div class="am-form-help">内容，模板变量: [昵称] [时间] [金额] [提现方式]</div>
+                                </div>
+                            </div>
+                            <!--{/loop}-->
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">商品分类
+                    <!--if{!$classId}-->
+                    (选择后可发布)
+                    <!--{/if}-->
+                </div>
+                <div class="am-panel-bd">
+                    <div class="dux-tree">
+                            <h2><a href="{url()}">全部</a></h2>
+                            {$treeHtml}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div data-dux="table-bind" class=" dux-g">
+                <div class="dux-page-header am-cf">
+                    <div class="page-title">
+                        <form class="am-form-inline" method="get" action="{url()}">
+                            <div class="am-form-group">
+                                <input type="text" name="keyword" class="am-form-field" value="{$pageMaps.keyword}" placeholder="搜索">
+                            </div>
+                            <div class="am-form-group">
+                                <select name="pos_id" class="am-form-field">
+                                    <option value="">==推荐位==</option>
+                                    <!--loop{$posList as $vo}-->
+                                    <option value="{$vo.pos_id}" {$pageMaps.pos_id==$vo.pos_id ? 'selected' : ''} >{$vo.name}</option>
+                                    <!--{/loop}-->
+                                </select>
+                            </div>
+                            <div class="am-form-group">
+                                <button type="submit" class="am-btn am-btn-primary am-icon-search"></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="page-action">
+                        <!--if{$classId}-->
+                        <a class="am-btn am-btn-primary" href="{url('add', ['class_id' => $classId])}">添加</a>
+                        <!--{/if}-->
+                    </div>
+                </div>
+                <div class="dux-page-table">
+
+                    <!--if{!empty($list)}-->
+                    <table class="am-table dux-table" data-table>
+                        <thead>
+                        <tr>
+                            <th width="100">#</th>
+                            <th>封面图</th>
+                            <th>商品</th>
+                            <th>类别</th>
+                            <th>价格</th>
+                            <th>销量</th>
+                            <th>库存</th>
+                            <th class="am-text-center">状态</th>
+                            <th class="am-text-center" width="120">管理</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--loop{(array)$list as $vo}-->
+                        <tr>
+                            <td>{$vo.mall_id}</td>
+                            <td><img src="{$vo.image}" class="am-img-thumbnail" width="80" height="80"></td>
+                            <td><a href="{url(VIEW_LAYER_NAME.'/mall/Info/index',array('id' => $vo.mall_id))}" target="_blank">{$vo.title}</a></td>
+                            <td><a href="{url('index', ['class_id' => $vo.class_id])}">{$vo.class_name}</a></td>
+                            <td>￥{$vo.sell_price}</td>
+                            <td>{$vo.sale}</td>
+                            <td>{$vo.store}</td>
+                            <td class="am-text-center">
+                                <!--if{$vo.status}-->
+                                <span data-id="{$vo.content_id}" data-name="status" data-url="{url('status')}" data-status="1" class="am-text-success am-icon-circle"></span>
+                                <!--{else}-->
+                                <span data-id="{$vo.content_id}" data-name="status" data-url="{url('status')}" data-status="0" class="am-text-danger am-icon-circle"></span>
+                                <!--{/if}-->
+                            </td>
+                            <td class="am-text-center">
+                                <a class="am-btn am-btn-primary am-btn-xs" href="{url('edit', ['id'=>$vo[$pri]])}"
+                                   title="编辑"><i class="am-icon-pencil"></i></a>
+                                <a class="am-btn am-btn-danger am-btn-xs" href="javascript:;" data-url="{url('del')}"
+                                   data-id="{$vo[$pri]}" title="删除" data-del><i class=" am-icon-trash"></i></a>
+                            </td>
+                        </tr>
+                        <!--{/loop}-->
+                        </tbody>
+                    </table>
+                    <!--{else}-->
+                    <div class="am-panel dux-panel">
+                        <div class="am-panel-bd am-text-center">暂无内容</div>
+                    </div>
+                    <!--{/if}-->
+                </div>
+                <div class="dux-page-foot am-cf">
+                    {$page}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

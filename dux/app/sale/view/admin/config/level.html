@@ -1,0 +1,49 @@
+<div class="dux-body">
+    <div class="dux-box">
+        <div class="box-side">
+            <div class="am-panel am-panel-default dux-panel">
+                <ul class="am-nav">
+                    <li><a href="{url('index')}">基本设置</a></li>
+                    <li><a href="{url('apply')}">申请设置</a></li>
+                    <li class="am-active"><a href="{url('level')}">升级设置</a></li>
+                    <li><a href="{url('qrcode')}">二维码设置</a></li>
+                    <li><a href="{url('notice')}">消息设置</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="am-panel am-panel-default dux-panel">
+                <div class="am-panel-hd">升级设置</div>
+                <div class="am-panel-bd">
+                    <form class="am-form  am-form-horizontal dux-form" method="post" action="{url()}"
+                          data-dux="form-bind">
+                        <fieldset>
+                            <div class="am-form-group">
+                                <label class="am-u-md-2 am-u-sm-12 am-form-label">升级条件</label>
+                                <div class="am-u-md-10 am-u-sm-12">
+                                    <select name="sale_level">
+                                        <option value="1" {$info.level_type == 1 ? 'selected' : ''}>分销订单总额</option>
+                                        <option value="2" {$info.level_type == 2 ? 'selected' : ''}>分销订单总数</option>
+                                        <option value="3" {$info.level_type == 3 ? 'selected' : ''}>直属分销订单金额</option>
+                                        <option value="4" {$info.level_type == 4 ? 'selected' : ''}>直属分销订单总数</option>
+                                        <option value="5" {$info.level_type == 5 ? 'selected' : ''}>自购订单金额</option>
+                                        <option value="6" {$info.level_type == 6 ? 'selected' : ''}>自购订单数量</option>
+                                        <option value="7" {$info.level_type == 7 ? 'selected' : ''}>直属下线人数</option>
+                                        <option value="8" {$info.level_type == 8 ? 'selected' : ''}>下线总人数</option>
+                                    </select>
+                                    <div class="am-form-help">升级设置为分销等级提供升级条件</div>
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                                    <button class="am-btn am-btn-primary" type="submit">保存</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

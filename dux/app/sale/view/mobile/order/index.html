@@ -1,0 +1,55 @@
+<ul class="am-avg-sm-4 dux-tabs">
+    <li class="{$type == 0 ? 'active' : 0}">
+        <a href="{url('')}">全部</a>
+    </li>
+    <li class="{$type == 1 ? 'active' : 0}">
+        <a href="{url('', ['type' => 1])}">待完成</a>
+    </li>
+    <li class="{$type == 2 ? 'active' : 0}">
+        <a href="{url('', ['type' => 2])}">已完成</a>
+    </li>
+    <li class="{$type == 3 ? 'active' : 0}">
+        <a href="{url('', ['type' => 3])}">已取消</a>
+    </li>
+</ul>
+<!--if{empty($pageList)}-->
+<div class="dux-box am-padding am-text-center">
+    暂无返利
+</div>
+<!--{/if}-->
+
+
+<ul class="dux-list">
+    <!--loop{$pageList as $vo}-->
+    <li class="am-cf dux-pro-item">
+            <div class="item-info">
+                <div class="title am-text-truncate">{$vo.goods_name}</div>
+                <div class="title">单号：{$vo.order_no}</div>
+                <div class="title">用户：{$vo.order_show_name}</div>
+                <p>
+                    {date('Y-m-d H:i', $vo.create_time)}
+                </p>
+                <p class="">
+                    返利：<span class="am-text-danger">￥{$vo.sale_money}</span>
+                </p>
+            </div>
+            <div class="item-other">
+                <!--if{!$vo.sale_status}-->
+                <span class="am-badge">已取消</span>
+                <!--{/if}-->
+                <!--if{$vo.sale_status == 1}-->
+                <span class="am-badge am-badge-warning">待完成</span>
+                <!--{/if}-->
+                <!--if{$vo.sale_status == 2}-->
+                <span class="am-badge am-badge-success">已完成</span>
+                <!--{/if}-->
+            </div>
+    </li>
+    <!--{/loop}-->
+</ul>
+
+
+<div class="dux-pages am-cf">
+    {$page}
+</div>
+

@@ -1,0 +1,131 @@
+<div class="dux-page-header am-cf">
+    <div class="page-title">
+        <a class="am-btn am-btn-primary" href="{url('index')}"> 页面列表</a>
+    </div>
+    <div class="page-action">
+        <a class="am-btn am-btn-danger" href="javascript:location.reload();"><i class="am-icon-refresh"></i></a>
+    </div>
+</div>
+
+<div class="dux-body">
+    <div class="am-panel am-panel-default dux-panel">
+        <div class="am-panel-hd">{$assignName}页面</div>
+        <div class="am-panel-bd">
+            <form class="am-form  am-form-horizontal dux-form" data-dux="form-bind" method="post">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">上级页面</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <select data-am-selected="{btnWidth: '100%'}" name="parent_id" required>
+                                <option value="0">==顶级页面==</option>
+                                <!--loop{(array)$classList as $vo}-->
+                                <option <!--if{$vo.page_id == $info.parent_id}--> selected <!--{/if}-->
+                                value="{$vo.page_id}">{$vo.cname}</option>
+                                <!--{/loop}-->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">页面名称</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="name" value="{$info.name}" placeholder="请输入页面名称" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">页面标识</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="label" value="{$info.label}" placeholder="请输入页面标识" required>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">页面顺序</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="number" name="sort" value="{$info.sort}" placeholder="请输入顺序">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">副页面名称</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="subname" value="{$info.subname}" placeholder="请输入页面名称">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">封面图</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <!--if{$info.image}-->
+                            <div class="am-margin-bottom" style="">
+                                <img src="{$info.image}" class="am-img-thumbnail" width="200" alt=""/>
+                            </div>
+                            <!--{/if}-->
+                            <div class="am-input-group">
+                                <input class="am-form-field" name="image" id="image" value="{$info.image}"
+                                       placeholder="可选,上传导航封面图">
+                                <span class="am-input-group-btn">
+                                            <button class="am-btn am-btn-default" type="button" data-dux="form-upload"
+                                                    data-target="#image" data-type="jpg,png,bmp,gif"><i
+                                                    class="am-icon-upload"></i></button>
+                                        </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">跳转地址</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="url" value="{$info.url}" placeholder="可选,栏目跳转到外部地址">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">正文内容</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <textarea data-dux="form-editor" name="content"
+                                      style="height: 400px">{$info.content}</textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">页面关键词</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <input type="text" name="keyword" value="{$info.keyword}" placeholder="可选,请输入关键词">
+                        </div>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">页面描述</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <textarea name="description" placeholder="可选,页面描述信息">{$info.description}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="am-u-md-2 am-u-sm-12 am-form-label">页面模板</label>
+                        <div class="am-u-md-10 am-u-sm-12">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label">page_</span>
+                                <input class="am-form-field" type="text" name="tpl" value="{$info.tpl}" placeholder="指定页面模板">
+                                <span class="am-input-group-label">.html</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-offset-12 am-u-md-offset-2">
+                            <input type="hidden" name="category_id" value="{$info.category_id}">
+                            <input type="hidden" name="page_id" value="{$info.page_id}">
+                            <input type="hidden" name="model_id" value="{$modelId}">
+                            <button class="am-btn am-btn-primary" type="submit" disabled>保存</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

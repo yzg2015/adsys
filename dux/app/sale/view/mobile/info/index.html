@@ -1,0 +1,38 @@
+<main class="dux-layout-page">
+
+    <div class="dux-panel-list">
+        <dl>
+            <dt>本月返利</dt>
+            <dd>￥{$saleMoneyMonth}</dd>
+        </dl>
+        <dl>
+            <dt>总推广返利</dt>
+            <dd>￥{$saleMoneyCount}</dd>
+        </dl>
+    </div>
+
+    <div class="dux-panel dux-panel-2">
+        <a href="{url('member/points/index')}">
+            <div class="panel-main">
+                <i class="am-icon-database"></i>
+                <h1>
+                    推广返利
+                </h1>
+                <div class="num">￥{$saleInfo.money}</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="dux-panel-list">
+        <dl>
+            <dt>直属用户</dt>
+            <dd>{$userCount}人</dd>
+        </dl>
+        <dl>
+            <dt>直属分销商</dt>
+            <dd>{$agentCount}人</dd>
+        </dl>
+    </div>
+
+</main>
+

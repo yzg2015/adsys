@@ -1,0 +1,10 @@
+{
+    "require": {
+        "php": ">=5.4",
+        "riverslei/payment": "~4.0",
+        "overtrue/wechat": "~3.2",
+        "aferrandini/phpqrcode": "~1.0",
+        "duxphp/mipush": "~0.1",
+        "leafo/scssphp" : "~0.1"
+    }
+}
