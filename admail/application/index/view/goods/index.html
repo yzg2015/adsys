@@ -107,7 +107,7 @@
             <div class="i-p-top">
                 <span> {$info.name}</span>
                 <br>
-                <span class="acticePrice"><span></span>NT$  {$info.price}</span>
+                <span class="acticePrice"><span></span>NT$  {$info.z_price}</span>
                 <br>
                 <span class="oldPrice">原價：<span>NT${$info.price}</span></span>
             </div>
@@ -132,7 +132,7 @@
                 <div class="orderInf font-desc">
                     <font style="color: #FF0000;">
                         【官方店限時搶購】【原價NT${$info.price}】
-                        【在綫支付】【促銷僅NT${$info.price}】。免運費+支持七天無理由退換貨！發現非正品，商家承擔來回運費！
+                        【在綫支付】【促銷僅NT${$info.z_price}】。免運費+支持七天無理由退換貨！發現非正品，商家承擔來回運費！
                     </font>
                 </div>
             </div>
@@ -191,9 +191,13 @@
                                     <ul class="allpj" id="allpj">
                                         {volist name="c_list" id="vo"}
                                         <li class="le" style="height: 100px; display: list-item;">
-                                            <span class="touxiang"></span><img class="lj" src="/public/static/home/img/l.png">
-                                            <section class="l">{$vo.content}
-                                                <div></div>
+                                            <span class="touxiang"></span>
+                                            <img class="lj" src="/public/static/home/img/l.png">
+                                            <section class="l">
+                                                {$vo.content}
+                                                <div>
+
+                                                </div>
                                             </section>
                                         </li>
                                         {/volist}

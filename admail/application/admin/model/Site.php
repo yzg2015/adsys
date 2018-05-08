@@ -39,6 +39,15 @@ class Site extends Model
         return $data_list;
     }
 
+    public static function getAllList()
+    {
+        $map['status']=1;
+        $data_list = self::where($map)
+            ->column('id,title,url');
+        return  $data_list;
+    }
+
+
     public static function getTreeList()
     {
         $map['status']=1;

@@ -1,15 +1,68 @@
 {extend name="layout" /}
-{block name="page-header"}
+{block name="page-header"}{/block}
+{block name="style"}
+<link rel="stylesheet" href="/public/static/libs/webuploader/webuploader.css?v=20180327">
+<link rel="stylesheet" href="/public/static/admin/css/custom.css?v=20180327">
+
+<script src="__LIBS__/ueditor/ueditor.config.js?v={:config('asset_version')}"></script>
+<script src="__LIBS__/ueditor/ueditor.all.min.js?v={:config('asset_version')}"></script>
+
+
+<style>
+    .uploadify {
+        border: 1px solid #5f4e42;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        width: 120px;
+        text-align: center;
+        background: #00b7ee;
+    }
+    .uploadify .input-file {
+        height: 30px;
+        left: 0;
+        margin-left: -5px;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 120px;
+    }
+    .file-item{
+        float: left;
+    }
+    .pro-item{
+        line-height: 34px;
+    }
+    .pro-title{
+        float: left;
+        margin-left: 5px;
+        width: 80px;
+    }
+    .form-horizontal .item_pro {
+        float: left;
+        width: 240px;height: 300px;
+        border: 1px solid #999;
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    .del_propery{
+        float:right;margin-right: 20px;border: 1px solid #555;padding: 0 5px 0 5px;line-height: 30px;cursor: pointer;
+    }
+    .spec_content{
+        float: left;
+        width:48%;
+        border:1px solid #999;
+        margin:5px;
+    }
+    .spec_content .form-group,.push-20{
+        margin: 5px;
+    }
+    .spec_value{
+        width:200px;float:left;margin-right: 5px;margin-top: 5px;
+    }
+</style>
 {/block}
 {block name="content"}
-{notempty name="default_pass"}
-<div class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <h3 class="font-w300 push-15">安全提示</h3>
-    <p>超级管理员默认密码未修改，建议马上 <a class="alert-link link-effect" href="{:url('user/index/edit', ['id' => 1])}">修改</a>。</p>
-</div>
-{/notempty}
-{// 后台首页钩子}
 <div class="row" style="">
     <div class="col-md-12" style="">
         <div class="block" style="">
@@ -23,10 +76,10 @@
                 <li class="">
                     <a href="#tab3">商品规格</a>
                 </li>
-                <li class="">
+                <li >
                     <a href="#tab4">商品属性</a>
                 </li>
-                <li class="">
+                <li>
                     <a href="#tab5">促销</a>
                 </li>
                 <li class="pull-right">
@@ -46,108 +99,135 @@
                     </ul>
                 </li>
             </ul>
-
-            <form action="/admin.php/goods/index/save.html" name="form-builder" method="post" class="form-horizontal form-builder" style="">
+            <form action="/public/admin.php/admin/goods/save.html" name="form-builder" method="post" class="form-horizontal form-builder">
                 <div class="block-content tab-content" style="">
-                    <div class="tab-pane fade push-20 active in" id="tab1">
+                    <div class="tab-pane fade push-20  active in" id="tab1">
                         <div class="form-group">
+                            <input type="hidden" name="id" value="{$id}"/>
                             <label class="col-xs-12" for="title">商品名称</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="goods_name" name="goods_name" value="" placeholder="请输入商品名称">
+                                <input class="form-control" type="text" id="goods_name" name="name" value="{$info.name}" placeholder="请输入商品名称">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">SPU</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="spu" name="spu" value="" placeholder="请输入商品spu">
+                                <input class="form-control" type="text" id="spu" name="spu" value="{$info.spu}" placeholder="请输入商品spu">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-xs-12" for="pid">站点</label>
+
+                        <div class="form-group" id="form_group_site_id">
+                            <label class="col-xs-12" for="site_id">站点</label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="site_id" name="site_id">
-                                    <option value="">请选择：</option>
-                                    <option value="136">http://aosois.com</option>
-                                    <option value="135">http://juiceboo.com</option>
+                                <select class="js-select2 form-control" id="site_id" name="site_id" data-allow-clear="true" data-placeholder="请选择">
+                                    <option value="0">请选择</option>
+                                    {volist name="site_list" id="v"}
+                                    <option value="{$v.id}" {if ((string)$info.site_id == (string)$v.id)}selected{/if}>{$v.url|clear_js}</option>
+                                    {/volist}
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group" id="form_group_cid">
+                            <label class="col-xs-12" for="cid">分类</label>
+                            <div class="col-sm-9">
+                                <select class="js-select2 form-control" id="cid" name="cid" data-allow-clear="true" data-placeholder="请选择">
+                                    <option value="0">请选择</option>
+                                    {volist name="cate_list" id="v"}
+                                    <option value="{$v.id}" {if ((string)$info.cid == (string)$v.id)}selected{/if}>{$v.title|clear_js}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="col-xs-12" for="title">负责人</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="principal" name="principal" value="">
+                                <input class="form-control" type="text" id="principal" name="who" value="{$info.who}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">商品库存</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="goods_number" name="goods_number" value="" placeholder="请输入商品库存">
+                                <input class="form-control" type="text" id="goods_number" name="num" value="{$info.num}" placeholder="请输入商品库存">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">原价</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="market_price" name="market_price" value="">
+                                <input class="form-control" type="text" id="market_price" name="price" value="{$info.price}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">折扣价格</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="shop_price" name="shop_price" value="">
+                                <input class="form-control" type="text" id="shop_price" name="z_price" value="{$info.z_price}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">自定义内容</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="custom_content" name="custom_content" value="">
+                                <input class="form-control" type="text" id="custom_content" name="remark" value="{$info.remark}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">活动倒计时</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="countdown" name="countdown" value="">
+                                <input class="form-control" type="text" id="countdown" name="dao_time" value="{$info.dao_time}">
                                 <div class="help-block">小时 <span style="color:red;">（请填写整数）</span></div>
                             </div>
                         </div>
-                        <div id="form_group_url_target" class="form-group">
+                        <div id="form_group_status" class="form-group">
                             <div class="col-xs-6">
-                                <label for="url_target" class="col-xs-12">上架状态</label>
-                                <label class="css-input css-radio css-radio-primary css-radio-sm push-10-r  ">
-                                    <input type="radio" checked="" value="1" id="url_target1" name="is_on_sale">
-                                    <span></span>上架</label>
-                                <label class="css-input css-radio css-radio-primary css-radio-sm push-10-r  ">
-                                    <input type="radio" value="0" id="url_target2" name="is_on_sale">
-                                    <span></span>下架</label>
+                                <label for="status" class="col-xs-12">上架状态</label>
+                                <label class="css-input css-radio css-radio-primary  push-10-r">
+                                    <input type="radio" name="status" id="status1" value="1"
+                                           {eq name="info.status" value="1"}checked{/eq}>
+                                    <span></span> 上架
+                                </label>
+                                <label class="css-input css-radio css-radio-primary  push-10-r">
+                                    <input type="radio" name="status" id="status_2" value="0"
+                                           {eq name="info.status" value="0"}checked{/eq}>
+                                    <span></span> 下架
+                                </label>
                             </div>
                             <div class="col-xs-3">
                                 <label class="col-xs-12">已搶購數量</label>
-                                <input class="form-control" type="text" id="click_count" name="click_count" value="">
+                                <input class="form-control"  type="number" id="click_count" name="buy_num" value="{$info.buy_num}">
                             </div>
                         </div>
-                        <div id="form_group_avatar" class="form-group">
-                            <label for="avatar" class="col-xs-12">商品图片</label>
-                            <div class="col-xs-12">
-                                <div id="file_list_avatar" class="uploader-list">
 
+
+                        <div class="form-group col-md-12 col-xs-12" id="form_group_pic">
+                            <label class="col-xs-12" for="pic">商品图片</label>
+                            <div class="col-xs-12 js-upload-image">
+                                <div id="file_list_pic" class="uploader-list">
+                                    {notempty name="info.pic"}
+                                    <div class="file-item thumbnail">
+                                        <img data-original="{$info.pic|get_file_path}" src="{$info.pic|get_thumb}" width="100">
+                                        <i class="fa fa-times-circle remove-picture"></i>
+                                    </div>
+                                    {/notempty}
                                 </div>
                                 <div class="clearfix"></div>
-                                <input type="hidden" value="" id="cover_id_multi" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false" name="image">
-                                <div id="picker_avatar" class="">
-                                    <div id="" class="uploadify-button uploadify">
-                                        <span class="uploadify-button-text"><i class="icon_export"></i>上传图片</span>
-                                        <input id="fileupload" class="input-file" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/goods.html" multiple="">
-                                    </div>
-                                </div>
+                                <input type="hidden" name="pic" data-multiple="false" data-watermark='' data-thumb='' data-size="500000" data-ext='jpg,png,gif,jpeg' id="pic" value="{$info.pic|default=''}">
+                                <div id="picker_pic">上传单张图片</div>
+
                             </div>
                         </div>
+
                     </div>
                     <div class="tab-pane fade auth-node" id="tab2" style="">
                         <div class="form-group" style="">
-                            <label class="col-xs-12" for="title">产品介绍</label>
-                            <div class="col-sm-9" style="">
+                            <div class="form-group col-md-12 col-xs-12 " id="form_group_content">
+                                <label class="col-xs-12" for="content">内容</label>
+                                <div class="col-xs-12">
+                                    <script id="content" class="js-ueditor" name="content" type="text/plain"></script>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="tab-pane fade auth-node" id="tab3">
                         <div class="push-20">
                             <button class="btn btn-minw btn-primary add_spec_box" target-form="form-builder" type="button">
@@ -155,7 +235,63 @@
                             </button>
                         </div>
                         <div class="spec_comtent_list">
+                            <div class="spec_content">
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="title">规格名称</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control spec_name" type="text" value="尺碼" placeholder="请输入规格名称">
+                                    </div>
+                                    <button class="btn del_spec_box" target-form="form-builder" type="button">
+                                        删除
+                                    </button>
+                                </div>
+                                <div class="col-xs-12 push-20">
+                                    <button class="btn btn-minw btn-primary add_spec" target-form="form-builder" type="button">
+                                        新增规格值
+                                    </button>
+                                    <button class="btn btn-minw del_spec" target-form="form-builder" type="button">
+                                        删除规格值
+                                    </button>
+                                    <input type="hidden" class="spec_index" value="">
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <div class="spec_box">
+                                        <input class="form-control spec_value" type="text" value="XS (小於47公斤)">
+                                        <input class="form-control spec_value" type="text" value="S (47-52公斤)">
+                                        <input class="form-control spec_value" type="text" value="M (53-60公斤)">
+                                        <input class="form-control spec_value" type="text" value="L (60-65公斤)">
+                                        <input class="form-control spec_value" type="text" value="XL (65-75公斤)">
+                                        <input class="form-control spec_value" type="text"><input class="form-control spec_value" type="text"><input class="form-control spec_value" type="text"></div>
+                                </div>
+                                <input type="hidden" name="spec[]" class="spec" value="">
+                            </div>
 
+                            <div class="spec_content">
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="title">规格名称</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control spec_name" type="text" value="" placeholder="请输入规格名称">
+                                    </div>
+                                    <button class="btn del_spec_box" target-form="form-builder" type="button">
+                                        删除
+                                    </button>
+                                </div>
+                                <div class="col-xs-12 push-20">
+                                    <button class="btn btn-minw btn-primary add_spec" target-form="form-builder" type="button">
+                                        新增规格值
+                                    </button>
+                                    <button class="btn btn-minw del_spec" target-form="form-builder" type="button">
+                                        删除规格值
+                                    </button>
+                                    <input type="hidden" class="spec_index" value="">
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <div class="spec_box">
+
+                                        <input class="form-control spec_value" type="text"><input class="form-control spec_value" type="text"><input class="form-control spec_value" type="text"><input class="form-control spec_value" type="text"></div>
+                                </div>
+                                <input type="hidden" name="spec[]" class="spec" value="">
+                            </div>
                         </div>
                         <div style="clear:both;"> </div>
                     </div>
@@ -166,19 +302,22 @@
                             </button>
                         </div>
                         <div class="property_box">
-
                             <div class="form-group item_pro">
                                 <div class="pro-item">
-                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">属性名称：</span><input class="form-control pro_name" type="text" value="綠色" style="width:150px;margin-top: 5px;">
                                     <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
                                     <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
                                         <div class="file_list_avatar uploader-list">
-
+                                            <div class="file-item js-gallery thumbnail" style="float:left">
+                                                <a class="img-link" href="http://letgoshopping.oss-cn-hongkong.aliyuncs.com/property/2018/05/20180508211041775218.jpg?OSSAccessKeyId=LTAIvvhPmJtbi4pO&amp;Expires=1841146989&amp;Signature=6z1ZjidFkQaTtX6fBbA%2BBA7Nyk4%3D">
+                                                    <img src="http://letgoshopping.oss-cn-hongkong.aliyuncs.com/property/2018/05/20180508211041775218.jpg?x-oss-process=image%2Fresize%2Cm_mfit%2Ch_120%2Cw_120&amp;OSSAccessKeyId=LTAIvvhPmJtbi4pO&amp;Expires=1841146989&amp;Signature=%2BBiZXFsTKXf%2BCuUsgpU6bESzjpI%3D" style="width:120px;height:120px;"></a>
+                                                <i class="fa fa-times-circle remove-picture" data-id="6630" onclick="remove_property_img(this)"></i>
+                                            </div>
                                         </div>
                                     </div>
                                     <div style="margin-left: 40px;margin-top: 5px;">
                                         <div class="del_propery">删除属性</div>
-                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <input type="hidden" value="6630" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
                                         <div class="">
                                             <div class="uploadify-button uploadify" style="width:80px;">
                                                 <span class="uploadify-button-text">上传图片</span>
@@ -187,23 +326,26 @@
 
                                         </div>
                                     </div>
-                                    <input type="hidden" class="img_id" value="">
+                                    <input type="hidden" class="img_id" value="3836">
                                     <input type="hidden" name="property[]" class="property" value="">
                                 </div>
                             </div>
-
                             <div class="form-group item_pro">
                                 <div class="pro-item">
-                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">属性名称：</span><input class="form-control pro_name" type="text" value="紅色" style="width:150px;margin-top: 5px;">
                                     <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
                                     <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
                                         <div class="file_list_avatar uploader-list">
-
+                                            <div class="file-item js-gallery thumbnail" style="float:left">
+                                                <a class="img-link" href="http://letgoshopping.oss-cn-hongkong.aliyuncs.com/property/2018/05/20180508211036297312.jpg?OSSAccessKeyId=LTAIvvhPmJtbi4pO&amp;Expires=1841146989&amp;Signature=ak0vDoAqyQ2gLtsKst8u18P7ihM%3D">
+                                                    <img src="http://letgoshopping.oss-cn-hongkong.aliyuncs.com/property/2018/05/20180508211036297312.jpg?x-oss-process=image%2Fresize%2Cm_mfit%2Ch_120%2Cw_120&amp;OSSAccessKeyId=LTAIvvhPmJtbi4pO&amp;Expires=1841146989&amp;Signature=X6VHtGB4xSu8t1kjJ35cQCSPEfg%3D" style="width:120px;height:120px;"></a>
+                                                <i class="fa fa-times-circle remove-picture" data-id="6629" onclick="remove_property_img(this)"></i>
+                                            </div>
                                         </div>
                                     </div>
                                     <div style="margin-left: 40px;margin-top: 5px;">
                                         <div class="del_propery">删除属性</div>
-                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <input type="hidden" value="6629" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
                                         <div class="">
                                             <div class="uploadify-button uploadify" style="width:80px;">
                                                 <span class="uploadify-button-text">上传图片</span>
@@ -212,57 +354,7 @@
 
                                         </div>
                                     </div>
-                                    <input type="hidden" class="img_id" value="">
-                                    <input type="hidden" name="property[]" class="property" value="">
-                                </div>
-                            </div>
-
-                            <div class="form-group item_pro">
-                                <div class="pro-item">
-                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
-                                    <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
-                                    <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
-                                        <div class="file_list_avatar uploader-list">
-
-                                        </div>
-                                    </div>
-                                    <div style="margin-left: 40px;margin-top: 5px;">
-                                        <div class="del_propery">删除属性</div>
-                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
-                                        <div class="">
-                                            <div class="uploadify-button uploadify" style="width:80px;">
-                                                <span class="uploadify-button-text">上传图片</span>
-                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <input type="hidden" class="img_id" value="">
-                                    <input type="hidden" name="property[]" class="property" value="">
-                                </div>
-                            </div>
-
-                            <div class="form-group item_pro">
-                                <div class="pro-item">
-                                    <span class="pro-title">规格名称：</span><input class="form-control pro_name" type="text" value="" style="width:150px;margin-top: 5px;">
-                                    <span class="pro-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SKU：</span><input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
-                                    <div style="width:140px;height: 160px;margin-left: 50px;margin-top: 5px; ">
-                                        <div class="file_list_avatar uploader-list">
-
-                                        </div>
-                                    </div>
-                                    <div style="margin-left: 40px;margin-top: 5px;">
-                                        <div class="del_propery">删除属性</div>
-                                        <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
-                                        <div class="">
-                                            <div class="uploadify-button uploadify" style="width:80px;">
-                                                <span class="uploadify-button-text">上传图片</span>
-                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <input type="hidden" class="img_id" value="">
+                                    <input type="hidden" class="img_id" value="3837">
                                     <input type="hidden" name="property[]" class="property" value="">
                                 </div>
                             </div>
@@ -277,20 +369,158 @@
                                     <option value="0">普通商品</option>
                                     <option value="1">满减</option>
                                     <option value="2">阶梯折扣</option>
-                                    <option value="3">买送</option>
+                                    <option value="3" selected="">买送</option>
                                 </select>
                             </div>
                             <div class="col-sm-3">
-                                <select class="form-control" id="prom_id" name="prom_id" style="display:none;">
+                                <select class="form-control" id="prom_id" name="prom_id">
                                     <option value="0">请选择</option>
+                                    <option value="2">腳鏈買一送一  【點擊購買下一組】</option>
+                                    <option value="3">潮款金手鏈買二送一【點擊購買下一組】</option>
+                                    <option value="4">腳鏈買二送一【點擊訂購下一組】</option>
+                                    <option value="5">襯衫買一送一【點擊訂購下一組】</option>
+                                    <option value="6">休閒男鞋 點擊訂購下一組</option>
+                                    <option value="7">買一送二 點擊訂購下一組</option>
+                                    <option value="8">紅繩手鏈買一送一 【點擊購買下一組】</option>
+                                    <option value="9">24K金手鏈買二送一【點擊購買下一組】</option>
+                                    <option value="10">靈動系列買一送一【點擊該按鈕訂購下一組】</option>
+                                    <option value="11">披肩買一送一 點擊訂購下一組</option>
+                                    <option value="12">情侶T恤 買一送三 點擊訂購下一組</option>
+                                    <option value="13">S925純銀手鐲【點擊此按鈕選擇不同款式！！！】</option>
+                                    <option value="14">毛衣買一送一,點擊選擇下一組</option>
+                                    <option value="15">轉運手鏈買一送一</option>
+                                    <option value="16">雪紡襯衫買一送一【點擊購買下一組】</option>
+                                    <option value="17"> 長袖T恤買一送一【點擊購買下一組】</option>
+                                    <option value="18">點擊此處選擇不通的尺碼或顏色</option>
+                                    <option value="19">轉運手鐲買一送一</option>
+                                    <option value="20">限時特惠【買一送一】</option>
+                                    <option value="21">點擊此按鈕選擇不同的顏色尺碼</option>
+                                    <option value="22">買一送一【點擊此處選擇不同顏色或尺碼】</option>
+                                    <option value="23">點擊此按鈕選擇不同顏色或尺碼</option>
+                                    <option value="24">Buy one get one for free【Click here to choose another one】</option>
+                                    <option value="25">Buy 1 get 1 Free</option>
+                                    <option value="26">送長袖T恤【點擊此處選擇下一組】</option>
+                                    <option value="27">點擊此按鈕選擇不同的顏色或尺碼</option>
+                                    <option value="28">皮褲998買一送一</option>
+                                    <option value="29">Wallet for Free【Click here to choose different color】</option>
+                                    <option value="30">Buy One Get One Free</option>
+                                    <option value="31">Buy One Get 2 For Free (Click This Button Choose Another One)</option>
+                                    <option value="33">Buy One Get One Free</option>
+                                    <option value="34">送钱包 点击选购下一组</option>
+                                    <option value="35">超火爆塑身衣【買一送一】</option>
+                                    <option value="36">戒指買一送一</option>
+                                    <option value="37">12生肖系列【買一送一】</option>
+                                    <option value="38">時尚轉運水鑽手鐲 買二送一【點擊購買】</option>
+                                    <option value="39">Sun Cream (Click this button choose another one)</option>
+                                    <option value="40">KT手鏈買一送一 【點擊購買下一組】</option>
+                                    <option value="42">第二套僅需NT300</option>
+                                    <option value="43">轉運紅繩 買二送一</option>
+                                    <option value="44">買一送一【點擊此處購買下一組】</option>
+                                    <option value="45">手鐲買一送一 （點擊此按鈕選購下一組）</option>
+                                    <option value="46">【買二送一】點擊此處選擇不同款式</option>
+                                    <option value="47">女人如花手鐲 買一送一</option>
+                                    <option value="48">韓版百搭衛衣 買一送一 點此選擇第二件</option>
+                                    <option value="49">買一送一生肖戒指【點擊購買下一組】</option>
+                                    <option value="50">貴婦膏買一送一（點擊訂購下一組）</option>
+                                    <option value="51">銀手鐲買一送一【點擊購買下一組】</option>
+                                    <option value="52">睫毛增長液買一送一【點擊購買下一組】</option>
+                                    <option value="53">瘦身貼 買一送二（點擊此按鈕訂購下一組）</option>
+                                    <option value="54">純銀手鐲買一送一</option>
+                                    <option value="55">日本超夯的神奇無痕殺菌內褲買1送4</option>
+                                    <option value="57">買一送一</option>
+                                    <option value="58">打底褲買一送二(點擊此按鈕訂購下一組)</option>
+                                    <option value="59">束身衣買一送一</option>
+                                    <option value="60">塑形美體襪買一送二</option>
+                                    <option value="62">Champion衛衣買一送一 (點擊此按鈕訂購下一組)</option>
+                                    <option value="64">茶壺套裝買一送一(點擊此按鈕訂購下一組)</option>
+                                    <option value="65">美胸Bra買一送二</option>
+                                    <option value="66">純銀心經手鐲買一送一</option>
+                                    <option value="67">美牙神器買一送一</option>
+                                    <option value="69">買一送一【點擊此按鈕選擇不同款式】</option>
+                                    <option value="70">超夯水粉霜買一贈一</option>
+                                    <option value="71">買一送一【點擊此處選擇不同的顏色】</option>
+                                    <option value="72">能量滿溢爆鑽轉運戒買一送一</option>
+                                    <option value="73">中長款羽絨服買一送一(點擊此按鈕訂購下一組)</option>
+                                    <option value="74">鞋子買一送一 點擊此按鈕訂購下一組</option>
+                                    <option value="75">大悲咒手鐲開口心經全佛經平安祈福手鐲買一送一</option>
+                                    <option value="76">買一送一 超強防身機械三節伸縮甩棍</option>
+                                    <option value="77">送打底褲 點擊訂購下一組</option>
+                                    <option value="78">車痕修補液 買一送一</option>
+                                    <option value="79">收腹美體高腰塑身褲買一得四</option>
+                                    <option value="80">買心經送祈願香袋(點擊此按鈕訂購下一組)</option>
+                                    <option value="81">買水槍送工具 點擊此按鈕訂購下一組</option>
+                                    <option value="82">【雨揚推薦】新年開運皮夾 【買一送一】</option>
+                                    <option value="83">買黑鋼刀具組送小麥菜板</option>
+                                    <option value="84">吸金聚財晶鑽真皮腕錶</option>
+                                    <option value="85">【買一送一】轉運招財紅地毯</option>
+                                    <option value="86">UPFOOD韓國雙眼皮定型霜買一送一</option>
+                                    <option value="87">減肥貼買1送2</option>
+                                    <option value="88">防藍光日夜視眼鏡買一送一</option>
+                                    <option value="89">買一送一 點擊此按鈕購買下一組</option>
+                                    <option value="90">買貴婦膏送項鏈 點此按鈕購買下一組</option>
+                                    <option value="91">買碎花裙送緊身褲 點擊此按鈕購買下一組</option>
+                                    <option value="92">買行車記錄儀送偏光太陽眼鏡 點此按鈕購買下一組</option>
+                                    <option value="93">美國 HOT SHAPERS 懶人剋星腰瘦爆汗褲買一送一</option>
+                                    <option value="94">2018春夏網鞋休閑運動跑步鞋，買一送一，點此按鈕購買下一組</option>
+                                    <option value="95">買二送一</option>
+                                    <option value="96">贈送藍牙耳機</option>
+                                    <option value="97">買一送一【每人限購4件】</option>
+                                    <option value="98">【老師親算】2入心經手鐲，免費贈開運皮夾，點此按鈕購買下一組</option>
+                                    <option value="99">專治腳氣，腳臭！限時下殺！買一送二！</option>
+                                    <option value="100">脫毛大作戰！買一送一！</option>
+                                    <option value="101">QIJI氣墊休閒平底鞋買一贈一</option>
+                                    <option value="102">買一送二【點擊獲得贈品】</option>
+                                    <option value="103">十二星座手鏈 買一送一</option>
+                                    <option value="104">摩洛哥髮膜，最後280組！買一送一！</option>
+                                    <option value="105">銀飾買一送一 第三組僅需$383 客服自動改價</option>
+                                    <option value="106">夏季新款防曬衣韓版薄外套買一送二</option>
+                                    <option value="107">買一送一！時尚寬鬆棉麻藝術哈倫褲 【火爆熱銷】</option>
+                                    <option value="108">雪紡衫中長款短袖買一送一</option>
+                                    <option value="109">該上衣正進行限時買一送一活動，恭喜您可得兩件，請選擇第二件</option>
+                                    <option value="110">【買一送二】美國原裝懸浮UFO飛碟</option>
+                                    <option value="111">意大利羊皮多功能雙肩包送手包</option>
+                                    <option value="112">文藝棉麻寬鬆大碼中長款半袖上衣買一送一</option>
+                                    <option value="113">買一送一 點擊選擇第二件</option>
+                                    <option value="114">澳洲進口 機車手把鎖 電瓶車手把鎖,1198買一送一</option>
+                                    <option value="115">棉麻顯瘦連衣裙，買一送一</option>
+                                    <option value="116">昕頤平安喜樂心經千足銀戒指男女款買一送一</option>
+                                    <option value="118">【買壹送貳】夏季大碼寬送牛奶絲太極褲武術褲</option>
+                                    <option value="119">優雅雪紡衫買一送一</option>
+                                    <option value="120">塑身就現在！買一送一！</option>
+                                    <option value="121">買一送一【點擊此處選擇不同的顏色和尺碼】</option>
+                                    <option value="122">雨揚老師開運招財 超值優惠組合</option>
+                                    <option value="123">費洛蒙香水，買一送一！</option>
+                                    <option value="124">買一送一傳奇小金管持久遮瑕裸妝粉底</option>
+                                    <option value="125">加肥加大雪紡顯瘦連衣裙-買壹送壹（活動僅限今天）</option>
+                                    <option value="126">【超值價】【買一送一】金鑲玉！！龍鳳呈祥金鑲玉項鏈+龍翔萬里金玉翡翠項鏈</option>
+                                    <option value="127">【限時買一送一，僅此一次】夏裝輕熟文藝布衣棉麻連衣裙</option>
+                                    <option value="128">黑鷹X10手電筒，第二隻只需900元！</option>
+                                    <option value="129">天音！正版初音未來第二代概念藍牙耳機！買二送一！</option>
+                                    <option value="130">送財神！超低價預定！買一款送一款！</option>
+                                    <option value="131">買一送一【點擊此處選擇不同款式或尺碼】</option>
+                                    <option value="132">狗年姻緣開光招財情侶貔貅轉運紅繩！限時買一送一！</option>
+                                    <option value="133">狗年姻緣開光招財情侶貔貅轉運紅繩，限時買一送一！</option>
+                                    <option value="134">【買一送一】1366超值優惠 軟底健步鞋防滑輕便女鞋 </option>
+                                    <option value="135">輕便鞋買一送一 【點擊購買下一組】</option>
+                                    <option value="136">超低價預定！買一款送一款！</option>
+                                    <option value="137">買一送一【點擊此處選擇不同的圖案】</option>
+                                    <option value="138">【母親節特惠】百福純銀手鐲買一送一</option>
+                                    <option value="139">真絲無鋼圈無痕文胸套裝【兩套裝共四件 僅需$1299】</option>
+                                    <option value="140">夏季純棉亞麻大碼速幹男士沙灘褲【買一送二】男式休閑短褲！</option>
+                                    <option value="141">買一贈一 再送精美絨布首飾盒 【官方正品】七天無理由退換貨！</option>
+                                    <option value="142">活動買一送一</option>
+                                    <option value="143">購買第二組請點擊此處</option>
+                                    <option value="144">【買一送一】點擊此按鈕購買下一組</option>
+                                    <option value="145">最後30雙！買一送一！賣完無補！</option>
+                                    <option value="146">寬鬆迷你包臀連衣裙【買一送一】</option>
+                                    <option value="147" selected="">送衣服或者褲子</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="push-20">
-                        <input type="hidden" value="" name="goods_desc" id="goods_desc">
-                        <input type="hidden" name="step" value="1" id="step">
-                        <input type="hidden" name="id" value="" id="id">
+                        <input type="hidden" name="goods_desc" value="<p><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210736280955.jpg&quot; title=&quot;20180508210736280955.jpg&quot; alt=&quot;2.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210740536048.jpg&quot; title=&quot;20180508210740536048.jpg&quot; alt=&quot;3.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210742313681.jpg&quot; title=&quot;20180508210742313681.jpg&quot; alt=&quot;4.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210749802952.jpg&quot; title=&quot;20180508210749802952.jpg&quot; alt=&quot;5.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210752914502.jpg&quot; title=&quot;20180508210752914502.jpg&quot; alt=&quot;6.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210756481597.jpg&quot; title=&quot;20180508210756481597.jpg&quot; alt=&quot;7.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210800495752.jpg&quot; title=&quot;20180508210800495752.jpg&quot; alt=&quot;8.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210804335376.jpg&quot; title=&quot;20180508210804335376.jpg&quot; alt=&quot;9.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210807823142.jpg&quot; title=&quot;20180508210807823142.jpg&quot; alt=&quot;10.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210810302913.jpg&quot; title=&quot;20180508210810302913.jpg&quot; alt=&quot;11.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210814616457.jpg&quot; title=&quot;20180508210814616457.jpg&quot; alt=&quot;12.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210817408408.jpg&quot; title=&quot;20180508210817408408.jpg&quot; alt=&quot;13.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210821321957.jpg&quot; title=&quot;20180508210821321957.jpg&quot; alt=&quot;14.jpg&quot;/><img src=&quot;http://letgoshopping.oss-cn-hongkong.aliyuncs.com/detail/2018/05/20180508210824400419.jpg&quot; title=&quot;20180508210824400419.jpg&quot; alt=&quot;15.jpg&quot;/></p>" id="goods_desc">
+
                         <button class="btn btn-minw btn-primary ajax-post submi_btn" target-form="form-builder" type="submit">
                             确定
                         </button>
@@ -299,22 +529,62 @@
                         </button>
                     </div>
                 </div>
-            </form>
+                <textarea name="editorValue" id="ueditor_textarea_editorValue" style="display: none;"></textarea></form>
+
         </div>
     </div>
 </div>
+
 {/block}
 
 {block name="script"}
 <script>
+    // url
+    var dolphin = {
+        'top_menu_url': '/public/admin.php/admin/ajax/getsidebarmenu.html',
+        'theme_url': '/public/admin.php/admin/ajax/settheme.html',
+        'jcrop_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/jcrop/module/admin.html',
+        'editormd_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/editormd/module/admin.html',
+        'editormd_mudule_path': '/public/static/libs/editormd/lib/',
+        'ueditor_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/ueditor/module/admin.html',
+        'wangeditor_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/wangeditor/module/admin.html',
+        'wangeditor_emotions': "/public/static/libs/wang-editor/emotions.data",
+        'ckeditor_img_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/ckeditor/module/admin.html',
+        'WebUploader_swf': '/public/static/libs/webuploader/Uploader.swf',
+        'file_upload_url': '/public/admin.php/admin/attachment/upload/dir/files/module/admin.html',
+        'image_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/module/admin.html',
+        'upload_check_url': '/public/admin.php/admin/ajax/check.html',
+        'get_level_data': '/public/admin.php/admin/ajax/getleveldata.html',
+        'quick_edit_url': '/public/admin.php/admin/goods/quickedit.html',
+        'aside_edit_url': '/public/admin.php/admin/system/quickedit.html',
+        'triggers': [], // 触发器集合
+        'field_hide': '', // 需要隐藏的字段
+        'field_values': '',
+        'validate': '', // 验证器
+        'validate_fields': '', // 验证字段
+        'search_field': '', // 搜索字段
+        // 字段过滤
+        '_filter': '',
+        '_filter_content': '',
+        '_field_display': '',
+        '_field_clear': [],
+        'get_filter_list': '/public/admin.php/admin/ajax/getfilterlist.html',
+        'curr_url': '/public/admin.php/admin/goods/edit/id/11/group/tab4.html',
+        'curr_params': {"id":"11","group":"tab4"},
+        'layer': {"type":2,"area":["80%","90%"],"shadeClose":true,"isOutAnim":false,"anim":-1}        };
+</script>
+<script src="/public/static/libs/layer/layer.js?v=20180327"></script>
+<script src="/public/static/libs/select2/select2.full.min.js?v=20180327"></script>
+<script src="/public/static/libs/select2/i18n/zh-CN.js?v=20180327"></script>
+<script src="/public/static/libs/webuploader/webuploader.min.js?v=20180327"></script>
+<script src="http://www.ceshi.com/public/static/libs/ueditor/lang/zh-cn/zh-cn.js" type="text/javascript" defer="defer"></script>
+<link href="http://www.ceshi.com/public/static/libs/ueditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet">
+<script src="http://www.ceshi.com/public/static/libs/ueditor/third-party/codemirror/codemirror.js" type="text/javascript" defer="defer"></script>
+<link rel="stylesheet" type="text/css" href="http://www.ceshi.com/public/static/libs/ueditor/third-party/codemirror/codemirror.css">
+<script src="http://www.ceshi.com/public/static/libs/ueditor/third-party/zeroclipboard/ZeroClipboard.js" type="text/javascript" defer="defer"></script>
+<script>
     $(document).ready(function () {
-        $.ajax({
-            url: '{:url("checkUpdate")}',
-            type: 'GET'
-        }).done(function(data) {
-            $('#product-auth').html(data.auth);
-            $('#product-update').html($('#product-update').text() + ' ' + data.update);
-        });
+
     });
 </script>
 {/block}

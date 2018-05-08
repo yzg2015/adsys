@@ -1,10 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-ddddfffd----ddffdggf
-</body>
-</html>
+    <meta charset="utf-8">
+
+    <title>编辑商品 | 广告系统 - admail</title>
+
+    <meta name="description" content="广告推广系统">
+    <meta name="author" content="caiweiming">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="/public/static/admin/img/favicons/favicon.ico">
+
+    <link rel="icon" type="image/png" href="/public/static/admin/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/public/static/admin/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/public/static/admin/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/public/static/admin/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/public/static/admin/img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/public/static/admin/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/public/static/admin/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/public/static/admin/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/static/admin/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/public/static/admin/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/public/static/admin/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/public/static/admin/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/public/static/admin/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/static/admin/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="/public/static/libs/select2/select2.min.css?v=20180327"><link rel="stylesheet" href="/public/static/libs/select2/select2-bootstrap.min.css?v=20180327">            <link rel="stylesheet" href="/public/static/libs/webuploader/webuploader.css?v=20180327">
+
+
+    <!-- Bootstrap and OneUI CSS framework -->
+    <link rel="stylesheet" href="/public/static/libs/sweetalert/sweetalert.min.css?v=20180327">
+    <link rel="stylesheet" href="/public/static/libs/magnific-popup/magnific-popup.min.css?v=20180327">
+    <link rel="stylesheet" href="/public/static/admin/css/bootstrap.min.css?v=20180327">
+    <link rel="stylesheet" href="/public/static/admin/css/oneui.css?v=20180327">
+    <link rel="stylesheet" href="/public/static/admin/css/dolphin.css?v=20180327" id="css-main">
+    <link rel="stylesheet" href="/public/static/libs/viewer/viewer.min.css?v=20180327">
+    <link rel="stylesheet" id="css-theme" href="/public/static/admin/css/themes/default.min.css?v=20180327">
+
+    <!--页面css-->
+
+
+
+    <!-- END Stylesheets -->
+
+    <!--插件css钩子-->
+
+    <!--自定义css-->
+    <link rel="stylesheet" href="/public/static/admin/css/custom.css?v=20180327">
+    <script>
+        // url
+        var dolphin = {
+            'top_menu_url': '/public/admin.php/admin/ajax/getsidebarmenu.html',
+            'theme_url': '/public/admin.php/admin/ajax/settheme.html',
+            'jcrop_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/jcrop/module/admin.html',
+            'editormd_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/editormd/module/admin.html',
+            'editormd_mudule_path': '/public/static/libs/editormd/lib/',
+            'ueditor_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/ueditor/module/admin.html',
+            'wangeditor_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/wangeditor/module/admin.html',
+            'wangeditor_emotions': "/public/static/libs/wang-editor/emotions.data",
+            'ckeditor_img_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/from/ckeditor/module/admin.html',
+            'WebUploader_swf': '/public/static/libs/webuploader/Uploader.swf',
+            'file_upload_url': '/public/admin.php/admin/attachment/upload/dir/files/module/admin.html',
+            'image_upload_url': '/public/admin.php/admin/attachment/upload/dir/images/module/admin.html',
+            'upload_check_url': '/public/admin.php/admin/ajax/check.html',
+            'get_level_data': '/public/admin.php/admin/ajax/getleveldata.html',
+            'quick_edit_url': '/public/admin.php/admin/goods/quickedit.html',
+            'aside_edit_url': '/public/admin.php/admin/system/quickedit.html',
+            'triggers': [], // 触发器集合
+            'field_hide': '', // 需要隐藏的字段
+            'field_values': '',
+            'validate': '', // 验证器
+            'validate_fields': '', // 验证字段
+            'search_field': '', // 搜索字段
+            // 字段过滤
+            '_filter': '',
+            '_filter_content': '',
+            '_field_display': '',
+            '_field_clear': [],
+            'get_filter_list': '/public/admin.php/admin/ajax/getfilterlist.html',
+            'curr_url': '/public/admin.php/admin/goods/edit/id/11/group/tab4.html',
+            'curr_params': {"id":"11","group":"tab4"},
+            'layer': {"type":2,"area":["80%","90%"],"shadeClose":true,"isOutAnim":false,"anim":-1}        };
+    </script>
+    <link rel="stylesheet" href="http://www.ceshi.com/public/static/libs/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss"><script src="http://www.ceshi.com/public/static/libs/ueditor/lang/zh-cn/zh-cn.js" type="text/javascript" defer="defer"></script><link href="http://www.ceshi.com/public/static/libs/ueditor/themes/default/css/ueditor.css" type="text/css" rel="stylesheet"><script src="http://www.ceshi.com/public/static/libs/ueditor/third-party/codemirror/codemirror.js" type="text/javascript" defer="defer"></script><link rel="stylesheet" type="text/css" href="http://www.ceshi.com/public/static/libs/ueditor/third-party/codemirror/codemirror.css"><script src="http://www.ceshi.com/public/static/libs/ueditor/third-party/zeroclipboard/ZeroClipboard.js" type="text/javascript" defer="defer"></script></head>

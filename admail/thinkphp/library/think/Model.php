@@ -1654,7 +1654,6 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
         if (is_null($data)) {
             return;
         }
-
         if (true === $with || is_int($with)) {
             $cache = $with;
             $with  = [];
