@@ -152,18 +152,7 @@
                                 <input class="form-control" type="text" id="goods_number" name="num" value="{$info.num}" placeholder="请输入商品库存">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-xs-12" for="title">原价</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" id="market_price" name="price" value="{$info.price}">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-xs-12" for="title">折扣价格</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" id="shop_price" name="z_price" value="{$info.z_price}">
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label class="col-xs-12" for="title">自定义内容</label>
                             <div class="col-sm-9">
@@ -404,7 +393,6 @@
         $.post('/public/admin.php/admin/cuxiao/guige',{id:val},function (d) {
             $('#prom_id').html(d);
         });
-
     }
     function add_guige() {
         var item = $( $('#hide_div').html())
