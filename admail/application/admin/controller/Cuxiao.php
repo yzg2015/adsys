@@ -16,9 +16,9 @@ use think\helper\Hash;
 use think\Db;
 use app\common\builder\ZBuilder;
 use app\user\model\User as UserModel;
-use app\user\model\Buysend as BuysendModel;
-use app\user\model\Fullminus as FullminusModel;
-use app\user\model\Discount as DiscountModel;
+use app\admin\model\Buysend as BuysendModel;
+use app\admin\model\Fullminus as FullminusModel;
+use app\admin\model\Discount as DiscountModel;
 
 /**
  * 后台默认控制器
@@ -49,17 +49,25 @@ class Cuxiao extends Admin
     public function guige()
     {
         $id = input('id');
+        if(empty($id)){
+            exit;
+        }
+        $html = '';
         if($id=='1'){
+            $list = BuysendModel::getList();
 
         }
         if($id=='2'){
-
+            $list = FullminusModel::getList();
         }
         if($id=='3'){
-
+            $list = DiscountModel::getList();
         }
-        return ;
-
+        foreach ($list as $v){
+            $html .= "<option value='".$v['id']."'>".$v['title']."</option>";
+        }
+        echo $html;
+        exit;
     }
 
 }

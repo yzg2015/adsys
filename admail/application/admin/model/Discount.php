@@ -38,4 +38,11 @@ class Discount extends Model
             ->paginate();
         return $data_list;
     }
+    public static function getList()
+    {
+        // 数据列表
+        $map['status'] = 1;
+        $data_list = self::where($map)->column(true);
+        return $data_list;
+    }
 }
