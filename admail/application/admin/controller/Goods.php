@@ -20,6 +20,10 @@ use app\user\model\User as UserModel;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Site as SiteModel;
 use app\admin\model\Cate as CateModel;
+
+use app\admin\model\Buysend as BuysendModel;
+use app\admin\model\Fullminus as FullminusModel;
+use app\admin\model\Discount as DiscountModel;
 /**
  * 后台默认控制器
  * @package app\admin\controller
@@ -74,12 +78,27 @@ class Goods extends Admin
      */
     public function edit($id = 0)
     {
-
-        if ($id === 0) $this->error('缺少参数');
+        if ($id === 0) {
+            $this->error('缺少参数');
+        }
+        $info['prom_type'] =0;
+        $info['prom_id'] =0;
         $info = array();
         if($id){
             $info = GoodsModel::get($id);
+            if($info['prom_id']==2){
+                $info['prom_id_list'] = BuysendModel::getList();
+            }
+            if($info['prom_id']==2){
+                $info['prom_id_list'] = FullminusModel::getList();
+            }
+            if($info['prom_id']==3){
+                $info['prom_id_list'] = DiscountModel::getList();
+            }
+        }else{
+            $info['prom_id_list'] = BuysendModel::getList();
         }
+
         return ZBuilder::make('form')
             ->assign('info',$info)
             ->assign('id',$id)

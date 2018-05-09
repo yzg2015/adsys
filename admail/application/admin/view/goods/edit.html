@@ -186,7 +186,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group col-md-12 col-xs-12" id="form_group_pic">
                                 <label class="col-xs-12" for="pic">商品图片</label>
                                 <div class="col-xs-12 js-upload-image">
@@ -201,10 +200,8 @@
                                     <div class="clearfix"></div>
                                     <input type="hidden" name="pic" data-multiple="false" data-watermark='' data-thumb='' data-size="500000" data-ext='jpg,png,gif,jpeg' id="pic" value="{$info.pic|default=''}">
                                     <div id="picker_pic">上传单张图片</div>
-
                                 </div>
                             </div>
-
                     </div>
                     <div class="tab-pane fade auth-node" id="tab2" style="">
                         <div class="form-group" style="">
@@ -227,7 +224,6 @@
                         </div>
                         <div style="clear:both;"> </div>
                     </div>
-
                     <div class="tab-pane fade auth-node" id="tab4">
                         <div class="push-20">
                             <button class="btn btn-minw btn-primary add_property"
@@ -236,8 +232,6 @@
                             </button>
                         </div>
                         <div class="property_box" id="property_box">
-
-
                         </div>
                         <div style="clear:both;"> </div>
                     </div>
@@ -247,15 +241,17 @@
                             <div class="col-sm-3">
                                 <select class="form-control" id="prom_type" name="prom_type" onchange="sel_cuxiao(this);">
                                     <option value="0" selected="">普通商品</option>
-                                    <option value="2">促销满减</option>
-                                    <option value="3">阶梯折扣</option>
-                                    <option value="1">促销买送</option>
+                                    <option value="1" <eq name="info.prom_type" value="1">selected</eq>>促销买送</option>
+                                    <option value="2" <eq name="info.prom_type" value="2">selected</eq>>促销满减</option>
+                                    <option value="3" <eq name="info.prom_type" value="3">selected</eq>>阶梯折扣</option>
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <select class="form-control" id="prom_id" name="prom_id">
                                     <option value="0">请选择</option>
-                                    <option value="2">腳鏈買一送一  【點擊購買下一組】</option>
+                                    {volist name="prom_id_list" id="v"}
+                                    <option value="{$v.id}" <eq name="v.id" value="{$info.prom_id}">selected</eq>>{$v.title}</option>
+                                    {/volist}
                                 </select>
                             </div>
                         </div>
@@ -282,7 +278,7 @@
         <div class="form-group">
             <label class="col-xs-12" for="title">规格名称</label>
             <div class="col-sm-9">
-                <input class="form-control spec_name" type="text" value="" placeholder="请输入规格名称">
+                <input class="form-control spec_name" name="spec_name" type="text" value="" placeholder="请输入规格名称">
             </div>
             <button class="btn del_spec_box" target-form="form-builder" type="button" onclick="del_guige(this);">
                 删除
