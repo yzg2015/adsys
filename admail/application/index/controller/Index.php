@@ -29,8 +29,23 @@ class Index extends Home
         $this->assign('cate_list',$_list);
         return $this->fetch();
     }
-
-    public function detail()
+    public function about()
+    {
+        return $this->fetch();
+    }
+    public function privacy()
+    {
+        return $this->fetch();
+    }
+    public function tuihuo()
+    {
+        return $this->fetch();
+    }
+    public function service()
+    {
+        return $this->fetch();
+    }
+    public function shipping()
     {
         return $this->fetch();
     }

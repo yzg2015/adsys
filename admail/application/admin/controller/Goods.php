@@ -72,6 +72,40 @@ class Goods extends Admin
             ->fetch(); // 渲染模板
     }
 
+    public function add()
+    {
+        $info['cid'] =0;
+        $info['site_id'] =0;
+        $info['who'] ='';
+        $info['name'] ='';
+        $info['num'] =0;
+        $info['price'] ='';
+        $info['z_price'] ='';
+        $info['content'] ='';
+        $info['status'] =1;
+        $info['id'] =0;
+        $info['spu'] ='';
+        $info['remark'] ='';
+        $info['pic'] =0;
+        $info['dao_time'] ='';
+        $info['buy_num'] =0;
+        $info['prom_type'] =0;
+        $info['prom_id'] =0;
+        $info['spec'] ='';
+        $info['shuxing'] ='';
+        $info['prom_id_list'] = BuysendModel::getList();
+        return ZBuilder::make('form')
+            ->assign('id',0)
+            ->assign('info',$info)
+            ->assign('cate_list',CateModel::getAllList())
+            ->assign('site_list',SiteModel::getAllList())
+            ->assign('spec_list',array())
+            ->assign('shuxing_list',array())
+            ->setTemplate('edit')
+            ->fetch();
+
+    }
+
     /**yang
      * @param int $id
      * @return mixed
@@ -211,32 +245,7 @@ class Goods extends Admin
         }
     }
 
-    public function add()
-    {
-        $info['cid'] =0;
-        $info['site_id'] =0;
-        $info['who'] ='';
-        $info['name'] ='';
-        $info['num'] =0;
-        $info['price'] ='';
-        $info['z_price'] ='';
-        $info['content'] ='';
-        $info['status'] =1;
-        $info['id'] =0;
-        $info['spu'] ='';
-        $info['remark'] ='';
-        $info['pic'] =0;
-        $info['dao_time'] ='';
-        $info['buy_num'] =0;
-        return ZBuilder::make('form')
-            ->assign('id',0)
-            ->assign('info',$info)
-            ->assign('cate_list',CateModel::getAllList())
-            ->assign('site_list',SiteModel::getAllList())
-            ->setTemplate('edit')
-            ->fetch();
 
-    }
 
 
 
