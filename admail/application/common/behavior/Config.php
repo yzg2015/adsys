@@ -43,7 +43,11 @@ class Config
         // 获取入口目录
         $base_file = request()->baseFile();
         $base_dir  = substr($base_file, 0, strripos($base_file, '/') + 1);
+        if(strpos($base_dir,'public')===false){
+            $base_dir.='public/';
+        }
         define('PUBLIC_PATH', $base_dir);
+
 
         // 视图输出字符串内容替换
         $view_replace_str = [
