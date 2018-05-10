@@ -13,6 +13,7 @@ namespace app\index\controller;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Order as OrderModel;
 use app\admin\model\Comment as CommentModel;
+use app\admin\model\Delivery as DeliveryModel;
 
 /**
  * 前台首页控制器
@@ -37,11 +38,21 @@ class Goods extends Home
             $this->redirect(config('home_default_module'). '/index/index');
         }
         $c_list = CommentModel::getList($id);
+        $d_list = DeliveryModel::getList($id);
         $this->assign('info',$info);
         $this->assign('c_list',$c_list);
+        $this->assign('d_list',$d_list);
         $this->assign('c_count',count($c_list));
 
         return $this->fetch();
+    }
+
+    public function cx(){
+        $key = input('key');
+        if(empty($key)){
+            $this->error('参数错误');
+        }
+        $this->success('暂无结果');
     }
 
     public function save(){
@@ -103,13 +114,9 @@ class Goods extends Home
             }
         }
 
-
         if(empty($id)){
             exit('id error');
         }
-
-
-
         echo $mes;
         exit;
     }
@@ -122,8 +129,11 @@ class Goods extends Home
         }
         $info = GoodsModel::get($id);
         if(empty($info['status'])){
-            $this->error('商品还没上架 ');
+            $this->error('error');
         }
+
+        $d_list = DeliveryModel::getList($id);
+        $this->assign('d_list',$d_list);
         $this->assign('info',$info);
         return $this->fetch();
     }

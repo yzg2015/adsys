@@ -82,25 +82,25 @@
     <link id="layuicss-skinlayercss" rel="stylesheet" href="http://unn.tw/zztemps/zzproduct/wfpublic/layui/css/modules/layer/default/layer.css?v=3.0.11110" media="all"><link id="layuicss-laydatecss" rel="stylesheet" href="http://unn.tw/zztemps/zzproduct/wfpublic/layui/css/modules/laydate/laydate.css" media="all"></head>
 <body>
 <div style="position:fixed; bottom:120px; overflow:hidden; width:60px;height: 60px; margin:0 auto; z-index:12512; left:10px; text-align:center;">
-<a href="/public/index.php/index/index/index/id/{$info.id}">
+<a href="/index.php/index/index/index/id/{$info.id}">
     <img border="0" width="60" height="60" src="/public/static/home/img/backpage.png">
 </a>
 </div>
 <div class="wforder">
     <div class="wftitle" style="position:fixed; top:0; overflow:hidden; width:100%; margin:0 auto; z-index:12509; left:0;height: 36px;line-height: 36px;background-color: rgba(222, 35, 39, 1); text-align:center; ">線上快速訂購</div>
     <br><br>
-    <form id="wfform" name="wfform" method="post" action="/public/index.php/index/goods/save/id/{$info.id}" class="wfform" target="_blank">
+    <form id="wfform" name="wfform" method="post" action="/index.php/index/goods/save/id/{$info.id}" class="wfform" target="_blank">
         <input type="hidden" name="wfbuildFB" value="">
         <input type="hidden" name="wfpid" value="3">
         <input type="hidden" name="wftid" value="2">
-        <input type="hidden" name="WFDDURL" id="WFDDURL" value="http://unn.tw/zztemps/zzproduct/wfdata/item/f495b6ab9dcf8d3b.html?wfid=site">
+        <input type="hidden" name="WFDDURL" id="WFDDURL" value="#">
         <input type="hidden" name="goods_name" id="wfproname" value="{$info.name}">
         <input type="hidden" name="wfprosize" id="wfprosize" value="M">
         <input type="hidden" name="wfprocolour" id="wfprocolour" value="綠色">
         <input type="hidden" name="wfpayment" id="wfpayment" value="scan">
         <input type="hidden" name="wfpayzk" id="wfpayzk" value="1">
-        <input type="hidden" name="wfproup" id="wfproup" value="{$info.price}">
-        <input type="hidden" name="wfprice" id="wfprice" value="{$info.price}">
+        <input type="hidden" name="wfproup" id="wfproup" value="{$info.z_price}">
+        <input type="hidden" name="wfprice" id="wfprice" value="{$info.z_price}">
         <input type="hidden" name="wfuprovince" id="wfuprovince" value="广东">
         <input type="hidden" name="wfucity" id="wfucity" value="深圳">
         <input type="hidden" name="wfismob" id="wfismob" value="pc">
@@ -118,7 +118,6 @@
                         <span class="down"><input type="radio" name="wfproduct" id="wfproduct1" checked="" onclick="total('down')" value="兩件套" title="1398" class="input-radio"><label for="wfproduct1">兩件套</label></span>					</div>
                 </div>
                 <!---------- 产品套餐 ---------->
-
                 <!---------- 产品尺码 ---------->
                 <div class="wfform-box">
                     <label class="wfform-label">尺碼</label>
@@ -243,22 +242,27 @@
         <div class="wfwrapbox">
             <div class="wffahuo">
                 <ul style="margin-top: -55px;">
-                    <!-- 生成数量--最近几天--产品数组--发货通知模板 -->
-                    <li><span><span class="showdate">2018-5-1</span></span> <span>香山區</span>的<span>蔣**</span> <span>*******6747</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>新莊區</span>的<span>閻**</span> <span>*******8141</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>北區</span>的<span>羅**</span> <span>*******7447</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>五股區</span>的<span>盧**</span> <span>*******5157</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>板橋區</span>的<span>鄧**</span> <span>*******7014</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>平鎮區</span>的<span>何**</span> <span>*******9984</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>新興區</span>的<span>林**</span> <span>*******1016</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>西區</span>的<span>郭**</span> <span>*******7223</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>深坑區</span>的<span>高**</span> <span>*******4402</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>中山區</span>的<span>郭**</span> <span>*******7479</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>大溪區</span>的<span>程**</span> <span>*******6796</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>中區</span>的<span>程**</span> <span>*******2428</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>豐原區</span>的<span>楊**</span> <span>*******9255</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>新興區</span>的<span>羅**</span> <span>*******8859</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>新莊區</span>的<span>程**</span> <span>*******6431</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>信義區</span>的<span>蕭**</span> <span>*******2054</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>平鎮區</span>的<span>彭**</span> <span>*******9066</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>新莊區</span>的<span>馬**</span> <span>*******6181</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>萬華區</span>的<span>蔣**</span> <span>*******7347</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>豐原區</span>的<span>沉**</span> <span>*******5991</span> 您訂購的<span>兩件套</span>已發貨！</li><li><span><span class="showdate">2018-5-1</span></span> <span>鳳山區</span>的<span>薛**</span> <span>*******7550</span> 您訂購的<span>兩件套</span>已發貨！</li></ul>
+                    {volist name="d_list" id="v"}
+                    <li>
+                        <span><span class="showdate">{$v.order_time}</span></span> <span>{$v.wfname}</span>的<span>{$v.name}</span> <span>{$v.order_sn}</span>
+                        訂購的<span>114</span>已發貨！
+                    </li>
+                    {/volist}
+
+                </ul>
             </div>
         </div>
     </div>
     <div class="wfwrap">
         <div class="wfwrapbox">
             <div class="wfquery">
-                <form action="../../wfhome/wfquery.php" method="post" target="_blank">
-                    <input type="text" name="wfquecont" lay-verify="required" placeholder="請填寫姓名或手機號" class="input-text">
-                    <button class="wfbtn btn-o btn-que">查詢包裹</button>
+                <form action="/index.php/index/goods/cx" method="post" target="_blank">
+                    <input type="text" name="key" lay-verify="required" placeholder="請填寫姓名或手機號" class="input-text">
+                    <button class="wfbtn btn-o btn-que" type="submit">查詢包裹</button>
                 </form>
             </div>
         </div>
     </div>
-
     <div style="height:8px;" id="output"></div>
 </div>
 <script type="text/javascript">

@@ -99,20 +99,20 @@
                     </ul>
                 </li>
             </ul>
-            <form action="/public/admin.php/admin/goods/save.html" name="form-builder" method="post" class="form-horizontal form-builder">
+            <form action="/public/admin.php/admin/goods/save.html" name="form-builder" method="post" class="form-horizontal form-builder" onsubmit="return check_from();">
                 <div class="block-content tab-content" style="">
                     <div class="tab-pane fade push-20  active in" id="tab1">
                         <div class="form-group">
                             <input type="hidden" name="id" value="{$id}"/>
                             <label class="col-xs-12" for="title">商品名称</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="goods_name" name="name" value="" placeholder="请输入商品名称">
+                                <input class="form-control" type="text" id="goods_name" name="name" value="{$info.name}" placeholder="请输入商品名称">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-12" for="title">SPU</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" id="spu" name="spu" placeholder="请输入商品spu">
+                                <input class="form-control" type="text" id="spu" name="spu" value="{$info.spu}"  placeholder="请输入商品spu">
                             </div>
                         </div>
 
@@ -208,7 +208,7 @@
                             <div class="form-group col-md-12 col-xs-12 " id="form_group_content">
                                 <label class="col-xs-12" for="content">内容</label>
                                 <div class="col-xs-12">
-                                    <script id="content" class="js-ueditor" name="content" type="text/plain"></script>
+                                    <script id="content" class="js-ueditor" name="content" type="text/plain">{$info.content}</script>
                                 </div>
                             </div>
                         </div>
@@ -221,6 +221,31 @@
                             </button>
                         </div>
                         <div class="spec_comtent_list" id="spec_comtent_list">
+                            {volist name="spec_list" id="v"}
+                            <div class="spec_content">
+                                <div class="form-group">
+                                    <label class="col-xs-12" for="title">规格名称</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control spec_name" name="spec_name" type="text" value="{$v.name}" placeholder="请输入规格名称">
+                                    </div>
+                                    <button class="btn del_spec_box" target-form="form-builder" type="button" onclick="del_guige(this);">
+                                        删除
+                                    </button>
+                                </div>
+                                <div class="col-xs-12 push-20">
+                                    <button class="btn btn-minw btn-primary add_spec" onclick="add_spec(this);" target-form="form-builder" type="button">
+                                        新增规格值
+                                    </button>
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <div class="spec_box">
+                                        {volist name="v.s_list" id="item"}
+                                        <input class="form-control spec_value" type="text" value="{$item}" name="spec_one" placeholder="双击删除" ondblclick="del_spec(this);">
+                                        {/volist}
+                                    </div>
+                                </div>
+                            </div>
+                            {/volist}
                         </div>
                         <div style="clear:both;"> </div>
                     </div>
@@ -232,6 +257,41 @@
                             </button>
                         </div>
                         <div class="property_box" id="property_box">
+                            {volist name="shuxing_list" id="v"}
+                            <div class="form-group item_pro">
+                                <div class="pro-item">
+                                    <span class="pro-title">属性名称：</span>
+                                    <input class="form-control pro_name"  type="text" value="{$v.sx_name}" name="sx_name" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">原价：</span>
+                                    <input class="form-control pro_price" type="text" value="{$v.sx_price}" name="sx_price" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">折扣价：</span>
+                                    <input class="form-control pro_z_price" type="text" value="{$v.sx_zhekou}"  name="sx_zhekou" style="width:150px;margin-top: 5px;">
+                                    <span class="pro-title">SKU：</span>
+                                    <input class="form-control pro_sku" type="text"  value="{$v.sx_sku}" name="sx_sku" style="width:150px;margin-top: 5px;">
+                                    <div style="width:140px;height:130px;margin-left:50px;margin-top: 5px;">
+                                        <div class="file_list_avatar uploader-list">
+                                            <div class="file-item js-gallery thumbnail" style="float:left">
+                                                <a class="img-link" href="{$v.sx_pic|get_file_path}">
+                                                    <img src="{$v.sx_pic|get_file_path}" style="width:120px;height:100px;">
+                                                </a>
+                                                <i class="fa fa-times-circle remove-picture"  onclick="remove_property_img(this)"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: 40px;margin-top: 5px;">
+                                        <div class="del_propery" onclick="del_shuxing(this);">删除属性</div>
+                                        <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                        <div class="">
+                                            <div class="uploadify-button uploadify" style="width:80px;">
+                                                <span class="uploadify-button-text">上传图片</span>
+                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/volist}
+
                         </div>
                         <div style="clear:both;"> </div>
                     </div>
@@ -241,32 +301,37 @@
                             <div class="col-sm-3">
                                 <select class="form-control" id="prom_type" name="prom_type" onchange="sel_cuxiao(this);">
                                     <option value="0" selected="">普通商品</option>
-                                    <option value="1" <eq name="info.prom_type" value="1">selected</eq>>促销买送</option>
-                                    <option value="2" <eq name="info.prom_type" value="2">selected</eq>>促销满减</option>
-                                    <option value="3" <eq name="info.prom_type" value="3">selected</eq>>阶梯折扣</option>
+                                    <option value="1" {eq name="info.prom_type" value="1"}selected{/eq}>促销买送</option>
+                                    <option value="2" {eq name="info.prom_type" value="2"}selected{/eq}>促销满减</option>
+                                    <option value="3" {eq name="info.prom_type" value="3"}selected{/eq}>阶梯折扣</option>
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <select class="form-control" id="prom_id" name="prom_id">
                                     <option value="0">请选择</option>
-                                    {volist name="prom_id_list" id="v"}
-                                    <option value="{$v.id}" <eq name="v.id" value="{$info.prom_id}">selected</eq>>{$v.title}</option>
+                                    {volist name="info.prom_id_list" id="v"}
+                                    <option value="{$v.id}" {eq name="v.id" value="$info.prom_id"}selected{/eq}>{$v.title}</option>
                                     {/volist}
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="push-20">
-
-                        <button class="btn btn-minw btn-primary ajax-post submi_btn" target-form="form-builder" type="submit">
+                        <button class="btn btn-minw btn-primary ajax-post submi_btn" target-form="form-builder" onclick="check_from();"  type="button">
+                            确定
+                        </button>
+                        <button class="btn btn-minw btn-primary ajax-post submi_btn" target-form="form-builder" id="save_btn" type="submit" style="display: none;">
                             确定
                         </button>
                         <button class="btn btn-default" type="button" onclick="javascript:history.back(-1);return false;">
                             返回
                         </button>
+                        <input type="hidden" name="price" id="g_price" value="{$info.price}">
+                        <input type="hidden" name="z_price" id="g_z_price" value="{$info.z_price}">
+                        <input type="hidden" name="spec" id="h_spec" value="{$info.spec}">
+                        <input type="hidden" name="shuxing" id="h_shuxing"  value="{$info.shuxing}">
                     </div>
                 </div>
-
             </form>
 
         </div>
@@ -294,33 +359,32 @@
                 <input class="form-control spec_value" type="text" name="spec_one" placeholder="双击删除" ondblclick="del_spec(this);">
             </div>
         </div>
-        <input type="hidden" name="spec[]" class="spec" value="">
     </div>
 </div>
 <div id="shuxing_hide_div" style="display: none;">
     <div class="form-group item_pro">
         <div class="pro-item">
             <span class="pro-title">属性名称：</span>
-            <input class="form-control pro_name"  type="text" style="width:150px;margin-top: 5px;">
+            <input class="form-control pro_name"  type="text" name="sx_name" style="width:150px;margin-top: 5px;">
             <span class="pro-title">原价：</span>
-            <input class="form-control pro_price" type="text" style="width:150px;margin-top: 5px;">
+            <input class="form-control pro_price" type="text" name="sx_price" style="width:150px;margin-top: 5px;">
             <span class="pro-title">折扣价：</span>
-            <input class="form-control pro_z_price" type="text" style="width:150px;margin-top: 5px;">
+            <input class="form-control pro_z_price" type="text" name="sx_zhekou" style="width:150px;margin-top: 5px;">
             <span class="pro-title">SKU：</span>
-            <input class="form-control pro_sku" type="text" value="" style="width:150px;margin-top: 5px;">
+            <input class="form-control pro_sku" type="text" value="" name="sx_sku" style="width:150px;margin-top: 5px;">
             <div style="width:140px;height:130px;margin-left:50px;margin-top: 5px;">
                 <div class="file_list_avatar uploader-list">
                     <div class="file-item js-gallery thumbnail" style="float:left">
                         <a class="img-link" href="">
-                            <img src="" style="width:120px;height:100px;">
+                            <img src="/public/uploads/images/20180502/e121ac4fe89022630c5d173e8190c63d.jpg" style="width:120px;height:100px;">
                         </a>
-                        <i class="fa fa-times-circle remove-picture" data-id="6630" onclick="remove_property_img(this)"></i>
+                        <i class="fa fa-times-circle remove-picture"  onclick="remove_property_img(this)"></i>
                     </div>
                 </div>
             </div>
             <div style="margin-left: 40px;margin-top: 5px;">
                 <div class="del_propery" onclick="del_shuxing(this);">删除属性</div>
-                <input type="hidden" value="" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
                 <div class="">
                     <div class="uploadify-button uploadify" style="width:80px;">
                         <span class="uploadify-button-text">上传图片</span>
@@ -328,8 +392,6 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" class="img_id" value="3836">
-            <input type="hidden" name="property[]" class="property" value="">
         </div>
     </div>
 </div>
@@ -384,6 +446,48 @@
     $(document).ready(function () {
 
     });
+    function check_from() {
+        var spec = $('#h_spec');
+        var shuxing = $('#h_shuxing');
+        var new_spec = '';
+        var new_shuxing = '';
+        $('#spec_comtent_list').find(".spec_content").each(function () {
+            var sepc_one = '';
+            var t = $(this);
+            t.find('input[name="spec_one"]').each(function () {
+                sepc_one+=$(this).val()+'|'
+            });
+            new_spec +=t.find('input[name="spec_name"]').val()+'#'+sepc_one+';';
+        });
+        var low_price =0.0;
+        var low_z_price =0.0;
+        $('#property_box').find(".item_pro").each(function () {
+            var t = $(this);
+            var sx_price = parseFloat(t.find('input[name="sx_price"]').val());
+            var sx_zhekou = parseFloat(t.find('input[name="sx_zhekou"]').val());
+            if(low_price<sx_price&&sx_price>0){
+                low_price = sx_price;
+            }
+            if(low_z_price<sx_zhekou&&sx_zhekou>0){
+                low_z_price = sx_zhekou;
+            }
+            new_shuxing +=t.find('input[name="sx_name"]').val()+'|'+sx_price+'|'+sx_zhekou+'|'+t.find('input[name="sx_sku"]').val()+'|'+t.find('input[name="sx_pic"]').val()+';';
+        });
+        shuxing.val(new_shuxing);
+        spec.val(new_spec);
+        $('#g_price').val(low_price);
+        $('#g_z_price').val(low_z_price);
+        if(spec.val()==''){
+            alert('请填写规格1');
+            return false;
+        }
+        if(shuxing.val()==''){
+            alert('请填写商品属性1');
+            return false;
+        }
+        $('#save_btn').click();
+
+    }
     function sel_cuxiao(e) {
         var val = $(e).val();
         $.post('/public/admin.php/admin/cuxiao/guige',{id:val},function (d) {
@@ -391,7 +495,7 @@
         });
     }
     function add_guige() {
-        var item = $( $('#hide_div').html())
+        var item = $( $('#hide_div').html());
         item.appendTo($('#spec_comtent_list'));
     }
 

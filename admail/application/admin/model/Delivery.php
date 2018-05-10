@@ -40,11 +40,20 @@ class Delivery extends Model
         return $data_list;
     }
 
-    public static function getList()
+    public static function getList($id=0)
     {
         // 数据列表
-        $map['status'] = 1;
-        $data_list = self::where($map)->column(true);
+        $map['admin_delivery.status'] = 1;
+        if($id){
+            $map['admin_order.goods_id']=$id;
+        }
+        $data_list = self::view('admin_delivery', true)
+            ->view('admin_order', 'order_sn,wfname,wfmob,wfemail,order_time', 'admin_delivery.order_id=admin_order.id', 'left')
+            ->view('admin_goods', 'name', 'admin_goods.id=admin_order.goods_id', 'left')
+            ->where($map)
+            ->select();
+//        $data_list = self::where($map)->column(true);
         return $data_list;
     }
+
 }

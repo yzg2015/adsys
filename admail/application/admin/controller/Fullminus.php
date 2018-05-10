@@ -44,7 +44,6 @@ class Fullminus extends Admin
         return ZBuilder::make('table')
             ->setPageTitle('促销满减管理') // 设置页面标题
             ->setSearch(['admin_fullminus.title' => '名称']) // 设置搜索框
-
             ->addColumns([ // 批量添加数据列
                 ['id', 'ID'],
                 ['title', '促销名称'],

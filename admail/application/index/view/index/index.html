@@ -48,8 +48,8 @@
 <div class="layercengtop"></div>
 <header class="maintop" id="header">
     <div class="header">
-        <a href="/public/index.php/index/classify/index" id="cd-menu-trigger"><span class="cd-menu-icon"></span></a>
-        <a href="/public/admin.php/user/publics/signin.html"><span
+        <a href="/index.php/index/classify/index" id="cd-menu-trigger"><span class="cd-menu-icon"></span></a>
+        <a href="/admin.php/user/publics/signin.html"><span
                 class="yh-icon newiconfont newicon-yonghu3"></span></a>
         <a href="">
             <img alt="" src="/public/static/home/img/logo.png"></a>
@@ -62,7 +62,7 @@
         <ul id="nav">
             {volist name="cate_list" id="vo"}
             <li class="level0 nav-1 first level-top">
-                <a href="/public/index.php/index/classify/index/id/{$vo.id}" class="level-top"><span>{$vo.title} </span></a>
+                <a href="/index.php/index/classify/index/id/{$vo.id}" class="level-top"><span>{$vo.title} </span></a>
             </li>
             {/volist}
         </ul>
@@ -193,16 +193,16 @@ searchForm.initAutocomplete('https://www.vivishop.tw/catalogsearch/ajax/suggest/
                                                 alt=""></a></div>
             <div data-index="1"
                  style="width: 780px; left: -780px; transition-duration: 0ms; transform: translate(780px, 0px) translateZ(0px);">
-                <a href="/public/index.php/index/classify/index"><img class="img-responsive"
+                <a href="/index.php/index/classify/index"><img class="img-responsive"
                                                src="/public/static/home/img/QQ图片20180227150004-730x400.jpg" alt=""></a>
             </div>
             <div data-index="2"
                  style="width: 780px; left: -1560px; transition-duration: 300ms; transform: translate(-780px, 0px) translateZ(0px);">
-                <a href="/public/index.php/index/classify/index"><img class="img-responsive" src="/public/static/home/img/hometw1654-730x400.jpg"
+                <a href="/index.php/index/classify/index"><img class="img-responsive" src="/public/static/home/img/hometw1654-730x400.jpg"
                                                alt=""></a></div>
             <div data-index="3"
                  style="width: 780px; left: -2340px; transition-duration: 300ms; transform: translate(-780px, 0px) translateZ(0px);">
-                <a href="/public/index.php/index/classify/index"><img class="img-responsive"
+                <a href="/index.php/index/classify/index"><img class="img-responsive"
                                                                            src="/public/static/home/img/QQ图片20180112160501-730x400.jpg"
                                                                            alt=""></a></div>
         </div>
@@ -237,7 +237,7 @@ var banner = Swipe(document.getElementById('mySwipes'), {
         <ul class="li_nav">
             {volist name="cate_list" id="vo"}
             <li>
-                <a href="/public/index.php/index/classify/index/id/{$vo.id}">
+                <a href="/index.php/index/classify/index/id/{$vo.id}">
                     <img class="img-responsive" src="{$vo.pic|get_file_path}"  alt="{$vo.title}">
                 </a>
             </li>
@@ -247,18 +247,18 @@ var banner = Swipe(document.getElementById('mySwipes'), {
 </div>
 <div class="djs">
     <div class="djstu1">
-        <a href="/public/index.php/index/classify/index">
+        <a href="/index.php/index/classify/index">
             <img src="/public/static/home/img/jop.jpg" width="308" height="380">
         </a>
     </div>
     <div class="djstu2">
         <div class="djs01">
-            <a href="/public/index.php/index/classify/index">
+            <a href="/index.php/index/classify/index">
                 <img src="/public/static/home/img/jop2.jpg" width="308" height="190">
             </a>
         </div>
         <div class="djs02">
-            <a href="/public/index.php/index/classify/index">
+            <a href="/index.php/index/classify/index">
                 <img src="/public/static/home/img/jop1.jpg" width="308" height="190">
             </a>
         </div>
@@ -272,7 +272,7 @@ var banner = Swipe(document.getElementById('mySwipes'), {
     </div>
 </div>
 <div class="new-sale-big">
-    <a href="/public/index.php/index/classify/index"><img src="/public/static/home/img/xinpin.jpg"></a>
+    <a href="/index.php/index/classify/index"><img src="/public/static/home/img/xinpin.jpg"></a>
 </div>
 <div class="clear"></div>
 
@@ -281,12 +281,12 @@ var banner = Swipe(document.getElementById('mySwipes'), {
         {volist name="goods_list" id="vo"}
         <li>
             <div class="pro-tu">
-                <a href="/public/index.php/index/goods/index/id/{$vo.id}">
+                <a href="/index.php/index/goods/index/id/{$vo.id}">
 
                     <img   src="{$vo.pic|get_file_path}"    width="400" height="400" alt=""></a>
             </div>
             <div class="pro-tex">
-                <h3><a href="/public/index.php/index/goods/index/id/{$vo.id}">{$vo.name}</a></h3>
+                <h3><a href="/index.php/index/goods/index/id/{$vo.id}">{$vo.name}</a></h3>
                 <div class="p3">
                     <span class="newprice">NT$ {$vo.price}</span>
                     <span class="oldprice">NT$ {$vo.price}</span>
@@ -341,12 +341,12 @@ var banner = Swipe(document.getElementById('mySwipes'), {
         {volist name="goods_list" id="vo"}
         <li>
             <div class="pro-tu">
-                <a href="/public/index.php/index/goods/index/id/{$vo.id}">
+                <a href="/index.php/index/goods/index/id/{$vo.id}">
                     <img  src="{$vo.pic|get_file_path}" width="400" height="400" alt="">
                 </a>
             </div>
             <div class="pro-tex">
-                <h3><a href="/public/index.php/index/goods/index/id/{$vo.id}">{$vo.name}</a></h3>
+                <h3><a href="/index.php/index/goods/index/id/{$vo.id}">{$vo.name}</a></h3>
                 <div class="p3">
                     <span class="newprice">NT$ {$vo.price}</span>
                     <span class="oldprice">NT$ {$vo.price}</span>
@@ -369,7 +369,7 @@ var banner = Swipe(document.getElementById('mySwipes'), {
         {volist name="goods_list" id="vo"}
         <li style="display: block;">
             <div class="pro-tu">
-                <a href="/public/index.php/index/goods/index/id/{$vo.id}">
+                <a href="/index.php/index/goods/index/id/{$vo.id}">
                     <img  src="{$vo.pic|get_file_path}" width="400" height="400" alt=""></a>
             </div>
             <div class="pro-tex">
@@ -377,7 +377,7 @@ var banner = Swipe(document.getElementById('mySwipes'), {
                     <span class="newprice">NT$ <i class="fprice">{$vo.price}</i></span>
                     <span class="oldprice">NT$ {$vo.price}</span>
                 </div>
-                <h3><a href="/public/index.php/index/goods/index/id/{$vo.id}">{$vo.name}</a></h3>
+                <h3><a href="/index.php/index/goods/index/id/{$vo.id}">{$vo.name}</a></h3>
             </div>
         </li>
         {/volist}

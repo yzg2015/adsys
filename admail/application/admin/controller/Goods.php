@@ -44,11 +44,11 @@ class Goods extends Admin
         // 数据列表
         $data_list = GoodsModel::getAll($map, $order);
         foreach ($data_list as &$v){
-            $v['name'] = "<a  target='_blank' href='/public/index.php/index/index/index/id/'".$v['id'].">". $v['name'] ."</a>";
+            $v['name'] = "<a  target='_blank' href='/index.php/index/index/index/id/'".$v['id'].">". $v['name'] ."</a>";
         }
+
         // 分页数据
         $page = $data_list->render();
-
         // 使用ZBuilder快速创建数据表格
         return ZBuilder::make('table')
             ->setPageTitle('商品管理列表') // 设置页面标题
@@ -86,7 +86,7 @@ class Goods extends Admin
         $info = array();
         if($id){
             $info = GoodsModel::get($id);
-            if($info['prom_id']==2){
+            if($info['prom_id']==1||$info['prom_id']==0){
                 $info['prom_id_list'] = BuysendModel::getList();
             }
             if($info['prom_id']==2){
@@ -98,12 +98,41 @@ class Goods extends Admin
         }else{
             $info['prom_id_list'] = BuysendModel::getList();
         }
+        $guige_list=array();
+        $g_list = explode(';',$info['spec']);
+        foreach ($g_list as  $v){
+            if(empty($v)){
+                continue;
+            }
+            $item = array();
+            $arr = explode('#',$v);
+            $item['name'] = $arr[0];
+            $item['s_list'] =  explode('|',$arr[1]);
+            $guige_list[]=$item;
+        }
+        $s_list = explode(';',$info['shuxing']);
+        $shuxing_list =array();
+        foreach ($s_list as  $v){
+            if(empty($v)){
+                continue;
+            }
+            $item = array();
+            $arr = explode('|',$v);
+            $item['sx_name'] = $arr[0];
+            $item['sx_price'] = $arr[1];
+            $item['sx_zhekou'] = $arr[2];
+            $item['sx_sku'] = $arr[3];
+            $item['sx_pic'] = $arr[4];
+            $shuxing_list[]=$item;
+        }
 
         return ZBuilder::make('form')
             ->assign('info',$info)
             ->assign('id',$id)
             ->assign('cate_list',CateModel::getAllList())
             ->assign('site_list',SiteModel::getAllList())
+            ->assign('spec_list',$guige_list)
+            ->assign('shuxing_list',$shuxing_list)
             ->setTemplate('edit')
             ->fetch();
     }
@@ -164,7 +193,6 @@ class Goods extends Admin
             if(empty($data['cid'])){
                 $this->error('请选择分类');
             }
-
             if(!empty($data['id'])){
                 $data['update_time'] = time();
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
