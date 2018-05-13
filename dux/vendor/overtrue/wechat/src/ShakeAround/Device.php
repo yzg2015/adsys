@@ -15,7 +15,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue
+ * @see       http://github.com/overtrue
  * @see       http://overtrue.me
  */
 
@@ -29,11 +29,11 @@ use EasyWeChat\Core\Exceptions\InvalidArgumentException;
  */
 class Device extends AbstractAPI
 {
-    const API_DEVICE_APPLYID = 'https://api.weixin.qq.com/shakearound/device/applyid';
-    const API_DEVICE_APPLYSTATUS = 'https://api.weixin.qq.com/shakearound/device/applystatus';
-    const API_DEVICE_UPDATE = 'https://api.weixin.qq.com/shakearound/device/update';
-    const API_DEVICE_BINDLOCATION = 'https://api.weixin.qq.com/shakearound/device/bindlocation';
-    const API_DEVICE_SEARCH = 'https://api.weixin.qq.com/shakearound/device/search';
+    const API_DEVICE_APPLYID = 'http://api.weixin.qq.com/shakearound/device/applyid';
+    const API_DEVICE_APPLYSTATUS = 'http://api.weixin.qq.com/shakearound/device/applystatus';
+    const API_DEVICE_UPDATE = 'http://api.weixin.qq.com/shakearound/device/update';
+    const API_DEVICE_BINDLOCATION = 'http://api.weixin.qq.com/shakearound/device/bindlocation';
+    const API_DEVICE_SEARCH = 'http://api.weixin.qq.com/shakearound/device/search';
 
     /**
      * Apply device ids.

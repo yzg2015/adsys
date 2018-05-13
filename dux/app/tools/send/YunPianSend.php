@@ -38,7 +38,7 @@ class YunPianSend extends \app\base\service\BaseService {
         $data['apikey'] = $config['apikey'];
         $data['mobile'] = $receive;
         $data['text'] = '【' . $config['label'] . '】' . html_clear(html_out($info['content']));
-        $return = \dux\lib\Http::doPost('https://sms.yunpian.com/v1/sms/send.json', $data, 10);
+        $return = \dux\lib\Http::doPost('http://sms.yunpian.com/v1/sms/send.json', $data, 10);
         $return = json_decode($return, true);
         if($return['msg'] == 'OK'){
             return $this->success();

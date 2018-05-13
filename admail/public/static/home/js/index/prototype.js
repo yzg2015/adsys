@@ -1623,7 +1623,7 @@ Ajax.Request = Class.create(Ajax.Base, {
   },
 
   isSameOrigin: function() {
-    var m = this.url.match(/^\s*https?:\/\/[^\/]*/);
+    var m = this.url.match(/^\s*http?:\/\/[^\/]*/);
     return !m || (m[0] == '#{protocol}//#{domain}#{port}'.interpolate({
       protocol: location.protocol,
       domain: document.domain,

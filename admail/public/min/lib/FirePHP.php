@@ -1296,7 +1296,7 @@ class FirePHP {
 
         $return = array();
     
-        //#2801 is_resource reports false for closed resources https://bugs.php.net/bug.php?id=28016
+        //#2801 is_resource reports false for closed resources http://bugs.php.net/bug.php?id=28016
         if (is_resource($object) || gettype($object) === "unknown type") {
     
             return '** ' . (string) $object . ' **';

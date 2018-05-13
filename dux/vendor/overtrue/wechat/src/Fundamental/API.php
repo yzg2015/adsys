@@ -15,7 +15,7 @@
  * @author    mingyoung <mingyoungcheung@gmail.com>
  * @copyright 2017
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -25,8 +25,8 @@ use EasyWeChat\Core\AbstractAPI;
 
 class API extends AbstractAPI
 {
-    const API_CLEAR_QUOTA = 'https://api.weixin.qq.com/cgi-bin/clear_quota';
-    const API_CALLBACK_IP = 'https://api.weixin.qq.com/cgi-bin/getcallbackip';
+    const API_CLEAR_QUOTA = 'http://api.weixin.qq.com/cgi-bin/clear_quota';
+    const API_CALLBACK_IP = 'http://api.weixin.qq.com/cgi-bin/getcallbackip';
 
     /**
      * Clear quota.

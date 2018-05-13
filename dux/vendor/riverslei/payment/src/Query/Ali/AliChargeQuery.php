@@ -9,8 +9,8 @@ use Payment\Utils\ArrayUtil;
 
 /**
  * 统一收单线下交易查询
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * Class AliChargeQuery
  * @package Payment\Query\Ali

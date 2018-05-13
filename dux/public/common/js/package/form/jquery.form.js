@@ -4,9 +4,9 @@
  * Requires jQuery v1.5 or later
  * Copyright (c) 2014 M. Alsup
  * Examples and documentation at: http://malsup.com/jquery/form/
- * Project repository: https://github.com/malsup/form
+ * Project repository: http://github.com/malsup/form
  * Dual licensed under the MIT and GPL licenses.
- * https://github.com/malsup/form#copyright-and-license
+ * http://github.com/malsup/form#copyright-and-license
  */
 /*global ActiveXObject */
 
@@ -122,7 +122,7 @@ $.fn.ajaxSubmit = function(options) {
         url:  url,
         success: $.ajaxSettings.success,
         type: method || $.ajaxSettings.type,
-        iframeSrc: /^https/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank'
+        iframeSrc: /^http/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank'
     }, options);
 
     // hook for manipulating the form data before it is extracted;
@@ -223,7 +223,7 @@ $.fn.ajaxSubmit = function(options) {
     // are there files to upload?
 
     // [value] (issue #113), also see comment:
-    // https://github.com/malsup/form/commit/588306aedba1de01388032d5f42a60159eea9228#commitcomment-2180219
+    // http://github.com/malsup/form/commit/588306aedba1de01388032d5f42a60159eea9228#commitcomment-2180219
     var fileInputs = $('input[type=file]:enabled', this).filter(function() { return $(this).val() !== ''; });
 
     var hasFileInputs = fileInputs.length > 0;

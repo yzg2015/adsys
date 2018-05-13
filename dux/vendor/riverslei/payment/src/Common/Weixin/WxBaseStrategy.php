@@ -15,8 +15,8 @@ use Payment\Utils\DataParser;
  *
  * @package Payment\Common\Weixin
  * @anthor helei
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 abstract class WxBaseStrategy implements BaseStrategy
 {
@@ -24,7 +24,7 @@ abstract class WxBaseStrategy implements BaseStrategy
      * 需要像微信请求的url。默认是统一下单url
      * @var string $reqUrl
      */
-    protected $reqUrl = 'https://api.mch.weixin.qq.com/{debug}/pay/unifiedorder';
+    protected $reqUrl = 'http://api.mch.weixin.qq.com/{debug}/pay/unifiedorder';
 
     /**
      * 微信的配置文件

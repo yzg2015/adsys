@@ -3,7 +3,7 @@
 /*!
  * cssmin.php v2.4.8-4
  * Author: Tubal Martin - http://tubalmartin.me/
- * Repo: https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port
+ * Repo: http://github.com/tubalmartin/YUI-CSS-compressor-PHP-port
  *
  * This is a PHP port of the CSS minification tool distributed with YUICompressor,
  * itself a port of the cssmin utility by Isaac Schlueter - http://foohack.com/
@@ -337,8 +337,8 @@ class CSSmin
         $css = preg_replace('/(\*[a-z0-9\-]+\s*\:[^;\}]+)(\})/', '$1;$2', $css);
 
         // Replace 0 <length> and 0 <percentage> values with 0.
-        // <length> data type: https://developer.mozilla.org/en-US/docs/Web/CSS/length
-        // <percentage> data type: https://developer.mozilla.org/en-US/docs/Web/CSS/percentage
+        // <length> data type: http://developer.mozilla.org/en-US/docs/Web/CSS/length
+        // <percentage> data type: http://developer.mozilla.org/en-US/docs/Web/CSS/percentage
         $css = preg_replace('/([^\\\\]\:|\s)0(?:em|ex|ch|rem|vw|vh|vm|vmin|cm|mm|in|px|pt|pc|%)/iS', '${1}0', $css);
 
 		// 0% step in a keyframe? restore the % unit

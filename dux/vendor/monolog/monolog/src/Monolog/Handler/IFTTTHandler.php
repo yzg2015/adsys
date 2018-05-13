@@ -16,7 +16,7 @@ use Monolog\Logger;
 /**
  * IFTTTHandler uses cURL to trigger IFTTT Maker actions
  *
- * Register a secret key and trigger/event name at https://ifttt.com/maker
+ * Register a secret key and trigger/event name at http://ifttt.com/maker
  *
  * value1 will be the channel from monolog's Logger constructor,
  * value2 will be the level name (ERROR, WARNING, ..)
@@ -56,7 +56,7 @@ class IFTTTHandler extends AbstractProcessingHandler
         $postString = json_encode($postData);
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://maker.ifttt.com/trigger/" . $this->eventName . "/with/key/" . $this->secretKey);
+        curl_setopt($ch, CURLOPT_URL, "http://maker.ifttt.com/trigger/" . $this->eventName . "/with/key/" . $this->secretKey);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);

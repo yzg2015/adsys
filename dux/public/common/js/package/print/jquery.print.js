@@ -220,7 +220,7 @@
                 $field.find(":selected").attr("selected", "selected");
             });
             copy.find("textarea").each(function () {
-                // Fix for https://github.com/DoersGuild/jQuery.print/issues/18#issuecomment-96451589
+                // Fix for http://github.com/DoersGuild/jQuery.print/issues/18#issuecomment-96451589
                 var $field = $(this);
                 $field.text($field.val());
             });

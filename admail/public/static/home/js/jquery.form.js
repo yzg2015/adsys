@@ -4,7 +4,7 @@
  * @requires jQuery v1.3.2 or later
  *
  * Examples and documentation at: http://malsup.com/jquery/form/
- * Project repository: https://github.com/malsup/form
+ * Project repository: http://github.com/malsup/form
  * Dual licensed under the MIT and GPL licenses:
  *    http://malsup.github.com/mit-license.txt
  *    http://malsup.github.com/gpl-license-v2.txt
@@ -89,7 +89,7 @@ $.fn.ajaxSubmit = function(options) {
         url:  url,
         success: $.ajaxSettings.success,
         type: method || 'GET',
-        iframeSrc: /^https/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank'
+        iframeSrc: /^http/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank'
     }, options);
 
     // hook for manipulating the form data before it is extracted;

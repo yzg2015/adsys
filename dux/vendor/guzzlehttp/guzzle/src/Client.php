@@ -165,7 +165,7 @@ class Client implements ClientInterface
             'cookies'         => false
         ];
 
-        // Use the standard Linux HTTP_PROXY and HTTPS_PROXY if set.
+        // Use the standard Linux HTTP_PROXY and http_PROXY if set.
 
         // We can only trust the HTTP_PROXY environment variable in a CLI
         // process due to the fact that PHP has no reliable mechanism to
@@ -174,8 +174,8 @@ class Client implements ClientInterface
             $defaults['proxy']['http'] = getenv('HTTP_PROXY');
         }
 
-        if ($proxy = getenv('HTTPS_PROXY')) {
-            $defaults['proxy']['https'] = $proxy;
+        if ($proxy = getenv('http_PROXY')) {
+            $defaults['proxy']['http'] = $proxy;
         }
 
         if ($noProxy = getenv('NO_PROXY')) {

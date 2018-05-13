@@ -24,7 +24,7 @@ use Monolog\Logger;
  * version   - The API version to use (HipChatHandler::API_V1 | HipChatHandler::API_V2)
  *
  * @author Rafael Dohms <rafael@doh.ms>
- * @see    https://www.hipchat.com/docs/api
+ * @see    http://www.hipchat.com/docs/api
  */
 class HipChatHandler extends SocketHandler
 {

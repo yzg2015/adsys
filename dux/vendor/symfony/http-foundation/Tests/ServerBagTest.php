@@ -154,7 +154,7 @@ class ServerBagTest extends TestCase
     }
 
     /**
-     * @see https://github.com/symfony/symfony/issues/17345
+     * @see http://github.com/symfony/symfony/issues/17345
      */
     public function testItDoesNotOverwriteTheAuthorizationHeaderIfItIsAlreadySet()
     {

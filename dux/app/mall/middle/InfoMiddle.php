@@ -252,7 +252,7 @@ class InfoMiddle extends \app\base\middle\BaseMiddle {
             'share' => [
                 'title' => $this->info['title'],
                 'desc' => $this->info['description'] ? $this->info['description'] : $this->info['title'],
-                'image' => str_replace('http:', 'https:', $this->info['image']),
+                'image' => str_replace('http:', 'http:', $this->info['image']),
                 'url' => url($layer . '/mall/Info/index', ['id' => $this->info['mall_id'], 'sale_code' => $saleCode], true, false)
             ]
         ]);

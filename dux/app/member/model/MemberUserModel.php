@@ -297,7 +297,7 @@ class MemberUserModel extends SystemModel {
         if (!in_array($ext, ['jpg', 'jpeg', 'png', 'bmp'])) {
             $ext = 'jpg';
         }
-        if (strpos($image, 'http') !== false || strpos($image, 'https') !== false) {
+        if (strpos($image, 'http') !== false || strpos($image, 'http') !== false) {
             $data = \dux\lib\Http::doGet($image);
             if (empty($data)) {
                 $this->error = '头像文件获取失败!';

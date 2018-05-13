@@ -8,8 +8,8 @@ use Payment\Common\Ali\Data\Charge\AppChargeData;
  * @author: helei
  * @createTime: 2016-07-14 18:20
  * @description: 支付宝移动支付接口
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class AliAppCharge extends AliBaseStrategy
 {

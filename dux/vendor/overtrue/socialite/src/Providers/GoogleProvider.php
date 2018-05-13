@@ -19,7 +19,7 @@ use Overtrue\Socialite\User;
 /**
  * Class GoogleProvider.
  *
- * @see https://developers.google.com/identity/protocols/OpenIDConnect [OpenID Connect]
+ * @see http://developers.google.com/identity/protocols/OpenIDConnect [OpenID Connect]
  */
 class GoogleProvider extends AbstractProvider implements ProviderInterface
 {
@@ -36,9 +36,9 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      * @var array
      */
     protected $scopes = [
-        'https://www.googleapis.com/auth/plus.me',
-        'https://www.googleapis.com/auth/plus.login',
-        'https://www.googleapis.com/auth/plus.profile.emails.read',
+        'http://www.googleapis.com/auth/plus.me',
+        'http://www.googleapis.com/auth/plus.login',
+        'http://www.googleapis.com/auth/plus.profile.emails.read',
     ];
 
     /**
@@ -46,7 +46,7 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://accounts.google.com/o/oauth2/auth', $state);
+        return $this->buildAuthUrlFromBase('http://accounts.google.com/o/oauth2/auth', $state);
     }
 
     /**
@@ -54,7 +54,7 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return 'https://accounts.google.com/o/oauth2/token';
+        return 'http://accounts.google.com/o/oauth2/token';
     }
 
     /**
@@ -92,7 +92,7 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken(AccessTokenInterface $token)
     {
-        $response = $this->getHttpClient()->get('https://www.googleapis.com/plus/v1/people/me?', [
+        $response = $this->getHttpClient()->get('http://www.googleapis.com/plus/v1/people/me?', [
             'query' => [
                 'prettyPrint' => 'false',
             ],

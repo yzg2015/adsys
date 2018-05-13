@@ -76,7 +76,7 @@ class LogglyHandler extends AbstractProcessingHandler
 
     protected function send($data, $endpoint)
     {
-        $url = sprintf("https://%s/%s/%s/", self::HOST, $endpoint, $this->token);
+        $url = sprintf("http://%s/%s/%s/", self::HOST, $endpoint, $this->token);
 
         $headers = array('Content-Type: application/json');
 

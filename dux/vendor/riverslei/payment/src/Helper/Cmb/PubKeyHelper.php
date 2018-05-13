@@ -16,7 +16,7 @@ class PubKeyHelper extends CmbBaseStrategy
 
     public function getBuildDataClass()
     {
-        $this->config->getewayUrl = 'https://b2b.cmbchina.com/CmbBank_B2B/UI/NetPay/DoBusiness.ashx';
+        $this->config->getewayUrl = 'http://b2b.cmbchina.com/CmbBank_B2B/UI/NetPay/DoBusiness.ashx';
         if ($this->config->useSandbox) {// 测试
             $this->config->getewayUrl = 'http://121.15.180.72/CmbBank_B2B/UI/NetPay/DoBusiness.ashx';
         }

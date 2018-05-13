@@ -16,9 +16,9 @@ use Monolog\Logger;
 
 /**
  * Almost all examples (expected header, titles, messages) taken from
- * https://www.pushover.net/api
+ * http://www.pushover.net/api
  * @author Sebastian Göttschkes <sebastian.goettschkes@googlemail.com>
- * @see https://www.pushover.net/api
+ * @see http://www.pushover.net/api
  */
 class PushoverHandlerTest extends TestCase
 {

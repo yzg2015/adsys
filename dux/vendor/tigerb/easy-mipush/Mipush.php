@@ -4,7 +4,7 @@ namespace Mipush;
 /**
  * easy to use mipush parallelly
  * version 0.1.0
- * author: TIGERB <https://github.com/TIGERB>
+ * author: TIGERB <http://github.com/TIGERB>
  * description: 目前只实现了按regid,alias(别名),user_account(用户账号),topic(标签), multi_topic(多标签),all(全体)推送
  * date: 2016-09-28
  */
@@ -76,8 +76,8 @@ class Mipush
 
 	private static $_environmentConfig = [
 		'domain' => [
-			'product'  => 'https://api.xmpush.xiaomi.com/',
-			'develop'  => 'https://sandbox.xmpush.xiaomi.com/'
+			'product'  => 'http://api.xmpush.xiaomi.com/',
+			'develop'  => 'http://sandbox.xmpush.xiaomi.com/'
 		],
 	];
 
@@ -99,7 +99,7 @@ class Mipush
 	// const unsubscribe_url                  = '/v2/topic/unsubscribe';
 	// const subscribe_alias_url              = '/v2/topic/subscribe/alias';
 	// const unsubscribe_alias_url            = '/v2/topic/unsubscribe/alias';
-	// const fetch_invalid_regids_url         = 'https://feedback.xmpush.xiaomi.com/v1/feedback/fetch_invalid_regids';
+	// const fetch_invalid_regids_url         = 'http://feedback.xmpush.xiaomi.com/v1/feedback/fetch_invalid_regids';
 	// const delete_schedule_job              = '/v2/schedule_job/delete';
 	// const check_schedule_job_exist         = '/v2/schedule_job/exist';
 	// const get_all_aliases                  = '/v1/alias/all';

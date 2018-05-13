@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -28,13 +28,13 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Menu extends AbstractAPI
 {
-    const API_CREATE = 'https://api.weixin.qq.com/cgi-bin/menu/create';
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/menu/get';
-    const API_DELETE = 'https://api.weixin.qq.com/cgi-bin/menu/delete';
-    const API_QUERY = 'https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info';
-    const API_CONDITIONAL_CREATE = 'https://api.weixin.qq.com/cgi-bin/menu/addconditional';
-    const API_CONDITIONAL_DELETE = 'https://api.weixin.qq.com/cgi-bin/menu/delconditional';
-    const API_CONDITIONAL_TEST = 'https://api.weixin.qq.com/cgi-bin/menu/trymatch';
+    const API_CREATE = 'http://api.weixin.qq.com/cgi-bin/menu/create';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/menu/get';
+    const API_DELETE = 'http://api.weixin.qq.com/cgi-bin/menu/delete';
+    const API_QUERY = 'http://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info';
+    const API_CONDITIONAL_CREATE = 'http://api.weixin.qq.com/cgi-bin/menu/addconditional';
+    const API_CONDITIONAL_DELETE = 'http://api.weixin.qq.com/cgi-bin/menu/delconditional';
+    const API_CONDITIONAL_TEST = 'http://api.weixin.qq.com/cgi-bin/menu/trymatch';
 
     /**
      * Get all menus.

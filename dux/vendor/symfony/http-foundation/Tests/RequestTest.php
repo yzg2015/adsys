@@ -117,8 +117,8 @@ class RequestTest extends TestCase
         $this->assertEquals('test.com', $request->getHttpHost());
         $this->assertFalse($request->isSecure());
 
-        $request = Request::create('https://test.com/foo?bar=baz');
-        $this->assertEquals('https://test.com/foo?bar=baz', $request->getUri());
+        $request = Request::create('http://test.com/foo?bar=baz');
+        $this->assertEquals('http://test.com/foo?bar=baz', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
         $this->assertEquals('bar=baz', $request->getQueryString());
         $this->assertEquals(443, $request->getPort());
@@ -133,32 +133,32 @@ class RequestTest extends TestCase
         $this->assertEquals(90, $request->getPort());
         $this->assertFalse($request->isSecure());
 
-        $request = Request::create('https://test.com:90/foo');
-        $this->assertEquals('https://test.com:90/foo', $request->getUri());
+        $request = Request::create('http://test.com:90/foo');
+        $this->assertEquals('http://test.com:90/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
         $this->assertEquals('test.com', $request->getHost());
         $this->assertEquals('test.com:90', $request->getHttpHost());
         $this->assertEquals(90, $request->getPort());
         $this->assertTrue($request->isSecure());
 
-        $request = Request::create('https://127.0.0.1:90/foo');
-        $this->assertEquals('https://127.0.0.1:90/foo', $request->getUri());
+        $request = Request::create('http://127.0.0.1:90/foo');
+        $this->assertEquals('http://127.0.0.1:90/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
         $this->assertEquals('127.0.0.1', $request->getHost());
         $this->assertEquals('127.0.0.1:90', $request->getHttpHost());
         $this->assertEquals(90, $request->getPort());
         $this->assertTrue($request->isSecure());
 
-        $request = Request::create('https://[::1]:90/foo');
-        $this->assertEquals('https://[::1]:90/foo', $request->getUri());
+        $request = Request::create('http://[::1]:90/foo');
+        $this->assertEquals('http://[::1]:90/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
         $this->assertEquals('[::1]', $request->getHost());
         $this->assertEquals('[::1]:90', $request->getHttpHost());
         $this->assertEquals(90, $request->getPort());
         $this->assertTrue($request->isSecure());
 
-        $request = Request::create('https://[::1]/foo');
-        $this->assertEquals('https://[::1]/foo', $request->getUri());
+        $request = Request::create('http://[::1]/foo');
+        $this->assertEquals('http://[::1]/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
         $this->assertEquals('[::1]', $request->getHost());
         $this->assertEquals('[::1]', $request->getHttpHost());
@@ -239,7 +239,7 @@ class RequestTest extends TestCase
         // server is used by default
         $request = Request::create('/', 'DELETE', array(), array(), array(), array(
             'HTTP_HOST' => 'example.com',
-            'HTTPS' => 'on',
+            'http' => 'on',
             'SERVER_PORT' => 443,
             'PHP_AUTH_USER' => 'fabien',
             'PHP_AUTH_PW' => 'pa$$',
@@ -257,7 +257,7 @@ class RequestTest extends TestCase
         // URI has precedence over server
         $request = Request::create('http://thomas:pokemon@example.net:8080/?foo=bar', 'GET', array(), array(), array(), array(
             'HTTP_HOST' => 'example.com',
-            'HTTPS' => 'on',
+            'http' => 'on',
             'SERVER_PORT' => 443,
         ));
         $this->assertEquals('example.net', $request->getHost());
@@ -501,11 +501,11 @@ class RequestTest extends TestCase
         $request = Request::create('http://test.com:90/foo?bar=baz');
         $this->assertEquals('http://test.com:90/some/path', $request->getUriForPath('/some/path'));
 
-        $request = Request::create('https://test.com/foo?bar=baz');
-        $this->assertEquals('https://test.com/some/path', $request->getUriForPath('/some/path'));
+        $request = Request::create('http://test.com/foo?bar=baz');
+        $this->assertEquals('http://test.com/some/path', $request->getUriForPath('/some/path'));
 
-        $request = Request::create('https://test.com:90/foo?bar=baz');
-        $this->assertEquals('https://test.com:90/some/path', $request->getUriForPath('/some/path'));
+        $request = Request::create('http://test.com:90/foo?bar=baz');
+        $this->assertEquals('http://test.com:90/some/path', $request->getUriForPath('/some/path'));
 
         $server = array();
 
@@ -733,7 +733,7 @@ class RequestTest extends TestCase
     public function testGetPort()
     {
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
-            'HTTP_X_FORWARDED_PROTO' => 'https',
+            'HTTP_X_FORWARDED_PROTO' => 'http',
             'HTTP_X_FORWARDED_PORT' => '443',
         ));
         $port = $request->getPort();
@@ -742,7 +742,7 @@ class RequestTest extends TestCase
 
         Request::setTrustedProxies(array('1.1.1.1'), Request::HEADER_X_FORWARDED_ALL);
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
-            'HTTP_X_FORWARDED_PROTO' => 'https',
+            'HTTP_X_FORWARDED_PROTO' => 'http',
             'HTTP_X_FORWARDED_PORT' => '8443',
         ));
         $this->assertEquals(80, $request->getPort(), 'With PROTO and PORT on untrusted connection server value takes precedence.');
@@ -750,7 +750,7 @@ class RequestTest extends TestCase
         $this->assertEquals(8443, $request->getPort(), 'With PROTO and PORT set PORT takes precedence.');
 
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
-            'HTTP_X_FORWARDED_PROTO' => 'https',
+            'HTTP_X_FORWARDED_PROTO' => 'http',
         ));
         $this->assertEquals(80, $request->getPort(), 'With only PROTO set getPort() ignores trusted headers on untrusted connection.');
         $request->server->set('REMOTE_ADDR', '1.1.1.1');
@@ -1180,7 +1180,7 @@ class RequestTest extends TestCase
 
         $this->assertArrayNotHasKey('HTTP_X_FORWARDED_PROTO', $_SERVER);
 
-        $request->headers->set('X_FORWARDED_PROTO', 'https');
+        $request->headers->set('X_FORWARDED_PROTO', 'http');
 
         Request::setTrustedProxies(array('1.1.1.1'), Request::HEADER_X_FORWARDED_ALL);
         $this->assertFalse($request->isSecure());
@@ -1687,7 +1687,7 @@ class RequestTest extends TestCase
         $request->server->set('REMOTE_ADDR', '3.3.3.3');
         $request->headers->set('X_FORWARDED_FOR', '1.1.1.1, 2.2.2.2');
         $request->headers->set('X_FORWARDED_HOST', 'foo.example.com:1234, real.example.com:8080');
-        $request->headers->set('X_FORWARDED_PROTO', 'https');
+        $request->headers->set('X_FORWARDED_PROTO', 'http');
         $request->headers->set('X_FORWARDED_PORT', 443);
 
         // no trusted proxies
@@ -1729,7 +1729,7 @@ class RequestTest extends TestCase
         $request->headers->set('X_FORWARDED_PROTO', 'ssl');
         $this->assertTrue($request->isSecure());
 
-        $request->headers->set('X_FORWARDED_PROTO', 'https, http');
+        $request->headers->set('X_FORWARDED_PROTO', 'http, http');
         $this->assertTrue($request->isSecure());
     }
 
@@ -1743,7 +1743,7 @@ class RequestTest extends TestCase
         $request->server->set('REMOTE_ADDR', '3.3.3.3');
         $request->headers->set('X_FORWARDED_FOR', '1.1.1.1, 2.2.2.2');
         $request->headers->set('X_FORWARDED_HOST', 'foo.example.com, real.example.com:8080');
-        $request->headers->set('X_FORWARDED_PROTO', 'https');
+        $request->headers->set('X_FORWARDED_PROTO', 'http');
         $request->headers->set('X_FORWARDED_PORT', 443);
         $request->headers->set('X_MY_FOR', '3.3.3.3, 4.4.4.4');
         $request->headers->set('X_MY_HOST', 'my.example.com');
@@ -1784,7 +1784,7 @@ class RequestTest extends TestCase
     {
         $request = Request::create('http://example.com/');
         $request->server->set('REMOTE_ADDR', '3.3.3.3');
-        $request->headers->set('FORWARDED', 'for=1.1.1.1, host=foo.example.com:8080, proto=https, for=2.2.2.2, host=real.example.com:8080');
+        $request->headers->set('FORWARDED', 'for=1.1.1.1, host=foo.example.com:8080, proto=http, for=2.2.2.2, host=real.example.com:8080');
 
         // no trusted proxies
         $this->assertEquals('3.3.3.3', $request->getClientIp());
@@ -1825,7 +1825,7 @@ class RequestTest extends TestCase
         $request->headers->set('FORWARDED', 'proto=ssl');
         $this->assertTrue($request->isSecure());
 
-        $request->headers->set('FORWARDED', 'proto=https, proto=http');
+        $request->headers->set('FORWARDED', 'proto=http, proto=http');
         $this->assertTrue($request->isSecure());
     }
 
@@ -1964,11 +1964,11 @@ class RequestTest extends TestCase
         $this->assertEquals('trusted.com', $request->getHost());
         $this->assertEquals(80, $request->getPort());
 
-        $request->server->set('HTTPS', true);
+        $request->server->set('http', true);
         $request->headers->set('host', 'trusted.com');
         $this->assertEquals('trusted.com', $request->getHost());
         $this->assertEquals(443, $request->getPort());
-        $request->server->set('HTTPS', false);
+        $request->server->set('http', false);
 
         $request->headers->set('host', 'trusted.com:8000');
         $this->assertEquals('trusted.com', $request->getHost());

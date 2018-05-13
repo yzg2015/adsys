@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | github开源项目：https://github.com/caiweiming/parse-sql-file
+// | github开源项目：http://github.com/caiweiming/parse-sql-file
 // +----------------------------------------------------------------------
 
 namespace util;

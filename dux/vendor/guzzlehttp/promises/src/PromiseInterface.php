@@ -8,7 +8,7 @@ namespace GuzzleHttp\Promise;
  * which registers callbacks to receive either a promise’s eventual value or
  * the reason why the promise cannot be fulfilled.
  *
- * @link https://promisesaplus.com/
+ * @link http://promisesaplus.com/
  */
 interface PromiseInterface
 {
@@ -71,7 +71,7 @@ interface PromiseInterface
     /**
      * Cancels the promise if possible.
      *
-     * @link https://github.com/promises-aplus/cancellation-spec/issues/7
+     * @link http://github.com/promises-aplus/cancellation-spec/issues/7
      */
     public function cancel();
 

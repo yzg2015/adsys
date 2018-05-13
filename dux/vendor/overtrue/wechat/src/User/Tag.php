@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -28,14 +28,14 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Tag extends AbstractAPI
 {
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/tags/get';
-    const API_CREATE = 'https://api.weixin.qq.com/cgi-bin/tags/create';
-    const API_UPDATE = 'https://api.weixin.qq.com/cgi-bin/tags/update';
-    const API_DELETE = 'https://api.weixin.qq.com/cgi-bin/tags/delete';
-    const API_USER_TAGS = 'https://api.weixin.qq.com/cgi-bin/tags/getidlist';
-    const API_MEMBER_BATCH_TAG = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging';
-    const API_MEMBER_BATCH_UNTAG = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging';
-    const API_USERS_OF_TAG = 'https://api.weixin.qq.com/cgi-bin/user/tag/get';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/tags/get';
+    const API_CREATE = 'http://api.weixin.qq.com/cgi-bin/tags/create';
+    const API_UPDATE = 'http://api.weixin.qq.com/cgi-bin/tags/update';
+    const API_DELETE = 'http://api.weixin.qq.com/cgi-bin/tags/delete';
+    const API_USER_TAGS = 'http://api.weixin.qq.com/cgi-bin/tags/getidlist';
+    const API_MEMBER_BATCH_TAG = 'http://api.weixin.qq.com/cgi-bin/tags/members/batchtagging';
+    const API_MEMBER_BATCH_UNTAG = 'http://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging';
+    const API_USERS_OF_TAG = 'http://api.weixin.qq.com/cgi-bin/user/tag/get';
 
     /**
      * Create tag.

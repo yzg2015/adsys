@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -63,12 +63,12 @@ class Notice extends AbstractAPI
      */
     protected $messageBackup;
 
-    const API_SEND_NOTICE = 'https://api.weixin.qq.com/cgi-bin/message/template/send';
-    const API_SET_INDUSTRY = 'https://api.weixin.qq.com/cgi-bin/template/api_set_industry';
-    const API_ADD_TEMPLATE = 'https://api.weixin.qq.com/cgi-bin/template/api_add_template';
-    const API_GET_INDUSTRY = 'https://api.weixin.qq.com/cgi-bin/template/get_industry';
-    const API_GET_ALL_PRIVATE_TEMPLATE = 'https://api.weixin.qq.com/cgi-bin/template/get_all_private_template';
-    const API_DEL_PRIVATE_TEMPLATE = 'https://api.weixin.qq.com/cgi-bin/template/del_private_template';
+    const API_SEND_NOTICE = 'http://api.weixin.qq.com/cgi-bin/message/template/send';
+    const API_SET_INDUSTRY = 'http://api.weixin.qq.com/cgi-bin/template/api_set_industry';
+    const API_ADD_TEMPLATE = 'http://api.weixin.qq.com/cgi-bin/template/api_add_template';
+    const API_GET_INDUSTRY = 'http://api.weixin.qq.com/cgi-bin/template/get_industry';
+    const API_GET_ALL_PRIVATE_TEMPLATE = 'http://api.weixin.qq.com/cgi-bin/template/get_all_private_template';
+    const API_DEL_PRIVATE_TEMPLATE = 'http://api.weixin.qq.com/cgi-bin/template/del_private_template';
 
     /**
      * Notice constructor.

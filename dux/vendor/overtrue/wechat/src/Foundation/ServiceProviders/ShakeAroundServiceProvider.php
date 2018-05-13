@@ -20,7 +20,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue/wechat
+ * @see       http://github.com/overtrue/wechat
  * @see       http://overtrue.me
  */
 

@@ -23,7 +23,7 @@ use PHPUnit_Framework_MockObject_MockObject;
 
 /**
  * @covers Monolog\Handler\PHPConsoleHandler
- * @author Sergey Barbushin https://www.linkedin.com/in/barbushin
+ * @author Sergey Barbushin http://www.linkedin.com/in/barbushin
  */
 class PHPConsoleHandlerTest extends TestCase
 {
@@ -37,7 +37,7 @@ class PHPConsoleHandlerTest extends TestCase
     protected function setUp()
     {
         if (!class_exists('PhpConsole\Connector')) {
-            $this->markTestSkipped('PHP Console library not found. See https://github.com/barbushin/php-console#installation');
+            $this->markTestSkipped('PHP Console library not found. See http://github.com/barbushin/php-console#installation');
         }
         $this->connector = $this->initConnectorMock();
 

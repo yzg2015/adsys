@@ -32,7 +32,7 @@ class LogglyFormatter extends JsonFormatter
     /**
      * Appends the 'timestamp' parameter for indexing by Loggly.
      *
-     * @see https://www.loggly.com/docs/automated-parsing/#json
+     * @see http://www.loggly.com/docs/automated-parsing/#json
      * @see \Monolog\Formatter\JsonFormatter::format()
      */
     public function format(array $record)

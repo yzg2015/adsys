@@ -3,7 +3,7 @@
 # Version 4541
 #
 # http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
+# http://github.com/sequelpro/sequelpro
 #
 # Host: localhost (MySQL 5.6.35)
 # Database: duxshop

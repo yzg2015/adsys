@@ -86,7 +86,7 @@ class Link extends Admin
             ->addFormItems([
                 ['radio', 'type', '链接类型', '', [1 => '文字链接', 2 => '图片链接'], 1],
                 ['text', 'title', '链接标题'],
-                ['text', 'url', '链接地址', '请以 <code>http</code> 或 <code>https</code>开头'],
+                ['text', 'url', '链接地址', '请以 <code>http</code> 或 <code>http</code>开头'],
                 ['image', 'logo', '链接LOGO'],
                 ['tags', 'keywords', '关键词'],
                 ['textarea', 'contact', '联系方式'],
@@ -132,7 +132,7 @@ class Link extends Admin
                 ['hidden', 'id'],
                 ['radio', 'type', '链接类型', '', [1 => '文字链接', 2 => '图片链接']],
                 ['text', 'title', '链接标题'],
-                ['text', 'url', '链接地址', '请以 <code>http</code> 或 <code>https</code>开头'],
+                ['text', 'url', '链接地址', '请以 <code>http</code> 或 <code>http</code>开头'],
                 ['image', 'logo', '链接LOGO'],
                 ['tags', 'keywords', '关键词'],
                 ['textarea', 'contact', '联系方式'],

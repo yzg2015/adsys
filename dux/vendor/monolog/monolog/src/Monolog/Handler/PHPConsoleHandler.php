@@ -24,9 +24,9 @@ use PhpConsole\Helper;
  * Display PHP error/debug log messages in Google Chrome console and notification popups, executes PHP code remotely
  *
  * Usage:
- * 1. Install Google Chrome extension https://chrome.google.com/webstore/detail/php-console/nfhmhhlpfleoednkpnnnkolmclajemef
- * 2. See overview https://github.com/barbushin/php-console#overview
- * 3. Install PHP Console library https://github.com/barbushin/php-console#installation
+ * 1. Install Google Chrome extension http://chrome.google.com/webstore/detail/php-console/nfhmhhlpfleoednkpnnnkolmclajemef
+ * 2. See overview http://github.com/barbushin/php-console#overview
+ * 3. Install PHP Console library http://github.com/barbushin/php-console#installation
  * 4. Example (result will looks like http://i.hizliresim.com/vg3Pz4.png)
  *
  *      $logger = new \Monolog\Logger('all', array(new \Monolog\Handler\PHPConsoleHandler()));
@@ -35,7 +35,7 @@ use PhpConsole\Helper;
  *      $logger->addDebug('SELECT * FROM users', array('db', 'time' => 0.012));
  *      PC::debug($_SERVER); // PHP Console debugger for any type of vars
  *
- * @author Sergey Barbushin https://www.linkedin.com/in/barbushin
+ * @author Sergey Barbushin http://www.linkedin.com/in/barbushin
  */
 class PHPConsoleHandler extends AbstractProcessingHandler
 {
@@ -75,7 +75,7 @@ class PHPConsoleHandler extends AbstractProcessingHandler
     public function __construct(array $options = array(), Connector $connector = null, $level = Logger::DEBUG, $bubble = true)
     {
         if (!class_exists('PhpConsole\Connector')) {
-            throw new Exception('PHP Console library not found. See https://github.com/barbushin/php-console#installation');
+            throw new Exception('PHP Console library not found. See http://github.com/barbushin/php-console#installation');
         }
         parent::__construct($level, $bubble);
         $this->options = $this->initOptions($options);

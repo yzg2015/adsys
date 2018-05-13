@@ -454,7 +454,7 @@
     },
     // a set of RE's that can match strings and generate color tuples.
     // from John Resig color plugin
-    // https://github.com/jquery/jquery-color/
+    // http://github.com/jquery/jquery-color/
     stringParsers: [{
       re: /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*?\)/,
       format: 'rgb',

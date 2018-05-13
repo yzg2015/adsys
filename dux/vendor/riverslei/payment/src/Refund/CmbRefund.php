@@ -16,7 +16,7 @@ class CmbRefund extends CmbBaseStrategy
 
     public function getBuildDataClass()
     {
-        $this->config->getewayUrl = 'https://payment.ebank.cmbchina.com/NetPayment/BaseHttp.dll?DoRefund';
+        $this->config->getewayUrl = 'http://payment.ebank.cmbchina.com/NetPayment/BaseHttp.dll?DoRefund';
         if ($this->config->useSandbox) {// 测试
             $this->config->getewayUrl = 'http://121.15.180.66:801/NetPayment_dl/BaseHttp.dll?DoRefund';
         }

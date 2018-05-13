@@ -323,4 +323,4 @@ when iterated over:
         return new AuthorizationService(new ServiceIterator($c, array('voter1', 'voter2'));
     }
 
-.. _Pimple 1.x documentation: https://github.com/silexphp/Pimple/tree/1.1
+.. _Pimple 1.x documentation: http://github.com/silexphp/Pimple/tree/1.1

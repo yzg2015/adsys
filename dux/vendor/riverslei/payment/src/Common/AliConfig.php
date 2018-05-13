@@ -8,8 +8,8 @@ use Payment\Utils\StrUtil;
  * @author: helei
  * @createTime: 2016-07-15 14:56
  * @description: 支付宝配置文件  所有支付的配置文件，均需要继承 ConfigInterface 这个接口
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 final class AliConfig extends ConfigInterface
 {
@@ -53,9 +53,9 @@ final class AliConfig extends ConfigInterface
         $config = ArrayUtil::paraFilter($config);// 过滤掉空值，下面不用在检查是否为空
 
         // 初始 支付宝网关地址
-        $this->getewayUrl = 'https://openapi.alipay.com/gateway.do';
+        $this->getewayUrl = 'http://openapi.alipay.com/gateway.do';
         if (isset($config['use_sandbox']) && $config['use_sandbox'] === true) {
-            $this->getewayUrl = 'https://openapi.alipaydev.com/gateway.do';
+            $this->getewayUrl = 'http://openapi.alipaydev.com/gateway.do';
         } else {
             $this->useSandbox = false;// 不是沙箱模式
         }

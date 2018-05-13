@@ -17,7 +17,7 @@
 })(function($) {
 
 
-var API_BASE = 'https://www.googleapis.com/calendar/v3/calendars';
+var API_BASE = 'http://www.googleapis.com/calendar/v3/calendars';
 var FC = $.fullCalendar;
 var applyAll = FC.applyAll;
 
@@ -37,8 +37,8 @@ FC.sourceNormalizers.push(function(sourceOptions) {
 		}
 		// try to scrape it out of a V1 or V3 API feed URL
 		else if (
-			(match = /^https:\/\/www.googleapis.com\/calendar\/v3\/calendars\/([^\/]*)/.exec(url)) ||
-			(match = /^https?:\/\/www.google.com\/calendar\/feeds\/([^\/]*)/.exec(url))
+			(match = /^http:\/\/www.googleapis.com\/calendar\/v3\/calendars\/([^\/]*)/.exec(url)) ||
+			(match = /^http?:\/\/www.google.com\/calendar\/feeds\/([^\/]*)/.exec(url))
 		) {
 			googleCalendarId = decodeURIComponent(match[1]);
 		}

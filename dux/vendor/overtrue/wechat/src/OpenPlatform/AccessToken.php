@@ -20,7 +20,7 @@
  * @author    mingyoung <mingyoungcheung@gmail.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -41,7 +41,7 @@ class AccessToken extends CoreAccessToken
     /**
      * API.
      */
-    const API_TOKEN_GET = 'https://api.weixin.qq.com/cgi-bin/component/api_component_token';
+    const API_TOKEN_GET = 'http://api.weixin.qq.com/cgi-bin/component/api_component_token';
 
     /**
      * {@inheritdoc}.

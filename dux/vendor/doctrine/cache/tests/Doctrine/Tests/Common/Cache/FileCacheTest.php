@@ -203,7 +203,7 @@ class FileCacheTest extends \Doctrine\Tests\DoctrineTestCase
     public function getPathLengthsToTest()
     {
         // Windows officially supports 260 bytes including null terminator
-        // 259 characters is too large due to PHP bug (https://bugs.php.net/bug.php?id=70943)
+        // 259 characters is too large due to PHP bug (http://bugs.php.net/bug.php?id=70943)
         // 260 characters is too large - null terminator is included in allowable length
         return array(
             array(257, false),

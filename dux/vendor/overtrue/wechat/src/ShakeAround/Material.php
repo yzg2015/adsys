@@ -15,7 +15,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue
+ * @see       http://github.com/overtrue
  * @see       http://overtrue.me
  */
 
@@ -29,7 +29,7 @@ use EasyWeChat\Core\Exceptions\InvalidArgumentException;
  */
 class Material extends AbstractAPI
 {
-    const API_MATERIAL_ADD = 'https://api.weixin.qq.com/shakearound/material/add';
+    const API_MATERIAL_ADD = 'http://api.weixin.qq.com/shakearound/material/add';
 
     /**
      * Upload image material.

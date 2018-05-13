@@ -150,7 +150,7 @@ if (!is_callable('random_bytes')) {
         (DIRECTORY_SEPARATOR === '/' || PHP_VERSION_ID >= 50307)
         &&
         // Prevent this code from hanging indefinitely on non-Windows;
-        // see https://bugs.php.net/bug.php?id=69833
+        // see http://bugs.php.net/bug.php?id=69833
         (
             DIRECTORY_SEPARATOR !== '/' ||
             (PHP_VERSION_ID <= 50609 || PHP_VERSION_ID >= 50613)

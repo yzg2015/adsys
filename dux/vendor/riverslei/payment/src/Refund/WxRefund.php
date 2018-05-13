@@ -13,7 +13,7 @@ use Payment\Config;
  */
 class WxRefund extends WxBaseStrategy
 {
-    protected $reqUrl = 'https://api.mch.weixin.qq.com/{debug}/secapi/pay/refund';
+    protected $reqUrl = 'http://api.mch.weixin.qq.com/{debug}/secapi/pay/refund';
 
     public function getBuildDataClass()
     {

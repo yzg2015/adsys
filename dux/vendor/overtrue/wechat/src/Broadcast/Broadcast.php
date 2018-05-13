@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -29,11 +29,11 @@ use EasyWeChat\Core\Exceptions\HttpException;
  */
 class Broadcast extends AbstractAPI
 {
-    const API_SEND_BY_GROUP = 'https://api.weixin.qq.com/cgi-bin/message/mass/sendall';
-    const API_SEND_BY_OPENID = 'https://api.weixin.qq.com/cgi-bin/message/mass/send';
-    const API_DELETE = 'https://api.weixin.qq.com/cgi-bin/message/mass/delete';
-    const API_PREVIEW = 'https://api.weixin.qq.com/cgi-bin/message/mass/preview';
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/message/mass/get';
+    const API_SEND_BY_GROUP = 'http://api.weixin.qq.com/cgi-bin/message/mass/sendall';
+    const API_SEND_BY_OPENID = 'http://api.weixin.qq.com/cgi-bin/message/mass/send';
+    const API_DELETE = 'http://api.weixin.qq.com/cgi-bin/message/mass/delete';
+    const API_PREVIEW = 'http://api.weixin.qq.com/cgi-bin/message/mass/preview';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/message/mass/get';
 
     const PREVIEW_BY_OPENID = 'touser';
     const PREVIEW_BY_NAME = 'towxname';

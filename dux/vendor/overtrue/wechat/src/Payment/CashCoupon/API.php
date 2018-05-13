@@ -15,7 +15,7 @@
  * @author    tianyong90 <412039588@qq.com>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -40,9 +40,9 @@ class API extends AbstractAPI
     protected $merchant;
 
     // api
-    const API_SEND = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/send_coupon';
-    const API_QUERY_STOCK = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/query_coupon_stock';
-    const API_QUERY = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/querycouponsinfo';
+    const API_SEND = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/send_coupon';
+    const API_QUERY_STOCK = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/query_coupon_stock';
+    const API_QUERY = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/querycouponsinfo';
 
     /**
      * API constructor.

@@ -27,7 +27,7 @@ class WeiboProvider extends AbstractProvider implements ProviderInterface
      *
      * @var string
      */
-    protected $baseUrl = 'https://api.weibo.com';
+    protected $baseUrl = 'http://api.weibo.com';
 
     /**
      * The API version for the request.

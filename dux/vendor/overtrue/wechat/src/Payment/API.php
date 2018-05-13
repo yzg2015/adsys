@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -62,7 +62,7 @@ class API extends AbstractAPI
      */
     protected $cache;
 
-    const API_HOST = 'https://api.mch.weixin.qq.com';
+    const API_HOST = 'http://api.mch.weixin.qq.com';
 
     // api
     const API_PAY_ORDER = '/pay/micropay';
@@ -75,9 +75,9 @@ class API extends AbstractAPI
     const API_DOWNLOAD_BILL = '/pay/downloadbill';
     const API_REPORT = '/payitil/report';
 
-    const API_URL_SHORTEN = 'https://api.mch.weixin.qq.com/tools/shorturl';
-    const API_AUTH_CODE_TO_OPENID = 'https://api.mch.weixin.qq.com/tools/authcodetoopenid';
-    const API_SANDBOX_SIGN_KEY = 'https://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
+    const API_URL_SHORTEN = 'http://api.mch.weixin.qq.com/tools/shorturl';
+    const API_AUTH_CODE_TO_OPENID = 'http://api.mch.weixin.qq.com/tools/authcodetoopenid';
+    const API_SANDBOX_SIGN_KEY = 'http://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
 
     // order id types.
     const TRANSACTION_ID = 'transaction_id';

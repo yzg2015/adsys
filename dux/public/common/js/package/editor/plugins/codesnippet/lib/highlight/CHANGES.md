@@ -79,17 +79,17 @@ Miscelleanous improvements:
 
 [cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html
-[variants]: https://groups.google.com/d/topic/highlightjs/VoGC9-1p5vk/discussion
-[beginKeywords]: https://github.com/isagalaev/highlight.js/commit/6c7fdea002eb3949577a85b3f7930137c7c3038d
-[php-html]: https://twitter.com/highlightjs/status/408890903017689088
+[variants]: http://groups.google.com/d/topic/highlightjs/VoGC9-1p5vk/discussion
+[beginKeywords]: http://github.com/isagalaev/highlight.js/commit/6c7fdea002eb3949577a85b3f7930137c7c3038d
+[php-html]: http://twitter.com/highlightjs/status/408890903017689088
 
-[Carlo Kok]: https://github.com/carlokok
-[Bram de Haan]: https://github.com/atelierbram
-[Daniel Kvasnička]: https://github.com/dkvasnicka
-[Dmitry Smolin]: https://github.com/dimsmol
-[Jeremy Hull]: https://github.com/sourrust
-[Seongwon Lee]: https://github.com/dlimpid
-[Jan T. Sott]: https://github.com/idleberg
+[Carlo Kok]: http://github.com/carlokok
+[Bram de Haan]: http://github.com/atelierbram
+[Daniel Kvasnička]: http://github.com/dkvasnicka
+[Dmitry Smolin]: http://github.com/dimsmol
+[Jeremy Hull]: http://github.com/sourrust
+[Seongwon Lee]: http://github.com/dlimpid
+[Jan T. Sott]: http://github.com/idleberg
 
 
 ## Version 7.5
@@ -120,14 +120,14 @@ Improvements:
   for the implementation and to [Jeremy Hull][sourrust] for guiding it.
 - Miscelleanous fixes in PHP, Brainfuck, SCSS, Asciidoc, CMake, Python and F#.
 
-[mehdid]: https://github.com/mehdid
-[nbraud]: https://github.com/nbraud
-[revig]: https://github.com/revig
+[mehdid]: http://github.com/mehdid
+[nbraud]: http://github.com/nbraud
+[revig]: http://github.com/revig
 [lcs]: http://livecode.com/developers/guides/server/
-[sylvestre]: https://github.com/sylvestre
-[isagalaev]: https://github.com/isagalaev
-[treep]: https://github.com/treep
-[sourrust]: https://github.com/sourrust
+[sylvestre]: http://github.com/sylvestre
+[isagalaev]: http://github.com/isagalaev
+[treep]: http://github.com/treep
+[sourrust]: http://github.com/sourrust
 [d]: http://highlightjs.org/download/
 
 
@@ -145,9 +145,9 @@ Hope now we'll be able to work through stuff faster!
 
 P.S. The historical commit is [here][1] for the record.
 
-[Jeremy Hull]: https://github.com/sourrust
-[Oleg Efimov]: https://github.com/sannis
-[1]: https://github.com/isagalaev/highlight.js/commit/f3056941bda56d2b72276b97bc0dd5f230f2473f
+[Jeremy Hull]: http://github.com/sourrust
+[Oleg Efimov]: http://github.com/sannis
+[1]: http://github.com/isagalaev/highlight.js/commit/f3056941bda56d2b72276b97bc0dd5f230f2473f
 
 
 ## Version 7.4
@@ -173,14 +173,14 @@ New languages:
 - VB.NET by [Poren Chiang][]
 - Mizar by [Kelley van Evert][]
 
-[Robin Ward]: https://github.com/eviltrout
-[Jason Jacobson]: https://github.com/jayce7
-[Joans Follesø]: https://github.com/follesoe
-[Dan Allen]: https://github.com/mojavelinux
-[Eric Knibbe]: https://github.com/EricFromCanada
-[Kurt Emch]: https://github.com/kemch
-[Poren Chiang]: https://github.com/rschiang
-[Kelley van Evert]: https://github.com/kelleyvanevert
+[Robin Ward]: http://github.com/eviltrout
+[Jason Jacobson]: http://github.com/jayce7
+[Joans Follesø]: http://github.com/follesoe
+[Dan Allen]: http://github.com/mojavelinux
+[Eric Knibbe]: http://github.com/EricFromCanada
+[Kurt Emch]: http://github.com/kemch
+[Poren Chiang]: http://github.com/rschiang
+[Kelley van Evert]: http://github.com/kelleyvanevert
 
 New style themes:
 
@@ -192,10 +192,10 @@ New style themes:
 - Foundation by [Dan Allen][]
 
 [noformnocontent]: http://nn.mit-license.org/
-[Damien White]: https://github.com/visoft
-[Alexander Marenin]: https://github.com/ioncreature
-[Simon Madine]: https://github.com/thingsinjars
-[Ivan Sagalaev]: https://github.com/isagalaev
+[Damien White]: http://github.com/visoft
+[Alexander Marenin]: http://github.com/ioncreature
+[Simon Madine]: http://github.com/thingsinjars
+[Ivan Sagalaev]: http://github.com/isagalaev
 
 Other notable changes:
 
@@ -207,8 +207,8 @@ Other notable changes:
 - CoffeeScript highlighting is now significantly more robust and rich due to
   input from [Cédric Néhémie][].
 
-[Dmitry Medvinsky]: https://github.com/dmedvinsky
-[Cédric Néhémie]: https://github.com/abe33
+[Dmitry Medvinsky]: http://github.com/dmedvinsky
+[Cédric Néhémie]: http://github.com/abe33
 
 
 ## Version 7.3
@@ -234,12 +234,12 @@ Other notable changes:
   "docs" directory. Now these docs are nicely presented at
   <http://highlightjs.readthedocs.org/>.
 
-[ng]: https://github.com/nathan11g
-[dd]: https://github.com/drdrang
-[bolk]: https://github.com/bolknote
-[oe]: https://github.com/Sannis
-[kk]: https://github.com/kimmel
-[vast]: https://github.com/vast
+[ng]: http://github.com/nathan11g
+[dd]: http://github.com/drdrang
+[bolk]: http://github.com/bolknote
+[oe]: http://github.com/Sannis
+[kk]: http://github.com/kimmel
+[vast]: http://github.com/vast
 
 
 ## Version 7.2
@@ -262,10 +262,10 @@ A Summer crop:
 - And last but not least, we've got a fair number of correctness and consistency
   fixes, including a pretty significant refactoring of Ruby.
 
-[mf]: https://github.com/mfornos
+[mf]: http://github.com/mfornos
 [tm]: http://jmblog.github.com/color-themes-for-highlightjs/
-[tm0]: https://github.com/ChrisKempson/Tomorrow-Theme
-[cd]: https://github.com/caseman
+[tm0]: http://github.com/ChrisKempson/Tomorrow-Theme
+[cd]: http://github.com/caseman
 [amd]: http://requirejs.org/docs/whyamd.html
 
 
@@ -311,12 +311,12 @@ Overall highlight.js currently supports 51 languages and 20 style themes.
 [api]: http://softwaremaniacs.org/wiki/doku.php/highlight.js:api
 [p]: http://softwaremaniacs.org/blog/2012/05/10/http-and-json-in-highlight-js/en/
 [pojoaque]: http://web-cms-designs.com/ftopict-10-pojoaque-style-for-highlight-js-code-highlighter.html
-[ao]: https://github.com/angelolloqui
-[ar]: https://github.com/raleksandar
-[jc]: https://github.com/jcheng5
-[st]: https://github.com/tikhomirov
-[sr]: https://github.com/sourrust
-[ik]: https://github.com/ikalnitsky
+[ao]: http://github.com/angelolloqui
+[ar]: http://github.com/raleksandar
+[jc]: http://github.com/jcheng5
+[st]: http://github.com/tikhomirov
+[sr]: http://github.com/sourrust
+[ik]: http://github.com/ikalnitsky
 
 
 ## Version 6.2
@@ -337,16 +337,16 @@ from all this activity:
 - A vast number of [correctness fixes and code refactorings][log], mostly made
   by [Oleg Efimov][oe] and [Evgeny Stepanischev][es].
 
-[av]: https://github.com/vlasovskikh
-[am]: https://github.com/myadzel
-[dn]: https://github.com/dnagir
-[oe]: https://github.com/Sannis
-[db]: https://github.com/btd
-[jc]: https://github.com/seejohnrun
+[av]: http://github.com/vlasovskikh
+[am]: http://github.com/myadzel
+[dn]: http://github.com/dnagir
+[oe]: http://github.com/Sannis
+[db]: http://github.com/btd
+[jc]: http://github.com/seejohnrun
 [lm]: http://grigio.org/
-[ak]: https://github.com/geekpanth3r
-[es]: https://github.com/bolknote
-[log]: https://github.com/isagalaev/highlight.js/commits/
+[ak]: http://github.com/geekpanth3r
+[es]: http://github.com/bolknote
+[log]: http://github.com/isagalaev/highlight.js/commits/
 
 
 ## Version 6.1 — Solarized
@@ -359,9 +359,9 @@ both variants — light and dark.
 This version also adds a new original style Arta. Its author pumbur maintains a
 [heavily modified fork of highlight.js][pb] on GitHub.
 
-[jh]: https://github.com/sourrust
+[jh]: http://github.com/sourrust
 [solarized]: http://ethanschoonover.com/solarized
-[pb]: https://github.com/pumbur/highlight.js
+[pb]: http://github.com/pumbur/highlight.js
 
 
 ## Version 6.0
@@ -379,13 +379,13 @@ New languages are:
 - Vala by [Antono Vasiljev][antono]
 - Go by [Stephan Kountso][steplg]
 
-[sourrust]: https://github.com/sourrust
+[sourrust]: http://github.com/sourrust
 [desh]: http://desh.su/
-[arhibot]: https://github.com/arhibot
-[ignatov]: https://github.com/ignatov
-[vhbit]: https://github.com/vhbit
-[antono]: https://github.com/antono
-[steplg]: https://github.com/steplg
+[arhibot]: http://github.com/arhibot
+[ignatov]: http://github.com/ignatov
+[vhbit]: http://github.com/vhbit
+[antono]: http://github.com/antono
+[steplg]: http://github.com/steplg
 
 Also this version is marginally faster and fixes a number of small long-standing
 bugs.

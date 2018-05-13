@@ -36,6 +36,10 @@ class Classify extends Home
 
     public function search()
     {
+        $s = input('q');//http://www.goodluck-3guys.com/  www.goodluck-3guys.com
+        $list  =GoodsModel::getSeaList($s);
+        $this->assign('_list',$list);
+        $this->assign('key',$s);
         return $this->fetch();
     }
 }

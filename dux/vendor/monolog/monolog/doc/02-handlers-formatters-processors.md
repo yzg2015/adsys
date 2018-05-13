@@ -29,15 +29,15 @@
 - _NativeMailerHandler_: Sends emails using PHP's
   [`mail()`](http://php.net/manual/en/function.mail.php) function.
 - _SwiftMailerHandler_: Sends emails using a [`Swift_Mailer`](http://swiftmailer.org/) instance.
-- _PushoverHandler_: Sends mobile notifications via the [Pushover](https://www.pushover.net/) API.
+- _PushoverHandler_: Sends mobile notifications via the [Pushover](http://www.pushover.net/) API.
 - _HipChatHandler_: Logs records to a [HipChat](http://hipchat.com) chat room using its API.
-- _FlowdockHandler_: Logs records to a [Flowdock](https://www.flowdock.com/) account.
-- _SlackHandler_: Logs records to a [Slack](https://www.slack.com/) account using the Slack API.
-- _SlackbotHandler_: Logs records to a [Slack](https://www.slack.com/) account using the Slackbot incoming hook.
-- _SlackWebhookHandler_: Logs records to a [Slack](https://www.slack.com/) account using Slack Webhooks.
+- _FlowdockHandler_: Logs records to a [Flowdock](http://www.flowdock.com/) account.
+- _SlackHandler_: Logs records to a [Slack](http://www.slack.com/) account using the Slack API.
+- _SlackbotHandler_: Logs records to a [Slack](http://www.slack.com/) account using the Slackbot incoming hook.
+- _SlackWebhookHandler_: Logs records to a [Slack](http://www.slack.com/) account using Slack Webhooks.
 - _MandrillHandler_: Sends emails via the Mandrill API using a [`Swift_Message`](http://swiftmailer.org/) instance.
-- _FleepHookHandler_: Logs records to a [Fleep](https://fleep.io/) conversation using Webhooks.
-- _IFTTTHandler_: Notifies an [IFTTT](https://ifttt.com/maker) trigger with the log channel, level name and message.
+- _FleepHookHandler_: Logs records to a [Fleep](http://fleep.io/) conversation using Webhooks.
+- _IFTTTHandler_: Notifies an [IFTTT](http://ifttt.com/maker) trigger with the log channel, level name and message.
 
 ### Log specific servers and networked logging
 
@@ -48,11 +48,11 @@
 - _GelfHandler_: Logs records to a [Graylog2](http://www.graylog2.org) server.
 - _CubeHandler_: Logs records to a [Cube](http://square.github.com/cube/) server.
 - _RavenHandler_: Logs records to a [Sentry](http://getsentry.com/) server using
-  [raven](https://packagist.org/packages/raven/raven).
+  [raven](http://packagist.org/packages/raven/raven).
 - _ZendMonitorHandler_: Logs records to the Zend Monitor present in Zend Server.
 - _NewRelicHandler_: Logs records to a [NewRelic](http://newrelic.com/) application.
 - _LogglyHandler_: Logs records to a [Loggly](http://www.loggly.com/) account.
-- _RollbarHandler_: Logs records to a [Rollbar](https://rollbar.com/) account.
+- _RollbarHandler_: Logs records to a [Rollbar](http://rollbar.com/) account.
 - _SyslogUdpHandler_: Logs records to a remote [Syslogd](http://www.rsyslog.com/) server.
 - _LogEntriesHandler_: Logs records to a [LogEntries](http://logentries.com/) account.
 
@@ -64,7 +64,7 @@
   inline `console` messages within Chrome.
 - _BrowserConsoleHandler_: Handler to send logs to browser's Javascript `console` with
   no browser extension required. Most browsers supporting `console` API are supported.
-- _PHPConsoleHandler_: Handler for [PHP Console](https://chrome.google.com/webstore/detail/php-console/nfhmhhlpfleoednkpnnnkolmclajemef), providing
+- _PHPConsoleHandler_: Handler for [PHP Console](http://chrome.google.com/webstore/detail/php-console/nfhmhhlpfleoednkpnnnkolmclajemef), providing
   inline `console` and notification popup messages within Chrome.
 
 ### Log to databases
@@ -75,7 +75,7 @@
 - _CouchDBHandler_: Logs records to a CouchDB server.
 - _DoctrineCouchDBHandler_: Logs records to a CouchDB server via the Doctrine CouchDB ODM.
 - _ElasticSearchHandler_: Logs records to an Elastic Search server.
-- _DynamoDbHandler_: Logs records to a DynamoDB table with the [AWS SDK](https://github.com/aws/aws-sdk-php).
+- _DynamoDbHandler_: Logs records to a DynamoDB table with the [AWS SDK](http://github.com/aws/aws-sdk-php).
 
 ### Wrappers / Special Handlers
 
@@ -151,7 +151,7 @@
 ## Third Party Packages
 
 Third party handlers, formatters and processors are
-[listed in the wiki](https://github.com/Seldaek/monolog/wiki/Third-Party-Packages). You
+[listed in the wiki](http://github.com/Seldaek/monolog/wiki/Third-Party-Packages). You
 can also add your own there if you publish one.
 
 &larr; [Usage](01-usage.md) |  [Utility classes](03-utilities.md) &rarr;

@@ -729,7 +729,7 @@ var App = function() {
     };
 
     /*
-     * jQuery Appear, for more examples you can check out https://github.com/bas2k/jquery.appear
+     * jQuery Appear, for more examples you can check out http://github.com/bas2k/jquery.appear
      *
      * App.initHelper('appear');
      *
@@ -754,7 +754,7 @@ var App = function() {
     };
 
     /*
-     * jQuery Appear + jQuery countTo, for more examples you can check out https://github.com/bas2k/jquery.appear and https://github.com/mhuggins/jquery-countTo
+     * jQuery Appear + jQuery countTo, for more examples you can check out http://github.com/bas2k/jquery.appear and http://github.com/mhuggins/jquery-countTo
      *
      * App.initHelper('appear-countTo');
      *
@@ -957,7 +957,7 @@ var App = function() {
     };
 
     /*
-     * Bootstrap Datepicker init, for more examples you can check out https://github.com/eternicode/bootstrap-datepicker
+     * Bootstrap Datepicker init, for more examples you can check out http://github.com/eternicode/bootstrap-datepicker
      *
      * App.initHelper('datepicker');
      *
@@ -1106,7 +1106,7 @@ var App = function() {
     };
 
     /*
-     * Tags Inputs, for more examples you can check out https://github.com/xoxco/jQuery-Tags-Input
+     * Tags Inputs, for more examples you can check out http://github.com/xoxco/jQuery-Tags-Input
      *
      * App.initHelper('tags-inputs');
      *
@@ -1123,7 +1123,7 @@ var App = function() {
     };
 
     /*
-     * Select2, for more examples you can check out https://github.com/select2/select2
+     * Select2, for more examples you can check out http://github.com/select2/select2
      *
      * App.initHelper('select2');
      *
@@ -1141,7 +1141,7 @@ var App = function() {
     };
 
     /*
-     * Highlight.js, for more examples you can check out https://highlightjs.org/usage/
+     * Highlight.js, for more examples you can check out http://highlightjs.org/usage/
      *
      * App.initHelper('highlightjs');
      *
@@ -1197,7 +1197,7 @@ var App = function() {
     };
 
     /*
-     * Draggable items with jQuery, for more examples you can check out https://jqueryui.com/sortable/
+     * Draggable items with jQuery, for more examples you can check out http://jqueryui.com/sortable/
      *
      * App.initHelper('draggable-items');
      *
@@ -1240,7 +1240,7 @@ var App = function() {
     };
 
     /*
-     * Bootstrap Maxlength, for more examples you can check out https://github.com/mimo84/bootstrap-maxlength
+     * Bootstrap Maxlength, for more examples you can check out http://github.com/mimo84/bootstrap-maxlength
      *
      * App.initHelper('maxlength');
      *
@@ -1264,7 +1264,7 @@ var App = function() {
     };
 
     /*
-     * Bootstrap Datetimepicker, for more examples you can check out https://github.com/Eonasdan/bootstrap-datetimepicker
+     * Bootstrap Datetimepicker, for more examples you can check out http://github.com/Eonasdan/bootstrap-datetimepicker
      *
      * App.initHelper('datetimepicker');
      *
@@ -1299,7 +1299,7 @@ var App = function() {
     };
 
     /*
-     * Ion Range Slider, for more examples you can check out https://github.com/IonDen/ion.rangeSlider
+     * Ion Range Slider, for more examples you can check out http://github.com/IonDen/ion.rangeSlider
      *
      * App.initHelper('rangeslider');
      *

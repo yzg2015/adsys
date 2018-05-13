@@ -166,7 +166,7 @@ var GMaps = (function(global) {
    * Creates a new GMaps instance, including a Google Maps map.
    * @class GMaps
    * @constructs
-   * @param {object} options - `options` accepts all the [MapOptions](https://developers.google.com/maps/documentation/javascript/reference#MapOptions) and [events](https://developers.google.com/maps/documentation/javascript/reference#Map) listed in the Google Maps API. Also accepts:
+   * @param {object} options - `options` accepts all the [MapOptions](http://developers.google.com/maps/documentation/javascript/reference#MapOptions) and [events](http://developers.google.com/maps/documentation/javascript/reference#Map) listed in the Google Maps API. Also accepts:
    * * `lat` (number): Latitude of the map's center
    * * `lng` (number): Longitude of the map's center
    * * `el` (string or HTMLElement): container where the map will be rendered
@@ -176,7 +176,7 @@ var GMaps = (function(global) {
 
     if (!(typeof window.google === 'object' && window.google.maps)) {
       if (typeof window.console === 'object' && window.console.error) {
-        console.error('Google Maps API is required. Please register the following JavaScript library https://maps.googleapis.com/maps/api/js.');
+        console.error('Google Maps API is required. Please register the following JavaScript library http://maps.googleapis.com/maps/api/js.');
       }
 
       return function() {};
@@ -701,7 +701,7 @@ GMaps.prototype.createControl = function(options) {
  * * `id` (string): The HTML id for the custom control.
  * * `classes` (string): A string containing all the HTML classes for the custom control.
  * * `content` (string or HTML element): The content of the custom control.
- * * `position` (string): Any valid [`google.maps.ControlPosition`](https://developers.google.com/maps/documentation/javascript/controls#ControlPositioning) value, in lower or upper case.
+ * * `position` (string): Any valid [`google.maps.ControlPosition`](http://developers.google.com/maps/documentation/javascript/controls#ControlPositioning) value, in lower or upper case.
  * * `events` (object): The keys of this object should be valid DOM events. The values should be functions.
  * * `disableDefaultStyles` (boolean): If false, removes the default styles for the controls like font (family and size), and box shadow.
  * @returns {HTMLElement}
@@ -2280,7 +2280,7 @@ GMaps.geocode = function(options) {
 if (typeof window.google === 'object' && window.google.maps) {
   //==========================
   // Polygon containsLatLng
-  // https://github.com/tparkin/Google-Maps-Point-in-Polygon
+  // http://github.com/tparkin/Google-Maps-Point-in-Polygon
   // Poygon getBounds extension - google-maps-extensions
   // http://code.google.com/p/google-maps-extensions/source/browse/google.maps.Polygon.getBounds.js
   if (!google.maps.Polygon.prototype.getBounds) {
@@ -2371,7 +2371,7 @@ if (typeof window.google === 'object' && window.google.maps) {
 
 //==========================
 // Array indexOf
-// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
+// http://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
 if (!Array.prototype.indexOf) {
   Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
       "use strict";

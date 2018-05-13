@@ -14,8 +14,8 @@ use Payment\Utils\ArrayUtil;
  * @package Payment\Common\Weixin\Data\Charge
  * anthor helei
  *
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class PubChargeData extends ChargeBaseData
 {

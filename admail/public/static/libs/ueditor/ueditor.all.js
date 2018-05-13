@@ -11923,7 +11923,7 @@ UE.plugins['link'] = function(){
         var start = range.startContainer;
         if(start.nodeType == 1 && link){
             start = start.childNodes[range.startOffset];
-            if(start && start.nodeType == 1 && start.tagName == 'A' && /^(?:https?|ftp|file)\s*:\s*\/\//.test(start[browser.ie?'innerText':'textContent'])){
+            if(start && start.nodeType == 1 && start.tagName == 'A' && /^(?:http?|ftp|file)\s*:\s*\/\//.test(start[browser.ie?'innerText':'textContent'])){
                 start[browser.ie ? 'innerText' : 'textContent'] =  utils.html(opt.textValue||opt.href);
 
             }
@@ -17247,9 +17247,9 @@ UE.plugin.register('autolink',function(){
                             charCode = range.toString().charCodeAt(0);
                         } while (charCode != 160 && charCode != 32);
 
-                        if (range.toString().replace(new RegExp(domUtils.fillChar, 'g'), '').match(/(?:https?:\/\/|ssh:\/\/|ftp:\/\/|file:\/|www\.)/i)) {
+                        if (range.toString().replace(new RegExp(domUtils.fillChar, 'g'), '').match(/(?:http?:\/\/|ssh:\/\/|ftp:\/\/|file:\/|www\.)/i)) {
                             while(range.toString().length){
-                                if(/^(?:https?:\/\/|ssh:\/\/|ftp:\/\/|file:\/|www\.)/i.test(range.toString())){
+                                if(/^(?:http?:\/\/|ssh:\/\/|ftp:\/\/|file:\/|www\.)/i.test(range.toString())){
                                     break;
                                 }
                                 try{
@@ -17279,7 +17279,7 @@ UE.plugin.register('autolink',function(){
                             a.appendChild(range.extractContents());
                             a.href = a.innerHTML = a.innerHTML.replace(/<[^>]+>/g,'');
                             href = a.getAttribute("href").replace(new RegExp(domUtils.fillChar,'g'),'');
-                            href = /^(?:https?:\/\/)/ig.test(href) ? href : "http://"+ href;
+                            href = /^(?:http?:\/\/)/ig.test(href) ? href : "http://"+ href;
                             a.setAttribute('_src',utils.html(href));
                             a.href = utils.html(href);
 
@@ -23224,7 +23224,7 @@ UE.plugins['catchremoteimage'] = function () {
                 continue;
             }
             var src = ci.getAttribute("_src") || ci.src || "";
-            if (/^(https?|ftp):/i.test(src) && !test(src, catcherLocalDomain)) {
+            if (/^(http?|ftp):/i.test(src) && !test(src, catcherLocalDomain)) {
                 remoteImages.push(src);
             }
         }

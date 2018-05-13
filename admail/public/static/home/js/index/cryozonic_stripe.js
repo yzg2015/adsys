@@ -95,7 +95,7 @@ var cryozonic = {
 
         var script = document.getElementsByTagName('script')[0];
         var stripeJsV2 = document.createElement('script');
-        stripeJsV2.src = "https://js.stripe.com/v2/";
+        stripeJsV2.src = "http://js.stripe.com/v2/";
         stripeJsV2.onload = function()
         {
             cryozonic.onLoadStripeJsV2();
@@ -112,7 +112,7 @@ var cryozonic = {
     {
         var script = document.getElementsByTagName('script')[0];
         var stripeJsV3 = document.createElement('script');
-        stripeJsV3.src = "https://js.stripe.com/v3/";
+        stripeJsV3.src = "http://js.stripe.com/v3/";
         stripeJsV3.onload = cryozonic.onLoadStripeJsV3;
         stripeJsV3.onerror = function(evt) {
             console.warn("Stripe.js v3 could not be loaded");

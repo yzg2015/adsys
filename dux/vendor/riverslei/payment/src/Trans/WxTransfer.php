@@ -13,7 +13,7 @@ use Payment\Config;
  */
 class WxTransfer extends WxBaseStrategy
 {
-    protected $reqUrl = 'https://api.mch.weixin.qq.com/{debug}/mmpaymkttransfers/promotion/transfers';
+    protected $reqUrl = 'http://api.mch.weixin.qq.com/{debug}/mmpaymkttransfers/promotion/transfers';
 
     public function getBuildDataClass()
     {

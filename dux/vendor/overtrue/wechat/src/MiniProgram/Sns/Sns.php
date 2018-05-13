@@ -20,7 +20,7 @@
  * @author    mingyoung <mingyoungcheung@gmail.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -33,7 +33,7 @@ class Sns extends AbstractMiniProgram
     /**
      * Api.
      */
-    const JSCODE_TO_SESSION = 'https://api.weixin.qq.com/sns/jscode2session';
+    const JSCODE_TO_SESSION = 'http://api.weixin.qq.com/sns/jscode2session';
 
     /**
      * JsCode 2 session key.

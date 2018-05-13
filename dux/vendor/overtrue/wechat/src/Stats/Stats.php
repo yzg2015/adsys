@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -29,45 +29,45 @@ use EasyWeChat\Core\AbstractAPI;
 class Stats extends AbstractAPI
 {
     // 获取用户增减数据
-    const  API_USER_SUMMARY = 'https://api.weixin.qq.com/datacube/getusersummary';
+    const  API_USER_SUMMARY = 'http://api.weixin.qq.com/datacube/getusersummary';
     // 获取累计用户数据
-    const  API_USER_CUMULATE = 'https://api.weixin.qq.com/datacube/getusercumulate';
+    const  API_USER_CUMULATE = 'http://api.weixin.qq.com/datacube/getusercumulate';
     // 获取图文群发每日数据
-    const  API_ARTICLE_SUMMARY = 'https://api.weixin.qq.com/datacube/getarticlesummary';
+    const  API_ARTICLE_SUMMARY = 'http://api.weixin.qq.com/datacube/getarticlesummary';
     // 获取图文群发总数据
-    const  API_ARTICLE_TOTAL = 'https://api.weixin.qq.com/datacube/getarticletotal';
+    const  API_ARTICLE_TOTAL = 'http://api.weixin.qq.com/datacube/getarticletotal';
     // 获取图文统计数据
-    const  API_USER_READ_SUMMARY = 'https://api.weixin.qq.com/datacube/getuserread';
+    const  API_USER_READ_SUMMARY = 'http://api.weixin.qq.com/datacube/getuserread';
     // 获取图文统计分时数据
-    const  API_USER_READ_HOURLY = 'https://api.weixin.qq.com/datacube/getuserreadhour';
+    const  API_USER_READ_HOURLY = 'http://api.weixin.qq.com/datacube/getuserreadhour';
     // 获取图文分享转发数据
-    const  API_USER_SHARE_SUMMARY = 'https://api.weixin.qq.com/datacube/getusershare';
+    const  API_USER_SHARE_SUMMARY = 'http://api.weixin.qq.com/datacube/getusershare';
     // 获取图文分享转发分时数据
-    const  API_USER_SHARE_HOURLY = 'https://api.weixin.qq.com/datacube/getusersharehour';
+    const  API_USER_SHARE_HOURLY = 'http://api.weixin.qq.com/datacube/getusersharehour';
     // 获取消息发送概况数据
-    const  API_UPSTREAM_MSG_SUMMARY = 'https://api.weixin.qq.com/datacube/getupstreammsg';
+    const  API_UPSTREAM_MSG_SUMMARY = 'http://api.weixin.qq.com/datacube/getupstreammsg';
     // 获取消息分送分时数据
-    const  API_UPSTREAM_MSG_HOURLY = 'https://api.weixin.qq.com/datacube/getupstreammsghour';
+    const  API_UPSTREAM_MSG_HOURLY = 'http://api.weixin.qq.com/datacube/getupstreammsghour';
     // 获取消息发送周数据
-    const  API_UPSTREAM_MSG_WEEKLY = 'https://api.weixin.qq.com/datacube/getupstreammsgweek';
+    const  API_UPSTREAM_MSG_WEEKLY = 'http://api.weixin.qq.com/datacube/getupstreammsgweek';
     // 获取消息发送月数据
-    const  API_UPSTREAM_MSG_MONTHLY = 'https://api.weixin.qq.com/datacube/getupstreammsgmonth';
+    const  API_UPSTREAM_MSG_MONTHLY = 'http://api.weixin.qq.com/datacube/getupstreammsgmonth';
     // 获取消息发送分布数据
-    const  API_UPSTREAM_MSG_DIST_SUMMARY = 'https://api.weixin.qq.com/datacube/getupstreammsgdist';
+    const  API_UPSTREAM_MSG_DIST_SUMMARY = 'http://api.weixin.qq.com/datacube/getupstreammsgdist';
     // 获取消息发送分布周数据
-    const  API_UPSTREAM_MSG_DIST_WEEKLY = 'https://api.weixin.qq.com/datacube/getupstreammsgdistweek';
+    const  API_UPSTREAM_MSG_DIST_WEEKLY = 'http://api.weixin.qq.com/datacube/getupstreammsgdistweek';
     // 获取消息发送分布月数据
-    const  API_UPSTREAM_MSG_DIST_MONTHLY = 'https://api.weixin.qq.com/datacube/getupstreammsgdistmonth?';
+    const  API_UPSTREAM_MSG_DIST_MONTHLY = 'http://api.weixin.qq.com/datacube/getupstreammsgdistmonth?';
     // 获取接口分析数据
-    const  API_INTERFACE_SUMMARY = 'https://api.weixin.qq.com/datacube/getinterfacesummary';
+    const  API_INTERFACE_SUMMARY = 'http://api.weixin.qq.com/datacube/getinterfacesummary';
     // 获取接口分析分时数据
-    const  API_INTERFACE_SUMMARY_HOURLY = 'https://api.weixin.qq.com/datacube/getinterfacesummaryhour';
+    const  API_INTERFACE_SUMMARY_HOURLY = 'http://api.weixin.qq.com/datacube/getinterfacesummaryhour';
     // 拉取卡券概况数据接口
-    const  API_CARD_SUMMARY = 'https://api.weixin.qq.com/datacube/getcardbizuininfo';
+    const  API_CARD_SUMMARY = 'http://api.weixin.qq.com/datacube/getcardbizuininfo';
     // 获取免费券数据接口
-    const  API_FREE_CARD_SUMMARY = 'https://api.weixin.qq.com/datacube/getcardcardinfo';
+    const  API_FREE_CARD_SUMMARY = 'http://api.weixin.qq.com/datacube/getcardcardinfo';
     // 拉取会员卡数据接口
-    const  API_MEMBER_CARD_SUMMARY = 'https://api.weixin.qq.com/datacube/getcardmembercardinfo';
+    const  API_MEMBER_CARD_SUMMARY = 'http://api.weixin.qq.com/datacube/getcardmembercardinfo';
 
     /**
      * 获取用户增减数据.

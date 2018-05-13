@@ -1,7 +1,7 @@
 Guzzle, PHP HTTP client
 =======================
 
-[![Build Status](https://travis-ci.org/guzzle/guzzle.svg?branch=master)](https://travis-ci.org/guzzle/guzzle)
+[![Build Status](http://travis-ci.org/guzzle/guzzle.svg?branch=master)](http://travis-ci.org/guzzle/guzzle)
 
 Guzzle is a PHP HTTP client that makes it easy to send HTTP requests and
 trivial to integrate with web services.
@@ -19,7 +19,7 @@ trivial to integrate with web services.
 
 ```php
 $client = new \GuzzleHttp\Client();
-$res = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
+$res = $client->request('GET', 'http://api.github.com/repos/guzzle/guzzle');
 echo $res->getStatusCode();
 // 200
 echo $res->getHeaderLine('content-type');
@@ -39,7 +39,7 @@ $promise->wait();
 
 - [Documentation](http://guzzlephp.org/)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/guzzle)
-- [Gitter](https://gitter.im/guzzle/guzzle)
+- [Gitter](http://gitter.im/guzzle/guzzle)
 
 
 ## Installing Guzzle
@@ -49,7 +49,7 @@ The recommended way to install Guzzle is through
 
 ```bash
 # Install Composer
-curl -sS https://getcomposer.org/installer | php
+curl -sS http://getcomposer.org/installer | php
 ```
 
 Next, run the Composer command to install the latest stable version of Guzzle:
@@ -80,10 +80,10 @@ composer.phar update
 | 5.x     | Maintained | `guzzlehttp/guzzle` | `GuzzleHttp` | [v5][guzzle-5-repo] | [v5][guzzle-5-docs] | No    | >= 5.4      |
 | 6.x     | Latest     | `guzzlehttp/guzzle` | `GuzzleHttp` | [v6][guzzle-6-repo] | [v6][guzzle-6-docs] | Yes   | >= 5.5      |
 
-[guzzle-3-repo]: https://github.com/guzzle/guzzle3
-[guzzle-4-repo]: https://github.com/guzzle/guzzle/tree/4.x
-[guzzle-5-repo]: https://github.com/guzzle/guzzle/tree/5.3
-[guzzle-6-repo]: https://github.com/guzzle/guzzle
+[guzzle-3-repo]: http://github.com/guzzle/guzzle3
+[guzzle-4-repo]: http://github.com/guzzle/guzzle/tree/4.x
+[guzzle-5-repo]: http://github.com/guzzle/guzzle/tree/5.3
+[guzzle-6-repo]: http://github.com/guzzle/guzzle
 [guzzle-3-docs]: http://guzzle3.readthedocs.org/en/latest/
 [guzzle-5-docs]: http://guzzle.readthedocs.org/en/5.3/
 [guzzle-6-docs]: http://guzzle.readthedocs.org/en/latest/

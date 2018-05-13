@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -37,14 +37,14 @@ class Material extends AbstractAPI
      */
     protected $allowTypes = ['image', 'voice', 'video', 'thumb', 'news_image'];
 
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/material/get_material';
-    const API_UPLOAD = 'https://api.weixin.qq.com/cgi-bin/material/add_material';
-    const API_DELETE = 'https://api.weixin.qq.com/cgi-bin/material/del_material';
-    const API_STATS = 'https://api.weixin.qq.com/cgi-bin/material/get_materialcount';
-    const API_LISTS = 'https://api.weixin.qq.com/cgi-bin/material/batchget_material';
-    const API_NEWS_UPLOAD = 'https://api.weixin.qq.com/cgi-bin/material/add_news';
-    const API_NEWS_UPDATE = 'https://api.weixin.qq.com/cgi-bin/material/update_news';
-    const API_NEWS_IMAGE_UPLOAD = 'https://api.weixin.qq.com/cgi-bin/media/uploadimg';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/material/get_material';
+    const API_UPLOAD = 'http://api.weixin.qq.com/cgi-bin/material/add_material';
+    const API_DELETE = 'http://api.weixin.qq.com/cgi-bin/material/del_material';
+    const API_STATS = 'http://api.weixin.qq.com/cgi-bin/material/get_materialcount';
+    const API_LISTS = 'http://api.weixin.qq.com/cgi-bin/material/batchget_material';
+    const API_NEWS_UPLOAD = 'http://api.weixin.qq.com/cgi-bin/material/add_news';
+    const API_NEWS_UPDATE = 'http://api.weixin.qq.com/cgi-bin/material/update_news';
+    const API_NEWS_IMAGE_UPLOAD = 'http://api.weixin.qq.com/cgi-bin/media/uploadimg';
 
     /**
      * Upload image.

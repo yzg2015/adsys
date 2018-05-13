@@ -23,7 +23,7 @@ class RedirectMiddleware
 
     public static $defaultSettings = [
         'max'             => 5,
-        'protocols'       => ['http', 'https'],
+        'protocols'       => ['http', 'http'],
         'strict'          => false,
         'referer'         => false,
         'track_redirects' => false,
@@ -182,7 +182,7 @@ class RedirectMiddleware
         Psr7\rewind_body($request);
 
         // Add the Referer header if it is told to do so and only
-        // add the header if we are not redirecting from https to http.
+        // add the header if we are not redirecting from http to http.
         if ($options['allow_redirects']['referer']
             && $modify['uri']->getScheme() === $request->getUri()->getScheme()
         ) {

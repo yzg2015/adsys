@@ -17,4 +17,4 @@ See index.html for technical documentation and examples. The most recent version
 of this document is also available online at
 http://ludo.cubicphuse.nl/jquery-treetable. An AJAX enabled example built with
 Ruby on Rails can be found at
-https://github.com/ludo/jquery-treetable-ajax-example.
+http://github.com/ludo/jquery-treetable-ajax-example.

@@ -5,8 +5,8 @@ namespace Payment\Utils;
  * Class StrUtil
  * @dec 字符串处理类
  * @package Payment\Utils
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class StrUtil
 {

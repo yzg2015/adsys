@@ -102,7 +102,7 @@ class WeWorkProvider extends AbstractProvider implements ProviderInterface
             'state' => $state,
         ];
 
-        return sprintf('https://open.weixin.qq.com/connect/oauth2/authorize?%s#wechat_redirect', http_build_query($queries));
+        return sprintf('http://open.weixin.qq.com/connect/oauth2/authorize?%s#wechat_redirect', http_build_query($queries));
     }
 
     /**
@@ -121,7 +121,7 @@ class WeWorkProvider extends AbstractProvider implements ProviderInterface
             'state' => $state,
         ];
 
-        return 'https://open.work.weixin.qq.com/wwopen/sso/qrConnect?'.http_build_query($queries);
+        return 'http://open.work.weixin.qq.com/wwopen/sso/qrConnect?'.http_build_query($queries);
     }
 
     protected function getTokenUrl()
@@ -156,7 +156,7 @@ class WeWorkProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserInfo(AccessTokenInterface $token)
     {
-        $response = $this->getHttpClient()->get('https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo', [
+        $response = $this->getHttpClient()->get('http://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo', [
             'query' => array_filter([
                 'access_token' => $token->getToken(),
                 'code' => $this->getCode(),
@@ -176,7 +176,7 @@ class WeWorkProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserDetail(AccessTokenInterface $token, $ticket)
     {
-        $response = $this->getHttpClient()->post('https://qyapi.weixin.qq.com/cgi-bin/user/getuserdetail', [
+        $response = $this->getHttpClient()->post('http://qyapi.weixin.qq.com/cgi-bin/user/getuserdetail', [
             'query' => [
                 'access_token' => $token->getToken(),
             ],

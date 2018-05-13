@@ -6,7 +6,7 @@ CKEDITOR.plugins.add( 'html5audio', {
         editor.widgets.add( 'html5audio', {
             button: editor.lang.html5audio.button,
             template: '<div class="ckeditor-html5-audio"></div>',   // We add the audio element when needed in the data function, to avoid having an undefined src attribute.
-                                                                    // See issue #9 on github: https://github.com/iametza/ckeditor-html5-audio/issues/9
+                                                                    // See issue #9 on github: http://github.com/iametza/ckeditor-html5-audio/issues/9
             editables: {},
             /*
              * Allowed content rules (http://docs.ckeditor.com/#!/guide/dev_allowed_content_rules):

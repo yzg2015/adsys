@@ -6,8 +6,8 @@ namespace Payment\Notify;
  * @createTime: 2016-07-20 16:12
  * @description: 提供给客户端实现的 支付异步回调 接口
  *
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 interface PayNotifyInterface
 {

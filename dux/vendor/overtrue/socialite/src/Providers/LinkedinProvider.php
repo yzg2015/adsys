@@ -18,7 +18,7 @@ use Overtrue\Socialite\User;
 /**
  * Class LinkedinProvider.
  *
- * @see https://developer.linkedin.com/docs/oauth2 [Authenticating with OAuth 2.0]
+ * @see http://developer.linkedin.com/docs/oauth2 [Authenticating with OAuth 2.0]
  */
 class LinkedinProvider extends AbstractProvider implements ProviderInterface
 {
@@ -45,7 +45,7 @@ class LinkedinProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://www.linkedin.com/uas/oauth2/authorization', $state);
+        return $this->buildAuthUrlFromBase('http://www.linkedin.com/uas/oauth2/authorization', $state);
     }
 
     /**
@@ -53,7 +53,7 @@ class LinkedinProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return 'https://www.linkedin.com/uas/oauth2/accessToken';
+        return 'http://www.linkedin.com/uas/oauth2/accessToken';
     }
 
     /**
@@ -75,7 +75,7 @@ class LinkedinProvider extends AbstractProvider implements ProviderInterface
     {
         $fields = implode(',', $this->fields);
 
-        $url = 'https://api.linkedin.com/v1/people/~:('.$fields.')';
+        $url = 'http://api.linkedin.com/v1/people/~:('.$fields.')';
 
         $response = $this->getHttpClient()->get($url, [
             'headers' => [

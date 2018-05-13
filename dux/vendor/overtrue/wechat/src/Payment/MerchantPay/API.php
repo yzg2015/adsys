@@ -15,7 +15,7 @@
  * @author    AC <alexever@gmail.com>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -40,8 +40,8 @@ class API extends AbstractAPI
     protected $merchant;
 
     // api
-    const API_SEND = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers';
-    const API_QUERY = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/gettransferinfo';
+    const API_SEND = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers';
+    const API_QUERY = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/gettransferinfo';
 
     /**
      * API constructor.

@@ -17,7 +17,7 @@ use Monolog\Logger;
 
 /**
  * @author Dominik Liebler <liebler.dominik@gmail.com>
- * @see    https://www.hipchat.com/docs/api
+ * @see    http://www.hipchat.com/docs/api
  */
 class FlowdockHandlerTest extends TestCase
 {

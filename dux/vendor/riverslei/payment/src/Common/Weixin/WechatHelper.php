@@ -17,7 +17,7 @@ use Payment\Utils\StrUtil;
 class WechatHelper extends WxBaseData
 {
     // 沙盒测试url
-    const SANDBOX_URL = 'https://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
+    const SANDBOX_URL = 'http://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
 
     /**
      * 获取沙盒的签名信息

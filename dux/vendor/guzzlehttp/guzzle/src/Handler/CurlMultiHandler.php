@@ -99,7 +99,7 @@ class CurlMultiHandler
             curl_multi_select($this->_mh, $this->selectTimeout) === -1
         ) {
             // Perform a usleep if a select returns -1.
-            // See: https://bugs.php.net/bug.php?id=61141
+            // See: http://bugs.php.net/bug.php?id=61141
             usleep(250);
         }
 

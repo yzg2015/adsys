@@ -19,7 +19,7 @@ class CmbCharge extends CmbBaseStrategy
 
     public function getBuildDataClass()
     {
-        $this->config->getewayUrl = 'https://netpay.cmbchina.com/netpayment/BaseHttp.dll?MB_EUserPay';
+        $this->config->getewayUrl = 'http://netpay.cmbchina.com/netpayment/BaseHttp.dll?MB_EUserPay';
         if ($this->config->useSandbox) {// 测试
             $this->config->getewayUrl = 'http://121.15.180.66:801/NetPayment/BaseHttp.dll?MB_EUserPay';
         }

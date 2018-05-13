@@ -17,7 +17,7 @@ use Monolog\Logger;
  * Sends notifications through Slack's Slackbot
  *
  * @author Haralan Dobrev <hkdobrev@gmail.com>
- * @see    https://slack.com/apps/A0F81R8ET-slackbot
+ * @see    http://slack.com/apps/A0F81R8ET-slackbot
  */
 class SlackbotHandler extends AbstractProcessingHandler
 {
@@ -63,7 +63,7 @@ class SlackbotHandler extends AbstractProcessingHandler
     protected function write(array $record)
     {
         $slackbotUrl = sprintf(
-            'https://%s.slack.com/services/hooks/slackbot?token=%s&channel=%s',
+            'http://%s.slack.com/services/hooks/slackbot?token=%s&channel=%s',
             $this->slackTeam,
             $this->token,
             $this->channel

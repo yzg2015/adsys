@@ -20,7 +20,7 @@ class WechatProviderTest extends PHPUnit_Framework_TestCase
         $response = (new WeChatProvider(Request::create('foo'), 'client_id', 'client_secret', 'http://localhost/socialite/callback.php'))->redirect();
 
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\RedirectResponse', $response);
-        $this->assertStringStartsWith('https://open.weixin.qq.com/connect/qrconnect', $response->getTargetUrl());
+        $this->assertStringStartsWith('http://open.weixin.qq.com/connect/qrconnect', $response->getTargetUrl());
         $this->assertRegExp('/redirect_uri=http%3A%2F%2Flocalhost%2Fsocialite%2Fcallback.php/', $response->getTargetUrl());
     }
 
@@ -29,7 +29,7 @@ class WechatProviderTest extends PHPUnit_Framework_TestCase
         $response = (new WeChatOpenPlatformProvider(Request::create('foo'), 'client_id', ['component-app-id', 'component-access-token'], 'http://localhost/callback.php'))->redirect();
 
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\RedirectResponse', $response);
-        $this->assertStringStartsWith('https://open.weixin.qq.com/connect/oauth2/authorize', $response->getTargetUrl());
+        $this->assertStringStartsWith('http://open.weixin.qq.com/connect/oauth2/authorize', $response->getTargetUrl());
         $this->assertRegExp('/redirect_uri=http%3A%2F%2Flocalhost%2Fcallback.php/', $response->getTargetUrl());
     }
 
@@ -37,7 +37,7 @@ class WechatProviderTest extends PHPUnit_Framework_TestCase
     {
         $provider = new WeChatProvider(Request::create('foo'), 'client_id', 'client_secret', 'http://localhost/socialite/callback.php');
 
-        $this->assertSame('https://api.weixin.qq.com/sns/oauth2/access_token', $provider->tokenUrl());
+        $this->assertSame('http://api.weixin.qq.com/sns/oauth2/access_token', $provider->tokenUrl());
         $this->assertSame([
             'appid' => 'client_id',
             'secret' => 'client_secret',
@@ -58,7 +58,7 @@ class WechatProviderTest extends PHPUnit_Framework_TestCase
     {
         $provider = new WeChatOpenPlatformProvider(Request::create('foo'), 'client_id', ['component-app-id', 'component-access-token'], 'redirect-url');
 
-        $this->assertSame('https://api.weixin.qq.com/sns/oauth2/component/access_token', $provider->tokenUrl());
+        $this->assertSame('http://api.weixin.qq.com/sns/oauth2/component/access_token', $provider->tokenUrl());
         $this->assertSame([
             'appid' => 'client_id',
             'component_appid' => 'component-app-id',
@@ -97,7 +97,7 @@ class WechatProviderTest extends PHPUnit_Framework_TestCase
             'grant_type' => 'authorization_code',
         ], $provider->tokenFields('simcode'));
 
-        $this->assertSame('https://api.weixin.qq.com/sns/oauth2/component/access_token', $provider->tokenUrl());
+        $this->assertSame('http://api.weixin.qq.com/sns/oauth2/component/access_token', $provider->tokenUrl());
     }
 }
 

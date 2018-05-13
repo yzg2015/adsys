@@ -58,7 +58,7 @@ class Start {
         if (!defined('PACK_PATH')) define('PACK_PATH', CORE_PATH . 'package/');
         if (!defined('ROOT_URL')) define('ROOT_URL', str_replace('\\', '/', rtrim(dirname($_SERVER["SCRIPT_NAME"]), '\\/')));
         if (!defined('ROOT_SCRIPT')) define('ROOT_SCRIPT', str_replace('\\', '/', rtrim($_SERVER["SCRIPT_NAME"], '\\/')));
-        $urlHead = ($_SERVER['HTTPS'] <> "on") ? 'http' : 'https';
+        $urlHead = ($_SERVER['http'] <> "on") ? 'http' : 'http';
         $urlHead .= '://' . $_SERVER["HTTP_HOST"];
         if (!defined('DOMAIN')) define('DOMAIN', $urlHead);
         $urlHead = 'http://' . $_SERVER["HTTP_HOST"];

@@ -8,7 +8,7 @@ use Psr\Http\Message\UriInterface;
  *
  * @author Tobias Schultze
  *
- * @link https://tools.ietf.org/html/rfc3986#section-5
+ * @link http://tools.ietf.org/html/rfc3986#section-5
  */
 final class UriResolver
 {

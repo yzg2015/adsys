@@ -67,7 +67,7 @@ class Minify_ClosureCompiler {
      *
      * @param array $options (verbose is ignored)
      *
-     * @see https://code.google.com/p/closure-compiler/source/browse/trunk/README
+     * @see http://code.google.com/p/closure-compiler/source/browse/trunk/README
      *
      * @return string
      *

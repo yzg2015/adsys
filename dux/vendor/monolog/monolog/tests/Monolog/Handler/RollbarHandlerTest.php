@@ -18,7 +18,7 @@ use PHPUnit_Framework_MockObject_MockObject as MockObject;
 
 /**
  * @author Erik Johansson <erik.pm.johansson@gmail.com>
- * @see    https://rollbar.com/docs/notifier/rollbar-php/
+ * @see    http://rollbar.com/docs/notifier/rollbar-php/
  *
  * @coversDefaultClass Monolog\Handler\RollbarHandler
  */

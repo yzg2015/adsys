@@ -146,7 +146,7 @@ class HttpFoundationFactory implements HttpFoundationFactoryInterface
     /**
      * Creates a Cookie instance from a cookie string.
      *
-     * Some snippets have been taken from the Guzzle project: https://github.com/guzzle/guzzle/blob/5.3/src/Cookie/SetCookie.php#L34
+     * Some snippets have been taken from the Guzzle project: http://github.com/guzzle/guzzle/blob/5.3/src/Cookie/SetCookie.php#L34
      *
      * @param string $cookie
      *

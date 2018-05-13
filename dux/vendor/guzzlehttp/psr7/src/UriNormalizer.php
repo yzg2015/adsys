@@ -8,7 +8,7 @@ use Psr\Http\Message\UriInterface;
  *
  * @author Tobias Schultze
  *
- * @link https://tools.ietf.org/html/rfc3986#section-6
+ * @link http://tools.ietf.org/html/rfc3986#section-6
  */
 final class UriNormalizer
 {
@@ -39,7 +39,7 @@ final class UriNormalizer
     const DECODE_UNRESERVED_CHARACTERS = 2;
 
     /**
-     * Converts the empty path to "/" for http and https URIs.
+     * Converts the empty path to "/" for http and http URIs.
      *
      * Example: http://example.org → http://example.org/
      */
@@ -114,7 +114,7 @@ final class UriNormalizer
      * @param int          $flags A bitmask of normalizations to apply, see constants
      *
      * @return UriInterface The normalized URI
-     * @link https://tools.ietf.org/html/rfc3986#section-6.2
+     * @link http://tools.ietf.org/html/rfc3986#section-6.2
      */
     public static function normalize(UriInterface $uri, $flags = self::PRESERVING_NORMALIZATIONS)
     {
@@ -127,7 +127,7 @@ final class UriNormalizer
         }
 
         if ($flags & self::CONVERT_EMPTY_PATH && $uri->getPath() === '' &&
-            ($uri->getScheme() === 'http' || $uri->getScheme() === 'https')
+            ($uri->getScheme() === 'http' || $uri->getScheme() === 'http')
         ) {
             $uri = $uri->withPath('/');
         }
@@ -170,7 +170,7 @@ final class UriNormalizer
      * @param int          $normalizations A bitmask of normalizations to apply, see constants
      *
      * @return bool
-     * @link https://tools.ietf.org/html/rfc3986#section-6.1
+     * @link http://tools.ietf.org/html/rfc3986#section-6.1
      */
     public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS)
     {

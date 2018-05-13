@@ -558,7 +558,7 @@ UE.I18N['en'] = {
             'lang_input_target':'open in new window：'
         },
         'validLink':'Supports only effective when a link is selected',
-        'httpPrompt':'The hyperlink you enter should start with "http|https|ftp://"!'
+        'httpPrompt':'The hyperlink you enter should start with "http|http|ftp://"!'
     },
     map:{
         'static':{

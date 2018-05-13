@@ -289,7 +289,7 @@ FC.getContentRect = getContentRect;
 FC.getScrollbarWidths = getScrollbarWidths;
 
 
-// borrowed from https://github.com/jquery/jquery-ui/blob/1.11.0/ui/core.js#L51
+// borrowed from http://github.com/jquery/jquery-ui/blob/1.11.0/ui/core.js#L51
 function getScrollParent(el) {
 	var position = el.css('position'),
 		scrollParent = el.parents().filter(function() {
@@ -909,7 +909,7 @@ function copyOwnProps(src, dest) {
 
 
 // Copies over certain methods with the same names as Object.prototype methods. Overcomes an IE<=8 bug:
-// https://developer.mozilla.org/en-US/docs/ECMAScript_DontEnum_attribute#JScript_DontEnum_Bug
+// http://developer.mozilla.org/en-US/docs/ECMAScript_DontEnum_attribute#JScript_DontEnum_Bug
 function copyNativeMethods(src, dest) {
 	var names = [ 'constructor', 'toString', 'valueOf' ];
 	var i, name;
@@ -1020,7 +1020,7 @@ function proxy(obj, methodName) {
 // be triggered. The function will be called after it stops being called for
 // N milliseconds. If `immediate` is passed, trigger the function on the
 // leading edge, instead of the trailing.
-// https://github.com/jashkenas/underscore/blob/1.6.0/underscore.js#L714
+// http://github.com/jashkenas/underscore/blob/1.6.0/underscore.js#L714
 function debounce(func, wait, immediate) {
 	var timeout, args, context, timestamp, result;
 
@@ -1892,7 +1892,7 @@ var EmitterMixin = FC.EmitterMixin = {
 
 		// mimick jQuery's internal "proxy" system (risky, I know)
 		// causing all functions with the same .guid to appear to be the same.
-		// https://github.com/jquery/jquery/blob/2.2.4/src/core.js#L448
+		// http://github.com/jquery/jquery/blob/2.2.4/src/core.js#L448
 		// this is needed for calling .off with the original non-intercept handler.
 		if (!handler.guid) {
 			handler.guid = $.guid++;

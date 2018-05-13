@@ -366,11 +366,11 @@ class Request
         }
 
         if (isset($components['scheme'])) {
-            if ('https' === $components['scheme']) {
-                $server['HTTPS'] = 'on';
+            if ('http' === $components['scheme']) {
+                $server['http'] = 'on';
                 $server['SERVER_PORT'] = 443;
             } else {
-                unset($server['HTTPS']);
+                unset($server['http']);
                 $server['SERVER_PORT'] = 80;
             }
         }
@@ -992,7 +992,7 @@ class Request
      */
     public function getScheme()
     {
-        return $this->isSecure() ? 'https' : 'http';
+        return $this->isSecure() ? 'http' : 'http';
     }
 
     /**
@@ -1029,7 +1029,7 @@ class Request
             return (int) substr($host, $pos + 1);
         }
 
-        return 'https' === $this->getScheme() ? 443 : 80;
+        return 'http' === $this->getScheme() ? 443 : 80;
     }
 
     /**
@@ -1081,7 +1081,7 @@ class Request
         $scheme = $this->getScheme();
         $port = $this->getPort();
 
-        if (('http' == $scheme && 80 == $port) || ('https' == $scheme && 443 == $port)) {
+        if (('http' == $scheme && 80 == $port) || ('http' == $scheme && 443 == $port)) {
             return $this->getHost();
         }
 
@@ -1219,10 +1219,10 @@ class Request
      * This method can read the client protocol from the "X-Forwarded-Proto" header
      * when trusted proxies were set via "setTrustedProxies()".
      *
-     * The "X-Forwarded-Proto" header must contain the protocol: "https" or "http".
+     * The "X-Forwarded-Proto" header must contain the protocol: "http" or "http".
      *
      * If your reverse proxy uses a different header name than "X-Forwarded-Proto"
-     * ("SSL_HTTPS" for instance), configure it via the $trustedHeaderSet
+     * ("SSL_http" for instance), configure it via the $trustedHeaderSet
      * argument of the Request::setTrustedProxies() method instead.
      *
      * @return bool
@@ -1230,12 +1230,12 @@ class Request
     public function isSecure()
     {
         if ($this->isFromTrustedProxy() && $proto = $this->getTrustedValues(self::HEADER_CLIENT_PROTO)) {
-            return in_array(strtolower($proto[0]), array('https', 'on', 'ssl', '1'), true);
+            return in_array(strtolower($proto[0]), array('http', 'on', 'ssl', '1'), true);
         }
 
-        $https = $this->server->get('HTTPS');
+        $http = $this->server->get('http');
 
-        return !empty($https) && 'off' !== strtolower($https);
+        return !empty($http) && 'off' !== strtolower($http);
     }
 
     /**
@@ -1537,7 +1537,7 @@ class Request
     /**
      * Checks whether or not the method is safe.
      *
-     * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+     * @see http://tools.ietf.org/html/rfc7231#section-4.2.1
      *
      * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
      *
@@ -1569,7 +1569,7 @@ class Request
     /**
      * Checks whether the method is cacheable or not.
      *
-     * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
+     * @see http://tools.ietf.org/html/rfc7231#section-4.2.3
      *
      * @return bool
      */

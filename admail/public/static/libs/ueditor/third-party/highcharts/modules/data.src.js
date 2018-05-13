@@ -42,12 +42,12 @@
  * containing data.
  *
  * - googleSpreadsheetKey : String 
- * A Google Spreadsheet key. See https://developers.google.com/gdata/samples/spreadsheet_sample
+ * A Google Spreadsheet key. See http://developers.google.com/gdata/samples/spreadsheet_sample
  * for general information on GS.
  *
  * - googleSpreadsheetWorksheet : String 
  * The Google Spreadsheet worksheet. The available id's can be read from 
- * https://spreadsheets.google.com/feeds/worksheets/{key}/public/basic
+ * http://spreadsheets.google.com/feeds/worksheets/{key}/public/basic
  *
  * - itemDelimiter : String
  * Item or cell delimiter for parsing CSV. Defaults to ",".
@@ -263,7 +263,7 @@
 			gc; // google column
 
 		if (googleSpreadsheetKey) {
-			jQuery.getJSON('https://spreadsheets.google.com/feeds/cells/' + 
+			jQuery.getJSON('http://spreadsheets.google.com/feeds/cells/' + 
 				  googleSpreadsheetKey + '/' + (options.googleSpreadsheetWorksheet || 'od6') +
 					  '/public/values?alt=json-in-script&callback=?',
 					  function (json) {

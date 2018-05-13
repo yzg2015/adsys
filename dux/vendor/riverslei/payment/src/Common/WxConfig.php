@@ -9,8 +9,8 @@ use Payment\Utils\StrUtil;
  * @author: helei
  * @createTime: 2016-07-15 14:56
  * @description: 微信配置文件
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 final class WxConfig extends ConfigInterface
 {
@@ -48,10 +48,10 @@ final class WxConfig extends ConfigInterface
     public $returnUrl;
 
     // 关闭订单url  尚未接入
-    const CLOSE_URL = 'https://api.mch.weixin.qq.com/{debug}/pay/closeorder';
+    const CLOSE_URL = 'http://api.mch.weixin.qq.com/{debug}/pay/closeorder';
 
     // 短连接转化url  尚未接入
-    const SHORT_URL = 'https://api.mch.weixin.qq.com/{debug}/tools/shorturl';
+    const SHORT_URL = 'http://api.mch.weixin.qq.com/{debug}/tools/shorturl';
 
     // 退款账户
     const REFUND_UNSETTLED = 'REFUND_SOURCE_UNSETTLED_FUNDS';// 未结算资金退款（默认使用未结算资金退款）

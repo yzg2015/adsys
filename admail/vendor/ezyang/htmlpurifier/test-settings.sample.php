@@ -22,7 +22,7 @@ if ($data !== false && $data !== '') {
 
 // Note on running SimpleTest:
 //      You want the Git copy of SimpleTest, found here:
-//          https://github.com/simpletest/simpletest/
+//          http://github.com/simpletest/simpletest/
 //
 //      If SimpleTest is borked with HTML Purifier, please contact me or
 //      the SimpleTest devs; I am a developer for SimpleTest so I should be
@@ -35,11 +35,11 @@ $simpletest_location = '/path/to/simpletest/';
 // OPTIONAL SETTINGS
 
 // Note on running PHPT:
-//      Vanilla PHPT from https://github.com/tswicegood/PHPT_Core should
+//      Vanilla PHPT from http://github.com/tswicegood/PHPT_Core should
 //      work fine on Linux w/o multitest.
 //
 //      To do multitest or Windows testing, you'll need some more
-//      patches at https://github.com/ezyang/PHPT_Core
+//      patches at http://github.com/ezyang/PHPT_Core
 //
 //      I haven't tested the Windows setup in a while so I don't know if
 //      it still works.

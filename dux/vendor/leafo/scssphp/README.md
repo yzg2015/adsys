@@ -1,8 +1,8 @@
 # scssphp
 ### <http://leafo.github.io/scssphp>
 
-[![Build](https://travis-ci.org/leafo/scssphp.svg?branch=master)](http://travis-ci.org/leafo/scssphp)
-[![License](https://poser.pugx.org/leafo/scssphp/license.svg)](https://packagist.org/packages/leafo/scssphp)
+[![Build](http://travis-ci.org/leafo/scssphp.svg?branch=master)](http://travis-ci.org/leafo/scssphp)
+[![License](http://poser.pugx.org/leafo/scssphp/license.svg)](http://packagist.org/packages/leafo/scssphp)
 
 `scssphp` is a compiler for SCSS written in PHP.
 
@@ -10,7 +10,7 @@ Checkout the homepage, <http://leafo.github.io/scssphp>, for directions on how t
 
 ## Running Tests
 
-`scssphp` uses [PHPUnit](https://github.com/sebastianbergmann/phpunit) for testing.
+`scssphp` uses [PHPUnit](http://github.com/sebastianbergmann/phpunit) for testing.
 
 Run the following command from the root directory to run every test:
 

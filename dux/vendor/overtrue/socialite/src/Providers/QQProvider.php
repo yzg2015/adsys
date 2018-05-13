@@ -27,7 +27,7 @@ class QQProvider extends AbstractProvider implements ProviderInterface
      *
      * @var string
      */
-    protected $baseUrl = 'https://graph.qq.com';
+    protected $baseUrl = 'http://graph.qq.com';
 
     /**
      * User openid.

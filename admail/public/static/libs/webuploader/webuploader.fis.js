@@ -7,7 +7,7 @@ module.exports = (function( root, factory ) {
     var modules = {},
 
         // 内部require, 简单不完全实现。
-        // https://github.com/amdjs/amdjs-api/wiki/require
+        // http://github.com/amdjs/amdjs-api/wiki/require
         _require = function( deps, callback ) {
             var args, len, i;
 
@@ -162,7 +162,7 @@ module.exports = (function( root, factory ) {
     /**
      * Web Uploader内部类的详细说明，以下提及的功能类，都可以在`WebUploader`这个变量中访问到。
      *
-     * As you know, Web Uploader的每个文件都是用过[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)规范中的`define`组织起来的, 每个Module都会有个module id.
+     * As you know, Web Uploader的每个文件都是用过[AMD](http://github.com/amdjs/amdjs-api/wiki/AMD)规范中的`define`组织起来的, 每个Module都会有个module id.
      * 默认module id为该文件的路径，而此路径将会转化成名字空间存放在WebUploader中。如：
      *
      * * module `base`：WebUploader.Base
@@ -5190,7 +5190,7 @@ module.exports = (function( root, factory ) {
         return api;
     });
     /**
-     * 代码来自于：https://github.com/blueimp/JavaScript-Load-Image
+     * 代码来自于：http://github.com/blueimp/JavaScript-Load-Image
      * 暂时项目中只用了orientation.
      *
      * 去除了 Exif Sub IFD Pointer, GPS Info IFD Pointer, Exif Thumbnail.
@@ -6595,7 +6595,7 @@ module.exports = (function( root, factory ) {
                 }
             },
     
-            // https://github.com/stomita/ios-imagefile-megapixel/
+            // http://github.com/stomita/ios-imagefile-megapixel/
             // blob/master/src/megapix-image.js
             _renderImageToCanvas: (function() {
     
@@ -6796,7 +6796,7 @@ module.exports = (function( root, factory ) {
     
                     // android直接发送blob会导致服务端接收到的是空文件。
                     // bug详情。
-                    // https://code.google.com/p/android/issues/detail?id=39882
+                    // http://code.google.com/p/android/issues/detail?id=39882
                     // 所以先用fileReader读取出来再通过arraybuffer的方式发送。
                     if ( Base.os.android ) {
                         fr = new FileReader();
@@ -7126,7 +7126,7 @@ module.exports = (function( root, factory ) {
             // Not sure if it is a bug, however IE10 will always produce a sub array of length 1
             // containing the last element of the parent array if the sub array specified starts
             // beyond the length of the parent array - weird.
-            // https://connect.microsoft.com/IE/feedback/details/771452/typed-array-subarray-issue
+            // http://connect.microsoft.com/IE/feedback/details/771452/typed-array-subarray-issue
             a = (i - 64) < n ? a.subarray(i - 64) : new Uint8Array(0);
     
             length = a.length;

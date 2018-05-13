@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -36,8 +36,8 @@ class QRCode extends AbstractAPI
     const SCENE_QR_FOREVER = 'QR_LIMIT_SCENE';
     const SCENE_QR_FOREVER_STR = 'QR_LIMIT_STR_SCENE';
 
-    const API_CREATE = 'https://api.weixin.qq.com/cgi-bin/qrcode/create';
-    const API_SHOW = 'https://mp.weixin.qq.com/cgi-bin/showqrcode';
+    const API_CREATE = 'http://api.weixin.qq.com/cgi-bin/qrcode/create';
+    const API_SHOW = 'http://mp.weixin.qq.com/cgi-bin/showqrcode';
 
     /**
      * Create forever.

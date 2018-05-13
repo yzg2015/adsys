@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -28,13 +28,13 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Group extends AbstractAPI
 {
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/groups/get';
-    const API_CREATE = 'https://api.weixin.qq.com/cgi-bin/groups/create';
-    const API_UPDATE = 'https://api.weixin.qq.com/cgi-bin/groups/update';
-    const API_DELETE = 'https://api.weixin.qq.com/cgi-bin/groups/delete';
-    const API_USER_GROUP_ID = 'https://api.weixin.qq.com/cgi-bin/groups/getid';
-    const API_MEMBER_UPDATE = 'https://api.weixin.qq.com/cgi-bin/groups/members/update';
-    const API_MEMBER_BATCH_UPDATE = 'https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/groups/get';
+    const API_CREATE = 'http://api.weixin.qq.com/cgi-bin/groups/create';
+    const API_UPDATE = 'http://api.weixin.qq.com/cgi-bin/groups/update';
+    const API_DELETE = 'http://api.weixin.qq.com/cgi-bin/groups/delete';
+    const API_USER_GROUP_ID = 'http://api.weixin.qq.com/cgi-bin/groups/getid';
+    const API_MEMBER_UPDATE = 'http://api.weixin.qq.com/cgi-bin/groups/members/update';
+    const API_MEMBER_BATCH_UPDATE = 'http://api.weixin.qq.com/cgi-bin/groups/members/batchupdate';
 
     /**
      * Create group.

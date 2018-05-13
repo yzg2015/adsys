@@ -246,7 +246,7 @@ class CookieJar implements CookieJarInterface
     /**
      * Computes cookie path following RFC 6265 section 5.1.4
      *
-     * @link https://tools.ietf.org/html/rfc6265#section-5.1.4
+     * @link http://tools.ietf.org/html/rfc6265#section-5.1.4
      *
      * @param RequestInterface $request
      * @return string
@@ -282,7 +282,7 @@ class CookieJar implements CookieJarInterface
             if ($cookie->matchesPath($path) &&
                 $cookie->matchesDomain($host) &&
                 !$cookie->isExpired() &&
-                (!$cookie->getSecure() || $scheme === 'https')
+                (!$cookie->getSecure() || $scheme === 'http')
             ) {
                 $values[] = $cookie->getName() . '='
                     . $cookie->getValue();

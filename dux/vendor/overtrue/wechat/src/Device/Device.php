@@ -30,18 +30,18 @@ class Device extends AbstractAPI
     protected $productId;
     protected $config;
 
-    const API_TRANS_MSG = 'https://api.weixin.qq.com/device/transmsg';
-    const API_CREATE = 'https://api.weixin.qq.com/device/create_qrcode';
-    const API_DEV_STAT = 'https://api.weixin.qq.com/device/get_stat';
-    const API_DEV_AUTH = 'https://api.weixin.qq.com/device/authorize_device';
-    const API_DEV_GET_QRCODE = 'https://api.weixin.qq.com/device/getqrcode';
-    const API_DEV_VERIFY_QRCODE = 'https://api.weixin.qq.com/device/verify_qrcode';
-    const API_DEV_BIND = 'https://api.weixin.qq.com/device/bind';
-    const API_DEV_UNBIND = 'https://api.weixin.qq.com/device/unbind';
-    const API_DEV_COMPEL_BIND = 'https://api.weixin.qq.com/device/compel_bind';
-    const API_DEV_COMPEL_UNBIND = 'https://api.weixin.qq.com/device/compel_unbind';
-    const API_DEV_GET_OPENID = 'https://api.weixin.qq.com/device/get_openid';
-    const API_USER_DEV_BIND = 'https://api.weixin.qq.com/device/get_bind_device';
+    const API_TRANS_MSG = 'http://api.weixin.qq.com/device/transmsg';
+    const API_CREATE = 'http://api.weixin.qq.com/device/create_qrcode';
+    const API_DEV_STAT = 'http://api.weixin.qq.com/device/get_stat';
+    const API_DEV_AUTH = 'http://api.weixin.qq.com/device/authorize_device';
+    const API_DEV_GET_QRCODE = 'http://api.weixin.qq.com/device/getqrcode';
+    const API_DEV_VERIFY_QRCODE = 'http://api.weixin.qq.com/device/verify_qrcode';
+    const API_DEV_BIND = 'http://api.weixin.qq.com/device/bind';
+    const API_DEV_UNBIND = 'http://api.weixin.qq.com/device/unbind';
+    const API_DEV_COMPEL_BIND = 'http://api.weixin.qq.com/device/compel_bind';
+    const API_DEV_COMPEL_UNBIND = 'http://api.weixin.qq.com/device/compel_unbind';
+    const API_DEV_GET_OPENID = 'http://api.weixin.qq.com/device/get_openid';
+    const API_USER_DEV_BIND = 'http://api.weixin.qq.com/device/get_bind_device';
 
     public function __construct(AccessToken $accessToken, $config)
     {

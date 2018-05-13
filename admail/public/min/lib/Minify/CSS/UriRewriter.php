@@ -293,7 +293,7 @@ class Minify_CSS_UriRewriter {
                     $root = '';
                     $rootRelative = $uri;
                     $uri = $root . self::removeDots($rootRelative);
-                } elseif (preg_match('@^((https?\:)?//([^/]+))/@', $uri, $m) && (false !== strpos($m[3], '.'))) {
+                } elseif (preg_match('@^((http?\:)?//([^/]+))/@', $uri, $m) && (false !== strpos($m[3], '.'))) {
                     $root = $m[1];
                     $rootRelative = substr($uri, strlen($root));
                     $uri = $root . self::removeDots($rootRelative);

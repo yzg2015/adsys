@@ -103,10 +103,10 @@ class HTMLPurifier_Encoder
      *
      * Specifically, it will permit:
      * \x{9}\x{A}\x{D}\x{20}-\x{7E}\x{A0}-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}
-     * Source: https://www.w3.org/TR/REC-xml/#NT-Char
+     * Source: http://www.w3.org/TR/REC-xml/#NT-Char
      * Arguably this function should be modernized to the HTML5 set
      * of allowed characters:
-     * https://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream
+     * http://www.w3.org/TR/html5/syntax.html#preprocessing-the-input-stream
      * which simultaneously expand and restrict the set of allowed characters.
      *
      * @param string $str The string to clean
@@ -407,7 +407,7 @@ class HTMLPurifier_Encoder
             trigger_error('Encoding not supported, please install iconv', E_USER_ERROR);
         } else {
             trigger_error(
-                'You have a buggy version of iconv, see https://bugs.php.net/bug.php?id=48147 ' .
+                'You have a buggy version of iconv, see http://bugs.php.net/bug.php?id=48147 ' .
                 'and http://sourceware.org/bugzilla/show_bug.cgi?id=13541',
                 E_USER_ERROR
             );

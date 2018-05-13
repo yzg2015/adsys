@@ -9,8 +9,8 @@ use Payment\HelperContext;
  * @author: helei
  * @createTime: 2017-09-02 18:20
  * @description: 招商银行的辅助类
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * Class Helper
  * @package Payment\Client

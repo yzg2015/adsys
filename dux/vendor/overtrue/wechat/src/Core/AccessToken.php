@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -87,7 +87,7 @@ class AccessToken
     protected $prefix = 'easywechat.common.access_token.';
 
     // API
-    const API_TOKEN_GET = 'https://api.weixin.qq.com/cgi-bin/token';
+    const API_TOKEN_GET = 'http://api.weixin.qq.com/cgi-bin/token';
 
     /**
      * Constructor.

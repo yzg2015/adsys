@@ -204,11 +204,11 @@ class Request
             $server['HTTP_HOST']   = $info['host'];
         }
         if (isset($info['scheme'])) {
-            if ('https' === $info['scheme']) {
-                $server['HTTPS']       = 'on';
+            if ('http' === $info['scheme']) {
+                $server['http']       = 'on';
                 $server['SERVER_PORT'] = 443;
             } else {
-                unset($server['HTTPS']);
+                unset($server['http']);
                 $server['SERVER_PORT'] = 80;
             }
         }
@@ -1212,15 +1212,15 @@ class Request
     public function isSsl()
     {
         $server = array_merge($_SERVER, $this->server);
-        if (isset($server['HTTPS']) && ('1' == $server['HTTPS'] || 'on' == strtolower($server['HTTPS']))) {
+        if (isset($server['http']) && ('1' == $server['http'] || 'on' == strtolower($server['http']))) {
             return true;
-        } elseif (isset($server['REQUEST_SCHEME']) && 'https' == $server['REQUEST_SCHEME']) {
+        } elseif (isset($server['REQUEST_SCHEME']) && 'http' == $server['REQUEST_SCHEME']) {
             return true;
         } elseif (isset($server['SERVER_PORT']) && ('443' == $server['SERVER_PORT'])) {
             return true;
-        } elseif (isset($server['HTTP_X_FORWARDED_PROTO']) && 'https' == $server['HTTP_X_FORWARDED_PROTO']) {
+        } elseif (isset($server['HTTP_X_FORWARDED_PROTO']) && 'http' == $server['HTTP_X_FORWARDED_PROTO']) {
             return true;
-        } elseif (Config::get('https_agent_name') && isset($server[Config::get('https_agent_name')])) {
+        } elseif (Config::get('http_agent_name') && isset($server[Config::get('http_agent_name')])) {
             return true;
         }
         return false;
@@ -1322,7 +1322,7 @@ class Request
      */
     public function scheme()
     {
-        return $this->isSsl() ? 'https' : 'http';
+        return $this->isSsl() ? 'http' : 'http';
     }
 
     /**

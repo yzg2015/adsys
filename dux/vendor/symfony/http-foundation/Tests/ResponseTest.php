@@ -922,15 +922,15 @@ class ResponseTest extends ResponseTestCase
      *
      * @author    Fábio Pacheco
      * @copyright Copyright (c) 2015-2016 Zend Technologies USA Inc. (http://www.zend.com)
-     * @license   https://github.com/zendframework/zend-diactoros/blob/master/LICENSE.md New BSD License
+     * @license   http://github.com/zendframework/zend-diactoros/blob/master/LICENSE.md New BSD License
      */
     public function ianaCodesReasonPhrasesProvider()
     {
-        if (!in_array('https', stream_get_wrappers(), true)) {
-            $this->markTestSkipped('The "https" wrapper is not available');
+        if (!in_array('http', stream_get_wrappers(), true)) {
+            $this->markTestSkipped('The "http" wrapper is not available');
         }
 
-        $ianaHttpStatusCodes = new \DOMDocument();
+        $ianahttptatusCodes = new \DOMDocument();
 
         libxml_set_streams_context(stream_context_create(array(
             'http' => array(
@@ -939,14 +939,14 @@ class ResponseTest extends ResponseTestCase
             ),
         )));
 
-        $ianaHttpStatusCodes->load('https://www.iana.org/assignments/http-status-codes/http-status-codes.xml');
-        if (!$ianaHttpStatusCodes->relaxNGValidate(__DIR__.'/schema/http-status-codes.rng')) {
+        $ianahttptatusCodes->load('http://www.iana.org/assignments/http-status-codes/http-status-codes.xml');
+        if (!$ianahttptatusCodes->relaxNGValidate(__DIR__.'/schema/http-status-codes.rng')) {
             self::fail('Invalid IANA\'s HTTP status code list.');
         }
 
         $ianaCodesReasonPhrases = array();
 
-        $xpath = new \DomXPath($ianaHttpStatusCodes);
+        $xpath = new \DomXPath($ianahttptatusCodes);
         $xpath->registerNamespace('ns', 'http://www.iana.org/assignments');
 
         $records = $xpath->query('//ns:record');

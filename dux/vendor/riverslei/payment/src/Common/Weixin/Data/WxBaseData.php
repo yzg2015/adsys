@@ -28,8 +28,8 @@ use Payment\Common\BaseData;
  *
  * @package Payment\Common\Weixin\Dataa
  *
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 abstract class WxBaseData extends BaseData
 {

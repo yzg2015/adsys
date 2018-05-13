@@ -1,8 +1,8 @@
 # Guzzle Promises
 
-[Promises/A+](https://promisesaplus.com/) implementation that handles promise
+[Promises/A+](http://promisesaplus.com/) implementation that handles promise
 chaining and resolution iteratively, allowing for "infinite" promise chaining
-while keeping the stack size constant. Read [this blog post](https://blog.domenic.me/youre-missing-the-point-of-promises/)
+while keeping the stack size constant. Read [this blog post](http://blog.domenic.me/youre-missing-the-point-of-promises/)
 for a general introduction to promises.
 
 - [Features](#features)
@@ -19,7 +19,7 @@ for a general introduction to promises.
 
 # Features
 
-- [Promises/A+](https://promisesaplus.com/) implementation.
+- [Promises/A+](http://promisesaplus.com/) implementation.
 - Promise resolution and chaining is handled iteratively, allowing for
   "infinite" promise chaining.
 - Promises have a synchronous `wait` method.
@@ -387,7 +387,7 @@ $promise->then(null, function ($reason) {
 # Promise interop
 
 This library works with foreign promises that have a `then` method. This means
-you can use Guzzle promises with [React promises](https://github.com/reactphp/promise)
+you can use Guzzle promises with [React promises](http://github.com/reactphp/promise)
 for example. When a foreign promise is returned inside of a then method
 callback, promise resolution will occur recursively.
 

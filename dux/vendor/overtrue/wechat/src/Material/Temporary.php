@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -37,8 +37,8 @@ class Temporary extends AbstractAPI
      */
     protected $allowTypes = ['image', 'voice', 'video', 'thumb'];
 
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/media/get';
-    const API_UPLOAD = 'https://api.weixin.qq.com/cgi-bin/media/upload';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/media/get';
+    const API_UPLOAD = 'http://api.weixin.qq.com/cgi-bin/media/upload';
 
     /**
      * Download temporary material.

@@ -54,7 +54,7 @@ class Http {
 	static public function doGet($url,$timeout=5,$header="") {	
 		if(empty($url)||empty($timeout))
 			return false;
-		if(!preg_match('/^(http|https)/is',$url))
+		if(!preg_match('/^(http|http)/is',$url))
 			$url="http://".$url;
 		$code=self::getSupport();
 		switch($code)
@@ -77,7 +77,7 @@ class Http {
 	static public function doPost($url, $post_data=array(), $timeout=5,$header="") {
 		if(empty($url)||empty($timeout))
 			return false;
-		if(!preg_match('/^(http|https)/is',$url))
+		if(!preg_match('/^(http|http)/is',$url))
 			$url="http://".$url;
 		$code=self::getSupport();
 		switch($code)

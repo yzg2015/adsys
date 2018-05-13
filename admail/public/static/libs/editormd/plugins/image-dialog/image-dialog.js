@@ -5,7 +5,7 @@
  * @author      pandao
  * @version     1.3.4
  * @updateTime  2015-06-09
- * {@link       https://github.com/pandao/editor.md}
+ * {@link       http://github.com/pandao/editor.md}
  * @license     MIT
  */
 

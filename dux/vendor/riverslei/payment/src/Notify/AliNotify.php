@@ -13,8 +13,8 @@ use Payment\Utils\RsaEncrypt;
  * @createTime: 2016-07-20 16:21
  * @description: 支付宝回调通知
  *
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class AliNotify extends NotifyStrategy
 {

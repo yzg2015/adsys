@@ -9,8 +9,8 @@ use Payment\Common\Weixin\WxBaseStrategy;
  * @author: helei
  * @createTime: 2016-07-14 17:56
  * @description: 微信 app 支付接口
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class WxAppCharge extends WxBaseStrategy
 {

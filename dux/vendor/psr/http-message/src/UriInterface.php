@@ -34,7 +34,7 @@ interface UriInterface
      * The trailing ":" character is not part of the scheme and MUST NOT be
      * added.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-3.1
+     * @see http://tools.ietf.org/html/rfc3986#section-3.1
      * @return string The URI scheme.
      */
     public function getScheme();
@@ -54,7 +54,7 @@ interface UriInterface
      * If the port component is not set or is the standard port for the current
      * scheme, it SHOULD NOT be included.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-3.2
+     * @see http://tools.ietf.org/html/rfc3986#section-3.2
      * @return string The URI authority, in "[user-info@]host[:port]" format.
      */
     public function getAuthority();
@@ -127,8 +127,8 @@ interface UriInterface
      * delimiter between path segments, that value MUST be passed in encoded
      * form (e.g., "%2F") to the instance.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-2
-     * @see https://tools.ietf.org/html/rfc3986#section-3.3
+     * @see http://tools.ietf.org/html/rfc3986#section-2
+     * @see http://tools.ietf.org/html/rfc3986#section-3.3
      * @return string The URI path.
      */
     public function getPath();
@@ -149,8 +149,8 @@ interface UriInterface
      * include an ampersand ("&") not intended as a delimiter between values,
      * that value MUST be passed in encoded form (e.g., "%26") to the instance.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-2
-     * @see https://tools.ietf.org/html/rfc3986#section-3.4
+     * @see http://tools.ietf.org/html/rfc3986#section-2
+     * @see http://tools.ietf.org/html/rfc3986#section-3.4
      * @return string The URI query string.
      */
     public function getQuery();
@@ -167,8 +167,8 @@ interface UriInterface
      * any characters. To determine what characters to encode, please refer to
      * RFC 3986, Sections 2 and 3.5.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-2
-     * @see https://tools.ietf.org/html/rfc3986#section-3.5
+     * @see http://tools.ietf.org/html/rfc3986#section-2
+     * @see http://tools.ietf.org/html/rfc3986#section-3.5
      * @return string The URI fragment.
      */
     public function getFragment();
@@ -179,7 +179,7 @@ interface UriInterface
      * This method MUST retain the state of the current instance, and return
      * an instance that contains the specified scheme.
      *
-     * Implementations MUST support the schemes "http" and "https" case
+     * Implementations MUST support the schemes "http" and "http" case
      * insensitively, and MAY accommodate other schemes if required.
      *
      * An empty scheme is equivalent to removing the scheme.

@@ -17,7 +17,7 @@ use Monolog\Logger;
  * Sends notifications through the pushover api to mobile phones
  *
  * @author Sebastian Göttschkes <sebastian.goettschkes@googlemail.com>
- * @see    https://www.pushover.net/api
+ * @see    http://www.pushover.net/api
  */
 class PushoverHandler extends SocketHandler
 {
@@ -34,7 +34,7 @@ class PushoverHandler extends SocketHandler
 
     /**
      * All parameters that can be sent to Pushover
-     * @see https://pushover.net/api
+     * @see http://pushover.net/api
      * @var array
      */
     private $parameterNames = array(
@@ -55,7 +55,7 @@ class PushoverHandler extends SocketHandler
 
     /**
      * Sounds the api supports by default
-     * @see https://pushover.net/api#sounds
+     * @see http://pushover.net/api#sounds
      * @var array
      */
     private $sounds = array(

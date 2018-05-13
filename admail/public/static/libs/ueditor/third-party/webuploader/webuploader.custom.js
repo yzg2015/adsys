@@ -2,7 +2,7 @@
 
 
 /**
- * @fileOverview 让内部各个部件的代码可以用[amd](https://github.com/amdjs/amdjs-api/wiki/AMD)模块定义方式组织起来。
+ * @fileOverview 让内部各个部件的代码可以用[amd](http://github.com/amdjs/amdjs-api/wiki/AMD)模块定义方式组织起来。
  *
  * AMD API 内部的简单不完全实现，请忽略。只有当WebUploader被合并成一个文件的时候才会引入。
  */
@@ -10,7 +10,7 @@
     var modules = {},
 
         // 内部require, 简单不完全实现。
-        // https://github.com/amdjs/amdjs-api/wiki/require
+        // http://github.com/amdjs/amdjs-api/wiki/require
         _require = function( deps, callback ) {
             var args, len, i;
 
@@ -168,7 +168,7 @@
     /**
      * Web Uploader内部类的详细说明，以下提及的功能类，都可以在`WebUploader`这个变量中访问到。
      *
-     * As you know, Web Uploader的每个文件都是用过[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)规范中的`define`组织起来的, 每个Module都会有个module id.
+     * As you know, Web Uploader的每个文件都是用过[AMD](http://github.com/amdjs/amdjs-api/wiki/AMD)规范中的`define`组织起来的, 每个Module都会有个module id.
      * 默认module id该文件的路径，而此路径将会转化成名字空间存放在WebUploader中。如：
      *
      * * module `base`：WebUploader.Base
@@ -3976,7 +3976,7 @@
         return api;
     });
     /**
-     * 代码来自于：https://github.com/blueimp/JavaScript-Load-Image
+     * 代码来自于：http://github.com/blueimp/JavaScript-Load-Image
      * 暂时项目中只用了orientation.
      *
      * 去除了 Exif Sub IFD Pointer, GPS Info IFD Pointer, Exif Thumbnail.
@@ -4540,7 +4540,7 @@
                 }
             },
     
-            // https://github.com/stomita/ios-imagefile-megapixel/
+            // http://github.com/stomita/ios-imagefile-megapixel/
             // blob/master/src/megapix-image.js
             _renderImageToCanvas: (function() {
     
@@ -5537,7 +5537,7 @@
     
                     // android直接发送blob会导致服务端接收到的是空文件。
                     // bug详情。
-                    // https://code.google.com/p/android/issues/detail?id=39882
+                    // http://code.google.com/p/android/issues/detail?id=39882
                     // 所以先用fileReader读取出来再通过arraybuffer的方式发送。
                     if ( Base.os.android ) {
                         fr = new FileReader();

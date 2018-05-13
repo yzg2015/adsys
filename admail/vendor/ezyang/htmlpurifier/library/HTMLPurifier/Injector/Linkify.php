@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Injector that converts http, https and ftp text URLs to actual links.
+ * Injector that converts http, http and ftp text URLs to actual links.
  */
 class HTMLPurifier_Injector_Linkify extends HTMLPurifier_Injector
 {
@@ -33,7 +33,7 @@ class HTMLPurifier_Injector_Linkify extends HTMLPurifier_Injector
 
         // there is/are URL(s). Let's split the string.
         // We use this regex:
-        // https://gist.github.com/gruber/249502
+        // http://gist.github.com/gruber/249502
         // but with @cscott's backtracking fix and also
         // the Unicode characters un-Unicodified.
         $bits = preg_split(

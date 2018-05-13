@@ -18,7 +18,7 @@ composer require monolog/monolog
 ```
 
 If you do not use Composer, you can grab the code from GitHub, and use any
-PSR-0 compatible autoloader (e.g. the [Symfony2 ClassLoader component](https://github.com/symfony/ClassLoader))
+PSR-0 compatible autoloader (e.g. the [Symfony2 ClassLoader component](http://github.com/symfony/ClassLoader))
 to load Monolog classes.
 
 ## Core Concepts
@@ -113,7 +113,7 @@ stack. This allows you to temporarily add a logger with bubbling disabled if
 you want to override other configured loggers.
 
 > If you use Monolog standalone and are looking for an easy way to
-> configure many handlers, the [theorchard/monolog-cascade](https://github.com/theorchard/monolog-cascade)
+> configure many handlers, the [theorchard/monolog-cascade](http://github.com/theorchard/monolog-cascade)
 > can help you build complex logging configs via PHP arrays, yaml or json configs.
 
 ## Adding extra data in the records
@@ -154,7 +154,7 @@ $logger->pushProcessor(function ($record) {
 ```
 
 Monolog provides some built-in processors that can be used in your project.
-Look at the [dedicated chapter](https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md#processors) for the list.
+Look at the [dedicated chapter](http://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md#processors) for the list.
 
 > Tip: processors can also be registered on a specific handler instead of
   the logger to apply only for this handler.

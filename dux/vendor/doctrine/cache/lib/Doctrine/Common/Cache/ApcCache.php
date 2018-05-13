@@ -100,7 +100,7 @@ class ApcCache extends CacheProvider
         $info = apc_cache_info('', true);
         $sma  = apc_sma_info();
 
-        // @TODO - Temporary fix @see https://github.com/krakjoe/apcu/pull/42
+        // @TODO - Temporary fix @see http://github.com/krakjoe/apcu/pull/42
         if (PHP_VERSION_ID >= 50500) {
             $info['num_hits']   = isset($info['num_hits'])   ? $info['num_hits']   : $info['nhits'];
             $info['num_misses'] = isset($info['num_misses']) ? $info['num_misses'] : $info['nmisses'];

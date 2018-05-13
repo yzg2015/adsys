@@ -6,8 +6,8 @@
 
 ## 提醒：发现有人将我提供的支付宝测试账号乱修改资料，打广告。请大家不要加上面的任何联系方式。如果再发现，我就把测试账号注销了（怕大家被骗）
 
-- [Payment使用文档](https://helei112g1.gitbooks.io/payment-sdk/content/)
-- [Payment使用常见问题汇总](https://helei112g1.gitbooks.io/payment-sdk/content/faq.html)
+- [Payment使用文档](http://helei112g1.gitbooks.io/payment-sdk/content/)
+- [Payment使用常见问题汇总](http://helei112g1.gitbooks.io/payment-sdk/content/faq.html)
 
 
 ----
@@ -24,7 +24,7 @@ Payment 需要 PHP &gt;= 5.6以上的版本，并且同时需要PHP安装以下�
 
 - Guzzle
 ```
-guzzle 是一个开源的php http请求lib，[项目地址](https://github.com/guzzle/guzzle)
+guzzle 是一个开源的php http请求lib，[项目地址](http://github.com/guzzle/guzzle)
 
 <p align="center">
     <b>成都本地内推微信公众号，有需要的拿走:</b>
@@ -153,9 +153,9 @@ composer update
 The code for Payment is distributed under the terms of the MIT license (see [LICENSE](LICENSE)).
 
 
-[ico-license]: https://img.shields.io/github/license/helei112g/payment.svg
-[ico-version-dev]: https://img.shields.io/packagist/vpre/riverslei/payment.svg
-[ico-downloads-monthly]: https://img.shields.io/packagist/dm/riverslei/payment.svg?style=flat-square
+[ico-license]: http://img.shields.io/github/license/helei112g/payment.svg
+[ico-version-dev]: http://img.shields.io/packagist/vpre/riverslei/payment.svg
+[ico-downloads-monthly]: http://img.shields.io/packagist/dm/riverslei/payment.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/riverslei/payment
-[link-downloads]: https://packagist.org/packages/riverslei/payment/stats
+[link-packagist]: http://packagist.org/packages/riverslei/payment
+[link-downloads]: http://packagist.org/packages/riverslei/payment/stats

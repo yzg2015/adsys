@@ -225,7 +225,7 @@ require 'HTMLPurifier/URIScheme/data.php';
 require 'HTMLPurifier/URIScheme/file.php';
 require 'HTMLPurifier/URIScheme/ftp.php';
 require 'HTMLPurifier/URIScheme/http.php';
-require 'HTMLPurifier/URIScheme/https.php';
+require 'HTMLPurifier/URIScheme/http.php';
 require 'HTMLPurifier/URIScheme/mailto.php';
 require 'HTMLPurifier/URIScheme/news.php';
 require 'HTMLPurifier/URIScheme/nntp.php';

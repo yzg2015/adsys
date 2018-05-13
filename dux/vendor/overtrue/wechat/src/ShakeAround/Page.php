@@ -15,7 +15,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue
+ * @see       http://github.com/overtrue
  * @see       http://overtrue.me
  */
 
@@ -28,11 +28,11 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Page extends AbstractAPI
 {
-    const API_ADD = 'https://api.weixin.qq.com/shakearound/page/add';
-    const API_UPDATE = 'https://api.weixin.qq.com/shakearound/page/update';
-    const API_SEARCH = 'https://api.weixin.qq.com/shakearound/page/search';
-    const API_DELETE = 'https://api.weixin.qq.com/shakearound/page/delete';
-    const API_RELATION_SEARCH = 'https://api.weixin.qq.com/shakearound/relation/search';
+    const API_ADD = 'http://api.weixin.qq.com/shakearound/page/add';
+    const API_UPDATE = 'http://api.weixin.qq.com/shakearound/page/update';
+    const API_SEARCH = 'http://api.weixin.qq.com/shakearound/page/search';
+    const API_DELETE = 'http://api.weixin.qq.com/shakearound/page/delete';
+    const API_RELATION_SEARCH = 'http://api.weixin.qq.com/shakearound/relation/search';
 
     /**
      * Add a page.

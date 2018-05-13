@@ -14,7 +14,7 @@ use Payment\Utils\DataParser;
  */
 class WxTransferQuery extends WxBaseStrategy
 {
-    protected $reqUrl = 'https://api.mch.weixin.qq.com/{debug}/mmpaymkttransfers/gettransferinfo';
+    protected $reqUrl = 'http://api.mch.weixin.qq.com/{debug}/mmpaymkttransfers/gettransferinfo';
 
     public function getBuildDataClass()
     {

@@ -5,8 +5,8 @@ namespace Payment\Utils;
  * @author: helei
  * @createTime: 2016-06-08 13:02
  * @description: 数据解析的工具类，主要处理，xml到数组  数组到xml的转化
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class DataParser
 {

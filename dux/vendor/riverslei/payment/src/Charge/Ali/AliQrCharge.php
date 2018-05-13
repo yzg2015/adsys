@@ -12,8 +12,8 @@ use Payment\Common\PayException;
  * Class AliQrCharge
  * @package Payment\Charge\Weixin
  *
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class AliQrCharge extends AliBaseStrategy
 {

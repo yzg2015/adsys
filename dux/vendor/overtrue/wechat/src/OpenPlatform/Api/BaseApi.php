@@ -21,7 +21,7 @@
  * @author    lixiao <leonlx126@gmail.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -32,29 +32,29 @@ class BaseApi extends AbstractOpenPlatform
     /**
      * Get auth info api.
      */
-    const GET_AUTH_INFO = 'https://api.weixin.qq.com/cgi-bin/component/api_query_auth';
+    const GET_AUTH_INFO = 'http://api.weixin.qq.com/cgi-bin/component/api_query_auth';
 
     /**
      * Get authorizer token api.
      */
-    const GET_AUTHORIZER_TOKEN = 'https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token';
+    const GET_AUTHORIZER_TOKEN = 'http://api.weixin.qq.com/cgi-bin/component/api_authorizer_token';
 
     /**
      * Get authorizer info api.
      */
-    const GET_AUTHORIZER_INFO = 'https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info';
+    const GET_AUTHORIZER_INFO = 'http://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info';
 
     /**
      * Get authorizer options api.
      */
-    const GET_AUTHORIZER_OPTION = 'https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_option';
+    const GET_AUTHORIZER_OPTION = 'http://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_option';
 
     /**
      * Set authorizer options api.
      */
-    const SET_AUTHORIZER_OPTION = 'https://api.weixin.qq.com/cgi-bin/component/api_set_authorizer_option';
+    const SET_AUTHORIZER_OPTION = 'http://api.weixin.qq.com/cgi-bin/component/api_set_authorizer_option';
 
-    const GET_AUTHORIZER_LIST = 'https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_list';
+    const GET_AUTHORIZER_LIST = 'http://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_list';
 
     /**
      * Get authorization info.

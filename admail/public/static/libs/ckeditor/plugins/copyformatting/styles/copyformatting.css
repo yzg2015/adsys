@@ -10,7 +10,7 @@ html.cke_copyformatting_active {
 /* There is no cursor in CUR format for IE/Edge as that browser
  does not support custom cursor in [contenteditable] area.
  Ticket for this issue:
- https://connect.microsoft.com/IE/feedback/details/1070215/cant-change-cursor-in-contenteditable-using-css */
+ http://connect.microsoft.com/IE/feedback/details/1070215/cant-change-cursor-in-contenteditable-using-css */
 .cke_copyformatting_disabled,
 .cke_copyformatting_disabled a,
 .cke_copyformatting_disabled .cke_editable {

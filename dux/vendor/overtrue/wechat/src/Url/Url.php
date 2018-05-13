@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -28,7 +28,7 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Url extends AbstractAPI
 {
-    const API_SHORTEN_URL = 'https://api.weixin.qq.com/cgi-bin/shorturl';
+    const API_SHORTEN_URL = 'http://api.weixin.qq.com/cgi-bin/shorturl';
 
     /**
      * Shorten the url.

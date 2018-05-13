@@ -5,12 +5,12 @@
         "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/php-fig/http-message.git",
+            "url": "http://github.com/php-fig/http-message.git",
             "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/http-message/f6561bf28d520154e4b0ec72be95418abe6d9363.zip",
+            "url": "http://files.phpcomposer.com/files/php-fig/http-message/f6561bf28d520154e4b0ec72be95418abe6d9363.zip",
             "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
             "shasum": ""
         },
@@ -30,7 +30,7 @@
                 "Psr\\Http\\Message\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -41,7 +41,7 @@
             }
         ],
         "description": "Common interface for HTTP messages",
-        "homepage": "https://github.com/php-fig/http-message",
+        "homepage": "http://github.com/php-fig/http-message",
         "keywords": [
             "http",
             "http-message",
@@ -57,12 +57,12 @@
         "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/psr-http-message-bridge.git",
+            "url": "http://github.com/symfony/psr-http-message-bridge.git",
             "reference": "66085f246d3893cbdbcec5f5ad15ac60546cf0de"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/psr-http-message-bridge/66085f246d3893cbdbcec5f5ad15ac60546cf0de.zip",
+            "url": "http://files.phpcomposer.com/files/symfony/psr-http-message-bridge/66085f246d3893cbdbcec5f5ad15ac60546cf0de.zip",
             "reference": "66085f246d3893cbdbcec5f5ad15ac60546cf0de",
             "shasum": ""
         },
@@ -91,7 +91,7 @@
                 "Symfony\\Bridge\\PsrHttpMessage\\": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -119,12 +119,12 @@
         "version_normalized": "1.3.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/guzzle/promises.git",
+            "url": "http://github.com/guzzle/promises.git",
             "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/promises/a59da6cf61d80060647ff4d3eb2c03a2bc694646.zip",
+            "url": "http://files.phpcomposer.com/files/guzzle/promises/a59da6cf61d80060647ff4d3eb2c03a2bc694646.zip",
             "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
             "shasum": ""
         },
@@ -150,7 +150,7 @@
                 "src/functions_include.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -158,7 +158,7 @@
             {
                 "name": "Michael Dowling",
                 "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
+                "homepage": "http://github.com/mtdowling"
             }
         ],
         "description": "Guzzle promises library",
@@ -172,12 +172,12 @@
         "version_normalized": "1.4.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/guzzle/psr7.git",
+            "url": "http://github.com/guzzle/psr7.git",
             "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/psr7/f5b8a8512e2b58b0071a7280e39f14f72e05d87c.zip",
+            "url": "http://files.phpcomposer.com/files/guzzle/psr7/f5b8a8512e2b58b0071a7280e39f14f72e05d87c.zip",
             "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
             "shasum": ""
         },
@@ -207,7 +207,7 @@
                 "src/functions_include.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -215,11 +215,11 @@
             {
                 "name": "Michael Dowling",
                 "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
+                "homepage": "http://github.com/mtdowling"
             },
             {
                 "name": "Tobias Schultze",
-                "homepage": "https://github.com/Tobion"
+                "homepage": "http://github.com/Tobion"
             }
         ],
         "description": "PSR-7 message implementation that also provides common utility methods",
@@ -239,12 +239,12 @@
         "version_normalized": "6.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/guzzle/guzzle.git",
+            "url": "http://github.com/guzzle/guzzle.git",
             "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/guzzle/f4db5a78a5ea468d4831de7f0bf9d9415e348699.zip",
+            "url": "http://files.phpcomposer.com/files/guzzle/guzzle/f4db5a78a5ea468d4831de7f0bf9d9415e348699.zip",
             "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
             "shasum": ""
         },
@@ -277,7 +277,7 @@
                 "GuzzleHttp\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -285,7 +285,7 @@
             {
                 "name": "Michael Dowling",
                 "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
+                "homepage": "http://github.com/mtdowling"
             }
         ],
         "description": "Guzzle is a PHP HTTP client library",
@@ -306,12 +306,12 @@
         "version_normalized": "1.0.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/php-fig/log.git",
+            "url": "http://github.com/php-fig/log.git",
             "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/log/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d.zip",
+            "url": "http://files.phpcomposer.com/files/php-fig/log/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d.zip",
             "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
             "shasum": ""
         },
@@ -331,7 +331,7 @@
                 "Psr\\Log\\": "Psr/Log/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -342,7 +342,7 @@
             }
         ],
         "description": "Common interface for logging libraries",
-        "homepage": "https://github.com/php-fig/log",
+        "homepage": "http://github.com/php-fig/log",
         "keywords": [
             "log",
             "psr",
@@ -355,12 +355,12 @@
         "version_normalized": "1.23.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/Seldaek/monolog.git",
+            "url": "http://github.com/Seldaek/monolog.git",
             "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/Seldaek/monolog/fd8c787753b3a2ad11bc60c063cff1358a32a3b4.zip",
+            "url": "http://files.phpcomposer.com/files/Seldaek/monolog/fd8c787753b3a2ad11bc60c063cff1358a32a3b4.zip",
             "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
             "shasum": ""
         },
@@ -410,7 +410,7 @@
                 "Monolog\\": "src/Monolog"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -435,12 +435,12 @@
         "version_normalized": "1.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/php-fig/container.git",
+            "url": "http://github.com/php-fig/container.git",
             "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/container/b7ce3b176482dbbc1245ebf52b181af44c2cf55f.zip",
+            "url": "http://files.phpcomposer.com/files/php-fig/container/b7ce3b176482dbbc1245ebf52b181af44c2cf55f.zip",
             "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
             "shasum": ""
         },
@@ -460,7 +460,7 @@
                 "Psr\\Container\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -471,7 +471,7 @@
             }
         ],
         "description": "Common Container Interface (PHP FIG PSR-11)",
-        "homepage": "https://github.com/php-fig/container",
+        "homepage": "http://github.com/php-fig/container",
         "keywords": [
             "PSR-11",
             "container",
@@ -486,12 +486,12 @@
         "version_normalized": "3.2.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/silexphp/Pimple.git",
+            "url": "http://github.com/silexphp/Pimple.git",
             "reference": "4d45fb62d96418396ec58ba76e6f065bca16e10a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/silexphp/Pimple/4d45fb62d96418396ec58ba76e6f065bca16e10a.zip",
+            "url": "http://files.phpcomposer.com/files/silexphp/Pimple/4d45fb62d96418396ec58ba76e6f065bca16e10a.zip",
             "reference": "4d45fb62d96418396ec58ba76e6f065bca16e10a",
             "shasum": ""
         },
@@ -515,7 +515,7 @@
                 "Pimple": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -538,12 +538,12 @@
         "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/aferrandini/PHPQRCode.git",
+            "url": "http://github.com/aferrandini/PHPQRCode.git",
             "reference": "3c1c0454d43710ab5bbe19a51ad4cb41c22e3d46"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/aferrandini/PHPQRCode/3c1c0454d43710ab5bbe19a51ad4cb41c22e3d46.zip",
+            "url": "http://files.phpcomposer.com/files/aferrandini/PHPQRCode/3c1c0454d43710ab5bbe19a51ad4cb41c22e3d46.zip",
             "reference": "3c1c0454d43710ab5bbe19a51ad4cb41c22e3d46",
             "shasum": ""
         },
@@ -558,7 +558,7 @@
                 "PHPQRCode": "lib/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -571,7 +571,7 @@
             }
         ],
         "description": "PHPQRCode porting and changed for PHP 5.3 compatibility",
-        "homepage": "https://github.com/aferrandini/PHPQRCode",
+        "homepage": "http://github.com/aferrandini/PHPQRCode",
         "keywords": [
             "barcode",
             "php",
@@ -584,12 +584,12 @@
         "version_normalized": "1.6.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "url": "http://github.com/symfony/polyfill-mbstring.git",
             "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296.zip",
+            "url": "http://files.phpcomposer.com/files/symfony/polyfill-mbstring/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296.zip",
             "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
             "shasum": ""
         },
@@ -615,7 +615,7 @@
                 "bootstrap.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -626,11 +626,11 @@
             },
             {
                 "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
+                "homepage": "http://symfony.com/contributors"
             }
         ],
         "description": "Symfony polyfill for the Mbstring extension",
-        "homepage": "https://symfony.com",
+        "homepage": "http://symfony.com",
         "keywords": [
             "compatibility",
             "mbstring",
@@ -645,12 +645,12 @@
         "version_normalized": "1.7.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/doctrine/cache.git",
+            "url": "http://github.com/doctrine/cache.git",
             "reference": "b3217d58609e9c8e661cd41357a54d926c4a2a1a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/doctrine/cache/b3217d58609e9c8e661cd41357a54d926c4a2a1a.zip",
+            "url": "http://files.phpcomposer.com/files/doctrine/cache/b3217d58609e9c8e661cd41357a54d926c4a2a1a.zip",
             "reference": "b3217d58609e9c8e661cd41357a54d926c4a2a1a",
             "shasum": ""
         },
@@ -682,7 +682,7 @@
                 "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -721,12 +721,12 @@
         "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/overtrue/socialite.git",
+            "url": "http://github.com/overtrue/socialite.git",
             "reference": "fda55f0acef43a144799b1957a8f93d9f5deffce"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/overtrue/socialite/fda55f0acef43a144799b1957a8f93d9f5deffce.zip",
+            "url": "http://files.phpcomposer.com/files/overtrue/socialite/fda55f0acef43a144799b1957a8f93d9f5deffce.zip",
             "reference": "fda55f0acef43a144799b1957a8f93d9f5deffce",
             "shasum": ""
         },
@@ -747,7 +747,7 @@
                 "Overtrue\\Socialite\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -773,12 +773,12 @@
         "version_normalized": "0.1.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/duxphp/easy-mipush.git",
+            "url": "http://github.com/duxphp/easy-mipush.git",
             "reference": "c876d0e556e91643be2d4557189877fd7d677882"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/duxphp/easy-mipush/c876d0e556e91643be2d4557189877fd7d677882.zip",
+            "url": "http://files.phpcomposer.com/files/duxphp/easy-mipush/c876d0e556e91643be2d4557189877fd7d677882.zip",
             "reference": "c876d0e556e91643be2d4557189877fd7d677882",
             "shasum": ""
         },
@@ -793,7 +793,7 @@
                 "Mipush\\": "/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -815,12 +815,12 @@
         "version_normalized": "4.1.4.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/helei112g/payment.git",
+            "url": "http://github.com/helei112g/payment.git",
             "reference": "f0d86d3bf492b0f1111e1d9969b264bb00608f5c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/helei112g/payment/f0d86d3bf492b0f1111e1d9969b264bb00608f5c.zip",
+            "url": "http://files.phpcomposer.com/files/helei112g/payment/f0d86d3bf492b0f1111e1d9969b264bb00608f5c.zip",
             "reference": "f0d86d3bf492b0f1111e1d9969b264bb00608f5c",
             "shasum": ""
         },
@@ -842,7 +842,7 @@
                 "Payment\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -850,11 +850,11 @@
             {
                 "name": "helei",
                 "email": "dayugog@gmail.com",
-                "homepage": "https://helei112g.github.io/categories/payment-3/"
+                "homepage": "http://helei112g.github.io/categories/payment-3/"
             }
         ],
         "description": "支付宝支付、微信支付、招商一网通支付php SDK。方便快速接入，最完整的开源支付 php sdk",
-        "homepage": "https://helei112g.github.io/categories/payment-3/",
+        "homepage": "http://helei112g.github.io/categories/payment-3/",
         "keywords": [
             "alipay",
             "weixin",
@@ -871,12 +871,12 @@
         "version_normalized": "3.3.20.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/overtrue/wechat.git",
+            "url": "http://github.com/overtrue/wechat.git",
             "reference": "802ea7218e9ceeffb9530f78cdf56033b58da963"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/overtrue/wechat/802ea7218e9ceeffb9530f78cdf56033b58da963.zip",
+            "url": "http://files.phpcomposer.com/files/overtrue/wechat/802ea7218e9ceeffb9530f78cdf56033b58da963.zip",
             "reference": "802ea7218e9ceeffb9530f78cdf56033b58da963",
             "shasum": ""
         },
@@ -907,7 +907,7 @@
                 "src/Payment/helpers.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -931,12 +931,12 @@
         "version_normalized": "0.7.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/leafo/scssphp.git",
+            "url": "http://github.com/leafo/scssphp.git",
             "reference": "9eaf3a6db4d88ce2c265a89e3fc495fbec9bf7a6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/leafo/scssphp/9eaf3a6db4d88ce2c265a89e3fc495fbec9bf7a6.zip",
+            "url": "http://files.phpcomposer.com/files/leafo/scssphp/9eaf3a6db4d88ce2c265a89e3fc495fbec9bf7a6.zip",
             "reference": "9eaf3a6db4d88ce2c265a89e3fc495fbec9bf7a6",
             "shasum": ""
         },
@@ -958,7 +958,7 @@
                 "Leafo\\ScssPhp\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -985,12 +985,12 @@
         "version_normalized": "2.0.11.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/paragonie/random_compat.git",
+            "url": "http://github.com/paragonie/random_compat.git",
             "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/paragonie/random_compat/5da4d3c796c275c55f057af5a643ae297d96b4d8.zip",
+            "url": "http://files.phpcomposer.com/files/paragonie/random_compat/5da4d3c796c275c55f057af5a643ae297d96b4d8.zip",
             "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
             "shasum": ""
         },
@@ -1011,7 +1011,7 @@
                 "lib/random.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1019,7 +1019,7 @@
             {
                 "name": "Paragon Initiative Enterprises",
                 "email": "security@paragonie.com",
-                "homepage": "https://paragonie.com"
+                "homepage": "http://paragonie.com"
             }
         ],
         "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
@@ -1035,12 +1035,12 @@
         "version_normalized": "1.6.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/polyfill-php70.git",
+            "url": "http://github.com/symfony/polyfill-php70.git",
             "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/polyfill-php70/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff.zip",
+            "url": "http://files.phpcomposer.com/files/symfony/polyfill-php70/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff.zip",
             "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
             "shasum": ""
         },
@@ -1067,7 +1067,7 @@
                 "Resources/stubs"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1078,11 +1078,11 @@
             },
             {
                 "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
+                "homepage": "http://symfony.com/contributors"
             }
         ],
         "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
-        "homepage": "https://symfony.com",
+        "homepage": "http://symfony.com",
         "keywords": [
             "compatibility",
             "polyfill",
@@ -1096,12 +1096,12 @@
         "version_normalized": "3.4.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/http-foundation.git",
+            "url": "http://github.com/symfony/http-foundation.git",
             "reference": "d9625c8abb907e0ca2d7506afd7a719a572c766f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/http-foundation/d9625c8abb907e0ca2d7506afd7a719a572c766f.zip",
+            "url": "http://files.phpcomposer.com/files/symfony/http-foundation/d9625c8abb907e0ca2d7506afd7a719a572c766f.zip",
             "reference": "d9625c8abb907e0ca2d7506afd7a719a572c766f",
             "shasum": ""
         },
@@ -1129,7 +1129,7 @@
                 "/Tests/"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
+        "notification-url": "http://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1140,10 +1140,10 @@
             },
             {
                 "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
+                "homepage": "http://symfony.com/contributors"
             }
         ],
         "description": "Symfony HttpFoundation Component",
-        "homepage": "https://symfony.com"
+        "homepage": "http://symfony.com"
     }
 ]

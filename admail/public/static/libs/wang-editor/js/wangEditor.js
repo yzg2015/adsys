@@ -2415,7 +2415,7 @@ _e(function (E, $) {
                             resultHtml = '<p>' + pasteHtml + '</p>';
 
                             // 查询链接
-                            resultHtml = resultHtml.replace(/<p>(https?:\/\/.*?)<\/p>/ig, function (match, link) {
+                            resultHtml = resultHtml.replace(/<p>(http?:\/\/.*?)<\/p>/ig, function (match, link) {
                                 return '<p><a href="' + link + '" target="_blank">' + link + '</p>';
                             });
                         }
@@ -5649,7 +5649,7 @@ _e(function (E, $) {
         mapData.loadMapScript = function () {
             var script = document.createElement("script");
             script.type = "text/javascript";
-            script.src = "https://api.map.baidu.com/api?v=2.0&ak=" + ak + "&s=1&callback=baiduMapCallBack";  // baiduMapCallBack是一个本地函数
+            script.src = "http://api.map.baidu.com/api?v=2.0&ak=" + ak + "&s=1&callback=baiduMapCallBack";  // baiduMapCallBack是一个本地函数
             try {
                 // IE10- 报错
                 document.body.appendChild(script);

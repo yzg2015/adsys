@@ -21,7 +21,7 @@ class WeWorkProviderTest extends PHPUnit_Framework_TestCase
                     ->stateless()
                     ->redirect();
 
-        $this->assertSame('https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=ww100000a5f2191&agentid=1000000&redirect_uri=http%3A%2F%2Fwww.oa.com', $response->getTargetUrl());
+        $this->assertSame('http://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=ww100000a5f2191&agentid=1000000&redirect_uri=http%3A%2F%2Fwww.oa.com', $response->getTargetUrl());
     }
 
     public function testOAuthWithAgentId()
@@ -32,7 +32,7 @@ class WeWorkProviderTest extends PHPUnit_Framework_TestCase
                     ->stateless()
                     ->redirect();
 
-        $this->assertSame('https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&agentid=1000000#wechat_redirect', $response->getTargetUrl());
+        $this->assertSame('http://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&agentid=1000000#wechat_redirect', $response->getTargetUrl());
     }
 
     public function testOAuthWithoutAgentId()
@@ -42,6 +42,6 @@ class WeWorkProviderTest extends PHPUnit_Framework_TestCase
                     ->stateless()
                     ->redirect();
 
-        $this->assertSame('https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base#wechat_redirect', $response->getTargetUrl());
+        $this->assertSame('http://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base#wechat_redirect', $response->getTargetUrl());
     }
 }

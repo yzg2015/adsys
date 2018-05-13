@@ -47,19 +47,19 @@ class RequestMatcherTest extends TestCase
     public function testScheme()
     {
         $httpRequest = $request = $request = Request::create('');
-        $httpsRequest = $request = $request = Request::create('', 'get', array(), array(), array(), array('HTTPS' => 'on'));
+        $httpRequest = $request = $request = Request::create('', 'get', array(), array(), array(), array('http' => 'on'));
 
         $matcher = new RequestMatcher();
-        $matcher->matchScheme('https');
+        $matcher->matchScheme('http');
         $this->assertFalse($matcher->matches($httpRequest));
-        $this->assertTrue($matcher->matches($httpsRequest));
+        $this->assertTrue($matcher->matches($httpRequest));
 
         $matcher->matchScheme('http');
-        $this->assertFalse($matcher->matches($httpsRequest));
+        $this->assertFalse($matcher->matches($httpRequest));
         $this->assertTrue($matcher->matches($httpRequest));
 
         $matcher = new RequestMatcher();
-        $this->assertTrue($matcher->matches($httpsRequest));
+        $this->assertTrue($matcher->matches($httpRequest));
         $this->assertTrue($matcher->matches($httpRequest));
     }
 

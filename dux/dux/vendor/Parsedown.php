@@ -1343,7 +1343,7 @@ class Parsedown
             return;
         }
 
-        if (preg_match('/\bhttps?:[\/]{2}[^\s<]+\b\/*/ui', $Excerpt['context'], $matches, PREG_OFFSET_CAPTURE))
+        if (preg_match('/\bhttp?:[\/]{2}[^\s<]+\b\/*/ui', $Excerpt['context'], $matches, PREG_OFFSET_CAPTURE))
         {
             $Inline = array(
                 'extent' => strlen($matches[0][0]),

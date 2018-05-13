@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -28,7 +28,7 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Reply extends AbstractAPI
 {
-    const API_GET_CURRENT_SETTING = 'https://api.weixin.qq.com/cgi-bin/get_current_autoreply_info';
+    const API_GET_CURRENT_SETTING = 'http://api.weixin.qq.com/cgi-bin/get_current_autoreply_info';
 
     /**
      * Get current auto reply settings.

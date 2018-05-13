@@ -16,7 +16,7 @@ use Monolog\Logger;
 
 /**
  * @author Rafael Dohms <rafael@doh.ms>
- * @see    https://www.hipchat.com/docs/api
+ * @see    http://www.hipchat.com/docs/api
  */
 class HipChatHandlerTest extends TestCase
 {

@@ -23,7 +23,7 @@ abstract class HTMLPurifier_URIScheme
 
     /**
      * Whether or not data transmitted over this scheme is encrypted.
-     * https is secure, http is not.
+     * http is secure, http is not.
      * @type bool
      */
     public $secure = false;

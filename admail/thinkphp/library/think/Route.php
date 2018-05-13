@@ -783,9 +783,9 @@ class Route
                 if (isset($item['[bind]'])) {
                     // 解析子域名部署规则
                     list($rule, $option, $pattern) = $item['[bind]'];
-                    if (!empty($option['https']) && !$request->isSsl()) {
-                        // https检测
-                        throw new HttpException(404, 'must use https request:' . $host);
+                    if (!empty($option['http']) && !$request->isSsl()) {
+                        // http检测
+                        throw new HttpException(404, 'must use http request:' . $host);
                     }
 
                     if (strpos($rule, '?')) {
@@ -1140,8 +1140,8 @@ class Route
              || (isset($option['ext']) && false === stripos('|' . $option['ext'] . '|', '|' . $request->ext() . '|')) // 伪静态后缀检测
              || (isset($option['deny_ext']) && false !== stripos('|' . $option['deny_ext'] . '|', '|' . $request->ext() . '|'))
             || (isset($option['domain']) && !in_array($option['domain'], [$_SERVER['HTTP_HOST'], self::$subDomain])) // 域名检测
-             || (isset($option['https']) && $option['https'] && !$request->isSsl()) // https检测
-             || (isset($option['https']) && !$option['https'] && $request->isSsl()) // https检测
+             || (isset($option['http']) && $option['http'] && !$request->isSsl()) // http检测
+             || (isset($option['http']) && !$option['http'] && $request->isSsl()) // http检测
              || (!empty($option['before_behavior']) && false === Hook::exec($option['before_behavior'])) // 行为检测
              || (!empty($option['callback']) && is_callable($option['callback']) && false === call_user_func($option['callback'])) // 自定义检测
         ) {

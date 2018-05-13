@@ -5,8 +5,8 @@ namespace Payment\Common\Ali\Data\Charge;
  * @author: helei
  * @createTime: 2016-07-22 17:02
  * @description: 生成手机网站支付的数据
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * @property string $quit_url 手银台返回地址
  */

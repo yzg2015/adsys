@@ -9,8 +9,8 @@ use Payment\Config;
  * @author: helei
  * @createTime: 2017-09-02 18:20
  * @description: 支付的客户端类
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  * Class Charge
  * @package Payment\Client
  *

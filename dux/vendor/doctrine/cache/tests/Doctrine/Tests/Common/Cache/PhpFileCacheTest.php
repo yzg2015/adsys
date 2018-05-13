@@ -17,7 +17,7 @@ class PhpFileCacheTest extends BaseFileCacheTest
         unset($data['object'], $data['object_recursive']); // PhpFileCache only allows objects that implement __set_state() and fully support var_export()
 
         if (PHP_VERSION_ID < 70002) {
-            unset($data['float_zero']); // var_export exports float(0) as int(0): https://bugs.php.net/bug.php?id=66179
+            unset($data['float_zero']); // var_export exports float(0) as int(0): http://bugs.php.net/bug.php?id=66179
         }
 
         return $data;

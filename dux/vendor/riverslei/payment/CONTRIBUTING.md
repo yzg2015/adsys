@@ -19,14 +19,14 @@ Payment只有在大家的使用反馈中才能得到不断的完善。
 # 贡献代码
 请代码书写遵循以下规则:
 
-- [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
+- [PSR-2](http://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 - 使用4个空格作为缩紧（不是tab）
 - 命名使用驼峰命名（不准使用拼音）
 - 请给类、方法、变量添加注释，注释需要包含：日期、修改人、含义
 
 ## 开发流程
 
-1. Fork [helei112g/payment](https://github.com/helei112g/payment) 到本地
+1. Fork [helei112g/payment](http://github.com/helei112g/payment) 到本地
 2. 创建新的分支：
 
     ```shell

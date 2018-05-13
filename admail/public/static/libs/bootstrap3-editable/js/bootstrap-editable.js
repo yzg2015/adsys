@@ -968,7 +968,7 @@ Applied as jQuery method.
                     }
 
                     //for some reason FF 20 generates extra event (click) in select2 widget with e.target = document
-                    //we need to filter it via construction below. See https://github.com/vitalets/x-editable/issues/199
+                    //we need to filter it via construction below. See http://github.com/vitalets/x-editable/issues/199
                     //Possibly related to http://stackoverflow.com/questions/10119793/why-does-firefox-react-differently-from-webkit-and-ie-to-click-event-on-selec
                     if($target.is(document)) {
                        return; 
@@ -1557,7 +1557,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
             }
             
             //if display is function it's far more convinient to have autotext = always to render correctly on init
-            //see https://github.com/vitalets/x-editable-yii/issues/34
+            //see http://github.com/vitalets/x-editable-yii/issues/34
             if(typeof this.options.display === 'function') {
                 this.options.autotext = 'always';
             }
@@ -1614,7 +1614,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
                var $target = $(e.target);
                if(!$target.data('editable')) {
                    //if delegated element initially empty, we need to clear it's text (that was manually set to `empty` by user)
-                   //see https://github.com/vitalets/x-editable/issues/137 
+                   //see http://github.com/vitalets/x-editable/issues/137 
                    if($target.hasClass(this.options.emptyclass)) {
                       $target.empty();
                    }
@@ -2134,7 +2134,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
 
             //for delegated targets do not store `editable` object for element
             //it's allows several different selectors.
-            //see: https://github.com/vitalets/x-editable/issues/312    
+            //see: http://github.com/vitalets/x-editable/issues/312    
             if(options && options.selector) {
                 data = new Editable(this, options);
                 return; 
@@ -3395,7 +3395,7 @@ Following types are supported:
 Learn more about html5 inputs:  
 http://www.w3.org/wiki/HTML5_form_additions  
 To check browser compatibility please see:  
-https://developer.mozilla.org/en-US/docs/HTML/Element/Input
+http://developer.mozilla.org/en-US/docs/HTML/Element/Input
             
 @class html5types 
 @extends text
@@ -3600,7 +3600,7 @@ Time
 }(window.jQuery));
 
 /**
-Select2 input. Based on amazing work of Igor Vaynberg https://github.com/ivaynberg/select2.  
+Select2 input. Based on amazing work of Igor Vaynberg http://github.com/ivaynberg/select2.  
 Please see [original select2 docs](http://ivaynberg.github.com/select2) for detailed description and options.  
  
 You should manually download and include select2 distributive:  
@@ -3608,7 +3608,7 @@ You should manually download and include select2 distributive:
     <link href="select2/select2.css" rel="stylesheet" type="text/css"></link>  
     <script src="select2/select2.js"></script>  
     
-To make it **bootstrap-styled** you can use css from [here](https://github.com/t0m/select2-bootstrap-css): 
+To make it **bootstrap-styled** you can use css from [here](http://github.com/t0m/select2-bootstrap-css): 
 
     <link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    
     
@@ -3965,7 +3965,7 @@ $(function(){
 * Dropdown date and time picker.
 * Converts text input into dropdowns to pick day, month, year, hour, minute and second.
 * Uses momentjs as datetime library http://momentjs.com.
-* For i18n include corresponding file from https://github.com/timrwood/moment/tree/master/lang 
+* For i18n include corresponding file from http://github.com/timrwood/moment/tree/master/lang 
 *
 * Confusion at noon and midnight - see http://en.wikipedia.org/wiki/12-hour_clock#Confusion_at_noon_and_midnight
 * In combodate: 
@@ -4125,7 +4125,7 @@ $(function(){
                 daysCount = 31;
 
             // detect days count (depends on month and year)
-            // originally https://github.com/vitalets/combodate/pull/7
+            // originally http://github.com/vitalets/combodate/pull/7
             if (this.options.smartDays && this.$month && this.$year) {
                 var month = parseInt(this.$month.val(), 10);
                 var year = parseInt(this.$year.val(), 10);
@@ -4153,7 +4153,7 @@ $(function(){
                 
             for(i=0; i<=11; i++) {
                 if(longNames) {
-                    //see https://github.com/timrwood/momentjs.com/pull/36
+                    //see http://github.com/timrwood/momentjs.com/pull/36
                     name = moment().date(1).month(i).format('MMMM');
                 } else if(shortNames) {
                     name = moment().date(1).month(i).format('MMM');
@@ -5802,7 +5802,7 @@ Editableform based on Twitter Bootstrap 3
 				jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.
 				Method show() does not set display css correctly and datepicker is not shown.
 				Changed to .css('display', 'block') solve the problem.
-				See https://github.com/vitalets/x-editable/issues/37
+				See http://github.com/vitalets/x-editable/issues/37
 
 				In jquery 1.7.2+ everything works fine.
 			*/
@@ -6192,8 +6192,8 @@ Editableform based on Twitter Bootstrap 3
 
 /**
 Bootstrap-datepicker.  
-Description and examples: https://github.com/eternicode/bootstrap-datepicker.  
-For **i18n** you should include js file from here: https://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales
+Description and examples: http://github.com/eternicode/bootstrap-datepicker.  
+For **i18n** you should include js file from here: http://github.com/eternicode/bootstrap-datepicker/tree/master/js/locales
 and set `language` option.  
 Since 1.4.0 date has different appearance in **popup** and **inline** modes. 
 
@@ -6503,13 +6503,13 @@ Automatically shown in inline mode.
 }(window.jQuery));
 /**
 Bootstrap-datetimepicker.  
-Based on [smalot bootstrap-datetimepicker plugin](https://github.com/smalot/bootstrap-datetimepicker). 
+Based on [smalot bootstrap-datetimepicker plugin](http://github.com/smalot/bootstrap-datetimepicker). 
 Before usage you should manually include dependent js and css:
 
     <link href="css/datetimepicker.css" rel="stylesheet" type="text/css"></link> 
     <script src="js/bootstrap-datetimepicker.js"></script>
 
-For **i18n** you should include js file from here: https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales
+For **i18n** you should include js file from here: http://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales
 and set `language` option.  
 
 @class datetime
@@ -6574,7 +6574,7 @@ $(function(){
             this.$input.datetimepicker(this.options.datetimepicker);
 
             //adjust container position when viewMode changes
-            //see https://github.com/smalot/bootstrap-datetimepicker/pull/80
+            //see http://github.com/smalot/bootstrap-datetimepicker/pull/80
             this.$input.on('changeMode', function(e) {
                 var f = $(this).closest('form').parent();
                 //timeout here, otherwise container changes position before form has new size
@@ -6721,7 +6721,7 @@ $(function(){
         viewformat: null,
         /**
         Configuration of datetimepicker.
-        Full list of options: https://github.com/smalot/bootstrap-datetimepicker
+        Full list of options: http://github.com/smalot/bootstrap-datetimepicker
 
         @property datetimepicker 
         @type object

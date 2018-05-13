@@ -8469,7 +8469,7 @@ a.bg-smooth-lighter:focus {
     -webkit-animation-name: flash;
     animation-name: flash;
 }
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+/* originally authored by Nick Pettit - http://github.com/nickpettit/glide */
 @-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale3d(1, 1, 1);
@@ -8724,7 +8724,7 @@ a.bg-smooth-lighter:focus {
     -webkit-animation-name: tada;
     animation-name: tada;
 }
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+/* originally authored by Nick Pettit - http://github.com/nickpettit/glide */
 @-webkit-keyframes wobble {
     0% {
         -webkit-transform: none;
@@ -10521,7 +10521,7 @@ a.bg-smooth-lighter:focus {
     -webkit-animation-name: hinge;
     animation-name: hinge;
 }
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+/* originally authored by Nick Pettit - http://github.com/nickpettit/glide */
 @-webkit-keyframes rollIn {
     0% {
         opacity: 0;
@@ -10550,7 +10550,7 @@ a.bg-smooth-lighter:focus {
     -webkit-animation-name: rollIn;
     animation-name: rollIn;
 }
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+/* originally authored by Nick Pettit - http://github.com/nickpettit/glide */
 @-webkit-keyframes rollOut {
     0% {
         opacity: 1;

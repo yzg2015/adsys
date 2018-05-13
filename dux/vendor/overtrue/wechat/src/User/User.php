@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -28,15 +28,15 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class User extends AbstractAPI
 {
-    const API_GET = 'https://api.weixin.qq.com/cgi-bin/user/info';
-    const API_BATCH_GET = 'https://api.weixin.qq.com/cgi-bin/user/info/batchget';
-    const API_LIST = 'https://api.weixin.qq.com/cgi-bin/user/get';
-    const API_GROUP = 'https://api.weixin.qq.com/cgi-bin/groups/getid';
-    const API_REMARK = 'https://api.weixin.qq.com/cgi-bin/user/info/updateremark';
-    const API_OAUTH_GET = 'https://api.weixin.qq.com/sns/userinfo';
-    const API_GET_BLACK_LIST = 'https://api.weixin.qq.com/cgi-bin/tags/members/getblacklist';
-    const API_BATCH_BLACK_LIST = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchblacklist';
-    const API_BATCH_UNBLACK_LIST = 'https://api.weixin.qq.com/cgi-bin/tags/members/batchunblacklist';
+    const API_GET = 'http://api.weixin.qq.com/cgi-bin/user/info';
+    const API_BATCH_GET = 'http://api.weixin.qq.com/cgi-bin/user/info/batchget';
+    const API_LIST = 'http://api.weixin.qq.com/cgi-bin/user/get';
+    const API_GROUP = 'http://api.weixin.qq.com/cgi-bin/groups/getid';
+    const API_REMARK = 'http://api.weixin.qq.com/cgi-bin/user/info/updateremark';
+    const API_OAUTH_GET = 'http://api.weixin.qq.com/sns/userinfo';
+    const API_GET_BLACK_LIST = 'http://api.weixin.qq.com/cgi-bin/tags/members/getblacklist';
+    const API_BATCH_BLACK_LIST = 'http://api.weixin.qq.com/cgi-bin/tags/members/batchblacklist';
+    const API_BATCH_UNBLACK_LIST = 'http://api.weixin.qq.com/cgi-bin/tags/members/batchunblacklist';
 
     /**
      * Fetch a user by open id.

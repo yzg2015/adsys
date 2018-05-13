@@ -15,7 +15,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue
+ * @see       http://github.com/overtrue
  * @see       http://overtrue.me
  */
 
@@ -28,10 +28,10 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Stats extends AbstractAPI
 {
-    const API_DEVICE = 'https://api.weixin.qq.com/shakearound/statistics/device';
-    const API_DEVICE_LIST = 'https://api.weixin.qq.com/shakearound/statistics/devicelist';
-    const API_PAGE = 'https://api.weixin.qq.com/shakearound/statistics/page';
-    const API_PAGE_LIST = 'https://api.weixin.qq.com/shakearound/statistics/pagelist';
+    const API_DEVICE = 'http://api.weixin.qq.com/shakearound/statistics/device';
+    const API_DEVICE_LIST = 'http://api.weixin.qq.com/shakearound/statistics/devicelist';
+    const API_PAGE = 'http://api.weixin.qq.com/shakearound/statistics/page';
+    const API_PAGE_LIST = 'http://api.weixin.qq.com/shakearound/statistics/pagelist';
 
     /**
      * Fetch statistics data by deviceId.

@@ -23,15 +23,15 @@
   "licenses": [
     {
       "type": "GPLv2",
-      "url": "https://github.com/ludo/jquery-treetable/blob/3.2.0/GPL-LICENSE.txt"
+      "url": "http://github.com/ludo/jquery-treetable/blob/3.2.0/GPL-LICENSE.txt"
     },
     {
       "type": "MIT",
-      "url": "https://github.com/ludo/jquery-treetable/blob/3.2.0/MIT-LICENSE.txt"
+      "url": "http://github.com/ludo/jquery-treetable/blob/3.2.0/MIT-LICENSE.txt"
     }
   ],
-  "bugs": "https://github.com/ludo/jquery-treetable/issues",
-  "homepage": "https://github.com/ludo/jquery-treetable",
+  "bugs": "http://github.com/ludo/jquery-treetable/issues",
+  "homepage": "http://github.com/ludo/jquery-treetable",
   "docs": "http://ludo.cubicphuse.nl/jquery-treetable/",
   "dependencies": {
     "jquery": ">=1.6"

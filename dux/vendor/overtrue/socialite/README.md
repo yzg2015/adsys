@@ -1,25 +1,25 @@
 <h1 align="center"> Socialite</h1>
 <p align="center">
-<a href="https://travis-ci.org/overtrue/socialite"><img src="https://travis-ci.org/overtrue/socialite.svg?branch=master" alt="Build Status"></a>
-<a href="https://packagist.org/packages/overtrue/socialite"><img src="https://poser.pugx.org/overtrue/socialite/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/overtrue/socialite"><img src="https://poser.pugx.org/overtrue/socialite/v/unstable.svg" alt="Latest Unstable Version"></a>
-<a href="https://scrutinizer-ci.com/g/overtrue/socialite/build-status/master"><img src="https://scrutinizer-ci.com/g/overtrue/socialite/badges/build.png?b=master" alt="Build Status"></a>
-<a href="https://scrutinizer-ci.com/g/overtrue/socialite/?branch=master"><img src="https://scrutinizer-ci.com/g/overtrue/socialite/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a>
-<a href="https://scrutinizer-ci.com/g/overtrue/socialite/?branch=master"><img src="https://scrutinizer-ci.com/g/overtrue/socialite/badges/coverage.png?b=master" alt="Code Coverage"></a>
-<a href="https://packagist.org/packages/overtrue/socialite"><img src="https://poser.pugx.org/overtrue/socialite/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/overtrue/socialite"><img src="https://poser.pugx.org/overtrue/socialite/license" alt="License"></a>
+<a href="http://travis-ci.org/overtrue/socialite"><img src="http://travis-ci.org/overtrue/socialite.svg?branch=master" alt="Build Status"></a>
+<a href="http://packagist.org/packages/overtrue/socialite"><img src="http://poser.pugx.org/overtrue/socialite/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="http://packagist.org/packages/overtrue/socialite"><img src="http://poser.pugx.org/overtrue/socialite/v/unstable.svg" alt="Latest Unstable Version"></a>
+<a href="http://scrutinizer-ci.com/g/overtrue/socialite/build-status/master"><img src="http://scrutinizer-ci.com/g/overtrue/socialite/badges/build.png?b=master" alt="Build Status"></a>
+<a href="http://scrutinizer-ci.com/g/overtrue/socialite/?branch=master"><img src="http://scrutinizer-ci.com/g/overtrue/socialite/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a>
+<a href="http://scrutinizer-ci.com/g/overtrue/socialite/?branch=master"><img src="http://scrutinizer-ci.com/g/overtrue/socialite/badges/coverage.png?b=master" alt="Code Coverage"></a>
+<a href="http://packagist.org/packages/overtrue/socialite"><img src="http://poser.pugx.org/overtrue/socialite/downloads" alt="Total Downloads"></a>
+<a href="http://packagist.org/packages/overtrue/socialite"><img src="http://poser.pugx.org/overtrue/socialite/license" alt="License"></a>
 </p>
 
 
-<p align="center">Socialite is an OAuth2 Authentication tool. It is inspired by <a href="https://github.com/laravel/socialite">laravel/socialite</a>, You can easily use it in any PHP project.</p>
+<p align="center">Socialite is an OAuth2 Authentication tool. It is inspired by <a href="http://github.com/laravel/socialite">laravel/socialite</a>, You can easily use it in any PHP project.</p>
 
 
 <p align="center">
   <br>
   <b>创造不息，交付不止</b>
   <br>
-  <a href="https://www.yousails.com">
-    <img src="https://yousails.com/banners/brand.png" width=350>
+  <a href="http://www.yousails.com">
+    <img src="http://yousails.com/banners/brand.png" width=350>
   </a>
 </p>
 
@@ -36,7 +36,7 @@ $ composer require "overtrue/socialite:~1.1"
 
 # Usage
 
-For Laravel 5: [overtrue/laravel-socialite](https://github.com/overtrue/laravel-socialite)
+For Laravel 5: [overtrue/laravel-socialite](http://github.com/overtrue/laravel-socialite)
 
 `authorize.php`:
 
@@ -94,7 +94,7 @@ Example:
 ...
 ```
 
-Special configuration options for [WeChat Open Platform](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318590&token=&lang=zh_CN)
+Special configuration options for [WeChat Open Platform](http://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318590&token=&lang=zh_CN)
 ```
 'wechat_open' => [
     'client_id'     => 'your-app-id',
@@ -153,14 +153,14 @@ $user = $socialite->driver('weibo')->user();
   "nickname": "overtrue",
   "name": "安正超",
   "email": "anzhengchao@gmail.com",
-  "avatar": "https://avatars.githubusercontent.com/u/1472352?v=3",
+  "avatar": "http://avatars.githubusercontent.com/u/1472352?v=3",
   "original": {
     "login": "overtrue",
     "id": 1472352,
-    "avatar_url": "https://avatars.githubusercontent.com/u/1472352?v=3",
+    "avatar_url": "http://avatars.githubusercontent.com/u/1472352?v=3",
     "gravatar_id": "",
-    "url": "https://api.github.com/users/overtrue",
-    "html_url": "https://github.com/overtrue",
+    "url": "http://api.github.com/users/overtrue",
+    "html_url": "http://github.com/overtrue",
     ...
   },
   "token": {
@@ -250,14 +250,14 @@ Enjoy it! :heart:
 
 # Reference
 
-- [Google - OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect)
-- [Facebook - Graph API](https://developers.facebook.com/docs/graph-api)
-- [Linkedin - Authenticating with OAuth 2.0](https://developer.linkedin.com/docs/oauth2)
+- [Google - OpenID Connect](http://developers.google.com/identity/protocols/OpenIDConnect)
+- [Facebook - Graph API](http://developers.facebook.com/docs/graph-api)
+- [Linkedin - Authenticating with OAuth 2.0](http://developer.linkedin.com/docs/oauth2)
 - [微博 - OAuth 2.0 授权机制说明](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)
 - [QQ - OAuth 2.0 登录QQ](http://wiki.connect.qq.com/oauth2-0%E7%AE%80%E4%BB%8B)
 - [微信公众平台 - OAuth文档](http://mp.weixin.qq.com/wiki/9/01f711493b5a02f24b04365ac5d8fd95.html)
-- [微信开放平台 - 网站应用微信登录开发指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=&lang=zh_CN)
-- [微信开放平台 - 代公众号发起网页授权](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318590&token=&lang=zh_CN)
+- [微信开放平台 - 网站应用微信登录开发指南](http://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=&lang=zh_CN)
+- [微信开放平台 - 代公众号发起网页授权](http://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318590&token=&lang=zh_CN)
 - [豆瓣 - OAuth 2.0 授权机制说明](http://developers.douban.com/wiki/?title=oauth2)
 
 # License

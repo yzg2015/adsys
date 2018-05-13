@@ -7,8 +7,8 @@ use Payment\Utils\ArrayUtil;
  * Class AppChargeData
  * 微信APP支付
  * @package Payment\Common\Weixin\Data\Charge
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class AppChargeData extends ChargeBaseData
 {

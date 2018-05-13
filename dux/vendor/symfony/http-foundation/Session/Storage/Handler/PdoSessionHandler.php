@@ -443,7 +443,7 @@ class PdoSessionHandler extends AbstractSessionHandler
      * Helper method to begin a transaction.
      *
      * Since SQLite does not support row level locks, we have to acquire a reserved lock
-     * on the database immediately. Because of https://bugs.php.net/42766 we have to create
+     * on the database immediately. Because of http://bugs.php.net/42766 we have to create
      * such a transaction manually which also means we cannot use PDO::commit or
      * PDO::rollback or PDO::inTransaction for SQLite.
      *

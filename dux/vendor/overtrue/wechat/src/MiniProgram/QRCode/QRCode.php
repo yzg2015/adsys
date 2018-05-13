@@ -20,7 +20,7 @@
  * @author    mingyoung <mingyoungcheung@gmail.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -30,9 +30,9 @@ use EasyWeChat\MiniProgram\Core\AbstractMiniProgram;
 
 class QRCode extends AbstractMiniProgram
 {
-    const API_GET_WXACODE = 'https://api.weixin.qq.com/wxa/getwxacode';
-    const API_GET_WXACODE_UNLIMIT = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit';
-    const API_CREATE_QRCODE = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode';
+    const API_GET_WXACODE = 'http://api.weixin.qq.com/wxa/getwxacode';
+    const API_GET_WXACODE_UNLIMIT = 'http://api.weixin.qq.com/wxa/getwxacodeunlimit';
+    const API_CREATE_QRCODE = 'http://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode';
 
     /**
      * Get WXACode.

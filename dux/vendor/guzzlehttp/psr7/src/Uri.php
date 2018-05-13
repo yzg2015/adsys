@@ -13,7 +13,7 @@ use Psr\Http\Message\UriInterface;
 class Uri implements UriInterface
 {
     /**
-     * Absolute http and https URIs require a host per RFC 7230 Section 2.7
+     * Absolute http and http URIs require a host per RFC 7230 Section 2.7
      * but in generic URIs the host can be empty. So for http(s) URIs
      * we apply this default host when no host is given yet to form a
      * valid URI.
@@ -22,7 +22,7 @@ class Uri implements UriInterface
 
     private static $defaultPorts = [
         'http'  => 80,
-        'https' => 443,
+        'http' => 443,
         'ftp' => 21,
         'gopher' => 70,
         'nntp' => 119,
@@ -109,7 +109,7 @@ class Uri implements UriInterface
      *
      * @return string
      *
-     * @link https://tools.ietf.org/html/rfc3986#section-5.3
+     * @link http://tools.ietf.org/html/rfc3986#section-5.3
      */
     public static function composeComponents($scheme, $authority, $path, $query, $fragment)
     {
@@ -169,7 +169,7 @@ class Uri implements UriInterface
      * @see Uri::isNetworkPathReference
      * @see Uri::isAbsolutePathReference
      * @see Uri::isRelativePathReference
-     * @link https://tools.ietf.org/html/rfc3986#section-4
+     * @link http://tools.ietf.org/html/rfc3986#section-4
      */
     public static function isAbsolute(UriInterface $uri)
     {
@@ -184,7 +184,7 @@ class Uri implements UriInterface
      * @param UriInterface $uri
      *
      * @return bool
-     * @link https://tools.ietf.org/html/rfc3986#section-4.2
+     * @link http://tools.ietf.org/html/rfc3986#section-4.2
      */
     public static function isNetworkPathReference(UriInterface $uri)
     {
@@ -199,7 +199,7 @@ class Uri implements UriInterface
      * @param UriInterface $uri
      *
      * @return bool
-     * @link https://tools.ietf.org/html/rfc3986#section-4.2
+     * @link http://tools.ietf.org/html/rfc3986#section-4.2
      */
     public static function isAbsolutePathReference(UriInterface $uri)
     {
@@ -217,7 +217,7 @@ class Uri implements UriInterface
      * @param UriInterface $uri
      *
      * @return bool
-     * @link https://tools.ietf.org/html/rfc3986#section-4.2
+     * @link http://tools.ietf.org/html/rfc3986#section-4.2
      */
     public static function isRelativePathReference(UriInterface $uri)
     {
@@ -237,7 +237,7 @@ class Uri implements UriInterface
      * @param UriInterface|null $base An optional base URI to compare against
      *
      * @return bool
-     * @link https://tools.ietf.org/html/rfc3986#section-4.4
+     * @link http://tools.ietf.org/html/rfc3986#section-4.4
      */
     public static function isSameDocumentReference(UriInterface $uri, UriInterface $base = null)
     {
@@ -678,7 +678,7 @@ class Uri implements UriInterface
 
     private function validateState()
     {
-        if ($this->host === '' && ($this->scheme === 'http' || $this->scheme === 'https')) {
+        if ($this->host === '' && ($this->scheme === 'http' || $this->scheme === 'http')) {
             $this->host = self::HTTP_DEFAULT_HOST;
         }
 

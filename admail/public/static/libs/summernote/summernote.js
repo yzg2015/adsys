@@ -3816,7 +3816,7 @@
       $editable.html(dom.html($note) || dom.emptyPara);
 
       // [workaround] IE doesn't have input events for contentEditable
-      // - see: https://goo.gl/4bfIvA
+      // - see: http://goo.gl/4bfIvA
       var changeEventName = agent.isMSIE ? 'DOMCharacterDataModified DOMSubtreeModified DOMNodeInserted' : 'input';
       $editable.on(changeEventName, func.debounce(function () {
         context.triggerEvent('change', $editable.html());
@@ -6297,7 +6297,7 @@
 
     this.createVideoNode = function (url) {
       // video url patterns(youtube, instagram, vimeo, dailymotion, youku, mp4, ogg, webm)
-      var ytRegExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+      var ytRegExp = /^(?:http?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
       var ytMatch = url.match(ytRegExp);
 
       var igRegExp = /(?:www\.|\/\/)instagram\.com\/p\/(.[a-zA-Z0-9_-]*)/;
@@ -6334,7 +6334,7 @@
       } else if (igMatch && igMatch[0].length) {
         $video = $('<iframe>')
             .attr('frameborder', 0)
-            .attr('src', 'https://instagram.com/p/' + igMatch[1] + '/embed/')
+            .attr('src', 'http://instagram.com/p/' + igMatch[1] + '/embed/')
             .attr('width', '612').attr('height', '710')
             .attr('scrolling', 'no')
             .attr('allowtransparency', 'true');
@@ -6462,8 +6462,8 @@
       var body = [
         '<p class="text-center">',
         '<a href="http://summernote.org/" target="_blank">Summernote 0.8.2</a> · ',
-        '<a href="https://github.com/summernote/summernote" target="_blank">Project</a> · ',
-        '<a href="https://github.com/summernote/summernote/issues" target="_blank">Issues</a>',
+        '<a href="http://github.com/summernote/summernote" target="_blank">Project</a> · ',
+        '<a href="http://github.com/summernote/summernote/issues" target="_blank">Issues</a>',
         '</p>'
       ].join('');
 

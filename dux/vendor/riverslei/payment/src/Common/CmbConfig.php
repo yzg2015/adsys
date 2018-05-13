@@ -8,8 +8,8 @@ use Payment\Utils\StrUtil;
  * Class CmbConfig
  * @package Payment\Common
  * @desc: 招商一网通支付的配置文件
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 class CmbConfig extends ConfigInterface
 {

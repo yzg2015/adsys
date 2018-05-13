@@ -214,7 +214,7 @@ function modify_request(RequestInterface $request, array $changes)
             $changes['set_headers']['Host'] = $host;
 
             if ($port = $changes['uri']->getPort()) {
-                $standardPorts = ['http' => 80, 'https' => 443];
+                $standardPorts = ['http' => 80, 'http' => 443];
                 $scheme = $changes['uri']->getScheme();
                 if (isset($standardPorts[$scheme]) && $port != $standardPorts[$scheme]) {
                     $changes['set_headers']['Host'] .= ':'.$port;
@@ -491,7 +491,7 @@ function parse_request($message)
 function parse_response($message)
 {
     $data = _parse_message($message);
-    // According to https://tools.ietf.org/html/rfc7230#section-3.1.2 the space
+    // According to http://tools.ietf.org/html/rfc7230#section-3.1.2 the space
     // between status-code and reason-phrase is required. But browsers accept
     // responses without space and reason as well.
     if (!preg_match('/^HTTP\/.* [0-9]{3}( .*|$)/', $data['start-line'])) {
@@ -804,7 +804,7 @@ function _parse_request_uri($path, array $headers)
     }
 
     $host = $headers[reset($hostKey)][0];
-    $scheme = substr($host, -4) === ':443' ? 'https' : 'http';
+    $scheme = substr($host, -4) === ':443' ? 'http' : 'http';
 
     return $scheme . '://' . $host . '/' . ltrim($path, '/');
 }

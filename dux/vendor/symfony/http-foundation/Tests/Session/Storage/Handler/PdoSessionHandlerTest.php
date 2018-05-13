@@ -137,7 +137,7 @@ class PdoSessionHandlerTest extends TestCase
     public function testReadConvertsStreamToString()
     {
         if (defined('HHVM_VERSION')) {
-            $this->markTestSkipped('PHPUnit_MockObject cannot mock the PDOStatement class on HHVM. See https://github.com/sebastianbergmann/phpunit-mock-objects/pull/289');
+            $this->markTestSkipped('PHPUnit_MockObject cannot mock the PDOStatement class on HHVM. See http://github.com/sebastianbergmann/phpunit-mock-objects/pull/289');
         }
 
         $pdo = new MockPdo('pgsql');
@@ -158,7 +158,7 @@ class PdoSessionHandlerTest extends TestCase
     public function testReadLockedConvertsStreamToString()
     {
         if (defined('HHVM_VERSION')) {
-            $this->markTestSkipped('PHPUnit_MockObject cannot mock the PDOStatement class on HHVM. See https://github.com/sebastianbergmann/phpunit-mock-objects/pull/289');
+            $this->markTestSkipped('PHPUnit_MockObject cannot mock the PDOStatement class on HHVM. See http://github.com/sebastianbergmann/phpunit-mock-objects/pull/289');
         }
         if (ini_get('session.use_strict_mode')) {
             $this->markTestSkipped('Strict mode needs no locking for new sessions.');

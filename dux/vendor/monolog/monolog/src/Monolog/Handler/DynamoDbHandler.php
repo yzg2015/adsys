@@ -20,7 +20,7 @@ use Monolog\Logger;
 /**
  * Amazon DynamoDB handler (http://aws.amazon.com/dynamodb/)
  *
- * @link https://github.com/aws/aws-sdk-php/
+ * @link http://github.com/aws/aws-sdk-php/
  * @author Andrew Lawson <adlawson@gmail.com>
  */
 class DynamoDbHandler extends AbstractProcessingHandler

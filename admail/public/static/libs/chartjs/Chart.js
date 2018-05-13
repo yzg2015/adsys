@@ -5,7 +5,7 @@
  *
  * Copyright 2015 Nick Downie
  * Released under the MIT license
- * https://github.com/nnnick/Chart.js/blob/master/LICENSE.md
+ * http://github.com/nnnick/Chart.js/blob/master/LICENSE.md
  */
 
 
@@ -1871,9 +1871,9 @@
 		setScaleSize: function(){
 			/*
 			 * Right, this is really confusing and there is a lot of maths going on here
-			 * The gist of the problem is here: https://gist.github.com/nnnick/696cc9c55f4b0beb8fe9
+			 * The gist of the problem is here: http://gist.github.com/nnnick/696cc9c55f4b0beb8fe9
 			 *
-			 * Reaction: https://dl.dropboxusercontent.com/u/34601363/toomuchscience.gif
+			 * Reaction: http://dl.dropboxusercontent.com/u/34601363/toomuchscience.gif
 			 *
 			 * Solution:
 			 *
@@ -1894,7 +1894,7 @@
 			 * This will mean we have a shape fitted to the canvas, as large as it can be with the labels
 			 * and position it in the most space efficient manner
 			 *
-			 * https://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
+			 * http://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
 			 */
 
 

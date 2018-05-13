@@ -18,7 +18,7 @@ use Monolog\Handler\Slack\SlackRecord;
 
 /**
  * @author Greg Kedzierski <greg@gregkedzierski.com>
- * @see    https://api.slack.com/
+ * @see    http://api.slack.com/
  */
 class SlackHandlerTest extends TestCase
 {

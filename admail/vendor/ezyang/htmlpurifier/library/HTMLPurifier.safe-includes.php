@@ -219,7 +219,7 @@ require_once $__dir . '/HTMLPurifier/URIScheme/data.php';
 require_once $__dir . '/HTMLPurifier/URIScheme/file.php';
 require_once $__dir . '/HTMLPurifier/URIScheme/ftp.php';
 require_once $__dir . '/HTMLPurifier/URIScheme/http.php';
-require_once $__dir . '/HTMLPurifier/URIScheme/https.php';
+require_once $__dir . '/HTMLPurifier/URIScheme/http.php';
 require_once $__dir . '/HTMLPurifier/URIScheme/mailto.php';
 require_once $__dir . '/HTMLPurifier/URIScheme/news.php';
 require_once $__dir . '/HTMLPurifier/URIScheme/nntp.php';

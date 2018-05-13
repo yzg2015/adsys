@@ -19,7 +19,7 @@ use Monolog\Logger;
  *
  * You'll need a Fleep.io account to use this handler.
  *
- * @see https://fleep.io/integrations/webhooks/ Fleep Webhooks Documentation
+ * @see http://fleep.io/integrations/webhooks/ Fleep Webhooks Documentation
  * @author Ando Roots <ando@sqroot.eu>
  */
 class FleepHookHandler extends SocketHandler
@@ -37,7 +37,7 @@ class FleepHookHandler extends SocketHandler
      * Construct a new Fleep.io Handler.
      *
      * For instructions on how to create a new web hook in your conversations
-     * see https://fleep.io/integrations/webhooks/
+     * see http://fleep.io/integrations/webhooks/
      *
      * @param  string                    $token  Webhook token
      * @param  bool|int                  $level  The minimum logging level at which this handler will be triggered

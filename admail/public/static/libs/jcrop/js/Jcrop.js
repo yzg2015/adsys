@@ -2816,12 +2816,12 @@ var Modernizr = (function( window, document, undefined ) {
 
 })(window, window.document);
 // data uri test.
-// https://github.com/Modernizr/Modernizr/issues/14
+// http://github.com/Modernizr/Modernizr/issues/14
 
 // This test is asynchronous. Watch out.
 
 
-// in IE7 in HTTPS this can cause a Mixed Content security popup. 
+// in IE7 in http this can cause a Mixed Content security popup. 
 //  github.com/Modernizr/Modernizr/issues/362
 // To avoid that you can create a new iframe and inject this.. perhaps..
 

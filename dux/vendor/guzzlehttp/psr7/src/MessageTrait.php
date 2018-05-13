@@ -172,7 +172,7 @@ trait MessageTrait
      *
      * @return string[] Trimmed header values
      *
-     * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
+     * @see http://tools.ietf.org/html/rfc7230#section-3.2.4
      */
     private function trimHeaderValues(array $values)
     {

@@ -4,7 +4,7 @@ easy to use mipush parallelly
 Version 0.1.1
 
 ## about
-基于 https://github.com/TIGERB/easy-mipush 版本进行修改，修复部分bug问题，方便项目使用
+基于 http://github.com/TIGERB/easy-mipush 版本进行修改，修复部分bug问题，方便项目使用
 
 ### intro
 - 调用一次同时推送给ios&android两种设备，不用分别推送

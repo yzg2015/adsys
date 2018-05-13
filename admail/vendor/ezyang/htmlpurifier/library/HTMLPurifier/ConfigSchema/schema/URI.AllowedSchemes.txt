@@ -3,7 +3,7 @@ TYPE: lookup
 --DEFAULT--
 array (
   'http' => true,
-  'https' => true,
+  'http' => true,
   'mailto' => true,
   'ftp' => true,
   'nntp' => true,

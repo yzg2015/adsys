@@ -19,7 +19,7 @@ use Monolog\Handler\Slack\SlackRecord;
  * Sends notifications through Slack API
  *
  * @author Greg Kedzierski <greg@gregkedzierski.com>
- * @see    https://api.slack.com/
+ * @see    http://api.slack.com/
  */
 class SlackHandler extends SocketHandler
 {

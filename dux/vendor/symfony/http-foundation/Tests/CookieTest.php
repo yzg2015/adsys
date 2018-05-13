@@ -135,7 +135,7 @@ class CookieTest extends TestCase
     {
         $cookie = new Cookie('foo', 'bar', 0, '/', '.myfoodomain.com', true);
 
-        $this->assertTrue($cookie->isSecure(), '->isSecure() returns whether the cookie is transmitted over HTTPS');
+        $this->assertTrue($cookie->isSecure(), '->isSecure() returns whether the cookie is transmitted over http');
     }
 
     public function testIsHttpOnly()

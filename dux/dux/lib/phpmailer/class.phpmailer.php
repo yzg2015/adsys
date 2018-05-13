@@ -3,7 +3,7 @@
  * PHPMailer - PHP email creation and transport class.
  * PHP Version 5
  * @package PHPMailer
- * @link https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
+ * @link http://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
  * @author Andy Prevost (codeworxtech) <codeworxtech@users.sourceforge.net>
@@ -90,7 +90,7 @@ class PHPMailer
      * @type string
      * @deprecated Email senders should never set a return-path header;
      * it's the receiver's job (RFC5321 section 4.4), so this no longer does anything.
-     * @link https://tools.ietf.org/html/rfc5321#section-4.4 RFC5321 reference
+     * @link http://tools.ietf.org/html/rfc5321#section-4.4 RFC5321 reference
      */
     public $ReturnPath = '';
 
@@ -1734,7 +1734,7 @@ class PHPMailer
         if ($this->XMailer == '') {
             $result .= $this->headerLine(
                 'X-Mailer',
-                'PHPMailer ' . $this->Version . ' (https://github.com/PHPMailer/PHPMailer/)'
+                'PHPMailer ' . $this->Version . ' (http://github.com/PHPMailer/PHPMailer/)'
             );
         } else {
             $myXmailer = trim($this->XMailer);

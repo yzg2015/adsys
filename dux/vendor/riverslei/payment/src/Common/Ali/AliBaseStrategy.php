@@ -17,8 +17,8 @@ use Payment\Utils\StrUtil;
  * @author: helei
  * @createTime: 2016-07-15 17:10
  * @description: 支付宝支付接口的基类。
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  */
 abstract class AliBaseStrategy implements BaseStrategy
 {

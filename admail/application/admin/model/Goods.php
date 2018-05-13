@@ -58,4 +58,14 @@ class Goods extends Model
             ->column('id,name,price,num,pic,cid');
         return  $data_list;
     }
+
+    public static function getSeaList($key)
+    {
+        if(empty($key)){
+            return array();
+        }
+        $data_list = self::where('name','like',"%$key%")
+            ->column('id,name,price,z_price,num,pic,cid');
+        return  $data_list;
+    }
 }

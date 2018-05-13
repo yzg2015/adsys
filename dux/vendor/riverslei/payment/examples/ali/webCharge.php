@@ -30,7 +30,7 @@ $payData = [
     'goods_type' => '1',// 0—虚拟类商品，1—实物类商品
     'store_id' => '',
 
-    // 说明地址：https://doc.open.alipay.com/doc2/detail.htm?treeId=270&articleId=105901&docType=1
+    // 说明地址：http://doc.open.alipay.com/doc2/detail.htm?treeId=270&articleId=105901&docType=1
     // 建议什么也不填
     'qr_mod' => '',
 ];

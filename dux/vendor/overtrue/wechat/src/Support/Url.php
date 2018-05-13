@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -39,9 +39,9 @@ class Url
 
         $protocol = 'http://';
 
-        if (!empty($_SERVER['HTTPS'])
-            || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-            $protocol = 'https://';
+        if (!empty($_SERVER['http'])
+            || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && 'http' === $_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+            $protocol = 'http://';
         }
 
         return $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];

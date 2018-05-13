@@ -169,7 +169,7 @@ real release we decided to skip this version number.
 
 4.4.0, released 2012-01-18
 # Removed PEARSax3 handler.
-# URI.Munge now munges URIs inside the same host that go from https
+# URI.Munge now munges URIs inside the same host that go from http
   to http.  Reported by Neike Taika-Tessaro.
 # Core.EscapeNonASCIICharacters now always transforms entities to
   entities, even if target encoding is UTF-8.

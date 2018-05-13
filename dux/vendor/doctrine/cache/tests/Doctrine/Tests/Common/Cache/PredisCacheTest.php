@@ -53,7 +53,7 @@ class PredisCacheTest extends CacheTest
         if (array() === $value) {
             $this->markTestIncomplete(
                 'Predis currently doesn\'t support saving empty array values. '
-                . 'See https://github.com/nrk/predis/issues/241'
+                . 'See http://github.com/nrk/predis/issues/241'
             );
         }
 
@@ -70,7 +70,7 @@ class PredisCacheTest extends CacheTest
         if (array() === $value) {
             $this->markTestIncomplete(
                 'Predis currently doesn\'t support saving empty array values. '
-                . 'See https://github.com/nrk/predis/issues/241'
+                . 'See http://github.com/nrk/predis/issues/241'
             );
         }
 

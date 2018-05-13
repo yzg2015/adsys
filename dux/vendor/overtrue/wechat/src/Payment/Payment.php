@@ -15,7 +15,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -159,7 +159,7 @@ class Payment
 
     /**
      * Handle native scan notify.
-     * https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_4
+     * http://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_4
      * The callback shall return string of prepay_id or throw an exception.
      *
      * @param callable $callback

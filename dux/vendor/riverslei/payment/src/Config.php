@@ -5,8 +5,8 @@ namespace Payment;
  * @author: helei
  * @createTime: 2016-07-14 17:47
  * @description: 支付相关的基础配置  无法被继承
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * @version 4.1.0
  */

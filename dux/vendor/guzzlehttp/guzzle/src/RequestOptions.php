@@ -24,7 +24,7 @@ final class RequestOptions
      *   browsers do which is redirect POST requests with GET requests
      * - referer: (bool, default=true) Set to false to disable the Referer
      *   header.
-     * - protocols: (array, default=['http', 'https']) Allowed redirect
+     * - protocols: (array, default=['http', 'http']) Allowed redirect
      *   protocols.
      * - on_redirect: (callable) PHP callable that is invoked when a redirect
      *   is encountered. The callable is invoked with the request, the redirect

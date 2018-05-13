@@ -144,7 +144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	UI.support.transition = (function() {
 	  var transitionEnd = (function() {
-	    // https://developer.mozilla.org/en-US/docs/Web/Events/transitionend#Browser_compatibility
+	    // http://developer.mozilla.org/en-US/docs/Web/Events/transitionend#Browser_compatibility
 	    var element = doc.body || doc.documentElement;
 	    var transEndEventNames = {
 	      WebkitTransition: 'webkitTransitionEnd',
@@ -195,11 +195,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	false);
 	/* eslint-enable dot-notation */
 
-	// https://developer.mozilla.org/zh-CN/docs/DOM/MutationObserver
+	// http://developer.mozilla.org/zh-CN/docs/DOM/MutationObserver
 	UI.support.mutationobserver = (window.MutationObserver ||
 	window.WebKitMutationObserver || null);
 
-	// https://github.com/Modernizr/Modernizr/blob/924c7611c170ef2dc502582e5079507aff61e388/feature-detects/forms/validation.js#L20
+	// http://github.com/Modernizr/Modernizr/blob/924c7611c170ef2dc502582e5079507aff61e388/feature-detects/forms/validation.js#L20
 	UI.support.formValidation = (typeof document.createElement('form').
 	  checkValidity === 'function');
 
@@ -291,7 +291,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return uid;
 	};
 
-	// @see https://davidwalsh.name/get-absolute-url
+	// @see http://davidwalsh.name/get-absolute-url
 	UI.utils.getAbsoluteUrl = (function() {
 	  var a;
 
@@ -469,7 +469,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// handle multiple browsers for requestAnimationFrame()
 	// http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-	// https://github.com/gnarf/jquery-requestAnimationFrame
+	// http://github.com/gnarf/jquery-requestAnimationFrame
 	UI.utils.rAF = (function() {
 	  return window.requestAnimationFrame ||
 	    window.webkitRequestAnimationFrame ||
@@ -542,7 +542,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	/**
-	 * @see https://github.com/cho45/micro-template.js
+	 * @see http://github.com/cho45/micro-template.js
 	 * (c) cho45 http://cho45.github.com/mit-license
 	 */
 	UI.template = function(id, data) {
@@ -1585,7 +1585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  2: INPUT_TYPE_TOUCH,
 	  3: INPUT_TYPE_PEN,
 	  4: INPUT_TYPE_MOUSE,
-	  5: INPUT_TYPE_KINECT // see https://twitter.com/jacobrossi/status/480596438489890816
+	  5: INPUT_TYPE_KINECT // see http://twitter.com/jacobrossi/status/480596438489890816
 	};
 
 	var POINTER_ELEMENT_EVENTS = 'pointerdown';
@@ -3371,7 +3371,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// It also extends the Manager.emit method by triggering jQuery events.
 	// $(element).hammer(options).bind("pan", myPanHandler);
 	// The Hammer instance is stored at $element.data("hammer").
-	// https://github.com/hammerjs/jquery.hammer.js
+	// http://github.com/hammerjs/jquery.hammer.js
 
 	(function($, Hammer) {
 	  function hammerify(el, options) {
@@ -4062,7 +4062,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var UI = __webpack_require__(2);
 
 	/**
-	 * @via https://github.com/Minwe/bootstrap/blob/master/js/alert.js
+	 * @via http://github.com/Minwe/bootstrap/blob/master/js/alert.js
 	 * @copyright Copyright 2013 Twitter, Inc.
 	 * @license Apache 2.0
 	 */
@@ -4123,7 +4123,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var UI = __webpack_require__(2);
 
 	/**
-	 * @via https://github.com/twbs/bootstrap/blob/master/js/button.js
+	 * @via http://github.com/twbs/bootstrap/blob/master/js/button.js
 	 * @copyright (c) 2011-2014 Twitter, Inc
 	 * @license The MIT License
 	 */
@@ -4259,7 +4259,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var UI = __webpack_require__(2);
 
 	/**
-	 * @via https://github.com/twbs/bootstrap/blob/master/js/collapse.js
+	 * @via http://github.com/twbs/bootstrap/blob/master/js/collapse.js
 	 * @copyright (c) 2011-2014 Twitter, Inc
 	 * @license The MIT License
 	 */
@@ -4595,7 +4595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    $input = this.$element.attr('value', formatted);
 	  }
 
-	  // fixes https://github.com/amazeui/amazeui/issues/711
+	  // fixes http://github.com/amazeui/amazeui/issues/711
 	  $input && $input.trigger('change');
 	};
 
@@ -4781,7 +4781,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    .end()
 	    .find('td');
 	  var yearClassName;
-	  // fixes https://github.com/amazeui/amazeui/issues/770
+	  // fixes http://github.com/amazeui/amazeui/issues/770
 	  // maybe not need now
 	  var viewDate = new Date(this.viewDate);
 
@@ -5250,7 +5250,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var animation = UI.support.animation;
 
 	/**
-	 * @via https://github.com/Minwe/bootstrap/blob/master/js/dropdown.js
+	 * @via http://github.com/Minwe/bootstrap/blob/master/js/dropdown.js
 	 * @copyright (c) 2011-2014 Twitter, Inc
 	 * @license The MIT License
 	 */
@@ -6659,7 +6659,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // Secondary Navigation
 	  keyboard: true,                 // Boolean: Allow slider navigating via keyboard left/right keys
 	  multipleKeyboard: false,        // {NEW} Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
-	  mousewheel: false,              // {UPDATED} Boolean: Requires jquery.mousewheel.js (https://github.com/brandonaaron/jquery-mousewheel) - Allows slider navigating via mousewheel
+	  mousewheel: false,              // {UPDATED} Boolean: Requires jquery.mousewheel.js (http://github.com/brandonaaron/jquery-mousewheel) - Allows slider navigating via mousewheel
 	  pausePlay: false,               // Boolean: Create pause/play dynamic element
 	  pauseText: 'Pause',             // String: Set the text for the 'pause' pausePlay item
 	  playText: 'Play',               // String: Set the text for the 'play' pausePlay item
@@ -7291,7 +7291,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      ev;
 
 	    if (!(/(SELECT|INPUT|TEXTAREA)/i).test(target.tagName)) {
-	      // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/initMouseEvent
+	      // http://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/initMouseEvent
 	      // initMouseEvent is deprecated.
 	      ev = document.createEvent(window.MouseEvent ? 'MouseEvents' : 'Event');
 	      ev.initEvent('click', true, true);
@@ -7373,7 +7373,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.options.tap = 'tap';
 	  }
 
-	  // https://github.com/cubiq/iscroll/issues/1029
+	  // http://github.com/cubiq/iscroll/issues/1029
 	  if (!this.options.useTransition && !this.options.useTransform) {
 	    if (!(/relative|absolute/i).test(this.scrollerStyle.position)) {
 	      this.scrollerStyle.position = "relative";
@@ -8066,8 +8066,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var supportTransition = UI.support.transition;
 
 	/**
-	 * @reference https://github.com/nolimits4web/Framework7/blob/master/src/js/modals.js
-	 * @license https://github.com/nolimits4web/Framework7/blob/master/LICENSE
+	 * @reference http://github.com/nolimits4web/Framework7/blob/master/src/js/modals.js
+	 * @license http://github.com/nolimits4web/Framework7/blob/master/LICENSE
 	 */
 
 	var Modal = function(element, options) {
@@ -8296,7 +8296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  )
 	    // trigger dimmer click event if non-dialog area clicked
-	    // fixes #882 caused by https://github.com/amazeui/amazeui/commit/b6be7719681193f1c4cb04af89cb9fd9f4422163
+	    // fixes #882 caused by http://github.com/amazeui/amazeui/commit/b6be7719681193f1c4cb04af89cb9fd9f4422163
 	    .on('click', function(e) {
 	      // fixes #900
 	      // e.stopPropagation();
@@ -8374,8 +8374,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var scrollPos;
 
 	/**
-	 * @via https://github.com/uikit/uikit/blob/master/src/js/offcanvas.js
-	 * @license https://github.com/uikit/uikit/blob/master/LICENSE.md
+	 * @via http://github.com/uikit/uikit/blob/master/src/js/offcanvas.js
+	 * @license http://github.com/uikit/uikit/blob/master/LICENSE.md
 	 */
 
 	var OffCanvas = function(element, options) {
@@ -8443,7 +8443,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return;
 	    }
 
-	    // https://developer.mozilla.org/zh-CN/docs/DOM/event.stopImmediatePropagation
+	    // http://developer.mozilla.org/zh-CN/docs/DOM/event.stopImmediatePropagation
 	    e.stopImmediatePropagation();
 
 	    _this.close();
@@ -8570,7 +8570,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var requestAnimationFrame = UI.utils.rAF;
 
 	/**
-	 * @via https://github.com/manuelstofer/pinchzoom/blob/master/src/pinchzoom.js
+	 * @via http://github.com/manuelstofer/pinchzoom/blob/master/src/pinchzoom.js
 	 * @license the MIT License.
 	 */
 
@@ -9318,8 +9318,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var $w = $(window);
 
 	/**
-	 * @reference https://github.com/nolimits4web/Framework7/blob/master/src/js/modals.js
-	 * @license https://github.com/nolimits4web/Framework7/blob/master/LICENSE
+	 * @reference http://github.com/nolimits4web/Framework7/blob/master/src/js/modals.js
+	 * @license http://github.com/nolimits4web/Framework7/blob/master/LICENSE
 	 */
 
 	var Popover = function(element, options) {
@@ -10459,8 +10459,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var UI = __webpack_require__(2);
 
 	/**
-	 * @via https://github.com/uikit/uikit/blob/master/src/js/scrollspy.js
-	 * @license https://github.com/uikit/uikit/blob/master/LICENSE.md
+	 * @via http://github.com/uikit/uikit/blob/master/src/js/scrollspy.js
+	 * @license http://github.com/uikit/uikit/blob/master/LICENSE.md
 	 */
 
 	var ScrollSpy = function(element, options) {
@@ -10561,8 +10561,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	__webpack_require__(23);
 
 	/**
-	 * @via https://github.com/uikit/uikit/
-	 * @license https://github.com/uikit/uikit/blob/master/LICENSE.md
+	 * @via http://github.com/uikit/uikit/
+	 * @license http://github.com/uikit/uikit/blob/master/LICENSE.md
 	 */
 
 	// ScrollSpyNav Class
@@ -10733,7 +10733,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  // quint ease-in-out smoothing, from
-	  // https://github.com/madrobby/scripty2/blob/master/src/effects/transitions/penner.js#L127-L136
+	  // http://github.com/madrobby/scripty2/blob/master/src/effects/transitions/penner.js#L127-L136
 	  function smooth(pos) {
 	    if ((pos /= 0.5) < 1) {
 	      return 0.5 * Math.pow(pos, 5);
@@ -10835,8 +10835,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Selected
 	 * @desc HTML select replacer
-	 * @via https://github.com/silviomoreto/bootstrap-select
-	 * @license https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE
+	 * @via http://github.com/silviomoreto/bootstrap-select
+	 * @license http://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE
 	 * @param element
 	 * @param options
 	 * @constructor
@@ -11224,12 +11224,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	UI.plugin('selected', Selected);
 
 	// Conflict with jQuery form
-	// https://github.com/malsup/form/blob/6bf24a5f6d8be65f4e5491863180c09356d9dadd/jquery.form.js#L1240-L1258
-	// https://github.com/allmobilize/amazeui/issues/379
+	// http://github.com/malsup/form/blob/6bf24a5f6d8be65f4e5491863180c09356d9dadd/jquery.form.js#L1240-L1258
+	// http://github.com/allmobilize/amazeui/issues/379
 	// @deprecated: $.fn.selected = $.fn.selectIt = Plugin;
 
 	// New way to resolve conflict:
-	// @see https://github.com/amazeui/amazeui/issues/781#issuecomment-158873541
+	// @see http://github.com/amazeui/amazeui/issues/781#issuecomment-158873541
 
 	UI.ready(function(context) {
 	  $('[data-am-selected]', context).selected();
@@ -11345,7 +11345,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    icon: 'wechat'
 	  },
 	  // 生成一个二维码 供用户扫描
-	  // 相关接口 https://github.com/zxlie/WeixinApi
+	  // 相关接口 http://github.com/zxlie/WeixinApi
 
 	  renren: {
 	    title: '人人网',
@@ -11605,7 +11605,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * @ver 1.1.0
-	 * @via https://github.com/aralejs/qrcode/blob/master/src/qrcode.js
+	 * @via http://github.com/aralejs/qrcode/blob/master/src/qrcode.js
 	 * @license http://aralejs.org/
 	 */
 
@@ -14125,8 +14125,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var UI = __webpack_require__(2);
 
 	/**
-	 * @via https://github.com/uikit/uikit/blob/master/src/js/addons/sticky.js
-	 * @license https://github.com/uikit/uikit/blob/master/LICENSE.md
+	 * @via http://github.com/uikit/uikit/blob/master/src/js/addons/sticky.js
+	 * @license http://github.com/uikit/uikit/blob/master/LICENSE.md
 	 */
 
 	// Sticky Class
@@ -14343,9 +14343,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var animation = UI.support.animation;
 
 	/**
-	 * @via https://github.com/twbs/bootstrap/blob/master/js/tab.js
+	 * @via http://github.com/twbs/bootstrap/blob/master/js/tab.js
 	 * @copyright 2011-2014 Twitter, Inc.
-	 * @license MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+	 * @license MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
 	 */
 
 	/**
@@ -14593,7 +14593,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * UCheck
-	 * @via https://github.com/designmodo/Flat-UI/blob/8ef98df23ba7f5033e596a9bd05b53b535a9fe99/js/radiocheck.js
+	 * @via http://github.com/designmodo/Flat-UI/blob/8ef98df23ba7f5033e596a9bd05b53b535a9fe99/js/radiocheck.js
 	 * @license CC BY 3.0 & MIT
 	 * @param {HTMLElement} element
 	 * @param {object} options
@@ -14641,7 +14641,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.$element
 	    .prop('checked', false)
 	    // trigger `change` event for form validation, etc.
-	    // @see https://forum.jquery.com/topic/should-chk-prop-checked-true-trigger-change-event
+	    // @see http://forum.jquery.com/topic/should-chk-prop-checked-true-trigger-change-event
 	    .trigger('change')
 	    .trigger('unchecked.ucheck.amui');
 	},
@@ -14800,7 +14800,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Validator.patterns = {
 	  email: /^((([a-zA-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-zA-Z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/,
 
-	  url: /^(https?|ftp):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
+	  url: /^(http?|ftp):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
 
 	  // Number, including positive, negative, and floating decimal
 	  number: /^-?(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/,
@@ -15006,7 +15006,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  // check minimum and maximum
-	  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input
+	  // http://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input
 	  // TODO: 日期验证最小值和最大值 min/max
 	  if (!isNaN(min) && Number(value) < min) {
 	    validity.valid = false;
@@ -15370,7 +15370,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	/**
-	 * @see https://github.com/sindresorhus/screenfull.js
+	 * @see http://github.com/sindresorhus/screenfull.js
 	 * @license MIT © Sindre Sorhus
 	 */
 
@@ -15598,8 +15598,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * store.js
-	 * @see https://github.com/marcuswestin/store.js
-	 * @license https://github.com/marcuswestin/store.js/blob/master/LICENSE
+	 * @see http://github.com/marcuswestin/store.js
+	 * @license http://github.com/marcuswestin/store.js/blob/master/LICENSE
 	 */
 
 	var store = {};
@@ -15664,7 +15664,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// Functions to encapsulate questionable FireFox 3.6.13 behavior
 	// when about.config::dom.storage.enabled === false
-	// See https://github.com/marcuswestin/store.js/issues#issue/13
+	// See http://github.com/marcuswestin/store.js/issues#issue/13
 	function isLocalStorageNameSupported() {
 	  try {
 	    return (localStorageName in win && win[localStorageName]);
@@ -15811,7 +15811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var $dsThread = $('.ds-thread');
 	  var dsShortName = $dsThread.parent('[data-am-widget="duoshuo"]').
 	    attr('data-ds-short-name');
-	  var dsSrc = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+	  var dsSrc = (document.location.protocol == 'http:' ? 'http:' : 'http:') +
 	    '//static.duoshuo.com/embed.js';
 
 	  if (!$dsThread.length || !dsShortName) {

@@ -27,7 +27,7 @@ return [
 
     'sign_notify_url'   => 'http://114.215.86.31/__readme/phpinfo.php',// 成功签约结果通知地址
 
-    'return_url'        => 'https://helei112g.github.io/',// 如果是h5支付，可以设置该值，返回到指定页面
+    'return_url'        => 'http://helei112g.github.io/',// 如果是h5支付，可以设置该值，返回到指定页面
 
     'return_raw'        => false,// 在处理回调时，是否直接返回原始数据，默认为true
 ];

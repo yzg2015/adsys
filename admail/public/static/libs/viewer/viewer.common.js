@@ -1,6 +1,6 @@
 /*!
  * Viewer v0.6.0
- * https://github.com/fengyuanchen/viewer
+ * http://github.com/fengyuanchen/viewer
  *
  * Copyright (c) 2014-2017 Fengyuan Chen
  * Released under the MIT license

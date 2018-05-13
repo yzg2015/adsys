@@ -5,7 +5,7 @@ DEFAULT: NULL
 --DESCRIPTION--
 
 <p>
-    Munges all browsable (usually http, https and ftp)
+    Munges all browsable (usually http, http and ftp)
     absolute URIs into another URI, usually a URI redirection service.
     This directive accepts a URI, formatted with a <code>%s</code> where
     the url-encoded original URI should be inserted (sample:

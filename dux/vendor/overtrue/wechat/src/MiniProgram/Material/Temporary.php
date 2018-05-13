@@ -14,7 +14,7 @@
  *
  * @author    mingyoung <mingyoungcheung@gmail.com>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 

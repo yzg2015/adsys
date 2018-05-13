@@ -18,12 +18,12 @@ use Monolog\Handler\Slack\SlackRecord;
 
 /**
  * @author Haralan Dobrev <hkdobrev@gmail.com>
- * @see    https://api.slack.com/incoming-webhooks
+ * @see    http://api.slack.com/incoming-webhooks
  * @coversDefaultClass Monolog\Handler\SlackWebhookHandler
  */
 class SlackWebhookHandlerTest extends TestCase
 {
-    const WEBHOOK_URL = 'https://hooks.slack.com/services/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E';
+    const WEBHOOK_URL = 'http://hooks.slack.com/services/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E';
 
     /**
      * @covers ::__construct

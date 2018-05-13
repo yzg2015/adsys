@@ -8,8 +8,8 @@ use Payment\Utils\ArrayUtil;
 /**
  * 支付查询数据构造
  * Class ChargeQueryData
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * @property string $trade_no 支付宝的订单号，优先使用
  * @property string $out_trade_no 商户系统内部的订单号

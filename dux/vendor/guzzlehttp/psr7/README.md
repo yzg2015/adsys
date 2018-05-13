@@ -5,7 +5,7 @@ message implementation, several stream decorators, and some helpful
 functionality like query string parsing.
 
 
-[![Build Status](https://travis-ci.org/guzzle/psr7.svg?branch=master)](https://travis-ci.org/guzzle/psr7)
+[![Build Status](http://travis-ci.org/guzzle/psr7.svg?branch=master)](http://travis-ci.org/guzzle/psr7)
 
 
 # Stream implementation
@@ -529,7 +529,7 @@ this library also provides additional functionality when working with URIs as st
 An instance of `Psr\Http\Message\UriInterface` can either be an absolute URI or a relative reference.
 An absolute URI has a scheme. A relative reference is used to express a URI relative to another URI,
 the base URI. Relative references can be divided into several forms according to
-[RFC 3986 Section 4.2](https://tools.ietf.org/html/rfc3986#section-4.2):
+[RFC 3986 Section 4.2](http://tools.ietf.org/html/rfc3986#section-4.2):
 
 - network-path references, e.g. `//example.com/path`
 - absolute-path references, e.g. `/path`
@@ -588,7 +588,7 @@ or the standard port. This method can be used independently of the implementatio
 `public static function composeComponents($scheme, $authority, $path, $query, $fragment): string`
 
 Composes a URI reference string from its various components according to
-[RFC 3986 Section 5.3](https://tools.ietf.org/html/rfc3986#section-5.3). Usually this method does not need to be called
+[RFC 3986 Section 5.3](http://tools.ietf.org/html/rfc3986#section-5.3). Usually this method does not need to be called
 manually but instead is used indirectly via `Psr\Http\Message\UriInterface::__toString`.
 
 ### `GuzzleHttp\Psr7\Uri::fromParts`
@@ -617,7 +617,7 @@ provided key are removed.
 ## Reference Resolution
 
 `GuzzleHttp\Psr7\UriResolver` provides methods to resolve a URI reference in the context of a base URI according
-to [RFC 3986 Section 5](https://tools.ietf.org/html/rfc3986#section-5). This is for example also what web browsers
+to [RFC 3986 Section 5](http://tools.ietf.org/html/rfc3986#section-5). This is for example also what web browsers
 do when resolving a link in a website based on the current request URI.
 
 ### `GuzzleHttp\Psr7\UriResolver::resolve`
@@ -631,7 +631,7 @@ Converts the relative URI into a new URI that is resolved against the base URI.
 `public static function removeDotSegments(string $path): string`
 
 Removes dot segments from a path and returns the new path according to
-[RFC 3986 Section 5.2.4](https://tools.ietf.org/html/rfc3986#section-5.2.4).
+[RFC 3986 Section 5.2.4](http://tools.ietf.org/html/rfc3986#section-5.2.4).
 
 ### `GuzzleHttp\Psr7\UriResolver::relativize`
 
@@ -657,7 +657,7 @@ echo UriResolver::relativize($base, new Uri('http://example.org/a/b/'));   // pr
 ## Normalization and Comparison
 
 `GuzzleHttp\Psr7\UriNormalizer` provides methods to normalize and compare URIs according to
-[RFC 3986 Section 6](https://tools.ietf.org/html/rfc3986#section-6).
+[RFC 3986 Section 6](http://tools.ietf.org/html/rfc3986#section-6).
 
 ### `GuzzleHttp\Psr7\UriNormalizer::normalize`
 
@@ -688,7 +688,7 @@ of normalizations to apply. The following normalizations are available:
 
 - `UriNormalizer::CONVERT_EMPTY_PATH`
 
-    Converts the empty path to "/" for http and https URIs.
+    Converts the empty path to "/" for http and http URIs.
 
     Example: `http://example.org` → `http://example.org/`
 

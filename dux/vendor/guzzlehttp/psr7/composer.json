@@ -8,11 +8,11 @@
         {
             "name": "Michael Dowling",
             "email": "mtdowling@gmail.com",
-            "homepage": "https://github.com/mtdowling"
+            "homepage": "http://github.com/mtdowling"
         },
         {
             "name": "Tobias Schultze",
-            "homepage": "https://github.com/Tobion"
+            "homepage": "http://github.com/Tobion"
         }
     ],
     "require": {

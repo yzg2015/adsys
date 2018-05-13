@@ -13,11 +13,11 @@ use Payment\Utils\RsaEncrypt;
  * @property string $appId   支付宝分配给开发者的应用ID
  * @property string $method  接口名称
  * @property string $format  	仅支持JSON
- * @property string $returnUrl  	HTTP/HTTPS开头字符串
+ * @property string $returnUrl  	HTTP/http开头字符串
  * @property string $charset  请求使用的编码格式，如utf-8,gbk,gb2312等 当前仅支持  utf-8
  * @property string $timestamp  发送请求的时间，格式"yyyy-MM-dd HH:mm:ss"
  * @property string $version   调用的接口版本，固定为：1.0
- * @property string $notifyUrl  支付宝服务器主动通知商户服务器里指定的页面http/https路径
+ * @property string $notifyUrl  支付宝服务器主动通知商户服务器里指定的页面http/http路径
  *
  * @property string $rsaPrivateKey  rsa私钥路径
  * @property string $rsaAliPubKey  rsa支付宝公钥路径

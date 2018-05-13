@@ -20,7 +20,7 @@
  * @author    mingyoung <mingyoungcheung@gmail.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -60,5 +60,5 @@ class Notice extends BaseNotice
     /**
      * Send notice message.
      */
-    const API_SEND_NOTICE = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send';
+    const API_SEND_NOTICE = 'http://api.weixin.qq.com/cgi-bin/message/wxopen/template/send';
 }

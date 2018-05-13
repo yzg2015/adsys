@@ -526,7 +526,7 @@ if (!function_exists('format_date')) {
     /**
      * 使用bootstrap-datepicker插件的时间格式来格式化时间戳
      * @param null $time 时间戳
-     * @param string $format bootstrap-datepicker插件的时间格式 https://bootstrap-datepicker.readthedocs.io/en/stable/options.html#format
+     * @param string $format bootstrap-datepicker插件的时间格式 http://bootstrap-datepicker.readthedocs.io/en/stable/options.html#format
      * @author 蔡伟明 <314013107@qq.com>
      * @return false|string
      */

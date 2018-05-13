@@ -20,7 +20,7 @@
  * @author    soone <66812590@qq.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue/wechat
+ * @see      http://github.com/overtrue/wechat
  * @see      http://overtrue.me
  */
 

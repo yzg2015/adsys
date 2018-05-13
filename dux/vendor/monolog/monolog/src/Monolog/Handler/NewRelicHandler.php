@@ -18,8 +18,8 @@ use Monolog\Formatter\NormalizerFormatter;
  * Class to record a log on a NewRelic application.
  * Enabling New Relic High Security mode may prevent capture of useful information.
  *
- * @see https://docs.newrelic.com/docs/agents/php-agent
- * @see https://docs.newrelic.com/docs/accounts-partnerships/accounts/security/high-security
+ * @see http://docs.newrelic.com/docs/agents/php-agent
+ * @see http://docs.newrelic.com/docs/accounts-partnerships/accounts/security/high-security
  */
 class NewRelicHandler extends AbstractProcessingHandler
 {

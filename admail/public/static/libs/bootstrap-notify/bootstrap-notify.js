@@ -3,7 +3,7 @@
 * Description: Turns standard Bootstrap alerts into "Growl-like" notifications.
 * Author: Mouse0270 aka Robert McIntosh
 * License: MIT License
-* Website: https://github.com/mouse0270/bootstrap-growl
+* Website: http://github.com/mouse0270/bootstrap-growl
 */
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {

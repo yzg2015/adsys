@@ -2,21 +2,21 @@
 
 ## 6.3.0 - 2017-06-22
 
-* Feature: force IP resolution (ipv4 or ipv6) [#1608](https://github.com/guzzle/guzzle/pull/1608), [#1659](https://github.com/guzzle/guzzle/pull/1659)
-* Improvement: Don't include summary in exception message when body is empty [#1621](https://github.com/guzzle/guzzle/pull/1621)
-* Improvement: Handle `on_headers` option in MockHandler [#1580](https://github.com/guzzle/guzzle/pull/1580)
-* Improvement: Added SUSE Linux CA path [#1609](https://github.com/guzzle/guzzle/issues/1609)
-* Improvement: Use class reference for getting the name of the class instead of using hardcoded strings [#1641](https://github.com/guzzle/guzzle/pull/1641)
-* Feature: Added `read_timeout` option [#1611](https://github.com/guzzle/guzzle/pull/1611)
-* Bug fix: PHP 7.x fixes [#1685](https://github.com/guzzle/guzzle/pull/1685), [#1686](https://github.com/guzzle/guzzle/pull/1686), [#1811](https://github.com/guzzle/guzzle/pull/1811)
-* Deprecation: BadResponseException instantiation without a response [#1642](https://github.com/guzzle/guzzle/pull/1642)
-* Feature: Added NTLM auth [#1569](https://github.com/guzzle/guzzle/pull/1569)
-* Feature: Track redirect HTTP status codes [#1711](https://github.com/guzzle/guzzle/pull/1711)
-* Improvement: Check handler type during construction [#1745](https://github.com/guzzle/guzzle/pull/1745)
-* Improvement: Always include the Content-Length if there's a body [#1721](https://github.com/guzzle/guzzle/pull/1721)
-* Feature: Added convenience method to access a cookie by name [#1318](https://github.com/guzzle/guzzle/pull/1318)
-* Bug fix: Fill `CURLOPT_CAPATH` and `CURLOPT_CAINFO` properly [#1684](https://github.com/guzzle/guzzle/pull/1684)
-* Improvement:  	Use `\GuzzleHttp\Promise\rejection_for` function instead of object init [#1827](https://github.com/guzzle/guzzle/pull/1827)
+* Feature: force IP resolution (ipv4 or ipv6) [#1608](http://github.com/guzzle/guzzle/pull/1608), [#1659](http://github.com/guzzle/guzzle/pull/1659)
+* Improvement: Don't include summary in exception message when body is empty [#1621](http://github.com/guzzle/guzzle/pull/1621)
+* Improvement: Handle `on_headers` option in MockHandler [#1580](http://github.com/guzzle/guzzle/pull/1580)
+* Improvement: Added SUSE Linux CA path [#1609](http://github.com/guzzle/guzzle/issues/1609)
+* Improvement: Use class reference for getting the name of the class instead of using hardcoded strings [#1641](http://github.com/guzzle/guzzle/pull/1641)
+* Feature: Added `read_timeout` option [#1611](http://github.com/guzzle/guzzle/pull/1611)
+* Bug fix: PHP 7.x fixes [#1685](http://github.com/guzzle/guzzle/pull/1685), [#1686](http://github.com/guzzle/guzzle/pull/1686), [#1811](http://github.com/guzzle/guzzle/pull/1811)
+* Deprecation: BadResponseException instantiation without a response [#1642](http://github.com/guzzle/guzzle/pull/1642)
+* Feature: Added NTLM auth [#1569](http://github.com/guzzle/guzzle/pull/1569)
+* Feature: Track redirect HTTP status codes [#1711](http://github.com/guzzle/guzzle/pull/1711)
+* Improvement: Check handler type during construction [#1745](http://github.com/guzzle/guzzle/pull/1745)
+* Improvement: Always include the Content-Length if there's a body [#1721](http://github.com/guzzle/guzzle/pull/1721)
+* Feature: Added convenience method to access a cookie by name [#1318](http://github.com/guzzle/guzzle/pull/1318)
+* Bug fix: Fill `CURLOPT_CAPATH` and `CURLOPT_CAINFO` properly [#1684](http://github.com/guzzle/guzzle/pull/1684)
+* Improvement:  	Use `\GuzzleHttp\Promise\rejection_for` function instead of object init [#1827](http://github.com/guzzle/guzzle/pull/1827)
 
 
 + Minor code cleanups, documentation fixes and clarifications.
@@ -35,9 +35,9 @@
 ## 6.2.1 - 2016-07-18
 
 * Address HTTP_PROXY security vulnerability, CVE-2016-5385:
-  https://httpoxy.org/
+  http://httpoxy.org/
 * Fixing timeout bug with StreamHandler:
-  https://github.com/guzzle/guzzle/pull/1488
+  http://github.com/guzzle/guzzle/pull/1488
 * Only read up to `Content-Length` in PHP StreamHandler to avoid timeouts when
   a server does not honor `Connection: close`.
 * Ignore URI fragment when sending requests.
@@ -45,70 +45,70 @@
 ## 6.2.0 - 2016-03-21
 
 * Feature: added `GuzzleHttp\json_encode` and `GuzzleHttp\json_decode`.
-  https://github.com/guzzle/guzzle/pull/1389
+  http://github.com/guzzle/guzzle/pull/1389
 * Bug fix: Fix sleep calculation when waiting for delayed requests.
-  https://github.com/guzzle/guzzle/pull/1324
+  http://github.com/guzzle/guzzle/pull/1324
 * Feature: More flexible history containers.
-  https://github.com/guzzle/guzzle/pull/1373
+  http://github.com/guzzle/guzzle/pull/1373
 * Bug fix: defer sink stream opening in StreamHandler.
-  https://github.com/guzzle/guzzle/pull/1377
+  http://github.com/guzzle/guzzle/pull/1377
 * Bug fix: do not attempt to escape cookie values.
-  https://github.com/guzzle/guzzle/pull/1406
+  http://github.com/guzzle/guzzle/pull/1406
 * Feature: report original content encoding and length on decoded responses.
-  https://github.com/guzzle/guzzle/pull/1409
+  http://github.com/guzzle/guzzle/pull/1409
 * Bug fix: rewind seekable request bodies before dispatching to cURL.
-  https://github.com/guzzle/guzzle/pull/1422
+  http://github.com/guzzle/guzzle/pull/1422
 * Bug fix: provide an empty string to `http_build_query` for HHVM workaround.
-  https://github.com/guzzle/guzzle/pull/1367
+  http://github.com/guzzle/guzzle/pull/1367
 
 ## 6.1.1 - 2015-11-22
 
 * Bug fix: Proxy::wrapSync() now correctly proxies to the appropriate handler
-  https://github.com/guzzle/guzzle/commit/911bcbc8b434adce64e223a6d1d14e9a8f63e4e4
+  http://github.com/guzzle/guzzle/commit/911bcbc8b434adce64e223a6d1d14e9a8f63e4e4
 * Feature: HandlerStack is now more generic.
-  https://github.com/guzzle/guzzle/commit/f2102941331cda544745eedd97fc8fd46e1ee33e
+  http://github.com/guzzle/guzzle/commit/f2102941331cda544745eedd97fc8fd46e1ee33e
 * Bug fix: setting verify to false in the StreamHandler now disables peer
-  verification. https://github.com/guzzle/guzzle/issues/1256
+  verification. http://github.com/guzzle/guzzle/issues/1256
 * Feature: Middleware now uses an exception factory, including more error
-  context. https://github.com/guzzle/guzzle/pull/1282
+  context. http://github.com/guzzle/guzzle/pull/1282
 * Feature: better support for disabled functions.
-  https://github.com/guzzle/guzzle/pull/1287
+  http://github.com/guzzle/guzzle/pull/1287
 * Bug fix: fixed regression where MockHandler was not using `sink`.
-  https://github.com/guzzle/guzzle/pull/1292
+  http://github.com/guzzle/guzzle/pull/1292
 
 ## 6.1.0 - 2015-09-08
 
 * Feature: Added the `on_stats` request option to provide access to transfer
-  statistics for requests. https://github.com/guzzle/guzzle/pull/1202
+  statistics for requests. http://github.com/guzzle/guzzle/pull/1202
 * Feature: Added the ability to persist session cookies in CookieJars.
-  https://github.com/guzzle/guzzle/pull/1195
+  http://github.com/guzzle/guzzle/pull/1195
 * Feature: Some compatibility updates for Google APP Engine
-  https://github.com/guzzle/guzzle/pull/1216
+  http://github.com/guzzle/guzzle/pull/1216
 * Feature: Added support for NO_PROXY to prevent the use of a proxy based on
-  a simple set of rules. https://github.com/guzzle/guzzle/pull/1197
+  a simple set of rules. http://github.com/guzzle/guzzle/pull/1197
 * Feature: Cookies can now contain square brackets.
-  https://github.com/guzzle/guzzle/pull/1237
+  http://github.com/guzzle/guzzle/pull/1237
 * Bug fix: Now correctly parsing `=` inside of quotes in Cookies.
-  https://github.com/guzzle/guzzle/pull/1232
+  http://github.com/guzzle/guzzle/pull/1232
 * Bug fix: Cusotm cURL options now correctly override curl options of the
-  same name. https://github.com/guzzle/guzzle/pull/1221
+  same name. http://github.com/guzzle/guzzle/pull/1221
 * Bug fix: Content-Type header is now added when using an explicitly provided
-  multipart body. https://github.com/guzzle/guzzle/pull/1218
+  multipart body. http://github.com/guzzle/guzzle/pull/1218
 * Bug fix: Now ignoring Set-Cookie headers that have no name.
 * Bug fix: Reason phrase is no longer cast to an int in some cases in the
-  cURL handler. https://github.com/guzzle/guzzle/pull/1187
+  cURL handler. http://github.com/guzzle/guzzle/pull/1187
 * Bug fix: Remove the Authorization header when redirecting if the Host
-  header changes. https://github.com/guzzle/guzzle/pull/1207
+  header changes. http://github.com/guzzle/guzzle/pull/1207
 * Bug fix: Cookie path matching fixes
-  https://github.com/guzzle/guzzle/issues/1129
+  http://github.com/guzzle/guzzle/issues/1129
 * Bug fix: Fixing the cURL `body_as_string` setting
-  https://github.com/guzzle/guzzle/pull/1201
+  http://github.com/guzzle/guzzle/pull/1201
 * Bug fix: quotes are no longer stripped when parsing cookies.
-  https://github.com/guzzle/guzzle/issues/1172
+  http://github.com/guzzle/guzzle/issues/1172
 * Bug fix: `form_params` and `query` now always uses the `&` separator.
-  https://github.com/guzzle/guzzle/pull/1163
+  http://github.com/guzzle/guzzle/pull/1163
 * Bug fix: Adding a Content-Length to PHP stream wrapper requests if not set.
-  https://github.com/guzzle/guzzle/pull/1189
+  http://github.com/guzzle/guzzle/pull/1189
 
 ## 6.0.2 - 2015-07-04
 
@@ -175,7 +175,7 @@
 * Updated to use PSR-7
   * Requires immutable messages, which basically means an event based system
     owned by a request instance is no longer possible.
-  * Utilizing the [Guzzle PSR-7 package](https://github.com/guzzle/psr7).
+  * Utilizing the [Guzzle PSR-7 package](http://github.com/guzzle/psr7).
   * Removed the dependency on `guzzlehttp/streams`. These stream abstractions
     are available in the `guzzlehttp/psr7` package under the `GuzzleHttp\Psr7`
     namespace.
@@ -192,7 +192,7 @@
     `getAsync`, etc.).
   * Utilizing `GuzzleHttp\Promise` instead of React's promise library to avoid
     recursion required by chaining and forwarding react promises. See
-    https://github.com/guzzle/promises
+    http://github.com/guzzle/promises
   * Added `requestAsync` and `sendAsync` to send request asynchronously.
   * Added magic methods for `getAsync()`, `postAsync()`, etc. to send requests
     asynchronously.
@@ -235,17 +235,17 @@
 
 * Pool class no longer uses recursion when a request is intercepted.
 * The size of a Pool can now be dynamically adjusted using a callback.
-  See https://github.com/guzzle/guzzle/pull/943.
+  See http://github.com/guzzle/guzzle/pull/943.
 * Setting a request option to `null` when creating a request with a client will
   ensure that the option is not set. This allows you to overwrite default
   request options on a per-request basis.
-  See https://github.com/guzzle/guzzle/pull/937.
+  See http://github.com/guzzle/guzzle/pull/937.
 * Added the ability to limit which protocols are allowed for redirects by
   specifying a `protocols` array in the `allow_redirects` request option.
 * Nested futures due to retries are now resolved when waiting for synchronous
-  responses. See https://github.com/guzzle/guzzle/pull/947.
+  responses. See http://github.com/guzzle/guzzle/pull/947.
 * `"0"` is now an allowed URI path. See
-  https://github.com/guzzle/guzzle/pull/935.
+  http://github.com/guzzle/guzzle/pull/935.
 * `Query` no longer typehints on the `$query` argument in the constructor,
   allowing for strings and arrays.
 * Exceptions thrown in the `end` event are now correctly wrapped with Guzzle
@@ -268,13 +268,13 @@ object).
 ## 5.0.2 - 2014-10-30
 
 * Added a trailing `\r\n` to multipart/form-data payloads. See
-  https://github.com/guzzle/guzzle/pull/871
+  http://github.com/guzzle/guzzle/pull/871
 * Added a `GuzzleHttp\Pool::send()` convenience method to match the docs.
 * Status codes are now returned as integers. See
-  https://github.com/guzzle/guzzle/issues/881
+  http://github.com/guzzle/guzzle/issues/881
 * No longer overwriting an existing `application/x-www-form-urlencoded` header
   when sending POST requests, allowing for customized headers. See
-  https://github.com/guzzle/guzzle/issues/877
+  http://github.com/guzzle/guzzle/issues/877
 * Improved path URL serialization.
 
   * No longer double percent-encoding characters in the path or query string if
@@ -293,9 +293,9 @@ Bugfix release.
 * Fixed an issue where connection errors still returned response object in
   error and end events event though the response is unusable. This has been
   corrected so that a response is not returned in the `getResponse` method of
-  these events if the response did not complete. https://github.com/guzzle/guzzle/issues/867
+  these events if the response did not complete. http://github.com/guzzle/guzzle/issues/867
 * Fixed an issue where transfer statistics were not being populated in the
-  RingBridge. https://github.com/guzzle/guzzle/issues/866
+  RingBridge. http://github.com/guzzle/guzzle/issues/866
 
 ## 5.0.0 - 2014-10-12
 
@@ -392,7 +392,7 @@ interfaces.
 ## 4.2.0 - 2014-08-17
 
 * Now merging in default options using a case-insensitive comparison.
-  Closes https://github.com/guzzle/guzzle/issues/767
+  Closes http://github.com/guzzle/guzzle/issues/767
 * Added the ability to automatically decode `Content-Encoding` response bodies
   using the `decode_content` request option. This is set to `true` by default
   to decode the response body if it comes over the wire with a
@@ -401,9 +401,9 @@ interfaces.
   header and turn on automatic response decoding. This feature now allows you
   to pass an `Accept-Encoding` header in the headers of a request but still
   disable automatic response decoding.
-  Closes https://github.com/guzzle/guzzle/issues/764
+  Closes http://github.com/guzzle/guzzle/issues/764
 * Added the ability to throw an exception immediately when transferring
-  requests in parallel. Closes https://github.com/guzzle/guzzle/issues/760
+  requests in parallel. Closes http://github.com/guzzle/guzzle/issues/760
 * Updating guzzlehttp/streams dependency to ~2.1
 * No longer utilizing the now deprecated namespaced methods from the stream
   package.
@@ -412,12 +412,12 @@ interfaces.
 
 * Fixed an issue in the CurlFactory that caused setting the `stream=false`
   request option to throw an exception.
-  See: https://github.com/guzzle/guzzle/issues/769
+  See: http://github.com/guzzle/guzzle/issues/769
 * TransactionIterator now calls rewind on the inner iterator.
-  See: https://github.com/guzzle/guzzle/pull/765
+  See: http://github.com/guzzle/guzzle/pull/765
 * You can now set the `Content-Type` header to `multipart/form-data`
   when creating POST requests to force multipart bodies.
-  See https://github.com/guzzle/guzzle/issues/768
+  See http://github.com/guzzle/guzzle/issues/768
 
 ## 4.1.7 - 2014-08-07
 
@@ -515,7 +515,7 @@ interfaces.
 * For more information on the 4.0 transition, see:
   http://mtdowling.com/blog/2014/03/15/guzzle-4-rc/
 * For information on changes and upgrading, see:
-  https://github.com/guzzle/guzzle/blob/master/UPGRADING.md#3x-to-40
+  http://github.com/guzzle/guzzle/blob/master/UPGRADING.md#3x-to-40
 * Added `GuzzleHttp\batch()` as a convenience function for sending requests in
   parallel without needing to write asynchronous code.
 * Restructured how events are added to `GuzzleHttp\ClientInterface::sendAll()`.
@@ -529,7 +529,7 @@ interfaces.
   be retrieved or modified.
 * Added `getDefaultOption()` and `setDefaultOption()` to ClientInterface
 * functions.php functions were renamed using snake_case to match PHP idioms
-* Added support for `HTTP_PROXY`, `HTTPS_PROXY`, and
+* Added support for `HTTP_PROXY`, `http_PROXY`, and
   `GUZZLE_CURL_SELECT_TIMEOUT` environment variables
 * Added the ability to specify custom `sendAll()` event priorities
 * Added the ability to specify custom stream context options to the stream
@@ -548,7 +548,7 @@ interfaces.
 
 ## 4.0.0-rc.1 - 2014-03-15
 
-* See https://github.com/guzzle/guzzle/blob/master/UPGRADING.md#3x-to-40
+* See http://github.com/guzzle/guzzle/blob/master/UPGRADING.md#3x-to-40
 
 ## 3.8.1 - 2014-01-28
 
@@ -592,7 +592,7 @@ interfaces.
 
 * Bug fix: 0 is now an allowed value in a description parameter that has a default value (#430)
 * Bug fix: SchemaFormatter now returns an integer when formatting to a Unix timestamp
-  (see https://github.com/aws/aws-sdk-php/issues/147)
+  (see http://github.com/aws/aws-sdk-php/issues/147)
 * Bug fix: Cleaned up and fixed URL dot segment removal to properly resolve internal dots
 * Minimum PHP version is now properly specified as 5.3.3 (up from 5.3.2) (#420)
 * Updated the bundled cacert.pem (#419)
@@ -617,16 +617,16 @@ interfaces.
 ## 3.7.2 - 2013-08-02
 
 * Bug fix: Properly URL encoding paths when using the PHP-only version of the UriTemplate expander
-  See https://github.com/guzzle/guzzle/issues/371
+  See http://github.com/guzzle/guzzle/issues/371
 * Bug fix: Cookie domains are now matched correctly according to RFC 6265
-  See https://github.com/guzzle/guzzle/issues/377
+  See http://github.com/guzzle/guzzle/issues/377
 * Bug fix: GET parameters are now used when calculating an OAuth signature
 * Bug fix: Fixed an issue with cache revalidation where the If-None-Match header was being double quoted
 * `Guzzle\Common\AbstractHasDispatcher::dispatch()` now returns the event that was dispatched
 * `Guzzle\Http\QueryString::factory()` now guesses the most appropriate query aggregator to used based on the input.
-  See https://github.com/guzzle/guzzle/issues/379
+  See http://github.com/guzzle/guzzle/issues/379
 * Added a way to add custom domain objects to service description parsing using the `operation.parse_class` event. See
-  https://github.com/guzzle/guzzle/pull/380
+  http://github.com/guzzle/guzzle/pull/380
 * cURL multi cleanup and optimizations
 
 ## 3.7.1 - 2013-07-05
@@ -1190,7 +1190,7 @@ interfaces.
 * [BC] Guzzle\Common\FromConfigInterface no longer requires any config options.
 * [BC] Refactoring how POST files are stored on an EntityEnclosingRequest. They are now separate from POST fields.
 * You can now use an array of data when creating PUT request bodies in the request factory.
-* Removing the requirement that HTTPS requests needed a Cache-Control: public directive to be cacheable.
+* Removing the requirement that http requests needed a Cache-Control: public directive to be cacheable.
 * [Http] Adding support for Content-Type in multipart POST uploads per upload
 * [Http] Added support for uploading multiple files using the same name (foo[0], foo[1])
 * Adding more POST data operations for easier manipulation of POST data.
@@ -1207,7 +1207,7 @@ interfaces.
 
 * [BC] Removing 'path' support in service descriptions.  Use 'uri'.
 * [BC] Guzzle\Service\Inspector::parseDocBlock is now protected. Adding getApiParamsForClass() with cache.
-* [BC] Removing Guzzle\Common\NullObject.  Use https://github.com/mtdowling/NullObject if you need it.
+* [BC] Removing Guzzle\Common\NullObject.  Use http://github.com/mtdowling/NullObject if you need it.
 * [BC] Removing Guzzle\Common\XmlElement.
 * All commands, both dynamic and concrete, have ApiCommand objects.
 * Adding a fix for CurlMulti so that if all of the connections encounter some sort of curl error, then the loop exits.

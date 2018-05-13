@@ -181,7 +181,7 @@ class Uploader
             return;
         }
 
-        preg_match('/(^https*:\/\/[^:\/]+)/', $imgUrl, $matches);
+        preg_match('/(^http*:\/\/[^:\/]+)/', $imgUrl, $matches);
         $host_with_protocol = count($matches) > 1 ? $matches[1] : '';
 
         // 判断是否是合法 url
@@ -190,7 +190,7 @@ class Uploader
             return;
         }
 
-        preg_match('/^https*:\/\/(.+)/', $host_with_protocol, $matches);
+        preg_match('/^http*:\/\/(.+)/', $host_with_protocol, $matches);
         $host_without_protocol = count($matches) > 1 ? $matches[1] : '';
 
         // 此时提取出来的可能是 ip 也有可能是域名，先获取 ip

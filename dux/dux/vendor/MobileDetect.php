@@ -272,7 +272,7 @@ class MobileDetect {
         'ZyncTablet' => 'z1000|Z99 2G|z99|z930|z999|z990|z909|Z919|z900',
         // http://www.positivoinformatica.com.br/www/pessoal/tablet-ypy/
         'PositivoTablet' => 'TB07STA|TB10STA|TB07FTA|TB10FTA',
-        // https://www.nabitablet.com/
+        // http://www.nabitablet.com/
         'NabiTablet' => 'Android.*\bNabi',
         'KoboTablet' => 'Kobo Touch|\bK080\b|\bVox\b Build|\bArc\b Build',
         // French Danew Tablets http://www.danew.com/produits-tablette.php
@@ -395,7 +395,7 @@ class MobileDetect {
         'AocTablet' => 'MW0811|MW0812|MW0922|MTK8382',
         // http://www.mpmaneurope.com/en/products/internet-tablets-14/android-tablets-14/
         'MpmanTablet' => 'MP11 OCTA|MP10 OCTA|MPQC1114|MPQC1004|MPQC994|MPQC974|MPQC973|MPQC804|MPQC784|MPQC780|\bMPG7\b|MPDCG75|MPDCG71|MPDC1006|MP101DC|MPDC9000|MPDC905|MPDC706HD|MPDC706|MPDC705|MPDC110|MPDC100|MPDC99|MPDC97|MPDC88|MPDC8|MPDC77|MP709|MID701|MID711|MID170|MPDC703|MPQC1010',
-        // https://www.celkonmobiles.com/?_a=categoryphones&sid=2
+        // http://www.celkonmobiles.com/?_a=categoryphones&sid=2
         'CelkonTablet' => 'CT695|CT888|CT[\s]?910|CT7 Tab|CT9 Tab|CT3 Tab|CT2 Tab|CT1 Tab|C820|C720|\bCT-1\b',
         // http://www.wolderelectronics.com/productos/manuales-y-guias-rapidas/categoria-2-miTab
         'WolderTablet' => 'miTab \b(DIAMOND|SPACE|BROOKLYN|NEO|FLY|MANHATTAN|FUNK|EVOLUTION|SKY|GOCAR|IRON|GENIUS|POP|MINT|EPSILON|BROADWAY|JUMP|HOP|LEGEND|NEW AGE|LINE|ADVANCE|FEEL|FOLLOW|LIKE|LINK|LIVE|THINK|FREEDOM|CHICAGO|CLEVELAND|BALTIMORE-GH|IOWA|BOSTON|SEATTLE|PHOENIX|DALLAS|IN 101|MasterChef)\b',
@@ -436,7 +436,7 @@ class MobileDetect {
         // http://wifeng.cn/?r=blog&a=view&id=106
         // http://nicksnettravels.builttoroam.com/post/2011/01/10/Bogus-Windows-Phone-7-User-Agent-String.aspx
         // http://msdn.microsoft.com/library/ms537503.aspx
-        // https://msdn.microsoft.com/en-us/library/hh869301(v=vs.85).aspx
+        // http://msdn.microsoft.com/en-us/library/hh869301(v=vs.85).aspx
         'WindowsPhoneOS' => 'Windows Phone 10.0|Windows Phone 8.1|Windows Phone 8.0|Windows Phone OS|XBLWP7|ZuneWP7|Windows NT 6.[23]; ARM;',
         'iOS' => '\biPhone.*Mobile|\biPod|\biPad',
         // http://en.wikipedia.org/wiki/MeeGo
@@ -456,7 +456,7 @@ class MobileDetect {
      * @var array
      */
     protected static $browsers = array(
-        // @reference: https://developers.google.com/chrome/mobile/docs/user-agent
+        // @reference: http://developers.google.com/chrome/mobile/docs/user-agent
         'Chrome' => '\bCrMo\b|CriOS|Android.*Chrome/[.0-9]* (Mobile)?',
         'Dolfin' => '\bDolfin\b',
         'Opera' => 'Opera.*Mini|Opera.*Mobi|Android.*Opera|Mobile.*OPR/[0-9.]+|Coast/[0-9.]+',
@@ -474,7 +474,7 @@ class MobileDetect {
         'UCBrowser' => 'UC.*Browser|UCWEB',
         'baiduboxapp' => 'baiduboxapp',
         'baidubrowser' => 'baidubrowser',
-        // https://github.com/serbanghita/Mobile-Detect/issues/7
+        // http://github.com/serbanghita/Mobile-Detect/issues/7
         'DiigoBrowser' => 'DiigoBrowser',
         // http://www.puffinbrowser.com/index.php
         'Puffin' => 'Puffin',
@@ -487,7 +487,7 @@ class MobileDetect {
         // @reference: http://en.wikipedia.org/wiki/Minimo
         // http://en.wikipedia.org/wiki/Vision_Mobile_Browser
         'GenericBrowser' => 'NokiaBrowser|OviBrowser|OneBrowser|TwonkyBeamBrowser|SEMC.*Browser|FlyFlow|Minimo|NetFront|Novarra-Vision|MQQBrowser|MicroMessenger',
-        // @reference: https://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
+        // @reference: http://en.wikipedia.org/wiki/Pale_Moon_(web_browser)
         'PaleMoon' => 'Android.*PaleMoon|Mobile.*PaleMoon',
     );
     /**
@@ -498,8 +498,8 @@ class MobileDetect {
     protected static $utilities = array(
         // Experimental. When a mobile device wants to switch to 'Desktop Mode'.
         // http://scottcate.com/technology/windows-phone-8-ie10-desktop-or-mobile/
-        // https://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
-        // https://developers.facebook.com/docs/sharing/best-practices
+        // http://github.com/serbanghita/Mobile-Detect/issues/57#issuecomment-15024011
+        // http://developers.facebook.com/docs/sharing/best-practices
         'Bot' => 'Googlebot|facebookexternalhit|AdsBot-Google|Google Keyword Suggestion|Facebot|YandexBot|bingbot|ia_archiver|AhrefsBot|Ezooms|GSLFbot|WBSearchBot|Twitterbot|TweetmemeBot|Twikle|PaperLiBot|Wotbox|UnwindFetchor|Exabot|MJ12bot|YandexImages|TurnitinBot|Pingdom',
         'MobileBot' => 'Googlebot-Mobile|AdsBot-Google-Mobile|YahooSeeker/M1A1-R2D2',
         'DesktopMode' => 'WPDesktop',
@@ -550,11 +550,11 @@ class MobileDetect {
         'Chrome' => array('Chrome/[VER]', 'CriOS/[VER]', 'CrMo/[VER]'),
         'Coast' => array('Coast/[VER]'),
         'Dolfin' => 'Dolfin/[VER]',
-        // @reference: https://developer.mozilla.org/en-US/docs/User_Agent_Strings_Reference
+        // @reference: http://developer.mozilla.org/en-US/docs/User_Agent_Strings_Reference
         'Firefox' => 'Firefox/[VER]',
         'Fennec' => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
-        // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
+        // http://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
         'IE' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'Trident/[0-9.]+;.*rv:[VER]'),
         // http://en.wikipedia.org/wiki/NetFront
         'NetFront' => 'NetFront/[VER]',

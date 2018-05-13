@@ -18,7 +18,7 @@ namespace Symfony\Component\HttpFoundation;
  * object. It is however recommended that you do return an object as it
  * protects yourself against XSSI and JSON-JavaScript Hijacking.
  *
- * @see https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside
+ * @see http://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside
  *
  * @author Igor Wiedler <igor@wiedler.ch>
  */
@@ -90,8 +90,8 @@ class JsonResponse extends Response
     {
         if (null !== $callback) {
             // partially taken from http://www.geekality.net/2011/08/03/valid-javascript-identifier/
-            // partially taken from https://github.com/willdurand/JsonpCallbackValidator
-            //      JsonpCallbackValidator is released under the MIT License. See https://github.com/willdurand/JsonpCallbackValidator/blob/v1.1.0/LICENSE for details.
+            // partially taken from http://github.com/willdurand/JsonpCallbackValidator
+            //      JsonpCallbackValidator is released under the MIT License. See http://github.com/willdurand/JsonpCallbackValidator/blob/v1.1.0/LICENSE for details.
             //      (c) William Durand <william.durand1@gmail.com>
             $pattern = '/^[$_\p{L}][$_\p{L}\p{Mn}\p{Mc}\p{Nd}\p{Pc}\x{200C}\x{200D}]*(?:\[(?:"(?:\\\.|[^"\\\])*"|\'(?:\\\.|[^\'\\\])*\'|\d+)\])*?$/u';
             $reserved = array(

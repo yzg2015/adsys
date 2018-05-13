@@ -15,7 +15,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue
+ * @see       http://github.com/overtrue
  * @see       http://overtrue.me
  */
 
@@ -28,8 +28,8 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class Relation extends AbstractAPI
 {
-    const API_DEVICE_BINDPAGE = 'https://api.weixin.qq.com/shakearound/device/bindpage';
-    const API_RELATION_SEARCH = 'https://api.weixin.qq.com/shakearound/relation/search';
+    const API_DEVICE_BINDPAGE = 'http://api.weixin.qq.com/shakearound/device/bindpage';
+    const API_RELATION_SEARCH = 'http://api.weixin.qq.com/shakearound/relation/search';
 
     /**
      * Bind pages for device.

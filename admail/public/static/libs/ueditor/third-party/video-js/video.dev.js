@@ -65,7 +65,7 @@ window.videojs = window.vjs = vjs;
 
 // CDN Version. Used to target right flash swf.
 vjs.CDN_VERSION = '4.3';
-vjs.ACCESS_PROTOCOL = ('https:' == document.location.protocol ? 'https://' : 'http://');
+vjs.ACCESS_PROTOCOL = ('http:' == document.location.protocol ? 'http://' : 'http://');
 
 /**
  * Global Player instance options, surfaced from vjs.Player.prototype.options_
@@ -645,7 +645,7 @@ vjs.obj = {};
 /**
  * Object.create shim for prototypal inheritance
  *
- * https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create
+ * http://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create
  *
  * @function
  * @param  {Object}   obj Object to use as prototype
@@ -1237,7 +1237,7 @@ vjs.setLocalStorage = function(key, value){
 vjs.getAbsoluteURL = function(url){
 
   // Check if absolute URL
-  if (!url.match(/^https?:\/\//)) {
+  if (!url.match(/^http?:\/\//)) {
     // Convert to absolute URL. Flash hosted off-site needs an absolute URL.
     url = vjs.createEl('div', {
       innerHTML: '<a href="'+url+'">x</a>'
@@ -2980,7 +2980,7 @@ vjs.Player.prototype.unloadTech = function(){
 };
 
 // There's many issues around changing the size of a Flash (or other plugin) object.
-// First is a plugin reload issue in Firefox that has been around for 11 years: https://bugzilla.mozilla.org/show_bug.cgi?id=90268
+// First is a plugin reload issue in Firefox that has been around for 11 years: http://bugzilla.mozilla.org/show_bug.cgi?id=90268
 // Then with the new fullscreen API, Mozilla and webkit browsers will reload the flash object after going to fullscreen.
 // To get around this, we're unloading the tech, caching source and currentTime values, and reloading the tech once the plugin is resized.
 // reloadTech: function(betweenFn){
@@ -3896,7 +3896,7 @@ vjs.Player.prototype.userActive = function(bool){
         // this happens in fullscreen when we really need to hide the cursor.
         //
         // When this gets resolved in ALL browsers it can be removed
-        // https://code.google.com/p/chromium/issues/detail?id=103041
+        // http://code.google.com/p/chromium/issues/detail?id=103041
         this.tech.one('mousemove', function(e){
           e.stopPropagation();
           e.preventDefault();
@@ -4022,8 +4022,8 @@ vjs.Player.prototype.listenForUserActivity = function(){
 
   // Current W3C Spec
   // http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html#api
-  // Mozilla Draft: https://wiki.mozilla.org/Gecko:FullScreenAPI#fullscreenchange_event
-  // New: https://dvcs.w3.org/hg/fullscreen/raw-file/529a67b8d9f3/Overview.html
+  // Mozilla Draft: http://wiki.mozilla.org/Gecko:FullScreenAPI#fullscreenchange_event
+  // New: http://dvcs.w3.org/hg/fullscreen/raw-file/529a67b8d9f3/Overview.html
   if (div.cancelFullscreen !== undefined) {
     requestFS.requestFn = 'requestFullscreen';
     requestFS.cancelFn = 'exitFullscreen';
@@ -5303,7 +5303,7 @@ vjs.Html5.isSupported = function(){
 
 vjs.Html5.canPlaySource = function(srcObj){
   // IE9 on Windows 7 without MediaPlayer throws an error here
-  // https://github.com/videojs/video.js/issues/519
+  // http://github.com/videojs/video.js/issues/519
   try {
     return !!vjs.TEST_VID.canPlayType(srcObj.type);
   } catch(e) {
@@ -5357,7 +5357,7 @@ if (vjs.IS_OLD_ANDROID) {
 }
 /**
  * @fileoverview VideoJS-SWF - Custom Flash Player with HTML5-ish API
- * https://github.com/zencoder/video-js-swf
+ * http://github.com/zencoder/video-js-swf
  * Not using setupTriggers. Using global onEvent func to distribute events
  */
 
@@ -5447,7 +5447,7 @@ vjs.Flash = vjs.MediaTechController.extend({
 
     // Flash iFrame Mode
     // In web browsers there are multiple instances where changing the parent element or visibility of a plugin causes the plugin to reload.
-    // - Firefox just about always. https://bugzilla.mozilla.org/show_bug.cgi?id=90268 (might be fixed by version 13)
+    // - Firefox just about always. http://bugzilla.mozilla.org/show_bug.cgi?id=90268 (might be fixed by version 13)
     // - Webkit when hiding the plugin
     // - Webkit and Firefox when using requestFullScreen on a parent element
     // Loading the flash plugin into a dynamically generated iFrame gets around most of these issues.
@@ -6967,7 +6967,7 @@ vjs.obj.merge(vjs.ControlBar.prototype.options_['children'], {
 /**
  * Javascript JSON implementation
  * (Parse Method Only)
- * https://github.com/douglascrockford/JSON-js/blob/master/json2.js
+ * http://github.com/douglascrockford/JSON-js/blob/master/json2.js
  * Only using for parse method when parsing data-setup attribute JSON.
  * @suppress {undefinedVars}
  * @namespace

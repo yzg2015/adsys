@@ -20,7 +20,7 @@
  * @author    mingyoung <mingyoungcheung@gmail.com>
  * @copyright 2017
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 

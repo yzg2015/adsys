@@ -14,7 +14,7 @@
 
 /* 
   BS3 width:1005 for inputs breaks editable form in popup 
-  See: https://github.com/vitalets/x-editable/issues/393
+  See: http://github.com/vitalets/x-editable/issues/393
 */
 .editableform .form-control {
     width: auto;
@@ -90,7 +90,7 @@
     float: left;
 }
 
-/* move datepicker icon to center of add-on button. See https://github.com/vitalets/x-editable/issues/183 */
+/* move datepicker icon to center of add-on button. See http://github.com/vitalets/x-editable/issues/183 */
 .editable-inline .add-on .icon-th {
    margin-top: 3px;
    margin-left: 1px; 
@@ -204,7 +204,7 @@ a.editable-click.editable-disabled:hover {
   transition: background-color 1400ms ease-out;  
 }
 
-/*see https://github.com/vitalets/x-editable/issues/139 */
+/*see http://github.com/vitalets/x-editable/issues/139 */
 .form-horizontal .editable
 { 
     padding-top: 5px;

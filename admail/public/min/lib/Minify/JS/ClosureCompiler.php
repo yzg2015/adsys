@@ -36,7 +36,7 @@ class Minify_JS_ClosureCompiler {
     const OPTION_COMPILER_URL = 'compilerUrl';
 
     /**
-     * @var int The default maximum POST byte size according to https://developers.google.com/closure/compiler/docs/api-ref
+     * @var int The default maximum POST byte size according to http://developers.google.com/closure/compiler/docs/api-ref
      */
     const DEFAULT_MAX_BYTES = 200000;
 
@@ -95,7 +95,7 @@ class Minify_JS_ClosureCompiler {
      *                     Defaults to 200000.
      *
      *  additionalParams : (string[]) Additional parameters to pass to the compiler server. Can be anything named
-     *                     in https://developers.google.com/closure/compiler/docs/api-ref except for js_code and
+     *                     in http://developers.google.com/closure/compiler/docs/api-ref except for js_code and
      *                     output_info
      */
     public function __construct(array $options = array())

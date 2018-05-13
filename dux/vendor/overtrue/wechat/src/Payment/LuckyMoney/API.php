@@ -15,7 +15,7 @@
  * @author    tianyong90 <412039588@qq.com>
  * @copyright 2015 overtrue <i@overtrue.me>
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -40,10 +40,10 @@ class API extends AbstractAPI
     protected $merchant;
 
     // api
-    const API_SEND = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack';
-    const API_SEND_GROUP = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/sendgroupredpack';
-    const API_QUERY = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/gethbinfo';
-    const API_PREPARE = 'https://api.mch.weixin.qq.com/mmpaymkttransfers/hbpreorder';
+    const API_SEND = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack';
+    const API_SEND_GROUP = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/sendgroupredpack';
+    const API_QUERY = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/gethbinfo';
+    const API_PREPARE = 'http://api.mch.weixin.qq.com/mmpaymkttransfers/hbpreorder';
 
     // LuckyMoney type
     const TYPE_NORMAL = 'NORMAL';

@@ -544,11 +544,11 @@ The `Guzzle\Iterator` namespace has been removed.
 - `Guzzle\Iterator\MapIterator` is not really needed when using PHP 5.5 because
   it's easier to just wrap an iterator in a generator that maps values.
 
-For a replacement of these iterators, see https://github.com/nikic/iter
+For a replacement of these iterators, see http://github.com/nikic/iter
 
 ## Log
 
-The LogPlugin has moved to https://github.com/guzzle/log-subscriber. The
+The LogPlugin has moved to http://github.com/guzzle/log-subscriber. The
 `Guzzle\Log` namespace has been removed. Guzzle now relies on
 `Psr\Log\LoggerInterface` for all logging. The MessageFormatter class has been
 moved to `GuzzleHttp\Subscriber\Log\Formatter`.
@@ -602,17 +602,17 @@ in separate repositories:
 
 - `Guzzle\Http\Plugin\BackoffPlugin` has been rewritten to be much simpler
   to build custom retry policies using simple functions rather than various
-  chained classes. See: https://github.com/guzzle/retry-subscriber
+  chained classes. See: http://github.com/guzzle/retry-subscriber
 - `Guzzle\Http\Plugin\Cache\CachePlugin` has moved to
-  https://github.com/guzzle/cache-subscriber
+  http://github.com/guzzle/cache-subscriber
 - `Guzzle\Http\Plugin\Log\LogPlugin` has moved to
-  https://github.com/guzzle/log-subscriber
+  http://github.com/guzzle/log-subscriber
 - `Guzzle\Http\Plugin\Md5\Md5Plugin` has moved to
-  https://github.com/guzzle/message-integrity-subscriber
+  http://github.com/guzzle/message-integrity-subscriber
 - `Guzzle\Http\Plugin\Mock\MockPlugin` has moved to
   `GuzzleHttp\Subscriber\MockSubscriber`.
 - `Guzzle\Http\Plugin\Oauth\OauthPlugin` has moved to
-  https://github.com/guzzle/oauth-subscriber
+  http://github.com/guzzle/oauth-subscriber
 
 ## Service
 
@@ -627,7 +627,7 @@ The service description layer of Guzzle has moved into two separate packages:
 ## Stream
 
 Stream have moved to a separate package available at
-https://github.com/guzzle/streams.
+http://github.com/guzzle/streams.
 
 `Guzzle\Stream\StreamInterface` has been given a large update to cleanly take
 on the responsibilities of `Guzzle\Http\EntityBody` and

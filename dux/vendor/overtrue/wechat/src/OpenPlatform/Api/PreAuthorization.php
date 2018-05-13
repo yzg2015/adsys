@@ -21,7 +21,7 @@
  * @author    lixiao <leonlx126@gmail.com>
  * @copyright 2016
  *
- * @see      https://github.com/overtrue
+ * @see      http://github.com/overtrue
  * @see      http://overtrue.me
  */
 
@@ -35,12 +35,12 @@ class PreAuthorization extends AbstractOpenPlatform
     /**
      * Create pre auth code url.
      */
-    const CREATE_PRE_AUTH_CODE = 'https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode';
+    const CREATE_PRE_AUTH_CODE = 'http://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode';
 
     /**
      * Pre auth link.
      */
-    const PRE_AUTH_LINK = 'https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=%s&pre_auth_code=%s&redirect_uri=%s';
+    const PRE_AUTH_LINK = 'http://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=%s&pre_auth_code=%s&redirect_uri=%s';
 
     /**
      * Get pre auth code.

@@ -100,7 +100,7 @@ class IpUtils
      *
      * @author David Soria Parra <dsp at php dot net>
      *
-     * @see https://github.com/dsp/v6tools
+     * @see http://github.com/dsp/v6tools
      *
      * @param string $requestIp IPv6 address to check
      * @param string $ip        IPv6 address or subnet in CIDR notation

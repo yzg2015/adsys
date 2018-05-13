@@ -28,10 +28,10 @@ $payData = [
     'return_param' => '123',
     'client_ip' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1',// 客户地址
 
-    //{"h5_info": {"type":"Wap","wap_url": "https://pay.qq.com","wap_name": "腾讯充值"}}
+    //{"h5_info": {"type":"Wap","wap_url": "http://pay.qq.com","wap_name": "腾讯充值"}}
     'scene_info' => [
         'type' => 'Wap',// IOS  Android  Wap  腾讯建议 IOS  ANDROID 采用app支付
-        'wap_url' => 'https://helei112g.github.io/',//自己的 wap 地址
+        'wap_url' => 'http://helei112g.github.io/',//自己的 wap 地址
         'wap_name' => '测试充值',
     ],
 ];

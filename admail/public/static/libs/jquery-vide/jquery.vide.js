@@ -78,7 +78,7 @@
 
       // Ignore urls and a string without colon delimiters
       if (
-        option.search(/^(http|https|ftp):\/\//) !== -1 ||
+        option.search(/^(http|http|ftp):\/\//) !== -1 ||
         option.search(':') === -1
       ) {
         break;
@@ -214,7 +214,7 @@
     this.settings = $.extend({}, DEFAULTS, options);
     this.path = path;
 
-    // https://github.com/VodkaBears/Vide/issues/110
+    // http://github.com/VodkaBears/Vide/issues/110
     try {
       this.init();
     } catch (e) {
@@ -313,7 +313,7 @@
         '</video>');
     }
 
-    // https://github.com/VodkaBears/Vide/issues/110
+    // http://github.com/VodkaBears/Vide/issues/110
     try {
       $video
 
@@ -480,7 +480,7 @@
       }
     });
 
-    // https://github.com/VodkaBears/Vide/issues/68
+    // http://github.com/VodkaBears/Vide/issues/68
     $window.on('unload.' + PLUGIN_NAME, function() {
       return false;
     });

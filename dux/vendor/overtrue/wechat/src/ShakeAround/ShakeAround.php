@@ -15,7 +15,7 @@
  * @author    allen05ren <allen05ren@outlook.com>
  * @copyright 2016 overtrue <i@overtrue.me>
  *
- * @see       https://github.com/overtrue
+ * @see       http://github.com/overtrue
  * @see       http://overtrue.me
  */
 
@@ -28,9 +28,9 @@ use EasyWeChat\Core\AbstractAPI;
  */
 class ShakeAround extends AbstractAPI
 {
-    const API_ACCOUNT_REGISTER = 'https://api.weixin.qq.com/shakearound/account/register';
-    const API_ACCOUNT_AUDIT_STATUS = 'https://api.weixin.qq.com/shakearound/account/auditstatus';
-    const API_GET_SHAKE_INFO = 'https://api.weixin.qq.com/shakearound/user/getshakeinfo';
+    const API_ACCOUNT_REGISTER = 'http://api.weixin.qq.com/shakearound/account/register';
+    const API_ACCOUNT_AUDIT_STATUS = 'http://api.weixin.qq.com/shakearound/account/auditstatus';
+    const API_GET_SHAKE_INFO = 'http://api.weixin.qq.com/shakearound/user/getshakeinfo';
 
     /**
      * Device instance.

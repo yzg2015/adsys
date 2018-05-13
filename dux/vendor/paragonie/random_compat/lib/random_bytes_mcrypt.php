@@ -30,8 +30,8 @@ if (!is_callable('random_bytes')) {
     /**
      * Powered by ext/mcrypt (and thankfully NOT libmcrypt)
      *
-     * @ref https://bugs.php.net/bug.php?id=55169
-     * @ref https://github.com/php/php-src/blob/c568ffe5171d942161fc8dda066bce844bdef676/ext/mcrypt/mcrypt.c#L1321-L1386
+     * @ref http://bugs.php.net/bug.php?id=55169
+     * @ref http://github.com/php/php-src/blob/c568ffe5171d942161fc8dda066bce844bdef676/ext/mcrypt/mcrypt.c#L1321-L1386
      *
      * @param int $bytes
      *

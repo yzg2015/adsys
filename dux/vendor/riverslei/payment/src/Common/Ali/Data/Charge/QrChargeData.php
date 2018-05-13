@@ -4,8 +4,8 @@ namespace Payment\Common\Ali\Data\Charge;
 /**
  * 支付宝 扫码支付
  * Class QrChargeData
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * @property string $operator_id  商户操作员编号
  * @property string $terminal_id 商户机具终端编号=

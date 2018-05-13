@@ -20,7 +20,7 @@
  * @author    overtrue <i@overtrue.me>
  * @copyright 2015
  *
- * @see      https://github.com/overtrue/wechat
+ * @see      http://github.com/overtrue/wechat
  * @see      http://overtrue.me
  */
 

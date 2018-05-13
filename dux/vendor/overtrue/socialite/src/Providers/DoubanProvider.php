@@ -27,7 +27,7 @@ class DoubanProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://www.douban.com/service/auth2/auth', $state);
+        return $this->buildAuthUrlFromBase('http://www.douban.com/service/auth2/auth', $state);
     }
 
     /**
@@ -35,7 +35,7 @@ class DoubanProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return 'https://www.douban.com/service/auth2/token';
+        return 'http://www.douban.com/service/auth2/token';
     }
 
     /**
@@ -43,7 +43,7 @@ class DoubanProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken(AccessTokenInterface $token)
     {
-        $response = $this->getHttpClient()->get('https://api.douban.com/v2/user/~me', [
+        $response = $this->getHttpClient()->get('http://api.douban.com/v2/user/~me', [
             'headers' => [
                 'Authorization' => 'Bearer '.$token->getToken(),
             ],

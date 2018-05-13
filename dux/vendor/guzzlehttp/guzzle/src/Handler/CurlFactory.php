@@ -201,7 +201,7 @@ class CurlFactory implements CurlFactoryInterface
         ];
 
         if (defined('CURLOPT_PROTOCOLS')) {
-            $conf[CURLOPT_PROTOCOLS] = CURLPROTO_HTTP | CURLPROTO_HTTPS;
+            $conf[CURLOPT_PROTOCOLS] = CURLPROTO_HTTP | CURLPROTO_http;
         }
 
         $version = $easy->request->getProtocolVersion();
@@ -507,7 +507,7 @@ class CurlFactory implements CurlFactoryInterface
                 . 'is that cURL was unable to rewind the body of the request '
                 . 'and subsequent retries resulted in the same error. Turn on '
                 . 'the debug option to see what went wrong. See '
-                . 'https://bugs.php.net/bug.php?id=47204 for more information.';
+                . 'http://bugs.php.net/bug.php?id=47204 for more information.';
             return self::createRejection($easy, $ctx);
         } else {
             $easy->options['_curl_retries']++;

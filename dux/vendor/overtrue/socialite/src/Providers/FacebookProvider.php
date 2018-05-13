@@ -18,7 +18,7 @@ use Overtrue\Socialite\User;
 /**
  * Class FacebookProvider.
  *
- * @see https://developers.facebook.com/docs/graph-api [Facebook - Graph API]
+ * @see http://developers.facebook.com/docs/graph-api [Facebook - Graph API]
  */
 class FacebookProvider extends AbstractProvider implements ProviderInterface
 {
@@ -27,7 +27,7 @@ class FacebookProvider extends AbstractProvider implements ProviderInterface
      *
      * @var string
      */
-    protected $graphUrl = 'https://graph.facebook.com';
+    protected $graphUrl = 'http://graph.facebook.com';
 
     /**
      * The Graph API version for the request.
@@ -62,7 +62,7 @@ class FacebookProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://www.facebook.com/'.$this->version.'/dialog/oauth', $state);
+        return $this->buildAuthUrlFromBase('http://www.facebook.com/'.$this->version.'/dialog/oauth', $state);
     }
 
     /**

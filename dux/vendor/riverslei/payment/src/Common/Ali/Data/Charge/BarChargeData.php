@@ -8,8 +8,8 @@ use Payment\Common\PayException;
  *  - 扫户扫用户的二维码，完成支付
  * Class BarChargeData
  * @package Payment\Common\Ali\Data\Charge
- * @link      https://www.gitbook.com/book/helei112g1/payment-sdk/details
- * @link      https://helei112g.github.io/
+ * @link      http://www.gitbook.com/book/helei112g1/payment-sdk/details
+ * @link      http://helei112g.github.io/
  *
  * @property string $operator_id  商户操作员编号
  * @property string $terminal_id 商户机具终端编号

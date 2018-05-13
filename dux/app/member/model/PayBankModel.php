@@ -48,7 +48,7 @@ class PayBankModel extends SystemModel {
     }
 
     public function bankInfo($cardNum) {
-        $result = \dux\lib\Http::curlGet("https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&cardNo={$cardNum}&cardBinCheck=true");
+        $result = \dux\lib\Http::curlGet("http://ccdcapi.alipay.com/validateAndCacheCardInfo.json?_input_charset=utf-8&cardNo={$cardNum}&cardBinCheck=true");
         if(empty($result)) {
             $this->error = '银行信息获取失败!';
         }
@@ -68,7 +68,7 @@ class PayBankModel extends SystemModel {
             $bankInfo = [
                 'label' => $info['label'],
                 'name' => $info['name'],
-                'image' => "https://apimg.alipay.com/combo.png?d=cashier&t={$info['label']}",
+                'image' => "http://apimg.alipay.com/combo.png?d=cashier&t={$info['label']}",
                 'type' => $result->cardType,
                 'type_name' => $this->cardType[$result->cardType],
                 'color' => $info['color']
