@@ -87,6 +87,7 @@ class Goods extends Admin
         $info['spu'] ='';
         $info['remark'] ='';
         $info['pic'] =0;
+        $info['pics'] ='';
         $info['dao_time'] ='';
         $info['buy_num'] =0;
         $info['prom_type'] =0;
@@ -117,17 +118,21 @@ class Goods extends Admin
         }
         $info['prom_type'] =0;
         $info['prom_id'] =0;
+        $info['pic'] =0;
+        $info['pics'] ='';
         $info = array();
         if($id){
             $info = GoodsModel::get($id);
-            if($info['prom_id']==1||$info['prom_id']==0){
-                $info['prom_id_list'] = BuysendModel::getList();
-            }
-            if($info['prom_id']==2){
-                $info['prom_id_list'] = FullminusModel::getList();
-            }
-            if($info['prom_id']==3){
-                $info['prom_id_list'] = DiscountModel::getList();
+            if(!empty($info)) {
+                if ($info['prom_id'] == 1 || $info['prom_id'] == 0) {
+                    $info['prom_id_list'] = BuysendModel::getList();
+                }
+                if ($info['prom_id'] == 2) {
+                    $info['prom_id_list'] = FullminusModel::getList();
+                }
+                if ($info['prom_id'] == 3) {
+                    $info['prom_id_list'] = DiscountModel::getList();
+                }
             }
         }else{
             $info['prom_id_list'] = BuysendModel::getList();
@@ -171,6 +176,12 @@ class Goods extends Admin
             ->fetch();
     }
 
+    public function upload()
+    {
+
+       var_dump($_FILES);
+        exit();
+    }
 
 
     /**
@@ -227,8 +238,13 @@ class Goods extends Admin
             if(empty($data['cid'])){
                 $this->error('请选择分类');
             }
+            if(empty($data['pics'])){
+                $this->error('请上传商品图片');
+            }
             if(!empty($data['id'])){
                 $data['update_time'] = time();
+                $data['pic'] = explode(',',$data['pics']);
+                $data['pic'] = $data['pic'][0];
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
@@ -236,6 +252,8 @@ class Goods extends Admin
                 }
             }else{
                 $data['add_time'] = time();
+                $data['pic'] = explode(',',$data['pics']);
+                $data['pic'] = $data['pic'][0];
                 if (false !== GoodsModel::create($data)) {
                     $this->success('新增成功','index');
                 } else {

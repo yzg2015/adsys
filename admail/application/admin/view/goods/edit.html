@@ -186,20 +186,23 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-12 col-xs-12" id="form_group_pic">
-                                <label class="col-xs-12" for="pic">商品图片</label>
-                                <div class="col-xs-12 js-upload-image">
-                                    <div id="file_list_pic" class="uploader-list">
-                                        {notempty name="info.pic"}
+                        <div class="form-group col-md-12 col-xs-12" id="form_group_pics">
+                                <label class="col-xs-12" for="pics">商品图片</label>
+                                <div class="col-xs-12 js-upload-images">
+                                    <div id="file_list_pics" class="uploader-list">
+                                        {notempty name="info.pics"}
+                                        {volist name="info.pics|explode=',',###" id="vo"}
                                         <div class="file-item thumbnail">
-                                            <img data-original="{$info.pic|get_file_path}" src="{$info.pic|get_thumb}" width="100">
-                                            <i class="fa fa-times-circle remove-picture"></i>
+                                            <img data-original="{$vo|get_file_path}" src="{$vo|get_thumb}" width="100">
+                                            <i class="fa fa-times-circle remove-picture" data-id="{$vo}"></i>
+                                            <i class="fa fa-fw fa-arrows move-picture"></i>
                                         </div>
+                                        {/volist}
                                         {/notempty}
                                     </div>
                                     <div class="clearfix"></div>
-                                    <input type="hidden" name="pic" data-multiple="false" data-watermark='' data-thumb='' data-size="500000" data-ext='jpg,png,gif,jpeg' id="pic" value="{$info.pic|default=''}">
-                                    <div id="picker_pic">上传单张图片</div>
+                                    <input type="hidden" name="pics" data-multiple="true" data-watermark='' data-thumb='' data-size="500000" data-ext='jpg,png,gif,jpeg' id="pic" value="{$info.pics|default=''}">
+                                    <div id="picker_pics">上传图片</div>
                                 </div>
                             </div>
                     </div>
@@ -284,14 +287,13 @@
                                         <div class="">
                                             <div class="uploadify-button uploadify" style="width:80px;">
                                                 <span class="uploadify-button-text">上传图片</span>
-                                                <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                                <input class="uploadone input-file" onchange="upload_item(this);" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             {/volist}
-
                         </div>
                         <div style="clear:both;"> </div>
                     </div>
@@ -326,6 +328,7 @@
                         <button class="btn btn-default" type="button" onclick="javascript:history.back(-1);return false;">
                             返回
                         </button>
+                        <input type="hidden" name="pic" value="{$info.pic}">
                         <input type="hidden" name="price" id="g_price" value="{$info.price}">
                         <input type="hidden" name="z_price" id="g_z_price" value="{$info.z_price}">
                         <input type="hidden" name="spec" id="h_spec" value="{$info.spec}">
@@ -353,7 +356,10 @@
             <button class="btn btn-minw btn-primary add_spec" onclick="add_spec(this);" target-form="form-builder" type="button">
                 新增规格值
             </button>
+            <input type="hidden" value="0" name="gg_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+            <input class="uploadone input-file" style="width:80px;" type="file" onchange="upload_item(this);" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
         </div>
+
         <div class="form-group col-xs-12">
             <div class="spec_box">
                 <input class="form-control spec_value" type="text" name="spec_one" placeholder="双击删除" ondblclick="del_spec(this);">
@@ -388,7 +394,7 @@
                 <div class="">
                     <div class="uploadify-button uploadify" style="width:80px;">
                         <span class="uploadify-button-text">上传图片</span>
-                        <input class="uploadone input-file" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                        <input class="uploadone input-file" onchange="upload_item(this);" style="width:80px;" type="file" name="file" data-url="/public/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
                     </div>
                 </div>
             </div>
@@ -446,6 +452,26 @@
     $(document).ready(function () {
 
     });
+
+    //方式一 Jquery实现
+    function upload_item(e) {
+        var formData = new FormData();
+        formData.append('file', $(e)[0]);
+        $.ajax({
+            url: "/public/admin.php/admin/goods/upload/",
+            type: "post",
+            data: formData,
+            contentType: false,
+            processData: false,
+            mimeType: "multipart/form-data",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
     function check_from() {
         var spec = $('#h_spec');
         var shuxing = $('#h_shuxing');
