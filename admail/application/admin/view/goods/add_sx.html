@@ -1,0 +1,32 @@
+<div class="form-group item_pro">
+    <div class="pro-item">
+        <span class="pro-title">属性名称：</span>
+        <input class="form-control pro_name"  type="text" name="sx_name" style="width:150px;margin-top: 5px;">
+        <span class="pro-title">原价：</span>
+        <input class="form-control pro_price" type="text" name="sx_price" style="width:150px;margin-top: 5px;">
+        <span class="pro-title">折扣价：</span>
+        <input class="form-control pro_z_price" type="text" name="sx_zhekou" style="width:150px;margin-top: 5px;">
+        <span class="pro-title">SKU：</span>
+        <input class="form-control pro_sku" type="text" value="" name="sx_sku" style="width:150px;margin-top: 5px;">
+        <div style="width:140px;height:130px;margin-left:50px;margin-top: 5px;">
+            <div class="file_list_avatar uploader-list">
+                <div class="file-item js-gallery thumbnail" style="float:left">
+                    <a class="img-link" href="">
+                        <img src="/public/uploads/images/20180502/e121ac4fe89022630c5d173e8190c63d.jpg" style="width:120px;height:100px;">
+                    </a>
+                    <i class="fa fa-times-circle remove-picture"  onclick="remove_property_img(this)"></i>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 40px;margin-top: 5px;">
+            <div class="del_propery" onclick="del_shuxing(this);">删除属性</div>
+            <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+            <div class="">
+                <div class="uploadify-button uploadify" style="width:80px;">
+                    <span class="uploadify-button-text">上传图片</span>
+                    <input class="uploadone input-file" onchange="upload_item(this);" style="width:80px;" type="file" name="file" data-url="/public/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

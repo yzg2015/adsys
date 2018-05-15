@@ -39,6 +39,8 @@ class Site extends Model
         return $data_list;
     }
 
+
+
     public static function getAllList()
     {
         $map['status']=1;

@@ -107,6 +107,15 @@ class Goods extends Admin
 
     }
 
+
+    public function add_gg(){
+        return $this->fetch();
+    }
+
+    public function add_sx(){
+        return $this->fetch();
+    }
+
     /**yang
      * @param int $id
      * @return mixed
@@ -145,8 +154,10 @@ class Goods extends Admin
             }
             $item = array();
             $arr = explode('#',$v);
+            $arr[2] = isset($arr[2])?$arr[2]:'';
             $item['name'] = $arr[0];
-            $item['s_list'] =  explode('|',$arr[1]);
+            $item['gg_pic'] = intval($arr[1]);
+            $item['s_list'] =  explode('|',$arr[2]);
             $guige_list[]=$item;
         }
         $s_list = explode(';',$info['shuxing']);
@@ -174,13 +185,6 @@ class Goods extends Admin
             ->assign('shuxing_list',$shuxing_list)
             ->setTemplate('edit')
             ->fetch();
-    }
-
-    public function upload()
-    {
-
-       var_dump($_FILES);
-        exit();
     }
 
 

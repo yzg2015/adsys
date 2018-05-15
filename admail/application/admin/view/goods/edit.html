@@ -239,6 +239,9 @@
                                     <button class="btn btn-minw btn-primary add_spec" onclick="add_spec(this);" target-form="form-builder" type="button">
                                         新增规格值
                                     </button>
+                                    <input type="hidden" value="{$v.gg_pic}" name="gg_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                    <input class="uploadone input-file" style="width:80px;" type="file" onchange="upload_item(this);" name="file"  multiple="">
+                                    <img width="100" height="60" src="{$v.gg_pic|get_file_path}" style=""/>
                                 </div>
                                 <div class="form-group col-xs-12">
                                     <div class="spec_box">
@@ -283,11 +286,12 @@
                                     </div>
                                     <div style="margin-left: 40px;margin-top: 5px;">
                                         <div class="del_propery" onclick="del_shuxing(this);">删除属性</div>
-                                        <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
                                         <div class="">
                                             <div class="uploadify-button uploadify" style="width:80px;">
                                                 <span class="uploadify-button-text">上传图片</span>
-                                                <input class="uploadone input-file" onchange="upload_item(this);" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                                <input class="uploadone input-file" onchange="upload_item_sx(this);" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                                                <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+
                                             </div>
                                         </div>
                                     </div>
@@ -357,9 +361,9 @@
                 新增规格值
             </button>
             <input type="hidden" value="0" name="gg_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
-            <input class="uploadone input-file" style="width:80px;" type="file" onchange="upload_item(this);" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+            <input class="uploadone input-file" style="width:80px;" type="file" onchange="upload_item(this);" name="file"  multiple="">
+            <img width="100" height="60" src="/public/uploads/images/20180515/77602828a5e80fd9526daffe5b1a2cf2.png" style="display: none"/>
         </div>
-
         <div class="form-group col-xs-12">
             <div class="spec_box">
                 <input class="form-control spec_value" type="text" name="spec_one" placeholder="双击删除" ondblclick="del_spec(this);">
@@ -390,11 +394,12 @@
             </div>
             <div style="margin-left: 40px;margin-top: 5px;">
                 <div class="del_propery" onclick="del_shuxing(this);">删除属性</div>
-                <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
                 <div class="">
                     <div class="uploadify-button uploadify" style="width:80px;">
                         <span class="uploadify-button-text">上传图片</span>
-                        <input class="uploadone input-file" onchange="upload_item(this);" style="width:80px;" type="file" name="file" data-url="/public/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
+                        <input class="uploadone input-file" onchange="upload_item_sx(this);" style="width:80px;" type="file" name="file"  multiple="">
+                        <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+
                     </div>
                 </div>
             </div>
@@ -405,6 +410,7 @@
 
 {block name="script"}
 <script>
+
     // url
     var dolphin = {
         'top_menu_url': '/public/admin.php/admin/ajax/getsidebarmenu.html',
@@ -449,29 +455,58 @@
 <link rel="stylesheet" type="text/css" href="/public/static/libs/ueditor/third-party/codemirror/codemirror.css">
 <script src="/public/static/libs/ueditor/third-party/zeroclipboard/ZeroClipboard.js" type="text/javascript" defer="defer"></script>
 <script>
-    $(document).ready(function () {
-
-    });
 
     //方式一 Jquery实现
     function upload_item(e) {
         var formData = new FormData();
-        formData.append('file', $(e)[0]);
+        var t = $(e);
+        formData.append('file', $(e)[0].files[0]);
+        formData.append('dir', 'images');
         $.ajax({
-            url: "/public/admin.php/admin/goods/upload/",
+            url: "/public/admin.php/admin/Attachment/upload/",
             type: "post",
             data: formData,
             contentType: false,
             processData: false,
             mimeType: "multipart/form-data",
             success: function (data) {
-                console.log(data);
+                var d = eval('('+data+')');
+                if(d.code==1){
+                    t.prev().val(d.id);
+                    t.next().attr('src',d.path).show();
+                }
             },
             error: function (data) {
                 console.log(data);
             }
         });
     }
+
+    function upload_item_sx(e) {
+        var formData = new FormData();
+        var t = $(e);
+        formData.append('file', $(e)[0].files[0]);
+        formData.append('dir', 'images');
+        $.ajax({
+            url: "/public/admin.php/admin/Attachment/upload/",
+            type: "post",
+            data: formData,
+            contentType: false,
+            processData: false,
+            mimeType: "multipart/form-data",
+            success: function (data) {
+                var d = eval('('+data+')');
+                if(d.code==1){
+                    t.parent().find('input[name="sx_pic"]').val(d.id);
+                    t.parent().parent().parent().prev().find('img').attr('src',d.path);
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
+
     function check_from() {
         var spec = $('#h_spec');
         var shuxing = $('#h_shuxing');
@@ -483,7 +518,7 @@
             t.find('input[name="spec_one"]').each(function () {
                 sepc_one+=$(this).val()+'|'
             });
-            new_spec +=t.find('input[name="spec_name"]').val()+'#'+sepc_one+';';
+            new_spec +=t.find('input[name="spec_name"]').val()+'#'+t.find('input[name="gg_pic"]').val()+'#'+sepc_one+';';
         });
         var low_price =0.0;
         var low_z_price =0.0;
