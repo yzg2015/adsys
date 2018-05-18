@@ -136,6 +136,57 @@ if (!function_exists('get_avatar')) {
     }
 }
 
+if (!function_exists('get_short_url')) {
+    /**
+     * 根据附件id获取文件名
+     * @param string $id 附件id
+     * @author 蔡伟明 <314013107@qq.com>
+     * @return string
+     */
+    function get_short_url($id = 0)
+    {
+        $url = "www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
+        $apiUrl='http://suo.im/api.php?url='.urlencode($url);
+        $url = file_get_contents($apiUrl);
+        return $url;
+
+    }
+}
+
+
+if (!function_exists('curl_post_contents')) {
+    function curl_post_contents($id, $site_url)
+    {
+        $arr=array(
+            'u6.gg'=>4,
+            'kks.me'=>6,
+            'c7.gg'=>5,
+            'rrd.me'=>1,
+            't.cn'=>7
+
+        );
+        $url = "www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
+        $api_url = 'http://www.ft12.com/create.php?m=index&a=urlCreate';
+        $data['url'] = $url;
+        $data['type'] = $arr[$site_url];
+        $json_template = $data;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        if (!empty($json_template)) {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json_template);
+        }
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        return $output;
+    }
+}
+
+
+
 if (!function_exists('get_file_name')) {
     /**
      * 根据附件id获取文件名

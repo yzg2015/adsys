@@ -30,6 +30,7 @@ use app\admin\model\Discount as DiscountModel;
  */
 class Goods extends Admin
 {
+
     /**
      * 后台首页
      * @author 蔡伟明 <314013107@qq.com>
@@ -44,7 +45,7 @@ class Goods extends Admin
         // 数据列表
         $data_list = GoodsModel::getAll($map, $order);
         foreach ($data_list as &$v){
-            $v['name'] = "<a  target='_blank' href='/index.php/index/index/index/id/'".$v['id'].">". $v['name'] ."</a>";
+            $v['name'] = "<a  target='_blank' href='".$v['go_url']."'>". $v['name'] ."</a>";
         }
 
         // 分页数据
@@ -56,15 +57,15 @@ class Goods extends Admin
             ->addColumns([ // 批量添加数据列
                 ['id', 'ID'],
                 ['name', '商品名称'],
-                ['url', '所选站点'],
+                ['go_url', '所选站点'],
                 ['price', '价格'],
                 ['status', '状态', 'switch'],
                 ['num', '库存'],
                 ['add_time', '添加时间', 'datetime', '', 'Y-m-d H:i:s'],
                 ['right_button', '操作', 'btn']
             ])
-            ->addOrder(['name' => 'admin_goods', 'username' => 'admin_user','url' => 'admin_site'])
-            ->addFilter(['admin_goods.name', 'admin_user.username', 'admin_site.url'])
+            ->addOrder(['name' => 'admin_goods', 'username' => 'admin_user','go_url' => 'admin_goods'])
+            ->addFilter(['admin_goods.name', 'admin_user.username', 'admin_site.go_url'])
             ->addTopButtons('add,enable,delete,disable')
             ->addRightButtons('edit,delete')
             ->setRowList($data_list) // 设置表格数据
@@ -122,7 +123,7 @@ class Goods extends Admin
      */
     public function edit($id = 0)
     {
-        if ($id === 0) {
+        if ($id == 0) {
             $this->error('缺少参数');
         }
         $info['prom_type'] =0;
@@ -130,8 +131,10 @@ class Goods extends Admin
         $info['pic'] =0;
         $info['pics'] ='';
         $info = array();
+        $info['spec']='';
         if($id){
             $info = GoodsModel::get($id);
+
             if(!empty($info)) {
                 if ($info['prom_id'] == 1 || $info['prom_id'] == 0) {
                     $info['prom_id_list'] = BuysendModel::getList();
@@ -147,19 +150,32 @@ class Goods extends Admin
             $info['prom_id_list'] = BuysendModel::getList();
         }
         $guige_list=array();
-        $g_list = explode(';',$info['spec']);
-        foreach ($g_list as  $v){
-            if(empty($v)){
-                continue;
+        if(!empty($info['spec'])) {
+            $g_list = explode(';', $info['spec']);
+
+            foreach ($g_list as $v) {
+                if (empty($v)) {
+                    continue;
+                }
+                $item = array();
+                $arr = explode('#', $v);
+                $item['name'] = $arr[0];
+                $arr_list = explode('|', $arr[1]);
+                $item['s_list'] = array();
+                foreach ($arr_list as $vi) {
+                    if (!empty($vi)) {
+                        $arr1 = explode(',', $vi);
+                        $e['name'] = $arr1[0];
+                        $e['gg_pic'] = isset($arr1[1]) ? intval($arr1[1]) : 0;
+                        $item['s_list'][] = $e;
+                    }
+                }
+                $guige_list[] = $item;
             }
-            $item = array();
-            $arr = explode('#',$v);
-            $arr[2] = isset($arr[2])?$arr[2]:'';
-            $item['name'] = $arr[0];
-            $item['gg_pic'] = intval($arr[1]);
-            $item['s_list'] =  explode('|',$arr[2]);
-            $guige_list[]=$item;
         }
+
+
+
         $s_list = explode(';',$info['shuxing']);
         $shuxing_list =array();
         foreach ($s_list as  $v){
@@ -249,6 +265,7 @@ class Goods extends Admin
                 $data['update_time'] = time();
                 $data['pic'] = explode(',',$data['pics']);
                 $data['pic'] = $data['pic'][0];
+                $data['go_url']  = get_short_url($data['id']);
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
@@ -258,7 +275,11 @@ class Goods extends Admin
                 $data['add_time'] = time();
                 $data['pic'] = explode(',',$data['pics']);
                 $data['pic'] = $data['pic'][0];
-                if (false !== GoodsModel::create($data)) {
+                $gid = GoodsModel::create($data);
+                if (false !==$gid) {
+                    $url = get_short_url($gid);
+
+                    GoodsModel::where('id',$gid)->update(array('go_url'=>$url));
                     $this->success('新增成功','index');
                 } else {
                     $this->error('新增失败，请重试');
