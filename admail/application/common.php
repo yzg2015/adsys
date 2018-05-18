@@ -155,16 +155,8 @@ if (!function_exists('get_short_url')) {
 
 
 if (!function_exists('curl_post_contents')) {
-    function curl_post_contents($id, $site_url)
+    function curl_post_contents($id, $site_url,$arr)
     {
-        $arr=array(
-            'u6.gg'=>4,
-            'kks.me'=>6,
-            'c7.gg'=>5,
-            'rrd.me'=>1,
-            't.cn'=>7
-
-        );
         $url = "www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
         $api_url = 'http://www.ft12.com/create.php?m=index&a=urlCreate';
         $data['url'] = $url;

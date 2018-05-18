@@ -253,6 +253,13 @@ class Goods extends Admin
 
     public function save()
     {        // 保存数据
+        $arr=array(
+            'u6.gg'=>4,
+            'kks.me'=>6,
+            'c7.gg'=>5,
+            'rrd.me'=>1,
+            't.cn'=>7
+        );
         if ($this->request->isPost()) {
             $data = $this->request->post();
             if(empty($data['cid'])){
@@ -261,11 +268,34 @@ class Goods extends Admin
             if(empty($data['pics'])){
                 $this->error('请上传商品图片');
             }
+            if(empty($data['site_id'])){
+                $this->error('请选站点');
+            }
+            $info = SiteModel::get($data['site_id']);
+            if(empty($info)){
+                $this->error('请先配置站点');
+            }
+            if(empty($arr[$info['url']])){
+                $this->error($info['url'].'暂时没有对接接口信息，无法使用');
+            }
             if(!empty($data['id'])){
                 $data['update_time'] = time();
                 $data['pic'] = explode(',',$data['pics']);
                 $data['pic'] = $data['pic'][0];
-                $data['go_url']  = get_short_url($data['id']);
+                if($info['url']=='suo.im'){
+                    $data['go_url']  = get_short_url($data['id']);
+                }else{
+                    $json_res  = curl_post_contents($data['id'],$info['url'],$arr);
+                    $satus = isset($json_res['status'])?$json_res['status']:-100;
+                    if($satus==-100){
+                        $this->error('api 调用次数限制');
+                    }else{
+                        $data['go_url']= urldecode($json_res['list']);
+                    }
+                }
+                if(empty($data['go_url'])){
+                    $this->error('url api error');
+                }
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
