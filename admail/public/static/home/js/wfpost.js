@@ -78,6 +78,8 @@ function numdec() {
     $("#showprice").html(p.toFixed(2))
 }
 
+
+
 function pay_total(z) {
     var n = $("#wfnums").val();
     var d = $("#wfproup").val();

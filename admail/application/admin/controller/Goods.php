@@ -252,12 +252,12 @@ class Goods extends Admin
 
     public function save()
     {        // 保存数据
+
         $arr=array(
-            'u6.gg'=>4,
-            'kks.me'=>6,
-            'c7.gg'=>5,
-            'rrd.me'=>1,
-            't.cn'=>7
+            'u6.gg',
+            'c7.gg',
+            'suo.im',
+            'soso.bz'
         );
         if ($this->request->isPost()) {
             $data = $this->request->post();
@@ -274,26 +274,19 @@ class Goods extends Admin
             if(empty($info)){
                 $this->error('请先配置站点');
             }
-            if(empty($arr[$info['url']])){
+            if(!in_array($info['url'],$arr)){
                 $this->error($info['url'].'暂时没有对接接口信息，无法使用');
             }
             if(!empty($data['id'])){
                 $data['update_time'] = time();
                 $data['pic'] = explode(',',$data['pics']);
                 $data['pic'] = $data['pic'][0];
-                if($info['url']=='suo.im'){
-                    $data['go_url']  = get_short_url($data['id']);
-                }else{
-                    $json_res  = curl_post_contents($data['id'],$info['url'],$arr);
-                    $satus = isset($json_res['status'])?$json_res['status']:-100;
-                    if($satus==-100){
-                        $this->error('api 调用次数限制');
-                    }else{
-                        $data['go_url']= urldecode($json_res['list']);
-                    }
-                }
+                $data['go_url']  = get_short_url($info['url'],$data['id']);
                 if(empty($data['go_url'])){
                     $this->error('url api error');
+                }
+                if($data['go_url']==-100){
+                    $this->error('站点配置不能用');
                 }
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');

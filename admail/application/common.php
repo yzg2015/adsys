@@ -143,12 +143,43 @@ if (!function_exists('get_short_url')) {
      * @author 蔡伟明 <314013107@qq.com>
      * @return string
      */
-    function get_short_url($id = 0)
+    function get_short_url($site_url,$id = 0)
     {
+        $arr=array(
+            'u6.gg',
+            'c7.gg',
+            'suo.im',
+            'soso.bz'
+        );
         $url = "www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
-        $apiUrl='http://suo.im/api.php?url='.urlencode($url);
-        $url = file_get_contents($apiUrl);
-        return $url;
+        if(!in_array($site_url,$arr)){
+            return -100;
+        }
+        $api_url = $site_url;
+        switch ($site_url){
+            case 'u6.gg':
+                $api_url="http://api.ft12.com/api.php?url=";
+                $api_url.=urlencode($url);
+                break;
+            case 'soso.bz':
+                $api_url="http://www.zhaoxihan.com/api?api=KbToxxJ3kcvG&url=";
+                $api_url.=urlencode($url);
+                break;
+            case 'suo.im':
+                $api_url="http://suo.im/api.php?url=";
+                $api_url.=urlencode($url);
+                break;
+            case 'c7.gg':
+                $api_url="http://api.c7.gg/api.php?url=";
+                $api_url.=urlencode($url);
+                break;
+            default:
+                $api_url="http://api.ft12.com/api.php?url=";
+                $api_url.=urlencode($url);
+                break;
+        }
+        $res = file_get_contents($api_url);
+        return $res;
 
     }
 }
@@ -157,13 +188,13 @@ if (!function_exists('get_short_url')) {
 if (!function_exists('curl_post_contents')) {
     function curl_post_contents($id, $site_url,$arr)
     {
-        $url = "www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
+        $url = "http://www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
         $api_url = 'http://www.ft12.com/create.php?m=index&a=urlCreate';
-        $data['url'] = $url;
+        $data['url'] = urlencode($url);
         $data['type'] = $arr[$site_url];
         $json_template = $data;
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $api_url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
         if (!empty($json_template)) {

@@ -132,8 +132,60 @@ class Goods extends Home
             $this->error('error');
         }
 
+        $spec_arr_list = $shuxing_arr_list = array();
+        $spec_arr = explode(';',$info['spec']);
+        if(!empty($spec_arr)){
+            foreach ($spec_arr as $v){
+                if(empty($v)){
+                    continue;
+                }
+                $arr = explode('#',$v);
+                if(count($arr)<=1){
+                    continue;
+                }
+                $o['name'] = $arr[0];
+                $info['guige']=$o['name'];
+                $o['_list']=array();
+                $arr[1] = explode('|',$arr[1]);
+                if(!empty($arr[1])) {
+                    foreach ($arr[1] as $i) {
+                        $g_l = explode(',', $i);
+                        $g_item['zhi'] = isset($g_l[0]) ? $g_l[0] : '';
+                        $g_item['pic'] = isset($g_l[1]) ? intval($g_l[1]) : 0;
+                        $o['_list'][] = $g_item;
+                    }
+                }
+                $spec_arr_list[] = $o;
+            }
+        }
+
+        $shuxing_arr = explode(';',$info['shuxing']);
+        if(!empty($shuxing_arr)){
+            foreach ($shuxing_arr as $v){
+                if(empty($v)){
+                    continue;
+                }
+                $arr = explode('|',$v);
+                if(count($arr)<=4){
+                    continue;
+                }
+                $info['shuxing']=$arr[0];
+                $iy['sx_name'] = $arr[0];
+                $iy['sx_price']=$arr[1];
+                $info['price']=$arr[2];
+                $iy['sx_zhekou'] = $arr[2];
+                $iy['sx_sku']=$arr[3];
+                $iy['sx_pic'] = $arr[4];
+                $shuxing_arr_list[] = $iy;
+            }
+        }
+
+
+
         $d_list = DeliveryModel::getList($id);
         $this->assign('d_list',$d_list);
+        $this->assign('spec_arr',$spec_arr_list);
+        $this->assign('shuxing_arr',$shuxing_arr_list);
         $this->assign('info',$info);
         return $this->fetch();
     }

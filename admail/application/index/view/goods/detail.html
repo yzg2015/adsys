@@ -95,8 +95,8 @@
         <input type="hidden" name="wftid" value="2">
         <input type="hidden" name="WFDDURL" id="WFDDURL" value="#">
         <input type="hidden" name="goods_name" id="wfproname" value="{$info.name}">
-        <input type="hidden" name="wfprosize" id="wfprosize" value="M">
-        <input type="hidden" name="wfprocolour" id="wfprocolour" value="綠色">
+        <input type="hidden" name="wfprosize" id="wfprosize" value="{$info.guige}">
+        <input type="hidden" name="wfprocolour" id="wfprocolour" value="{$info.shuxing}">
         <input type="hidden" name="wfpayment" id="wfpayment" value="scan">
         <input type="hidden" name="wfpayzk" id="wfpayzk" value="1">
         <input type="hidden" name="wfproup" id="wfproup" value="{$info.z_price}">
@@ -110,42 +110,36 @@
                     <img src="{$info.pic|get_file_path}" style="width:100%;">
                     <div class="wfproimg"><p>{$info.name}<br><span style="font-size:12px;font-weight:100;color:#999;">貨到付款，免運，7天無理由退換</span></p></div>
                 </div>
-
-                <!---------- 产品套餐 ---------->
                 <div class="wfform-box">
                     <label class="wfform-label">訂購産品</label>
+                    {notempty name="shuxing_arr"}
+                    {volist name="shuxing_arr" id="vo"}
                     <div class="wfform-pro radio">
-                        <span class="down"><input type="radio" name="wfproduct" id="wfproduct1" checked="" onclick="total('down')" value="兩件套" title="1398" class="input-radio"><label for="wfproduct1">兩件套</label></span>					</div>
-                </div>
-                <!---------- 产品套餐 ---------->
-                <!---------- 产品尺码 ---------->
-                <div class="wfform-box">
-                    <label class="wfform-label">尺碼</label>
-                    <div class="wfform-pro frame">
-                        <ul class="size">
-                            <li><a href="javascript:void(0);" class="cursize" data-size="M">M</a></li>
-                            <li><a href="javascript:void(0);" class="" data-size="L">L</a></li>
-                            <li><a href="javascript:void(0);" class="" data-size="XL">XL</a></li>
-
-                        </ul>
-
+                        <span class="down">
+                            <input type="radio" name="wfproduct" id="wfproduct1" checked="" onclick="total('down')" value="{$vo.sx_name}" title="{$vo.sx_zhekou}" class="input-radio">
+                            <label for="wfproduct1">{$vo.sx_name}</label>
+                        </span>
                     </div>
+                    {/volist}
+                    {/notempty}
                 </div>
-                <!---------- 产品尺码 ---------->
-
-                <!---------- 产品颜色 ---------->
+                {notempty name="spec_arr"}
+                {volist name="spec_arr" id="vo"}
+                {notempty name="vo"}
                 <div class="wfform-box">
-                    <label class="wfform-label">顔色</label>
+                    <label class="wfform-label">{$vo.name}</label>
                     <div class="wfform-pro frame">
                         <ul class="colour">
-                            <li><a href="javascript:void(0);" class="" data-colour="紅色"><img style="width:100px;height:100px;" src="{$info.pic|get_file_path}" alt="紅色" title="紅色"><br>紅色</a></li>
-                            <li><a href="javascript:void(0);" class="curcolour" data-colour="綠色"><img style="width:100px;height:100px;" src="{$info.pic|get_file_path}" alt="綠色" title="綠色"><br>綠色</a></li>
-
+                            {volist name="vo._list" id="v"}
+                            <li><a href="javascript:void(0);" class="" data-colour="{$v.zhi}"><img style="width:100px;height:100px;" src="{$v.pic|get_file_path}" alt="{$v.zhi}" title="{$v.zhi}"><br>{$v.zhi}</a></li>
+                            {/volist}
                         </ul>
-
                     </div>
                 </div>
-                <!---------- 产品颜色 ---------->
+                {/notempty}
+                {/volist}
+                {/notempty}
+
                 <!---------- 数量价格 ---------->
                 <div class="wfform-box">
                     <label class="wfform-label">數量</label>
