@@ -134,7 +134,6 @@ class Goods extends Admin
         $info['spec']='';
         if($id){
             $info = GoodsModel::get($id);
-
             if(!empty($info)) {
                 if ($info['prom_id'] == 1 || $info['prom_id'] == 0) {
                     $info['prom_id_list'] = BuysendModel::getList();
