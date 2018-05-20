@@ -48,8 +48,11 @@ class Goods extends Model
         return  $data_list;
     }
 
+    public static function getGoods_id()
+    {
+       return self::where('status', '>=', 0)->order('id')->column('id,name');
 
-
+    }
     public static function getAllList($cate_id=0)
     {
         $map['status']=1;
