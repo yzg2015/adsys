@@ -21,6 +21,14 @@ use app\admin\model\Cate as CateModel;
  */
 class Index extends Home
 {
+    public function in()
+    {
+        $_list = CateModel::getAllList();
+        $goods = GoodsModel::getAllList();
+        $this->assign('goods_list',$goods);
+        $this->assign('cate_list',$_list);
+        return $this->fetch();
+    }
     public function index()
     {
         $_list = CateModel::getAllList();

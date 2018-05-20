@@ -48,6 +48,8 @@ class Goods extends Model
         return  $data_list;
     }
 
+
+
     public static function getAllList($cate_id=0)
     {
         $map['status']=1;
@@ -55,7 +57,7 @@ class Goods extends Model
             $map['cid'] = $cate_id;
         }
         $data_list = self::where($map)
-            ->column('id,name,price,num,pic,cid');
+            ->column('id,name,price,z_price,num,pic,cid');
         return  $data_list;
     }
 

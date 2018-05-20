@@ -14,6 +14,7 @@ use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Order as OrderModel;
 use app\admin\model\Comment as CommentModel;
 use app\admin\model\Delivery as DeliveryModel;
+use app\admin\model\Cate as CateModel;
 
 /**
  * 前台首页控制器
@@ -58,7 +59,7 @@ class Goods extends Home
     public function save(){
         $id = input('id');
         $mes =   '';
-        $data['order_sn'] = rand(1,100).'_'.time().'_'.$id;
+        $data['order_sn'] = $id.rand(100,999).'_'.time();
         $data['user_id'] =0;
         $wfprosize = input('wfprosize');
         $wfprocolour = input('wfprocolour');
@@ -132,7 +133,8 @@ class Goods extends Home
             $this->error('error');
         }
 
-        $spec_arr_list = $shuxing_arr_list = array();
+        $spec_arr_list = '';
+        $shuxing_arr_list='';
         $spec_arr = explode(';',$info['spec']);
         if(!empty($spec_arr)){
             foreach ($spec_arr as $v){
@@ -143,9 +145,9 @@ class Goods extends Home
                 if(count($arr)<=1){
                     continue;
                 }
+                $o = array();
                 $o['name'] = $arr[0];
                 $info['guige']=$o['name'];
-                $o['_list']=array();
                 $arr[1] = explode('|',$arr[1]);
                 if(!empty($arr[1])) {
                     foreach ($arr[1] as $i) {
@@ -159,26 +161,34 @@ class Goods extends Home
             }
         }
 
-        $shuxing_arr = explode(';',$info['shuxing']);
-        if(!empty($shuxing_arr)){
-            foreach ($shuxing_arr as $v){
-                if(empty($v)){
-                    continue;
+        if(!empty($info['shuxing'])){
+            $shuxing_arr = explode(';',$info['shuxing']);
+            if(!empty($shuxing_arr)){
+                foreach ($shuxing_arr as $v){
+                    if(empty($v)){
+                        continue;
+                    }
+                    $arr = explode('|',$v);
+                    if(count($arr)<=4){
+                        continue;
+                    }
+                    if(empty($arr[0])){
+                        continue;
+                    }
+                    $info['shuxing']=$arr[0];
+                    $info['price']=$arr[2];
+                    $iy['sx_name'] = $arr[0];
+                    $iy['sx_price']=$arr[1];
+
+                    $iy['sx_zhekou'] = $arr[2];
+                    $iy['sx_sku']=$arr[3];
+                    $iy['sx_pic'] = $arr[4];
+                    $shuxing_arr_list[] = $iy;
                 }
-                $arr = explode('|',$v);
-                if(count($arr)<=4){
-                    continue;
-                }
-                $info['shuxing']=$arr[0];
-                $iy['sx_name'] = $arr[0];
-                $iy['sx_price']=$arr[1];
-                $info['price']=$arr[2];
-                $iy['sx_zhekou'] = $arr[2];
-                $iy['sx_sku']=$arr[3];
-                $iy['sx_pic'] = $arr[4];
-                $shuxing_arr_list[] = $iy;
             }
         }
+
+
 
 
 

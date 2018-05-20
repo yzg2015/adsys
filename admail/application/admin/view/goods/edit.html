@@ -200,7 +200,7 @@
                                         {/notempty}
                                     </div>
                                     <div class="clearfix"></div>
-                                    <input type="hidden" name="pics" data-multiple="true" data-watermark='' data-thumb='' data-size="500000" data-ext='jpg,png,gif,jpeg' id="pic" value="{$info.pics|default=''}">
+                                    <input type="hidden" name="pics" data-multiple="true" data-watermark='' data-thumb='' data-size="500000000" data-ext='jpg,png,gif,jpeg,mp4,rmvb,avi' id="pic" value="{$info.pics|default=''}">
                                     <div id="picker_pics">上传图片</div>
                                 </div>
                             </div>
@@ -288,8 +288,8 @@
                                         <div class="">
                                             <div class="uploadify-button uploadify" style="width:80px;">
                                                 <span class="uploadify-button-text">上传图片</span>
-                                                <input class="uploadone input-file" onchange="upload_item_sx(this);" style="width:80px;" type="file" name="file" data-url="/admin.php/admin/attachment/uploadgoods/dir/images/module/goods/upload_path/property.html" multiple="">
-                                                <input type="hidden" value="3" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
+                                                <input class="uploadone input-file" onchange="upload_item_sx(this);" style="width:80px;" type="file" name="file"  multiple="">
+                                                <input type="hidden" value="{$v.sx_pic}" name="sx_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
 
                                             </div>
                                         </div>
@@ -365,7 +365,7 @@
             <div class="spec_box">
                 <input type="hidden" value="0" name="gg_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">
                 <input class="uploadone input-file" style="width:80px;" type="file" onchange="upload_item(this);" name="file"  multiple="">
-                <img width="100" height="60" src="/public/uploads/images/20180515/77602828a5e80fd9526daffe5b1a2cf2.png"/>
+                <img width="100" height="60" src="/public/static/admin/img/none.png"/>
                 <input class="form-control spec_value" type="text" name="spec_one" placeholder="双击删除" ondblclick="del_spec(this);">
             </div>
 
@@ -386,8 +386,8 @@
             <div style="width:140px;height:130px;margin-left:50px;margin-top: 5px;">
                 <div class="file_list_avatar uploader-list">
                     <div class="file-item js-gallery thumbnail" style="float:left">
-                        <a class="img-link" href="">
-                            <img src="/public/uploads/images/20180502/e121ac4fe89022630c5d173e8190c63d.jpg" style="width:120px;height:100px;">
+                        <a class="img-link" href="/public/static/admin/img/none.png">
+                            <img src="/public/static/admin/img/none.png" style="width:120px;height:100px;">
                         </a>
                         <i class="fa fa-times-circle remove-picture"  onclick="remove_property_img(this)"></i>
                     </div>
@@ -513,6 +513,8 @@
         var shuxing = $('#h_shuxing');
         var new_spec = '';
         var new_shuxing = '';
+        var is_guige_ok =0;
+        var is_shuxing_ok =0;
         $('#spec_comtent_list').find(".spec_content").each(function () {
             var sepc_one = '';
             var t = $(this);
@@ -542,13 +544,39 @@
         $('#g_price').val(low_price);
         $('#g_z_price').val(low_z_price);
         if(spec.val()==''){
-            alert('请填写规格1');
+            alert('请填写规格');
             return false;
         }
         if(shuxing.val()==''){
-            alert('请填写商品属性1');
+            alert('请填写商品属性');
             return false;
         }
+
+        var cid = parseInt($('#cid').val());
+        if(cid<1){
+            alert('请选择商品分类');
+            return false;
+        }
+        var pic = $('#pic').val();
+        if(pic=='0'||pic==','||pic==''){
+            alert('请上传商品图片');
+            return false;
+        }
+        var countdown = parseInt($('#countdown').val());
+        if(countdown<1){
+            alert('活动倒计时请填写整数');
+            return false;
+        }
+        if($('#goods_name').val()==''){
+            alert('请填写商品名称');
+            return false;
+        }
+        if($('#site_id').val()==''||$('#site_id').val()=='0'){
+            alert('请选择站点');
+            return false;
+        }
+
+
         $('#save_btn').click();
 
     }
@@ -569,7 +597,7 @@
     function add_spec(e) {
         var item = $('<input type="hidden" value="0" name="gg_pic" class="cover_id" data-ext="gif,jpg,jpeg,bmp,png" data-size="0" data-multiple="false">'
             +'<input class="uploadone input-file" style="width:80px;" type="file" onchange="upload_item(this);" name="file"  multiple="">'
-            +'<img width="100" height="60" src="/public/uploads/images/20180515/77602828a5e80fd9526daffe5b1a2cf2.png"/>'
+            +'<img width="100" height="60" src="/public/static/admin/img/none.png"/>'
             + '<input class="form-control spec_value" type="text"  name="spec_one" placeholder="双击删除" ondblclick="del_spec(this);">');
         $(e).parent().next().find('.spec_box').append(item);
     }

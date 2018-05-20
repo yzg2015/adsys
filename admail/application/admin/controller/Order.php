@@ -51,7 +51,7 @@ class Order extends Admin
                 ['total_money', '总金额'],
                 ['url', '来源网站'],
                 ['status', '付款状态', 'switch'],
-                ['order_time', '下单时间', 'time', '', 'Y-m-d'],
+                ['order_time', '下单时间', 'time', '', 'Y-m-d H:i:s'],
                 ['right_button', '操作', 'btn']
             ])
             ->addOrder(['order_sn' => 'admin_order', 'wfaddress' => 'admin_order','url' => 'admin_site'])

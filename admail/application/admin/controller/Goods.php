@@ -16,7 +16,7 @@ use think\helper\Hash;
 use think\Db;
 use app\common\builder\ZBuilder;
 use app\user\model\User as UserModel;
-
+use app\admin\model\Goodscode as GoodscodeModel;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Site as SiteModel;
 use app\admin\model\Cate as CateModel;
@@ -53,19 +53,21 @@ class Goods extends Admin
         // 使用ZBuilder快速创建数据表格
         return ZBuilder::make('table')
             ->setPageTitle('商品管理列表') // 设置页面标题
-            ->setSearch(['admin_goods.name' => '商品名称', 'admin_site.url' => '所选站点']) // 设置搜索框
+            ->setSearch(['admin_goods.name' => '商品名称','admin_goods.who' => '负责人', 'admin_goods.go_url' => '所选站点']) // 设置搜索框
             ->addColumns([ // 批量添加数据列
                 ['id', 'ID'],
                 ['name', '商品名称'],
                 ['go_url', '所选站点'],
+                ['who', '负责人'],
                 ['price', '价格'],
                 ['status', '状态', 'switch'],
                 ['num', '库存'],
+                ['buy_num', '已购数量'],
                 ['add_time', '添加时间', 'datetime', '', 'Y-m-d H:i:s'],
                 ['right_button', '操作', 'btn']
             ])
             ->addOrder(['name' => 'admin_goods', 'username' => 'admin_user','go_url' => 'admin_goods'])
-            ->addFilter(['admin_goods.name', 'admin_user.username', 'admin_site.go_url'])
+            ->addFilter(['admin_goods.name', 'admin_goods.who', 'admin_site.go_url'])
             ->addTopButtons('add,enable,delete,disable')
             ->addRightButtons('edit,delete')
             ->setRowList($data_list) // 设置表格数据
@@ -203,6 +205,28 @@ class Goods extends Admin
     }
 
 
+    /**产生不重复code
+     * @param $goods_id
+     * @return string
+     */
+    private function create_nums_str($goods_id){
+        $code = GoodscodeModel::getCode($goods_id);
+        if(!$code){
+            if($goods_id<1000){
+                $code = rand_str(2).$goods_id;
+            }else{
+                while (empty($code)){
+                    $code = rand_str(5);
+                    $code = GoodscodeModel::getCodeCount($code);
+                }
+            }
+            $d['goods_id'] = $goods_id;
+            $d['code'] = $code;
+            GoodscodeModel::create($d);
+        }
+        return $code;
+    }
+
     /**
      * 检查版本更新
      * @author 蔡伟明 <314013107@qq.com>
@@ -250,15 +274,25 @@ class Goods extends Admin
         }
     }
 
-    public function save()
-    {        // 保存数据
 
+    public function save()
+    {
+
+        //保存数据
         $arr=array(
             'u6.gg',
             'c7.gg',
             'suo.im',
             'soso.bz'
         );
+        //保存数据
+        $ben_arr=array(
+            'goodluck-3guys.com',
+            'lucky3guys.com',
+               'www.goodluck-3guys.com',
+            'www.lucky3guys.com'
+        );
+
         if ($this->request->isPost()) {
             $data = $this->request->post();
             if(empty($data['cid'])){
@@ -267,6 +301,7 @@ class Goods extends Admin
             if(empty($data['pics'])){
                 $this->error('请上传商品图片');
             }
+            $data['num'] = isset($data['num'])?intval($data['num']):0;
             if(empty($data['site_id'])){
                 $this->error('请选站点');
             }
@@ -274,20 +309,23 @@ class Goods extends Admin
             if(empty($info)){
                 $this->error('请先配置站点');
             }
-            if(!in_array($info['url'],$arr)){
+
+            if(!in_array($info['url'],$arr)&&!in_array($info['url'],$ben_arr)){
                 $this->error($info['url'].'暂时没有对接接口信息，无法使用');
             }
             if(!empty($data['id'])){
                 $data['update_time'] = time();
                 $data['pic'] = explode(',',$data['pics']);
                 $data['pic'] = $data['pic'][0];
-                $data['go_url']  = get_short_url($info['url'],$data['id']);
+                $str_num = $this->create_nums_str($data['id']);
+                $data['go_url']  = get_short_url($info['url'],$data['id'],$str_num);
                 if(empty($data['go_url'])){
                     $this->error('url api error');
                 }
                 if($data['go_url']==-100){
                     $this->error('站点配置不能用');
                 }
+
                 if (false !==GoodsModel::where('id', $data['id'])->update($data)) {
                     $this->success('保存成功','index');
                 } else {
@@ -299,10 +337,17 @@ class Goods extends Admin
                 $data['pic'] = $data['pic'][0];
                 $gid = GoodsModel::create($data);
                 if (false !==$gid) {
-                    $url = get_short_url($gid);
+                    $str_num = $this->create_nums_str($gid);
+                    $go_url  = get_short_url($info['url'],$gid,$str_num);
+                    $up['update_time'] = time();
+                    $up['go_url'] =$go_url;
+                    $res = GoodsModel::where('id',$gid)->update(array('update_time'=>time(),'go_url'=>$go_url));
+                    if($res){
+                        $this->success('新增成功','index');
+                    }else{
+                        $this->success('新增成功但是接口推广地址生成失败','index');
+                    }
 
-                    GoodsModel::where('id',$gid)->update(array('go_url'=>$url));
-                    $this->success('新增成功','index');
                 } else {
                     $this->error('新增失败，请重试');
                 }

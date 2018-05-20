@@ -135,6 +135,61 @@ if (!function_exists('get_avatar')) {
         return $path;
     }
 }
+if (!function_exists('write_goods_html')) {
+    /**写临时缓存文件
+     * @param $cache_name
+     * @param $caches
+     * @return bool
+     */
+    function write_goods_html($cache_name, $caches)
+    {
+        $path = ROOT_PATH;
+        $cache_file_path = $path . 'id/' . $cache_name;
+//  return  $cache_file_path;
+       return write_safe_file($cache_file_path, $caches);
+    }
+}
+
+if (!function_exists('write_safe_file')) {
+    /**多线程安全写入文件
+     * @param $filename
+     * @param $content
+     * @return int
+     */
+    function write_safe_file($filename, $content)
+    {
+        $lock = $filename . '.lck';
+        $write_ok = 0;
+        while (true) {
+            if (file_exists($lock)) {
+                usleep(100);
+            } else {
+                touch($lock);
+                if ($fp = fopen($filename, 'w+')) {
+                    $startTime = microtime();
+                    do {
+                        $canWrite = flock($fp, LOCK_EX);
+                        if (!$canWrite)
+                            usleep(round(rand(0, 100) * 500));
+                    } while ((!$canWrite) && ((microtime() - $startTime) < 500));
+                    if ($canWrite) {
+                        fwrite($fp, $content);
+                        usleep(200);
+                        flock($fp, LOCK_UN); // 解锁
+                        $write_ok = 1;
+                        fclose($fp);
+                        break;
+                    }
+
+                }
+            }
+        }
+        if (is_file($lock)) {
+            unlink($lock);
+        }
+        return $write_ok;
+    }
+}
 
 if (!function_exists('get_short_url')) {
     /**
@@ -143,47 +198,80 @@ if (!function_exists('get_short_url')) {
      * @author 蔡伟明 <314013107@qq.com>
      * @return string
      */
-    function get_short_url($site_url,$id = 0)
+    function get_short_url($site_url,$id =0,$goods_str=0)
     {
+        $res='';
         $arr=array(
             'u6.gg',
             'c7.gg',
             'suo.im',
             'soso.bz'
         );
+
         $url = "www.goodluck-3guys.com/index.php/index/goods/index/id/".$id;
-        if(!in_array($site_url,$arr)){
+        $ben_arr=array(
+            'goodluck-3guys.com',
+            'www.lucky3guys.com',
+            'www.goodluck-3guys.com',
+            'lucky3guys.com'
+        );
+
+        if(!in_array($site_url,$arr)&&!in_array($site_url,$ben_arr)){
             return -100;
         }
-        $api_url = $site_url;
-        switch ($site_url){
-            case 'u6.gg':
-                $api_url="http://api.ft12.com/api.php?url=";
-                $api_url.=urlencode($url);
-                break;
-            case 'soso.bz':
-                $api_url="http://www.zhaoxihan.com/api?api=KbToxxJ3kcvG&url=";
-                $api_url.=urlencode($url);
-                break;
-            case 'suo.im':
-                $api_url="http://suo.im/api.php?url=";
-                $api_url.=urlencode($url);
-                break;
-            case 'c7.gg':
-                $api_url="http://api.c7.gg/api.php?url=";
-                $api_url.=urlencode($url);
-                break;
-            default:
-                $api_url="http://api.ft12.com/api.php?url=";
-                $api_url.=urlencode($url);
-                break;
+        if(in_array($site_url,$ben_arr)){
+            $body = file_get_contents('http://'.$url);
+            if(write_goods_html($goods_str,$body)){
+                return 'http://'.$site_url.'/id/'.$goods_str;
+            }else{
+                return -1;
+            }
+
+        }else{
+            $api_url = $site_url;
+            switch ($site_url){
+                case 'u6.gg':
+                    $api_url="http://api.ft12.com/api.php?url=";
+                    $api_url.=urlencode($url);
+                    break;
+                case 'soso.bz':
+                    $api_url="http://www.zhaoxihan.com/api?api=KbToxxJ3kcvG&url=";
+                    $api_url.=urlencode($url);
+                    break;
+                case 'suo.im':
+                    $api_url="http://suo.im/api.php?url=";
+                    $api_url.=urlencode($url);
+                    break;
+                case 'c7.gg':
+                    $api_url="http://api.c7.gg/api.php?url=";
+                    $api_url.=urlencode($url);
+                    break;
+                default:
+                    $api_url="http://api.ft12.com/api.php?url=";
+                    $api_url.=urlencode($url);
+                    break;
+            }
+
+            $res = file_get_contents($api_url);
         }
-        $res = file_get_contents($api_url);
+
+
         return $res;
 
     }
 }
 
+if (!function_exists('rand_str')) {
+    function rand_str($len)
+    {
+        $re = '';
+        $s = 'abcdefghijklmnopqrstuvwxyz12345678';
+        while(strlen($re)<$len) {
+            $re .= $s[rand(0, strlen($s)-1)]; //从$s中随机产生一个字符
+        }
+        return $re;
+    }
+}
 
 if (!function_exists('curl_post_contents')) {
     function curl_post_contents($id, $site_url,$arr)

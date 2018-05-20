@@ -78,6 +78,8 @@
             background: rgba(144,24,53,0.8);
         }
 
+
+
     </style>
     <link id="layuicss-skinlayercss" rel="stylesheet" href="http://unn.tw/zztemps/zzproduct/wfpublic/layui/css/modules/layer/default/layer.css?v=3.0.11110" media="all"><link id="layuicss-laydatecss" rel="stylesheet" href="http://unn.tw/zztemps/zzproduct/wfpublic/layui/css/modules/laydate/laydate.css" media="all"></head>
 <body>
@@ -112,16 +114,17 @@
                 </div>
                 <div class="wfform-box">
                     <label class="wfform-label">訂購産品</label>
-                    {notempty name="shuxing_arr"}
-                    {volist name="shuxing_arr" id="vo"}
                     <div class="wfform-pro radio">
+                        {notempty name="shuxing_arr"}
+                        {volist name="shuxing_arr" id="vo"}
                         <span class="down">
                             <input type="radio" name="wfproduct" id="wfproduct1" checked="" onclick="total('down')" value="{$vo.sx_name}" title="{$vo.sx_zhekou}" class="input-radio">
                             <label for="wfproduct1">{$vo.sx_name}</label>
                         </span>
+                        {/volist}
+                        {/notempty}
                     </div>
-                    {/volist}
-                    {/notempty}
+
                 </div>
                 {notempty name="spec_arr"}
                 {volist name="spec_arr" id="vo"}
@@ -131,7 +134,9 @@
                     <div class="wfform-pro frame">
                         <ul class="colour">
                             {volist name="vo._list" id="v"}
+                            {notempty name="v.zhi"}
                             <li><a href="javascript:void(0);" class="" data-colour="{$v.zhi}"><img style="width:100px;height:100px;" src="{$v.pic|get_file_path}" alt="{$v.zhi}" title="{$v.zhi}"><br>{$v.zhi}</a></li>
+                            {/notempty}
                             {/volist}
                         </ul>
                     </div>
@@ -203,19 +208,7 @@
                     </div>
                 </div>
                 <!---------- 表单选项 ---------->
-                <!---------- 付款方式 ---------->
-                <div class="wfform-box">
-                    <label class="wfform-label">付款方式</label>
-                    <div class="wfform-pro radio">
-                        <span class="auto"><input type="radio" checked="" name="wfpayment" id="wfpayment1" onclick="pay_total(1);paypstab(1)" value="scan" class="input-radio"><label for="wfpayment1">扫码转账付款</label></span>
-                        <span id="payps1" class="payps">温馨提示：提交后请用你的手机登陆支付宝或微信扫描二维码完成付款！</span>
-                        <span id="payps2" class="payps" style="display:none;">温馨提示：全球领先的第三方支付平台，在线支付，安全可靠！</span>
-                        <span id="payps3" class="payps" style="display:none;">温馨提示：全球领先的第三方支付平台，在线支付，安全可靠！</span>
-                        <span id="payps4" class="payps" style="display:none;">温馨提示：请选择您要在线付款的银行，在线支付，安全可靠！</span>
-                        <span id="payps5" class="payps" style="display:none;">溫馨提示：選擇貨到付款在家等快遞公司送貨上門，先驗貨後付款！我們所提供的產品配送區域僅限於臺灣本島（外島地區的朋友請利用台灣親友地址做為收貨地址）。这些配送地點需加收NT$500運費(蘭嶼、澎湖、綠島、七星岩、崇明島、金門、媽祖、連江、小琉璃)，其它地區不另收運費。</span>
-                        <span id="payps6" class="payps" style="display:none;">温馨提示：请拨打我们网站上的免费客服电话，索要银行汇款帐号。</span>
-                    </div>
-                </div>
+
 
                 <!---------- 付款方式 ---------->
                 <!---------- 验证码 ---------->

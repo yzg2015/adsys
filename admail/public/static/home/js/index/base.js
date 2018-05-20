@@ -159,7 +159,7 @@ function getQueryParam()
    {
         var url_arr = current_url.split('?');
         param = url_arr[1];
-        if(!getQueryString('from'))
+        if(!getQueryString('from')&&current_url.indexOf('from=')=='-1')
         {
             param += "&from="+from;
         }                    
