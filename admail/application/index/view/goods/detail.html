@@ -92,19 +92,17 @@
     <div class="wftitle" style="position:fixed; top:0; overflow:hidden; width:100%; margin:0 auto; z-index:12509; left:0;height: 36px;line-height: 36px;background-color: rgba(222, 35, 39, 1); text-align:center; ">線上快速訂購</div>
     <br><br>
     <form id="wfform" name="wfform" method="post" action="/index.php/index/goods/save/id/{$info.id}" class="wfform" target="_blank">
-        <input type="hidden" name="wfbuildFB" value="">
+
         <input type="hidden" name="wfpid" value="3">
         <input type="hidden" name="wftid" value="2">
-        <input type="hidden" name="WFDDURL" id="WFDDURL" value="#">
         <input type="hidden" name="goods_name" id="wfproname" value="{$info.name}">
-        <input type="hidden" name="wfprosize" id="wfprosize" value="{$info.guige}">
-        <input type="hidden" name="wfprocolour" id="wfprocolour" value="{$info.shuxing}">
-        <input type="hidden" name="wfpayment" id="wfpayment" value="scan">
-        <input type="hidden" name="wfpayzk" id="wfpayzk" value="1">
+        <input type="hidden" name="wfguige" id="wfprosize" value="{$info.guige}">
+        <input type="hidden" name="wfshuxing" id="wfprocolour" value="{$info.shuxing}">
         <input type="hidden" name="wfproup" id="wfproup" value="{$info.z_price}">
+        <input type="hidden" name="wfpayzk" id="wfpayzk" value="1">
         <input type="hidden" name="wfprice" id="wfprice" value="{$info.z_price}">
-        <input type="hidden" name="wfuprovince" id="wfuprovince" value="广东">
-        <input type="hidden" name="wfucity" id="wfucity" value="深圳">
+        <input type="hidden" name="wfuprovince" id="wfuprovince" value="">
+        <input type="hidden" name="wfucity" id="wfucity" value="">
         <input type="hidden" name="wfismob" id="wfismob" value="pc">
         <div class="wfwrap">
             <div class="wfwrapbox">
@@ -235,7 +233,6 @@
                         訂購的<span>114</span>已發貨！
                     </li>
                     {/volist}
-
                 </ul>
             </div>
         </div>
@@ -243,7 +240,7 @@
     <div class="wfwrap">
         <div class="wfwrapbox">
             <div class="wfquery">
-                <form action="/index.php/index/goods/cx" method="post" target="_blank">
+                <form action="/index.php/index/index/wuliu" method="post" target="_blank">
                     <input type="text" name="key" lay-verify="required" placeholder="請填寫姓名或手機號" class="input-text">
                     <button class="wfbtn btn-o btn-que" type="submit">查詢包裹</button>
                 </form>
@@ -282,13 +279,12 @@
     }
 
     function showResponse(d,statusText){
-        if(d=='ok')
+        if(parseInt(d)>0)
         {
             alert('订购成功');
             setTimeout(function () {
-                window.location.reload();
+                window.location.href="/index.php/index/order/id/"+id;
             },2000);
-
         }else{
             alert(d);
         }

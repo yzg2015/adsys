@@ -46,14 +46,11 @@ function total(o) {
 
 function numlnc() {
     var n = $("#wfnums").val();
-    var d = $("#wfproup").val();
-    var z = $("#wfpayzk").val();
     var p = $("#wfprice").val();
+    var d = $("#wfproup").val();
     var n = parseInt(n) + 1;
-    var p = n * parseFloat(d) * z;
+    var p = n * parseFloat(d);
     $("#wfnums").val(n);
-    $("#wfproup").val(d);
-    $("#wfpayzk").val(z);
     $("#wfprice").val(p.toFixed(2));
     $("#showprice").html(p.toFixed(2))
 }
@@ -61,10 +58,9 @@ function numlnc() {
 function numdec() {
     var n = $("#wfnums").val();
     var d = $("#wfproup").val();
-    var z = $("#wfpayzk").val();
     var p = $("#wfprice").val();
     var n = parseInt(n) - 1;
-    var p = n * parseFloat(d) * z;
+    var p = n * parseFloat(d);
     if (n < 1) {
         layer.msg('數量不能小於1件！', {
             icon: 5
@@ -73,7 +69,6 @@ function numdec() {
     }
     $("#wfnums").val(n);
     $("#wfproup").val(d);
-    $("#wfpayzk").val(z);
     $("#wfprice").val(p.toFixed(2));
     $("#showprice").html(p.toFixed(2))
 }

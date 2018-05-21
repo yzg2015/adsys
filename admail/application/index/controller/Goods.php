@@ -24,7 +24,6 @@ class Goods extends Home
 {
     public function index()
     {
-
         $id = input('id');
         if(empty($id)){
             $this->error('id error');
@@ -44,25 +43,19 @@ class Goods extends Home
         $this->assign('c_list',$c_list);
         $this->assign('d_list',$d_list);
         $this->assign('c_count',count($c_list));
-
         return $this->fetch();
     }
 
-    public function cx(){
-        $key = input('key');
-        if(empty($key)){
-            $this->error('参数错误');
-        }
-        $this->success('暂无结果');
-    }
+
 
     public function save(){
+
         $id = input('id');
         $mes =   '';
         $data['order_sn'] = $id.rand(100,999).'_'.time();
         $data['user_id'] =0;
         $wfprosize = input('wfprosize');
-        $wfprocolour = input('wfprocolour');
+
         $wfpayment = input('wfpayment');
         $wfpayzk = input('wfpayzk');
         $wfproup = input('wfproup');
@@ -72,21 +65,26 @@ class Goods extends Home
         if(empty($id)){
             exit('id is  empty');
         }
+
         $data['wfnums'] = intval(input('wfnums'));
         $data['wfname'] = input('wfname');
         $data['ip'] = '127.0.0.1';
         $data['wfmob'] = input('wfmob');
         $data['wfpost'] = input('wfpost');
         $data['wfemail'] = input('wfemail');
-        $wfuprovince = input('wfuprovince');
-        $wfucity = input('wfucity');
+        $wfuprovince = input('wfprovince');
+
+        $wfucity = input('wfcity');
+        $wfarea = input('wfarea');
         $wfaddress = input('wfaddress');
-        $data['wfaddress'] =$wfuprovince.$wfucity.$wfaddress;
+        $wfpost = input('wfpost');
+        $wfemail = input('wfemail');
+
+        $data['wfaddress'] =$wfuprovince.$wfucity.$wfarea.$wfaddress;
         $data['remark'] = input('wfguest');
         if(empty($data['wfname'])){
             exit('请填写姓名');
         }
-
         if(empty($data['wfaddress'])){
             exit('请填写具体收货地址');
         }
@@ -107,14 +105,13 @@ class Goods extends Home
         if ($this->request->isPost()) {
             $data['total_money'] = $wfproup* $data['wfnums'];
             $data['order_time'] = time();
-            if (false !== OrderModel::create($data)) {
-                $mes ='ok';
-
+            $oid=OrderModel::create($data);
+            if (false !==$oid) {
+                $mes =$oid;
             } else {
                 $mes='error';
             }
         }
-
         if(empty($id)){
             exit('id error');
         }

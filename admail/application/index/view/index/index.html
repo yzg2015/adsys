@@ -1,8 +1,6 @@
 {extend name="layout" /}
 {block name="page-header"}<title>{$page_title|default='3guys shop'}</title>{/block}
-{block name="style"}
-
-{/block}
+{block name="style"} {/block}
 
 {block name="content"}
 <div class="std">
@@ -17,47 +15,42 @@
         });</script>
     </p>
 </div>
+
 <div class="addWrap">
-    <div class="swipe" id="mySwipes" style="visibility: visible;">
-        <div class="swipe-wrap" style="width: 3120px;">
-            <div data-index="0"
-                 style="width: 780px; left: 0px; transition-duration: 300ms; transform: translate(0px, 0px) translateZ(0px);">
-                <a href="/public/index.php/index/classify/index"><img class="img-responsive" src="/public/static/home/img/mianma-730x400.jpg"
-                                                                      alt=""></a></div>
-            <div data-index="1"
-                 style="width: 780px; left: -780px; transition-duration: 0ms; transform: translate(780px, 0px) translateZ(0px);">
-                <a href="/index.php/index/classify/index"><img class="img-responsive"
-                                                               src="/public/static/home/img/QQ图片20180227150004-730x400.jpg" alt=""></a>
+    <div class="swipe" id="mySwipes" style="visibility:visible;">
+        <div class="swipe-wrap" style="width:3120px;">
+            {volist name="one_list" id="vo" key="key"}
+            <div data-index="{$key}" style="width: 780px; left: 0px;height: 400px; transition-duration: 300ms; transform: translate(0px, 0px) translateZ(0px);">
+                <a href="/public/index.php/index/classify/index">
+                    <img class="img-responsive" src="{$vo.pic|get_file_path}" alt="{$vo.name}">
+                </a>
             </div>
-            <div data-index="2"
-                 style="width: 780px; left: -1560px; transition-duration: 300ms; transform: translate(-780px, 0px) translateZ(0px);">
-                <a href="/index.php/index/classify/index"><img class="img-responsive" src="/public/static/home/img/hometw1654-730x400.jpg"
-                                                               alt=""></a></div>
-            <div data-index="3"
-                 style="width: 780px; left: -2340px; transition-duration: 300ms; transform: translate(-780px, 0px) translateZ(0px);">
-                <a href="/index.php/index/classify/index"><img class="img-responsive"
-                                                               src="/public/static/home/img/QQ图片20180112160501-730x400.jpg"
-                                                               alt=""></a></div>
+            {/volist}
         </div>
     </div>
+
     <ul id="position">
-        <li class="cur"></li>
-        <li class=" "></li>
-        <li class=" "></li>
-        <li class=" "></li>
+        {volist name="one_list" id="vo" key="key"}
+            {empty name="key"}
+                <li class="cur"></li>
+            {else/}
+                <li></li>
+            {/empty}
+        {/volist}
     </ul>
 </div>
 
+
 <!--分类导航-->
 <div class="static_nav">
-    <div class="ind-nav" style="visibility: visible;">
+    <div class="ind-nav" style="visibility:visible;">
         <ul class="li_nav">
             {volist name="cate_list" id="vo"}
-            <li>
-                <a href="/index.php/index/classify/index/id/{$vo.id}">
-                    <img class="img-responsive" src="{$vo.pic|get_file_path}"  alt="{$vo.title}">
-                </a>
-            </li>
+                <li>
+                    <a href="/index.php/index/classify/index/id/{$vo.id}">
+                        <img class="img-responsive" src="{$vo.pic|get_file_path}"  alt="{$vo.title}">
+                    </a>
+                </li>
             {/volist}
         </ul>
     </div>
@@ -65,26 +58,33 @@
 <!--分类导航-->
 
 <div class="djs">
+    {notempty name="two_1"}
     <div class="djstu1">
-        <a href="/index.php/index/classify/index">
-            <img src="/public/static/home/img/jop.jpg" width="308" height="380">
+        <a href="/index.php/index/goods/index/id/{$two_1.id}">
+            <img src="{$two_1.pic|get_file_path}" width="308" height="380">
         </a>
     </div>
+    {/notempty}
     <div class="djstu2">
+        {notempty name="two_2"}
         <div class="djs01">
-            <a href="/index.php/index/classify/index">
-                <img src="/public/static/home/img/jop2.jpg" width="308" height="190">
+            <a href="/index.php/index/goods/index/id/{$two_2.id}">
+                <img src="{$two_2.pic|get_file_path}" width="308" height="190">
             </a>
         </div>
+        {/notempty}
+        {notempty name="two_3"}
         <div class="djs02">
-            <a href="/index.php/index/classify/index">
-                <img src="/public/static/home/img/jop1.jpg" width="308" height="190">
+            <a href="/index.php/index/goods/index/id/{$two_3.id}">
+                <img src="{$two_3.pic|get_file_path}" width="308" height="190">
             </a>
         </div>
+        {/notempty}
     </div>
 </div>
 <div class="cp_fl">
 </div>
+{notempty name="goods_list_one"}
 <div class="newsale-title">
     <div class="newsale_r">
         限量搶購中
@@ -93,11 +93,11 @@
 <div class="new-sale-big">
     <a href="/index.php/index/classify/index"><img src="/public/static/home/img/xinpin.jpg"></a>
 </div>
-<div class="clear"></div>
 
+<div class="clear"></div>
 <div class="home_category_list">
     <ul class="prolist">
-        {volist name="goods_list" id="vo"}
+        {volist name="goods_list_one" id="vo"}
         <li>
             <div class="pro-tu">
                 <a href="/index.php/index/goods/index/id/{$vo.id}">
@@ -116,6 +116,9 @@
     </ul>
     <div class="clear"></div>
 </div>
+{/notempty}
+
+{notempty name="goods_list_two"}
 <div class="hsale-title">
     <div class="timer" id="timer">
         <span>倒数</span>
@@ -123,12 +126,10 @@
         <span  id="s" class="timerk">10</span>结束
     </div>
 </div>
-
 <div class="clear"></div>
-
 <div class="home_category_list">
     <ul class="prolist">
-        {volist name="goods_list" id="vo"}
+        {volist name="goods_list_two" id="vo"}
         <li>
             <div class="pro-tu">
                 <a href="/index.php/index/goods/index/id/{$vo.id}">
@@ -147,8 +148,12 @@
     </ul>
     <div class="clear"></div>
 </div>
+{/notempty}
+
+
 <div class="cp_fl">
 </div>
+{notempty name="goods_list_three"}
 <div class="hotsale-title">
     <div class="hotsale_r">
         挑戰最低價
@@ -156,7 +161,7 @@
 </div>
 <div class="home_category_list" id="descDiv">
     <ul class="prolist">
-        {volist name="goods_list" id="vo"}
+        {volist name="goods_list_three" id="vo"}
         <li style="display: block;">
             <div class="pro-tu">
                 <a href="/index.php/index/goods/index/id/{$vo.id}">
@@ -174,10 +179,10 @@
     </ul>
     <div class="clear"></div>
 </div>
+{/notempty}
 <div id="load" style="width:100%;text-algin:center;height:40px;padding:8px 0;">
     <img src="/public/static/home/img/loading.gif" style="width: auto; margin: 0px auto; display: none;">
 </div>
-
 
 {/block}
 {block name="script"}
