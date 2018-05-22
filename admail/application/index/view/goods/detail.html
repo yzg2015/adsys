@@ -107,7 +107,7 @@
         <div class="wfwrap">
             <div class="wfwrapbox">
                 <div class="wfform-box">
-                    <img src="{$info.pic|get_file_path}" style="width:100%;">
+                    <img id="pro_img" src="{$info.pic|get_file_path}" style="width:100%;">
                     <div class="wfproimg"><p>{$info.name}<br><span style="font-size:12px;font-weight:100;color:#999;">貨到付款，免運，7天無理由退換</span></p></div>
                 </div>
                 <div class="wfform-box">
@@ -116,7 +116,7 @@
                         {notempty name="shuxing_arr"}
                         {volist name="shuxing_arr" id="vo"}
                         <span class="down">
-                            <input type="radio" name="wfproduct" id="wfproduct1" checked="" onclick="total('down')" value="{$vo.sx_name}" title="{$vo.sx_zhekou}" class="input-radio">
+                            <input type="radio" name="wfproduct" id="wfproduct1" checked="" onclick="total('down')" value="{$vo.sx_name}"  data-pic="{$vo.sx_pic|get_file_pic}" title="{$vo.sx_zhekou}" class="input-radio">
                             <label for="wfproduct1">{$vo.sx_name}</label>
                         </span>
                         {/volist}

@@ -20,6 +20,8 @@ var wfload = {
 
 
 function total(o) {
+    var pic = $('#pro_img');
+    var now_img =pic.attr('src');
     switch (o) {
     case 'select':
         var d = $("#wfproduct option:selected").attr('title');
@@ -40,6 +42,7 @@ function total(o) {
     $("#wfnums").val(n);
     $("#wfproup").val(d);
     $("#wfpayzk").val(z);
+    pic.attr('src',now_img);
     $("#wfprice").val(p.toFixed(2));
     $("#showprice").html(p.toFixed(2))
 }

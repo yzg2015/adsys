@@ -20,7 +20,7 @@ return [
     'username'        => 'user_db',
     // 密码
     'password'        => 'user_2018',
-
+//
 //    'hostname'        => '127.0.0.1',
 //    // 数据库名
 //    'database'        => 'admail',
